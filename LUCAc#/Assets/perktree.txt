@@ -1,0 +1,5 @@
+perk0
+0
+ceci est une compétence
+1 2 3 4 5 6
+end
