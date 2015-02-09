@@ -12,6 +12,14 @@ public class rtsmove : MonoBehaviour {
     private bool isPanning;		// Est ce que la camera se deplace ?
     private bool isZooming;		// Est ce que la camera zoom ?
 
+    // Public
+    public float ZoomSpeed = 3f;
+    public int ScrollWheelLimit = 1000;
+
+    // Private
+    private int _ScrollWheelminPush = -300;
+    private int _ScrollCount = 1;
+
     // START
 
     void Start()
@@ -29,7 +37,6 @@ public class rtsmove : MonoBehaviour {
             isRotating = true;
         }*/
 
-
         /*if (Input.GetMouseButtonDown(1))        // Prend l'action sur le bouton droit de la souris
         {
             mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
@@ -42,12 +49,12 @@ public class rtsmove : MonoBehaviour {
             isZooming = true;
         }*/
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)     // Zoom - 
+        /*if (Input.GetAxis("Mouse ScrollWheel") < 0)     // Mvt molette Zoom - 
         {
             mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
             isPanning = true;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)     // Zoom +
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)     // Mvt molette Zoom +
         {
             mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
             isPanning = true;
@@ -57,7 +64,7 @@ public class rtsmove : MonoBehaviour {
         //if (!Input.GetMouseButton(2)) isPanning = false;
         //if (!Input.GetMouseButton(2)) isZooming = false;
 
-        /*if (isPanning)      // Bouge la camera sur l'axe X et Y
+        /*if (isZooming)      // Bouge la camera sur l'axe X et Y
         {
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
 
@@ -65,12 +72,32 @@ public class rtsmove : MonoBehaviour {
             transform.Translate(move, Space.World);
         }*/
 
-        if (isPanning)      // Bouge la camera sur l'axe XY
+        /*if (isPanning)      // Bouge la camera sur l'axe XY
         {
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
 
             Vector3 move = new Vector3(pos.x * panSpeed, pos.y * panSpeed, 0);
             transform.Translate(move, Space.Self);
+        }*/
+
+        //  ZOOM
+
+        if(Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            if(_ScrollCount >= _ScrollWheelminPush && _ScrollCount < ScrollWheelLimit)
+            {
+            camera.transform.position += new Vector3(0, ZoomSpeed, 0);
+            _ScrollCount++;
+            }
+        }
+
+        if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            if (_ScrollCount > _ScrollWheelminPush && _ScrollCount <= ScrollWheelLimit)
+            {
+                camera.transform.position -= new Vector3(0, ZoomSpeed, 0);
+                _ScrollCount--;
+            }
         }
     }
 }
