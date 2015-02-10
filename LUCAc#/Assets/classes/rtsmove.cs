@@ -5,19 +5,17 @@ public class rtsmove : MonoBehaviour {
 
     // VARIABLES
 
-    public float panSpeed = 4.0f;		// Vitesse de deplacement de la camera pour la deplacement
+    public float panSpeed = 10.0f;		// Vitesse de deplacement de la camera pour la deplacement
     public float zoomSpeed = 4.0f;		// Vitesse de deplacement de la camera pour le zoom
 
     private Vector3 mouseOrigin;	// Position de la souris au depart du deplacement
     private bool isPanning;		// Est ce que la camera se deplace ?
     private bool isZooming;		// Est ce que la camera zoom ?
 
-    // Public
-    public float ZoomSpeed = 3f;
+    public float ZoomSpeed = 1f;
     public int ScrollWheelLimit = 1000;
 
-    // Private
-    private int _ScrollWheelminPush = -300;
+    private int _ScrollWheelminPush = 0;
     private int _ScrollCount = 1;
 
     // START
@@ -31,25 +29,7 @@ public class rtsmove : MonoBehaviour {
 
     void Update()
     {
-        /*if (Input.GetMouseButtonDown(0))      // Prend l'action sur le bouton gauche de la souris
-        {
-            mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
-            isRotating = true;
-        }*/
-
-        /*if (Input.GetMouseButtonDown(1))        // Prend l'action sur le bouton droit de la souris
-        {
-            mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
-            isPanning = true;
-        }
-
-        /*if (Input.GetMouseButtonDown(2))        // Prend l'action sur le bouton du milieu de la souris
-        {
-            mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
-            isZooming = true;
-        }*/
-
-        /*if (Input.GetAxis("Mouse ScrollWheel") < 0)     // Mvt molette Zoom - 
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)     // Mvt molette Zoom - 
         {
             mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
             isPanning = true;
@@ -60,25 +40,15 @@ public class rtsmove : MonoBehaviour {
             isPanning = true;
         }
 
-        // Desactive les mouvements quand boutons activés
-        //if (!Input.GetMouseButton(2)) isPanning = false;
-        //if (!Input.GetMouseButton(2)) isZooming = false;
+        //  DEPLACEMENT
 
-        /*if (isZooming)      // Bouge la camera sur l'axe X et Y
+        if (isPanning)      // Bouge la camera sur l'axe XY
         {
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
 
-            Vector3 move = pos.y * zoomSpeed * transform.forward;
-            transform.Translate(move, Space.World);
-        }*/
-
-        /*if (isPanning)      // Bouge la camera sur l'axe XY
-        {
-            Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
-
-            Vector3 move = new Vector3(pos.x * panSpeed, pos.y * panSpeed, 0);
+            Vector3 move = new Vector3(pos.x * panSpeed * 10, pos.y * panSpeed * 10, 0);
             transform.Translate(move, Space.Self);
-        }*/
+        }
 
         //  ZOOM
 
@@ -86,7 +56,7 @@ public class rtsmove : MonoBehaviour {
         {
             if(_ScrollCount >= _ScrollWheelminPush && _ScrollCount < ScrollWheelLimit)
             {
-            camera.transform.position += new Vector3(0, ZoomSpeed, 0);
+            camera.transform.position += new Vector3(0, ZoomSpeed * 40, 0);
             _ScrollCount++;
             }
         }
@@ -95,7 +65,7 @@ public class rtsmove : MonoBehaviour {
         {
             if (_ScrollCount > _ScrollWheelminPush && _ScrollCount <= ScrollWheelLimit)
             {
-                camera.transform.position -= new Vector3(0, ZoomSpeed, 0);
+                camera.transform.position -= new Vector3(0, ZoomSpeed * 40, 0);
                 _ScrollCount--;
             }
         }
