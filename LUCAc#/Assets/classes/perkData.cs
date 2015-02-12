@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using UnityEngine;
+
 namespace AssemblyCSharp
 {
 	public class perkData
@@ -16,16 +18,20 @@ namespace AssemblyCSharp
 		public string description = "";
 		public int ID = -1;
 		public string name = "";
+		public bool drawn;
+		public GameObject hex;
 
 		public perkData (string name, int[] neighborsID, string description, int ID)
 		{
 			this.neigborsID = neighborsID;
 			this.description = description;
 			this.ID = ID;
+			this.drawn = false;
 		}
+
 		public perkData ()
 		{
-		
+			this.drawn = false;
 		}
 	}
 }

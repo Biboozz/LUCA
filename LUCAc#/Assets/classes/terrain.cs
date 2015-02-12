@@ -5,18 +5,18 @@ using System.IO;
 using System;
 using AssemblyCSharp;
 
-public class terrain : MonoBehaviour {
-
-
-
+public class terrain : MonoBehaviour 
+{
 	public GameObject prefab;
 	public int numberOfObjects = 6;
 	public float radius = 200f;
-	private List<perkData> perkTree = new List<perkData>();
+	public perkData[] perks;
 	
 	void Start() 
 	{
-		readPerkTreeFile ();
+		perks = buildPerkTree(readPerkTreeFile ());
+		Vector3 v = new Vector3 (0f, 1f, 0f);
+		drawPerkTree (0, v);
 	}
 
 	void loadPerkMenu()
@@ -41,91 +41,94 @@ public class terrain : MonoBehaviour {
 		}
 	}
 
-		private void readPerkTreeFile()
+	private List<perkData> readPerkTreeFile()
+	{
+		List<perkData> perkTree = new List<perkData>();
+		string path = findPerkTreeFile();
+		if (path == "") {
+			Debug.Log ("perkTree file not found" + path);
+		} 
+		else 
 		{
-			string path = findPerkTreeFile();
-			if (path == "") {
-				Debug.Log ("perkTree file not found" + path);
-			} 
-			else 
+			Debug.Log ("the file was found");
+			try 
 			{
 				StreamReader SR = new StreamReader(path);
-				int i = 0;
-				string line = "";
-				perkData temp = new perkData();
+				string line = SR.ReadLine();
+				perkData p = new perkData();
+
 				while (line != "ENDFILE") 
 				{
+					if (line.Contains("PERK") )
+					{
+						p = new perkData();
+					}
+					if (line.Contains("PNAME:")) 
+					{
+						p.name = line.Substring(10, line.Length - 10);
+					}
+					if (line.Contains("PID:")) 
+					{
+						p.ID = Int32.Parse(line.Substring(8, line.Length - 8));
+					}
+					if (line.Contains("PDESCRIPTION:")) 
+					{
+						p.description = line.Substring(17, line.Length - 17);
+					}
+					if (line.Contains("PNEIGHBORS")) 
+					{
+						string[] s = line.Substring(15, line.Length - 15).Split(';');
+						for (int i = 0; i < 6; i++) 
+						{
+							p.neigborsID[i] = Int32.Parse(s[i]);
+						}
+					}
+					if (line == "ENDPERK") 
+					{
+						perkTree.Add(p);
+					}
 					line = SR.ReadLine();
+				}
 
-					switch(i)
-					{
-						case 1:
-							temp.name = line.Substring(4, line.Length - 4);
-							i = 0;
-							break;
-						case 2:
-							temp.ID = Convert.ToInt32(line.Substring(4, line.Length - 4));
-							i = 0;
-							break;
-						case 3:
-							temp.description = line.Substring(4, line.Length - 4);
-							i = 0;
-							break;
-						case 4:
-							string s = line.Substring(4, line.Length - 4);
-							int n = 0;
-							while (n < 5)
-							{
-								string t = "";
-								int j = 0;
-								while (s[j] != ' ' && j < s.Length)
-								{
-									t = t + s[j]; //à améliorer!!
-									j++;
-								}
-								
-								temp.neigborsID[n] = Convert.ToInt32(t);
-								s = s.Substring(t.Length + 1, s.Length - t.Length - 1);
-								
-								
-								n++;
-							}
-							if (n == 5)
-							{
-								temp.neigborsID[n] = Convert.ToInt32(s);
-							}
-							i = 0;
-							break;
-					}
+			}
+			catch (Exception e)
+			{
+				Debug.Log(e);
+			}
+		}
+		return perkTree;
+	}
 
-					if (line == "PERK") 
-					{
-						;
-					}
-					if (line == "    PNAME") 
-					{
-						i = 1;
-					}
-					if (line == "    PID") 
-					{
-						i = 2;
-					}
-					if (line == "    PDESCRIPTION") 
-					{
-						i = 3;
-					}
-					if (line == "    PNEIGHBORS") 
-					{
-						i = 4;
-					}
-					if (line == "ENDPERK")
-					{
-						perkTree.Add(new perkData(temp.name, temp.neigborsID, temp.description, temp.ID));
-						Debug.Log ("Added perk : '" + temp.name + "' to the main perkTree"); 
-						i = 0;
-					}
+	private perkData[] buildPerkTree(List<perkData> L) 
+	{
+		perkData[] perkTree = new perkData[L.Count];
+		for (int i = 0; i < perkTree.Length; i++) 
+		{
+			perkTree[i] = L[i];
+		}
+		return perkTree;
+	}
+
+	public void drawPerkTree(int n, Vector3 pos) 
+	{
+		if (n == -1) 
+		{
+			//nothing for now
+		}
+		else 
+		{
+			if (!this.perks[n].drawn) 
+			{
+				//this.perks[n].hex = Instantiate(this.prefab, pos, Quaternion.identity);
+				Instantiate(this.prefab, pos, Quaternion.identity);
+				this.perks[n].drawn = true;
+				for (int i = 0; i < 6; i++) 
+				{
+					float angle = Mathf.PI * (1 + 2 * i) / 6;
+					Vector3 p = new Vector3(Mathf.Cos(angle) * radius, 1, Mathf.Sin(angle) * radius);
+					drawPerkTree(this.perks[n].neigborsID[i], p);
 				}
 			}
 		}
-
 	}
+}
