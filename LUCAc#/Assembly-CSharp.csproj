@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusEditor.cs" />
+     <Compile Include="Assets\classes\POINT.cs" />
      <Compile Include="Assets\classes\cell.cs" />
      <Compile Include="Assets\classes\environment.cs" />
      <Compile Include="Assets\classes\perkData.cs" />
