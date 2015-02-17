@@ -12,16 +12,20 @@ using UnityEngine;
 
 namespace AssemblyCSharp
 {
+
+	//contains all informations you need for a specific perk
 	public class perkData
 	{
-		public int[] neigborsID = new int[6];
-		public string description = "";
-		public int ID = -1;
-		public string name = "";
-		public bool drawn;
-		public GameObject hex;
+		public int[] neigborsID = new int[6];    	// tab of 6 integers representing the perk's neighbors
+		public string description = "";				// description readed from the perk tree file
+		public int ID = -1;							// base id of the perk
+		public string name = "";					// game name of ther perk
+		public bool drawn;							// true if the perk is drawn on the screen, false otherwise
+		public GameObject hex;						// hexagon on the screen representing the perk
+		public float x;								// position x
+		public float z;								// position y
 
-		public perkData (string name, int[] neighborsID, string description, int ID)
+		public perkData (string name, int[] neighborsID, string description, int ID) //use this for initialisation
 		{
 			this.neigborsID = neighborsID;
 			this.description = description;
@@ -29,7 +33,7 @@ namespace AssemblyCSharp
 			this.drawn = false;
 		}
 
-		public perkData ()
+		public perkData () //overload constructor
 		{
 			this.drawn = false;
 		}

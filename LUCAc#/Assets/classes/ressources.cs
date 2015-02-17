@@ -9,10 +9,9 @@ public class ressources : MonoBehaviour {
 	protected int amount;
 
 	public ressources(string name){
-		this.name = name;
-
-	}
-
+				this.name = name;
+		}
+		
 	// Use this for initialization
 	void Start () {
 		
