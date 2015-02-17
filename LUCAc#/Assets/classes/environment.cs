@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Object;
+//using System.Object;
 
 public class environment : MonoBehaviour {
 

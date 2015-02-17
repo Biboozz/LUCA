@@ -6,15 +6,8 @@ public class rtsmove : MonoBehaviour {
     // VARIABLES
 
     public float panSpeed = 10.0f;		// Vitesse de deplacement de la camera pour la deplacement
-    public float zoomSpeed = 4.0f;		// Vitesse de deplacement de la camera pour le zoom
-
-    private Vector3 mouseOrigin;	// Position de la souris au depart du deplacement
-    private bool isPanning;		// Est ce que la camera se deplace ?
-    private bool isZooming;		// Est ce que la camera zoom ?
-
-    public float ZoomSpeed = 1f;
+    public float ZoomSpeed = 1.0f;		// Vitesse de deplacement de la camera pour le zoom
     public int ScrollWheelLimit = 1000;
-
     private int _ScrollWheelminPush = 0;
     private int _ScrollCount = 1;
 
@@ -29,26 +22,9 @@ public class rtsmove : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)     // Mvt molette Zoom - 
-        {
-            mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
-            isPanning = true;
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)     // Mvt molette Zoom +
-        {
-            mouseOrigin = Input.mousePosition;      // Prend position de la souris a l'origine
-            isPanning = true;
-        }
+        //  MOVE
 
-        //  DEPLACEMENT
-
-        if (isPanning)      // Bouge la camera sur l'axe XY
-        {
-            Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
-
-            Vector3 move = new Vector3(pos.x * panSpeed * 10, pos.y * panSpeed * 10, 0);
-            transform.Translate(move, Space.Self);
-        }
+        transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * panSpeed * -20, 0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * panSpeed * -20);  //Deplacement XY
 
         //  ZOOM
 
