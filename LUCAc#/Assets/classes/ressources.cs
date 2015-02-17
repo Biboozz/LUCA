@@ -8,10 +8,10 @@ public class ressources : MonoBehaviour {
     protected POINT center;
 	protected int amount;
 
-	/*public ressources(string name){
+	public ressources(string name){
 		this.name = name;
 
-	}*/     //J'ai mis en comment sa compilais pas !
+	}
 
 	// Use this for initialization
 	void Start () {
