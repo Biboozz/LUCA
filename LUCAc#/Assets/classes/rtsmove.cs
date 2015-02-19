@@ -12,6 +12,8 @@ public class rtsmove : MonoBehaviour
     private int _ScrollWheelminPush = 0;
     private int _ScrollCount = 1;
 
+    private const int ScrollArea = 25;
+
     // START
 
     void Start()
@@ -25,7 +27,25 @@ public class rtsmove : MonoBehaviour
     {
         //  MOVE
 
-        transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * panSpeed * -20, 0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * panSpeed * -20);  //Deplacement XY
+        if (Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * panSpeed * 20, Space.World);
+        }
+
+        if (Input.mousePosition.x >= Screen.width - ScrollArea || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * panSpeed * -20, Space.World);
+        }
+
+        if (Input.mousePosition.y < ScrollArea || Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * panSpeed * 20, Space.World);
+        }
+
+        if (Input.mousePosition.y > Screen.height - ScrollArea || Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * panSpeed * -20, Space.World);
+        }
 
         //  ZOOM
 
