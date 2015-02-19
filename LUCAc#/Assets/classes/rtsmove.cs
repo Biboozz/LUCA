@@ -12,7 +12,7 @@ public class rtsmove : MonoBehaviour
     private int _ScrollWheelminPush = 0;
     private int _ScrollCount = 1;
 
-    private const int ScrollArea = 25;
+    private const int ScrollArea = 25;  //Zone défini du déplacement
 
     // START
 
@@ -25,31 +25,31 @@ public class rtsmove : MonoBehaviour
 
     void Update()
     {
-        //  MOVE
+        //  MOVE - Deplace la caméra lorsque la souris est dans les bords ou avec les flèches directionnelles
 
-        if (Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow))      //Left
         {
-            transform.Translate(Vector3.right * Time.deltaTime * panSpeed * 20, Space.World);
+            transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
         }
 
-        if (Input.mousePosition.x >= Screen.width - ScrollArea || Input.GetKey(KeyCode.RightArrow))
+        if (Input.mousePosition.x >= Screen.width - ScrollArea || Input.GetKey(KeyCode.RightArrow))     //Right
         {
-            transform.Translate(Vector3.right * Time.deltaTime * panSpeed * -20, Space.World);
+            transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
         }
 
-        if (Input.mousePosition.y < ScrollArea || Input.GetKey(KeyCode.DownArrow))
+        if (Input.mousePosition.y < ScrollArea || Input.GetKey(KeyCode.DownArrow))      //Down
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * panSpeed * 20, Space.World);
+            transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
         }
 
-        if (Input.mousePosition.y > Screen.height - ScrollArea || Input.GetKey(KeyCode.UpArrow))
+        if (Input.mousePosition.y > Screen.height - ScrollArea || Input.GetKey(KeyCode.UpArrow))        //Top
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * panSpeed * -20, Space.World);
+            transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
         }
 
         //  ZOOM
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)     //Zoom -
         {
             if (_ScrollCount >= _ScrollWheelminPush && _ScrollCount < ScrollWheelLimit)
             {
@@ -58,7 +58,7 @@ public class rtsmove : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)     //Zoom +
         {
             if (_ScrollCount > _ScrollWheelminPush && _ScrollCount <= ScrollWheelLimit)
             {
