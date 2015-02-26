@@ -11,7 +11,6 @@ public class rtsmove : MonoBehaviour
     public int ScrollWheelLimit = 1000;
     private int _ScrollWheelminPush = 0;
     private int _ScrollCount = 1;
-
     private const int ScrollArea = 25;  //Zone défini du déplacement
 
     // START
