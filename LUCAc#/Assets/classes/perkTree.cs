@@ -39,18 +39,28 @@ public class perkTree : MonoBehaviour
 	}
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.C)) 
+        
+        if (Input.GetKeyDown (KeyCode.C)) 
 		{
-			for (int i = 0; i < perks.Length; i++)
+			if (valid) 
 			{
-				perks[i].hex.SetActive(!shown);
+				for (int i = 0; i < perks.Length; i++) 
+				{
+					perks [i].hex.SetActive (!shown);
+				}
+				shown = !shown;
+			} 
+			else
+			{
+				Debug.Log(new Exception("this perkTree is unvalid!"))
 			}
-			shown = !shown;
 		}
-		Vector3 p = pos.transform.position;
-		p.x = cam.transform.position.x;
-		p.z = cam.transform.position.z;
-		pos.transform.position = p;
+        Vector3 p = pos.transform.position;
+        p.x = cam.transform.position.x;
+        p.z = cam.transform.position.z;
+        pos.transform.position = p;
+        
+		
 	}
 
 	private List<perkData> readPerkTreeFile(string path)  	//this function is used to read the file where the perktree is written. It builds a list of every readed perk from this file.										//Please refer to the end of this class to see how the file is built.

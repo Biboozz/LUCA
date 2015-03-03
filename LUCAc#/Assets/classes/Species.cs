@@ -14,7 +14,6 @@ public class Species
 	public string name;
 	public GameObject cell;
 	public environment place;
-	public int baselifeTime;
 	private int _survivedTime = 0;
 
 	public int survivedTime
@@ -54,5 +53,14 @@ public class Species
 	public void update()
 	{
 		_survivedTime = _survivedTime + 1;
+	}
+
+	public Species(List<Individual> Individuals, GameObject cell, List<perkData> unlockedPerks, environment place, bool isPlayed)
+	{
+		_Individuals = Individuals;
+		this.cell = cell;
+		this.unlockedPerks = unlockedPerks;
+		this.place = place;
+		this.isPlayed = isPlayed;
 	}
 }
