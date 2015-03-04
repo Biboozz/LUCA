@@ -31,7 +31,7 @@ public class environment : MonoBehaviour {
 		cell.transform.Translate (10, 3, 0);
 		Individuals.Add (I);
 		Species nyanCat = new Species(Individuals,cell,new List<perkData> (),this,false,10000);
-		foreach(Individual Y in Individuals)
+		foreach(Individual Y in nyanCat.Individuals)
 		{
 			Y.species = nyanCat;
 		}

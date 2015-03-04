@@ -1,16 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\classes\environment.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\classes\Molecules\actionData.cs">
     <Files>
-      <File FileName="Assets\classes\perkData.cs" Line="28" Column="26" />
-      <File FileName="Assets\classes\Species.cs" Line="1" Column="1" />
-      <File FileName="Assets\classes\Individual.cs" Line="1" Column="1" />
-      <File FileName="Assets\classes\environment.cs" Line="13" Column="27" />
-      <File FileName="Assets\classes\cell.cs" Line="12" Column="3" />
-      <File FileName="Assets\classes\molecule.cs" Line="34" Column="3" />
-      <File FileName="Assets\classes\macroMolecule.cs" Line="1" Column="1" />
-      <File FileName="Assets\classes\simpleMolecule.cs" Line="9" Column="22" />
-      <File FileName="Assets\classes\actionData.cs" Line="19" Column="3" />
+      <File FileName="Assets\classes\livings\Individual.cs" Line="52" Column="22" />
+      <File FileName="Assets\classes\livings\Species.cs" Line="63" Column="3" />
+      <File FileName="Assets\classes\livings\cell.cs" Line="38" Column="1" />
+      <File FileName="Assets\classes\skills\perkData.cs" Line="48" Column="25" />
+      <File FileName="Assets\classes\Molecules\actionData.cs" Line="27" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

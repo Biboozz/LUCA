@@ -52,6 +52,11 @@ namespace AssemblyCSharp
 		{
 			this.drawn = false;
 		}
+
+		public void action(cell c) 
+		{
+			
+		}
 	}
 }
 

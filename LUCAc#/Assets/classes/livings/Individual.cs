@@ -6,7 +6,7 @@ public class Individual
 	public GameObject cell;
 	private int _lifeTime;
 	public bool alive = true;
-	public Species species;
+	private Species _species;
 	public environment place;
 	private int _survivedTime = 0;
 	public bool isPlayed = false;
@@ -28,6 +28,19 @@ public class Individual
 			return _lifeTime;
 		}
 	}
+
+	public Species species
+	{
+		get 
+		{
+			return _species;
+		}
+		set
+		{
+			_species = value;
+			cell.GetComponent<cell> ().species = value;
+		}
+	}
 	#endregion
 
 
@@ -39,6 +52,10 @@ public class Individual
 		this.place = place;
 		_lifeTime = lifeTime;
 		this.isPlayed = isPlayed;
+		cell cellBehavior = cell.GetComponent<cell> ();
+		cellBehavior.place = place;
+		cellBehavior.species = species;
+		cellBehavior.individual = this;
 	}
 
 	public Individual (GameObject cell, environment place, int lifeTime, bool isPlayed)
@@ -47,6 +64,10 @@ public class Individual
 		this.place = place;
 		_lifeTime = lifeTime;
 		this.isPlayed = isPlayed;
+		cell cellBehavior = cell.GetComponent<cell> ();
+		cellBehavior.place = place;
+		cellBehavior.species = species;
+		cellBehavior.individual = this;
 	}
 	#endregion
 
@@ -56,5 +77,6 @@ public class Individual
 	{
 		_survivedTime = _survivedTime + 1;
 		alive = (_survivedTime < _lifeTime);
+		cell.GetComponent<cell> ().action();
 	}
 }
