@@ -52,7 +52,7 @@ public class perkTree : MonoBehaviour
 			} 
 			else
 			{
-				Debug.Log(new Exception("this perkTree is unvalid!"))
+				Debug.Log(new Exception("this perkTree is unvalid!"));
 			}
 		}
         Vector3 p = pos.transform.position;

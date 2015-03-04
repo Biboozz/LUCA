@@ -25,12 +25,27 @@ namespace AssemblyCSharp
 		public float x;								// position x
 		public float z;								// position y
 
+		public actionData cost;
+		public actionData products;
+		public bool active;
+
 		public perkData (string name, int[] neighborsID, string description, int ID) //use this for initialisation
 		{
 			this.neigborsID = neighborsID;
 			this.description = description;
 			this.ID = ID;
 			this.drawn = false;
+		}
+
+		public perkData (string name, int[] neighborsID, string description, int ID, actionData cost, actionData products, bool active) //use this for initialisation
+		{
+			this.neigborsID = neighborsID;
+			this.description = description;
+			this.ID = ID;
+			this.drawn = false;
+			this.cost = cost;
+			this.products = products;
+			this.active = active;
 		}
 
 		public perkData () //overload constructor
