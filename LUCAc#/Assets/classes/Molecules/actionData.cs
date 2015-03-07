@@ -7,19 +7,15 @@ using AssemblyCSharp;
 
 public struct actionData
 {
-	readonly int ATP;
-	readonly List<molecule> environmentMolecules;
-	readonly List<int> environmentMoleculesCounts;
-	readonly List<molecule> cellMolecules;
-	readonly List<int> cellMoleculesCounts;
+	public int ATP;
+	public List<moleculePack> environmentMolecules;
+	public List<moleculePack> cellMolecules;
 
-	public actionData(int ATP, List<molecule>  environmentMolecules,List<int> environmentMoleculesCounts, List<molecule>  cellMolecules,List<int> cellMoleculesCounts)
+	public actionData(int ATP, List<moleculePack>  environmentMolecules, List<moleculePack>  cellMolecules)
 	{
 		this.ATP = ATP;
 		this.environmentMolecules = environmentMolecules;
-		this.environmentMoleculesCounts = environmentMoleculesCounts;
 		this.cellMolecules = cellMolecules;
-		this.cellMoleculesCounts = cellMoleculesCounts;
 	}
 }
 

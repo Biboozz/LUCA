@@ -67,6 +67,7 @@
      <Compile Include="Assets\classes\Molecules\actionData.cs" />
      <Compile Include="Assets\classes\Molecules\macroMolecule.cs" />
      <Compile Include="Assets\classes\Molecules\molecule.cs" />
+     <Compile Include="Assets\classes\Molecules\moleculePack.cs" />
      <Compile Include="Assets\classes\Molecules\simpleMolecule.cs" />
      <Compile Include="Assets\classes\POINT.cs" />
      <Compile Include="Assets\classes\livings\Individual.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets\classes\rtsmove.cs" />
      <Compile Include="Assets\classes\skills\perkData.cs" />
      <Compile Include="Assets\classes\skills\perkTree.cs" />
+     <Compile Include="Assets\classes\skills\perkType.cs" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\perktree.txt" />
  <Reference Include="UnityEngine.UI">

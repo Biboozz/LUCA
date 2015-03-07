@@ -20,14 +20,14 @@ public class environment : MonoBehaviour {
 		//test
 
 		List<Individual> Individuals = new List<Individual>();
-		Individual I = new Individual ((GameObject)Instantiate (cell), this, 10, false);
+		Individual I = new Individual ((GameObject)Instantiate (cell), this, 1000, 50, false);
 		cell.transform.Translate (10, 3, 0);
 		Individuals.Add (I);
-		I = new Individual ((GameObject)Instantiate (cell), this, 100, false);
+		I = new Individual ((GameObject)Instantiate (cell), this, 1000, 50, false);
 		cell.transform.Translate (10, 3, 0);
 		Individuals.Add (I);
 
-		I = new Individual ((GameObject)Instantiate (cell), this, 1000, false);
+		I = new Individual ((GameObject)Instantiate (cell), this, 1000, 50, false);
 		cell.transform.Translate (10, 3, 0);
 		Individuals.Add (I);
 		Species nyanCat = new Species(Individuals,cell,new List<perkData> (),this,false,10000);
@@ -56,5 +56,15 @@ public class environment : MonoBehaviour {
 	public void remove(GameObject G)
 	{
 		Destroy (G);
+	}
+
+	public List<moleculePack> moleculesAvailableAt()
+	{
+		return (new List<moleculePack> ());
+	}
+
+	public void consume()
+	{
+
 	}
 }

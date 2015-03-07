@@ -45,7 +45,7 @@ public class Individual
 
 
 	#region constructors
-	public Individual (GameObject cell, Species species, environment place, int lifeTime, bool isPlayed)
+	public Individual (GameObject cell, Species species, environment place, int lifeTime,int ATP, bool isPlayed)
 	{
 		this.cell = cell;
 		this.species = species;
@@ -56,9 +56,10 @@ public class Individual
 		cellBehavior.place = place;
 		cellBehavior.species = species;
 		cellBehavior.individual = this;
+
 	}
 
-	public Individual (GameObject cell, environment place, int lifeTime, bool isPlayed)
+	public Individual (GameObject cell, environment place, int lifeTime,int ATP, bool isPlayed)
 	{
 		this.cell = cell;
 		this.place = place;
@@ -68,6 +69,7 @@ public class Individual
 		cellBehavior.place = place;
 		cellBehavior.species = species;
 		cellBehavior.individual = this;
+		cellBehavior.ATP = ATP;
 	}
 	#endregion
 

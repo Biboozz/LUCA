@@ -28,6 +28,7 @@ namespace AssemblyCSharp
 		public actionData cost;
 		public actionData products;
 		public bool active;
+		public perkType type;
 
 		public perkData (string name, int[] neighborsID, string description, int ID) //use this for initialisation
 		{
@@ -48,15 +49,23 @@ namespace AssemblyCSharp
 			this.active = active;
 		}
 
+		public perkData (string name, int[] neighborsID, string description, int ID, actionData cost, actionData products, bool active, perkType type) //use this for initialisation
+		{
+			this.neigborsID = neighborsID;
+			this.description = description;
+			this.ID = ID;
+			this.drawn = false;
+			this.cost = cost;
+			this.products = products;
+			this.active = active;
+			this.type = type;
+		}
+
 		public perkData () //overload constructor
 		{
 			this.drawn = false;
 		}
 
-		public void action(cell c) 
-		{
-			
-		}
 	}
 }
 

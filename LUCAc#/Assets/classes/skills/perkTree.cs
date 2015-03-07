@@ -58,6 +58,7 @@ public class perkTree : MonoBehaviour
         Vector3 p = pos.transform.position;
         p.x = cam.transform.position.x;
         p.z = cam.transform.position.z;
+		p.y = 10;
         pos.transform.position = p;
         
 		
@@ -93,7 +94,7 @@ public class perkTree : MonoBehaviour
 					p.description = line.Substring(17, line.Length - 17);
 					Debug.Log("description: " + p.description);
 				}
-				if (line.Contains("PNEIGHBORS")) 
+				if (line.Contains("PNEIGHBORS:")) 
 				{
 					string[] s = line.Substring(15, line.Length - 15).Split(';');
 					for (int i = 0; i < 6; i++) 
@@ -101,6 +102,48 @@ public class perkTree : MonoBehaviour
 						p.neigborsID[i] = Int32.Parse(s[i]);
 						Debug.Log("neighboor " + i + ": " + p.neigborsID[i]);
 					}
+				}
+				if (line.Contains("TYPE:"))
+				{
+					p.type = (perkType)Convert.ToInt32(line.Substring(9, line.Length - 9));
+					Debug.Log("Type: " + p.type.ToString());
+				}
+				if (line.Contains("COSTATP:"))
+				{
+					p.cost.ATP = Convert.ToInt32(line.Substring(12, line.Length - 12));
+					Debug.Log("cout en ATP: " + p.cost.ATP);
+				}
+				if (line.Contains("COSTCELL:"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
 				}
 				if (line == "ENDPERK") 
 				{
