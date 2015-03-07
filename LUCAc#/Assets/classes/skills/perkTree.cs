@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using AssemblyCSharp;
+using System.Linq;
 
 
 //The code within this class is used to read the perktree from a file, format it and draw it.
@@ -22,6 +23,7 @@ public class perkTree : MonoBehaviour
 
 	public GameObject pos;
 	public GameObject cam;
+	public GameObject link;
 	
 	void Start()
 	{
@@ -36,6 +38,7 @@ public class perkTree : MonoBehaviour
 			valid = false;
 		}
 		drawPerkTree ();
+		QualitySettings.antiAliasing = 8;
 	}
 
 	void Update() {
@@ -44,10 +47,7 @@ public class perkTree : MonoBehaviour
 		{
 			if (valid) 
 			{
-				for (int i = 0; i < perks.Length; i++) 
-				{
-					perks [i].hex.SetActive (!shown);
-				}
+				pos.SetActive(!shown);
 				shown = !shown;
 			} 
 			else
@@ -190,7 +190,7 @@ public class perkTree : MonoBehaviour
 		{
 			if (!(perks[n].drawn)) //second stop case : the perk has already been treated
 			{
-				Vector3 p1 = new Vector3(perks[n].x, 1, perks[n].z);
+				Vector3 p1 = new Vector3(perks[n].x, prefab.transform.position.y, perks[n].z);
 				perks[n].hex = (GameObject)Instantiate(this.prefab, p1, prefab.transform.rotation);
 				perks[n].drawn = true;
 				perks[n].hex.transform.parent = pos.transform;
@@ -201,6 +201,12 @@ public class perkTree : MonoBehaviour
 					{
 						perks[perks[n].neigborsID[i]].x = perks[n].x - Mathf.Cos(angle) * 28f; //calculating the new postions of each neighboor of the perk. mathematics!!!
 						perks[perks[n].neigborsID[i]].z = perks[n].z - Mathf.Sin(angle) * 28f;
+						Vector3 lp = new Vector3(perks[n].x - Mathf.Cos(angle) * 13.9f, link.transform.position.y,perks[n].z - Mathf.Sin(angle) * 14f);
+						Transform t = link.transform;
+						perks[n].links[i] = ((GameObject)Instantiate(link, lp, t.rotation));
+						perks[n].links[i].transform.parent = pos.transform;
+						perks[n].links[i].transform.rotation = new Quaternion(0,0,0,0);
+						perks[n].links[i].transform.Rotate(90,-((i+2)%6)*60,0);
 					}
 
 					dPT(perks[n].neigborsID[i]); //recursive call for each neighboor.
