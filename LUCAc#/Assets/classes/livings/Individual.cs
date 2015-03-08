@@ -96,18 +96,22 @@ public class Individual : MonoBehaviour
 		if (pos.x < 1) 
 		{
 			pos.x = 1;
+			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
 		}
 		if (pos.x > 2000) 
 		{
 			pos.x = 2000;
+			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
 		}
 		if (pos.z < 1) 
 		{
 			pos.z = 1;
+			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
 		}
 		if (pos.z > 2000) 
 		{
 			pos.z = 2000;
+			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
 		}
 		transform.position = pos;
 	}
