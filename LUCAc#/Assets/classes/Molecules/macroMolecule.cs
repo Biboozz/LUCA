@@ -34,8 +34,4 @@ public class macroMolecule : molecule
 		_isMacro = true;
 	}
 
-	public int getSize()
-	{
-		return (maxSize / Random.Range (0, maxSize)) + minSize;
-	}
 }

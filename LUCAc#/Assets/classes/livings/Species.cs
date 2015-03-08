@@ -17,7 +17,7 @@ public class Species
 	private int _survivedTime = 0;
 	public int individualLifeTime;
 
-	#region acessors
+	#region accessors
 	public int survivedTime
 	{
 		get

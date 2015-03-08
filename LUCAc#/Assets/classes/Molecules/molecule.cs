@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class molecule
+public abstract class molecule
 {
 	protected bool _isMacro;
 	protected int _ID;

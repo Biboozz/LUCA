@@ -19,7 +19,7 @@ public class Individual : MonoBehaviour
 	private bool initialized = false;
 	private environment place;
 
-	#region acessors
+	#region accessors
 	public int survivedTime
 	{
 		get
@@ -82,8 +82,8 @@ public class Individual : MonoBehaviour
 	{
 		transform.position = position;
 		_lifeTime = lifetime;
-		species = species;
-		transform.parent = place.transform.parent;
+		this.species = species;
+		transform.parent = place.transform;
 		this.place = place;
 		this.isPlayed = isPlayed;
 		cellMolecules = molecules;
