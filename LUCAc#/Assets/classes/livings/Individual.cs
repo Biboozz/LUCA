@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System;
+using AssemblyCSharp;
+using System.Linq;
 
-public class Individual
+public class Individual : MonoBehaviour
 {
-	public GameObject cell;
 	private int _lifeTime;
 	public bool alive = true;
-	private Species _species;
-	public environment place;
+	public Species species;
 	private int _survivedTime = 0;
 	public bool isPlayed = false;
-
+	public List<moleculePack> cellMolecules = new List<moleculePack>();
+	public int ATP;
+	private int coolDown = 0;
+	private bool initialized = false;
+	private environment place;
 
 	#region acessors
 	public int survivedTime
@@ -28,57 +35,80 @@ public class Individual
 			return _lifeTime;
 		}
 	}
-
-	public Species species
-	{
-		get 
-		{
-			return _species;
-		}
-		set
-		{
-			_species = value;
-			cell.GetComponent<cell> ().species = value;
-		}
-	}
 	#endregion
 
-
-	#region constructors
-	public Individual (GameObject cell, Species species, environment place, int lifeTime,int ATP, bool isPlayed)
+	// Use this for initialization
+	void Start () 
 	{
-		this.cell = cell;
-		this.species = species;
-		this.place = place;
-		_lifeTime = lifeTime;
-		this.isPlayed = isPlayed;
-		cell cellBehavior = cell.GetComponent<cell> ();
-		cellBehavior.place = place;
-		cellBehavior.species = species;
-		cellBehavior.individual = this;
-
+		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{ 
+		transform.Translate(0.05f,0f,0f);
+		transform.Rotate (0, 0, UnityEngine.Random.Range(-2,3));
+		toCorrectPosition();
+		if (coolDown >= 10 && initialized) 
+		{
+			coolDown = 0;
+			_survivedTime = _survivedTime + 1;
+			alive = (_survivedTime < _lifeTime);
+			action ();
+		} 
+		else 
+		{
+			coolDown++;
+		}
+	}
+	
+	public void action () 
+	{
+		foreach (perkData p in species.unlockedPerks) 
+		{
+			if (p.active && p.cost.ATP <= this.ATP)
+			{
+				bool valid = !(p.cost.cellMolecules.Count > this.cellMolecules.Count || p.cost.environmentMolecules.Count > place.moleculesAvailableAt().Count);
+				List<moleculePack> validMP = new List<moleculePack>();
+				if (valid) 
+				{
+					//not finished yet
+				}
+			}
+		}
 	}
 
-	public Individual (GameObject cell, environment place, int lifeTime,int ATP, bool isPlayed)
+	public void Initialize(Vector3 position, int lifeTime, Species species, environment place, bool isPlayed, List<moleculePack> molecules, int ATP)
 	{
-		this.cell = cell;
+		transform.position = position;
+		_lifeTime = lifetime;
+		species = species;
+		transform.parent = place.transform.parent;
 		this.place = place;
-		_lifeTime = lifeTime;
 		this.isPlayed = isPlayed;
-		cell cellBehavior = cell.GetComponent<cell> ();
-		cellBehavior.place = place;
-		cellBehavior.species = species;
-		cellBehavior.individual = this;
-		cellBehavior.ATP = ATP;
+		cellMolecules = molecules;
+		this.ATP = ATP;
 	}
-	#endregion
-
-
-
-	public void update()
+	
+	void toCorrectPosition()
 	{
-		_survivedTime = _survivedTime + 1;
-		alive = (_survivedTime < _lifeTime);
-		cell.GetComponent<cell> ().action();
+		Vector3 pos = transform.position;
+		if (pos.x < 1) 
+		{
+			pos.x = 1;
+		}
+		if (pos.x > 2000) 
+		{
+			pos.x = 2000;
+		}
+		if (pos.z < 1) 
+		{
+			pos.z = 1;
+		}
+		if (pos.z > 2000) 
+		{
+			pos.z = 2000;
+		}
+		transform.position = pos;
 	}
 }

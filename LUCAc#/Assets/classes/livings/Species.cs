@@ -71,13 +71,11 @@ public class Species
 		List<int> a = new List<int> ();
 		foreach (Individual I in Individuals) 
 		{
-			I.update();
 			if (!I.alive)
 			{
 				a.Add(Individuals.IndexOf(I));
-				place.remove(I.cell);
+				place.remove(I.gameObject);
 			}
-			
 		}
 		int c = 0;
 		foreach (int b in a) 
@@ -91,6 +89,5 @@ public class Species
 	{
 		_survivedTime = _survivedTime + 1;
 		checkDeath ();
-		
 	}
 }
