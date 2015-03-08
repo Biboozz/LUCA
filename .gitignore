@@ -46,3 +46,4 @@ LUCAc#/Library/
 LUCAc#/Temp/
 *.csproj
 *.sln
+*.userprefs
