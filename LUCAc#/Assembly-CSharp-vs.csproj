@@ -46,6 +46,39 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Example\Scripts\AnimationPlayer.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Example\Scripts\BarOptionsGUI.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Example\Scripts\BarOptionsGUIMulti.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Example\Scripts\BarPresentation.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Example\Scripts\EnergyBarPresentationColorize.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Example\Scripts\GoCircles.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Example\Scripts\MultiBarSliders.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\EnergyBar3DBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\FilledRenderer3D.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\RepeatedRenderer3D.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\SequenceRenderer3D.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\TransformRenderer3D.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\ColorBind.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBar.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarCommons.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarFollowObject.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarOnGUIBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarRenderer.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarRepeatRenderer.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarSequenceRenderer.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\EnergyBarTransformRenderer.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Screen2.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\SimpleEvent.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Utils.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\EnergyBarUGUIBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\FadeUGUI.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\FilledRendererUGUI.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\FollowTargetUGUI.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Image2.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\RepeatedRendererUGUI.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\SequenceRendererUGUI.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\TransformRendererUGUI.cs" />
      <Compile Include="Assets\Menu\InstantGui\Scripts\Elements\InstantGuiButton.cs" />
      <Compile Include="Assets\Menu\InstantGui\Scripts\Elements\InstantGuiElementsList.cs" />
      <Compile Include="Assets\Menu\InstantGui\Scripts\Elements\InstantGuiGauge.cs" />
@@ -207,7 +240,6 @@
      <Compile Include="Assets\classes\POINT.cs" />
      <Compile Include="Assets\classes\livings\Individual.cs" />
      <Compile Include="Assets\classes\livings\Species.cs" />
-     <Compile Include="Assets\classes\livings\cell.cs" />
      <Compile Include="Assets\classes\livings\environment.cs" />
      <Compile Include="Assets\classes\ressources.cs" />
      <Compile Include="Assets\classes\rtsmove.cs" />
@@ -216,10 +248,12 @@
      <Compile Include="Assets\classes\skills\perkType.cs" />
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\Menu\NGUI\ReadMe - 3.8.0.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font White DB.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font DB.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
@@ -227,25 +261,45 @@
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTint.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTintPre.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\ExpandFillShaderPre.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Example\Fonts\Boogaloo\boogaloo_glyphs.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font White.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitShaderPre.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\RadialFillShaderPre.shader" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
      <None Include="Assets\perktree.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\VerticalFillShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\HorizontalFillShaderPre.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\RadialFillShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Scripts\Sources\How To Build.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\ExpandFillShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\VerticalFillShaderPre.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\HorizontalFillShader.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTintPre DB.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\README.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTint DB.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Example\Fonts\Boogaloo\SIL OFL Font License Boogaloo.txt" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Refractive.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
@@ -255,6 +309,12 @@
      <None Include="Assets\Menu\NGUI\Examples\Resources\Localization.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>B:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="MadCommons">
+ <HintPath>D:/Documents/GitHub/LUCA/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
+ </Reference>
+ <Reference Include="Mad2D">
+ <HintPath>D:/Documents/GitHub/LUCA/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

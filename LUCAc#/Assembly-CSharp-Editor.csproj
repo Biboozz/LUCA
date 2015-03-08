@@ -39,13 +39,41 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>B:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>B:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\Editor\CreateMeshBarTool.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\Editor\FilledRenderer3DBuilder.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\Editor\RepeatRenderer3DBuilder.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\Editor\SequenceRenderer3DBuilder.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\3DRenderers\Editor\TransformRenderer3DBuilder.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EditorBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBar3DInspectorBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarInspectorBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarOnGUIInspectorBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarRendererInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarRepeatRendererInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarSequenceRendererInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarTransformRendererInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\EnergyBarUtils.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\FilledRenderer3DInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\MenuItems.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\RepeatRenderer3DInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\SequenceRenderer3DInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\SimpleEventInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\Editor\TransformRenderer3DInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Editor\EBTPackerPolicy.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Editor\EnergyBarUGUIInspectorBase.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Editor\FilledRendererUGUIInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Editor\RepeatedRendererUGUIInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Editor\SequenceRendererUGUIInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Editor\TransformRendererUGUIInspector.cs" />
+     <Compile Include="Assets\Menu\Energy Bar Toolkit\Scripts\uGUI\Editor\UGUIBarsBuilder.cs" />
      <Compile Include="Assets\Menu\InstantGui\Scripts\Editor\Elements\InstantGuiButtonEditor.cs" />
      <Compile Include="Assets\Menu\InstantGui\Scripts\Editor\Elements\InstantGuiInputTextEditor.cs" />
      <Compile Include="Assets\Menu\InstantGui\Scripts\Editor\Elements\InstantGuiListEditor.cs" />
@@ -144,10 +172,12 @@
      <Compile Include="Assets\Menu\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\Menu\NGUI\ReadMe - 3.8.0.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font White DB.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font DB.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
@@ -155,25 +185,45 @@
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTint.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTintPre.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\ExpandFillShaderPre.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Example\Fonts\Boogaloo\boogaloo_glyphs.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\Font White.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitShaderPre.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\RadialFillShaderPre.shader" />
      <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
      <None Include="Assets\perktree.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\VerticalFillShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\HorizontalFillShaderPre.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\RadialFillShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Scripts\Sources\How To Build.txt" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\ExpandFillShader.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\VerticalFillShaderPre.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\HorizontalFillShader.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTintPre DB.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\README.txt" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Resources\Shaders\UnlitTransparentTint DB.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\Menu\Energy Bar Toolkit\Example\Fonts\Boogaloo\SIL OFL Font License Boogaloo.txt" />
      <None Include="Assets\Menu\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
      <None Include="Assets\Menu\NGUI\Examples\Shaders\Refractive.shader" />
      <None Include="Assets\Menu\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
@@ -182,37 +232,43 @@
      <None Include="Assets\Menu\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Resources\Localization.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
- <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/androidplayer/UnityEditor.Android.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/androidplayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WP8.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/wp8support/UnityEditor.WP8.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/wp8support/UnityEditor.WP8.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Metro.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/metrosupport/UnityEditor.Metro.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/metrosupport/UnityEditor.Metro.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.BB10.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/blackberryplayer/UnityEditor.BB10.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/blackberryplayer/UnityEditor.BB10.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WebGL.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/webglsupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/webglsupport/UnityEditor.WebGL.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.LinuxStandalone.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/linuxstandalonesupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/linuxstandalonesupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ <HintPath>B:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="MadCommons">
+ <HintPath>D:/Documents/GitHub/LUCA/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
+ </Reference>
+ <Reference Include="Mad2D">
+ <HintPath>D:/Documents/GitHub/LUCA/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
