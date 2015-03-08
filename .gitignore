@@ -44,3 +44,5 @@ Temporary Items
 
 LUCAc#/Library/
 LUCAc#/Temp/
+*.csproj
+*.sln
