@@ -123,7 +123,7 @@ public class perkTree : MonoBehaviour
 				{
 					string[] lineData = file[i].Split(new Char [] {':',';'});
 					actionData AD = new actionData(0 , new List<moleculePack>(), new List<moleculePack>());
-					if (lineData[1] == -1)
+					if (lineData[1] == "-1")
 					{
 
 					}
