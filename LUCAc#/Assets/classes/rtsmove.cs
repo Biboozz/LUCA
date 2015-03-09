@@ -8,7 +8,7 @@ public class rtsmove : MonoBehaviour
 
     public float panSpeed = 10.0f;		// Vitesse de deplacement de la camera pour la deplacement
     public float ZoomSpeed = 1.0f;		// Vitesse de deplacement de la camera pour le zoom
-    public int ScrollWheelLimit = 1000;
+    public int ScrollWheelLimit = 2000;
     private int _ScrollWheelminPush = 0;
     private int _ScrollCount = 1;
     private const int ScrollArea = 25;  //Zone défini du déplacement
