@@ -16,7 +16,7 @@ public class perkTree : MonoBehaviour
 	public GameObject prefab;		//the base prefab of a hexagon, copied and instanciated to draw the tree;
 	public perkData[] perks;		//this is a perkData class tab. As there's no way to use pointers in Unity, I had to build a static graph structure with it... Taugh shit.
 	//for more info about the class "perkData", please refer to the file under \Assets\classes\perkData.cs
-	private string path = System.Environment.GetFolderPath (System.Environment.SpecialFolder.ApplicationData) + @"\LUCA\perktree.txt";
+	private string path = @"Assets\perktree.txt";
 	//I chose this folder because I don't know how to get the Assets folder. Need to work on it.
 	private bool valid = true;
 	private bool shown = false;

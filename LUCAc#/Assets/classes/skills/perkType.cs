@@ -7,10 +7,10 @@ using AssemblyCSharp;
 
 public enum perkType : byte
 {
-	con = 1,
+	abs = 1,
 	hyd = 2,
-	abs = 3,
-	syn = 4,
+	syn = 3,
+	con = 4,
 }
 
 
