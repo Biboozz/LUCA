@@ -1,4 +1,4 @@
-PERK
+STARTPERK
     PNAME:En vie
     PID:0
     PDESCRIPTION:Vos cellules sont vivantes
@@ -13,7 +13,7 @@ PERK
     PRODENV:-1
     REQU:-1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des sucres simples
     PID:1
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les sucres simples présents dans son environnement.
@@ -28,7 +28,7 @@ PERK
     PRODENV:-1
     REQU:-1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des acides aminés
     PID:2
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les acides aminés présents dans son environnement.
@@ -43,7 +43,7 @@ PERK
     PRODENV:-1
     REQU:-1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des acides nucléïques
     PID:3
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les acides nucléiques présents dans son environnement.
@@ -58,7 +58,7 @@ PERK
     PRODENV:-1
     REQU:-1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des acides gras
     PID:4
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les acides gras présents dans son environnement.
@@ -73,7 +73,7 @@ PERK
     PRODENV:-1
     REQU:-1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des sucres complexes
     PID:5
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les sucres complexes présents dans son environnement.
@@ -88,7 +88,7 @@ PERK
     PRODENV:-1
     REQU:1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des protéines
     PID:6
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les sucres complexes présents dans son environnement.
@@ -103,7 +103,7 @@ PERK
     PRODENV:-1
     REQU:2
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des ADN
     PID:7
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les lipides présents dans son environnement.
@@ -118,7 +118,7 @@ PERK
     PRODENV:-1
     REQU:3
 ENDPERK
-PERK
+STARTPERK
     PNAME:Absorption des lipides
     PID:8
     PDESCRIPTION:Un pore est produit à la surface de la cellule pour lui permettre d’absorber les ADN présents dans son environnement.
@@ -133,7 +133,7 @@ PERK
     PRODENV:-1
     REQU:4
 ENDPERK
-PERK
+STARTPERK
     PNAME:Hydrolyse des sucres complexes
     PID:9
     PDESCRIPTION:Créé une enzyme : la sucrase qui convertit les sucres complexes absorbés en sucres simples utilisables.
@@ -148,7 +148,7 @@ PERK
     PRODENV:-1
     REQU:5
 ENDPERK
-PERK
+STARTPERK
     PNAME:Hydrolyse des protéines
     PID:10
     PDESCRIPTION:Créé une enzyme : la protéase qui convertit les protéines absorbées en acides aminés utilisables.
@@ -163,7 +163,7 @@ PERK
     PRODENV:-1
     REQU:6
 ENDPERK
-PERK
+STARTPERK
     PNAME:Hydrolyse des ADN
     PID:11
     PDESCRIPTION:Créé une enzyme : l'ADN Hydrolase qui convertit les ADN absorbées en acides nucléiques utilisables.
@@ -178,7 +178,7 @@ PERK
     PRODENV:-1
     REQU:7
 ENDPERK
-PERK
+STARTPERK
     PNAME:Hydrolyse des lipides
     PID:12
     PDESCRIPTION:Créé une enzyme : la lipide Hydrolase qui convertit les lipides absorbées en acides nucléiques utilisables.
@@ -193,7 +193,7 @@ PERK
     PRODENV:-1
     REQU:8
 ENDPERK
-PERK
+STARTPERK
     PNAME:Synthèse des acides gras
     PID:13
     PDESCRIPTION:Créé une enzyme : l’acide gras synthase qui converti 5 sucres et 10 ATP en 1 AG utilisable.
@@ -208,7 +208,7 @@ PERK
     PRODENV:-1
     REQU:-1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Conversion des sucres simples en ATP
     PID:14
     PDESCRIPTION:Créé une enzyme : l’ATP synthase I qui converti 1 sucre en 30 ATP utilisables.
@@ -223,7 +223,7 @@ PERK
     PRODENV:-1
     REQU:-1
 ENDPERK
-PERK
+STARTPERK
     PNAME:Conversion des acides gras en ATP
     PID:15
     PDESCRIPTION:Créé une enzyme : l’ATP synthase II qui converti 1 acide gras en 100 ATP utilisables.

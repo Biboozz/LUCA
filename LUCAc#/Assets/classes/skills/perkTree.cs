@@ -38,7 +38,7 @@ public class perkTree : MonoBehaviour
 			valid = false;
 		}
 		drawPerkTree ();
-		QualitySettings.antiAliasing = 8;
+		QualitySettings.antiAliasing = 4;
 	}
 
 	void Update() {
@@ -67,92 +67,96 @@ public class perkTree : MonoBehaviour
 	private List<perkData> readPerkTreeFile(string path)  	//this function is used to read the file where the perktree is written. It builds a list of every readed perk from this file.										//Please refer to the end of this class to see how the file is built.
 	{
 		List<perkData> perkTree = new List<perkData>();
-		try {											//it's not really important if you don't understand what is in this try. Move on. It's just reading the file.
+		try 
+		{	//it's not really important if you don't understand what is in this try. Move on. It's just reading the file.
 			StreamReader SR = new StreamReader(path);
-			string line = SR.ReadLine();
-			perkData p = new perkData();
-			
-			while (line != "ENDFILE") 
+			string[] file = SR.ReadToEnd().Split(new Char [] {'\n'});
+			for (int i = 0; i < file.Length; i++)
 			{
-				if (line == "PERK")
+				perkData p = new perkData();
+				string[] splitedLine;
+				if (file[i].Contains("STARTPERK"))
 				{
-					p = new perkData();
-					Debug.Log("new perk");
+					p  = new perkData();
+					Debug.Log("new perk (" + i + ")");
 				}
-				if (line.Contains("PNAME:")) 
+				if (file[i].Contains("PNAME"))
 				{
-					p.name = line.Substring(10, line.Length - 10);
-					Debug.Log(p.name);
+					string[] lineData = file[i].Split(new Char [] {':',';'});
+					p.name = lineData[1];
+					Debug.Log("perk name: " + p.name);
 				}
-				if (line.Contains("PID:")) 
+				if (file[i].Contains("PID"))
 				{
-					p.ID = Int32.Parse(line.Substring(8, line.Length - 8));
-					Debug.Log("ID: " + p.ID);
+					string[] lineData = file[i].Split(new Char [] {':',';'});
+					p.ID = Convert.ToInt32(lineData[1]);
+					Debug.Log("perk ID: " + p.ID);
 				}
-				if (line.Contains("PDESCRIPTION:"))
+				if (file[i].Contains("PDESCRIPTION"))
 				{
-					p.description = line.Substring(17, line.Length - 17);
-					Debug.Log("description: " + p.description);
+					string[] lineData = file[i].Split(new Char [] {':',';'});
+					p.description = lineData[1];
+					Debug.Log("perk description: " + p.description);
 				}
-				if (line.Contains("PNEIGHBORS:")) 
+				if (file[i].Contains("PNEIGHBORS"))
 				{
-					string[] s = line.Substring(15, line.Length - 15).Split(';');
-					for (int i = 0; i < 6; i++) 
+					string[] lineData = file[i].Split(new Char [] {':',';'});
+					for (int j = 0; j < 6; j++)
 					{
-						p.neigborsID[i] = Int32.Parse(s[i]);
-						Debug.Log("neighboor " + i + ": " + p.neigborsID[i]);
+						p.neigborsID[j] = Convert.ToInt32(lineData[j+1]);
+					}
+					Debug.Log("neighbors: [" + p.neigborsID[0] + "][" + p.neigborsID[1] + "][" + p.neigborsID[2] + "][" + p.neigborsID[3] + "][" + p.neigborsID[4] + "][" + p.neigborsID[5] + "]"); 
+				}
+				if (file[i].Contains("TYPE"))
+				{
+					string[] lineData = file[i].Split(new Char [] {':',';'});
+					p.type = (perkType)Convert.ToInt32(lineData[1]);
+					Debug.Log("type: " + p.type + "          (" + i + ")");
+				}
+				if (file[i].Contains("INNEE"))
+				{
+					string[] lineData = file[i].Split(new Char [] {':',';'});
+					p.innate = (lineData[1][0] == 'T');
+					Debug.Log("is innate: " + p.innate + "          (" + i + ")");
+				}
+				if (file[i].Contains("COSTDEV"))
+				{
+					string[] lineData = file[i].Split(new Char [] {':',';'});
+					actionData AD = new actionData(0 , new List<moleculePack>(), new List<moleculePack>());
+					if (lineData[1] == -1)
+					{
+
 					}
 				}
-				if (line.Contains("TYPE:"))
+				if (file[i].Contains("COSTCELL"))
 				{
-					p.type = (perkType)Convert.ToInt32(line.Substring(9, line.Length - 9));
-					Debug.Log("Type: " + p.type.ToString());
+					string[] lineData = file[i].Split(new Char [] {':',';'});
 				}
-				if (line.Contains("COSTATP:"))
+				if (file[i].Contains("COSTENV"))
 				{
-					p.cost.ATP = Convert.ToInt32(line.Substring(12, line.Length - 12));
-					Debug.Log("cout en ATP: " + p.cost.ATP);
+					string[] lineData = file[i].Split(new Char [] {':',';'});
 				}
-				if (line.Contains("COSTCELL:"))
+				if (file[i].Contains("PRODDEV"))
 				{
-					
+					string[] lineData = file[i].Split(new Char [] {':',';'});
 				}
-				if (line.Contains("TYPE"))
+				if (file[i].Contains("PRODCELL"))
 				{
-					
+					string[] lineData = file[i].Split(new Char [] {':',';'});
 				}
-				if (line.Contains("TYPE"))
+				if (file[i].Contains("PRODENV"))
 				{
-					
+					string[] lineData = file[i].Split(new Char [] {':',';'});
 				}
-				if (line.Contains("TYPE"))
+				if (file[i].Contains("REQU"))
 				{
-					
+					string[] lineData = file[i].Split(new Char [] {':',';'});
 				}
-				if (line.Contains("TYPE"))
+				if (file[i].Contains("ENDPERK"))
 				{
-					
+					string[] lineData = file[i].Split(new Char [] {':',';'});
 				}
-				if (line.Contains("TYPE"))
-				{
-					
-				}
-				if (line.Contains("TYPE"))
-				{
-					
-				}
-				if (line.Contains("TYPE"))
-				{
-					
-				}
-				if (line == "ENDPERK") 
-				{
-					perkTree.Add(p); 				//adding the perk to the list
-					Debug.Log("added");
-				}
-				line = SR.ReadLine();
 			}
-			
 		}
 		catch (Exception e)
 		{
@@ -168,7 +172,7 @@ public class perkTree : MonoBehaviour
 		{
 			perkTree[i] = L[i];
 		}
-		Debug.Log (perkTree.Length - 1);
+		Debug.Log ("nombre de compétences dans l'arbre: " + perkTree.Length);
 		return perkTree;
 	}
 

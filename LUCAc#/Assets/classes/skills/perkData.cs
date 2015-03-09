@@ -23,8 +23,11 @@ namespace AssemblyCSharp
 
 		public actionData cost;
 		public actionData products;
-		public bool active;
+		public actionData onDevCost;
+		public actionData onDevProd;
+		public bool innate;
 		public perkType type;
+
 
 		public perkData (string name, int[] neighborsID, string description, int ID) //use this for initialisation
 		{
@@ -34,7 +37,7 @@ namespace AssemblyCSharp
 			this.drawn = false;
 		}
 
-		public perkData (string name, int[] neighborsID, string description, int ID, actionData cost, actionData products, bool active) //use this for initialisation
+		public perkData (string name, int[] neighborsID, string description, int ID, actionData cost, actionData products, bool innate) //use this for initialisation
 		{
 			this.neigborsID = neighborsID;
 			this.description = description;
@@ -42,10 +45,10 @@ namespace AssemblyCSharp
 			this.drawn = false;
 			this.cost = cost;
 			this.products = products;
-			this.active = active;
+			this.innate = innate;
 		}
 
-		public perkData (string name, int[] neighborsID, string description, int ID, actionData cost, actionData products, bool active, perkType type) //use this for initialisation
+		public perkData (string name, int[] neighborsID, string description, int ID, actionData cost, actionData products, bool innate, perkType type) //use this for initialisation
 		{
 			this.neigborsID = neighborsID;
 			this.description = description;
@@ -53,7 +56,7 @@ namespace AssemblyCSharp
 			this.drawn = false;
 			this.cost = cost;
 			this.products = products;
-			this.active = active;
+			this.innate = innate;
 			this.type = type;
 		}
 

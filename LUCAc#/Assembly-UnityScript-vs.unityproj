@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>B:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>B:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -116,13 +116,13 @@
      <None Include="Assets\Menu\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Resources\Localization.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>B:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Mad2D">
- <HintPath>D:/Documents/GitHub/LUCA/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
+ <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
  </Reference>
  <Reference Include="MadCommons">
- <HintPath>D:/Documents/GitHub/LUCA/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
+ <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

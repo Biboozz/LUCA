@@ -64,18 +64,7 @@ public class Individual : MonoBehaviour
 	
 	public void action () 
 	{
-		foreach (perkData p in species.unlockedPerks) 
-		{
-			if (p.active && p.cost.ATP <= this.ATP)
-			{
-				bool valid = !(p.cost.cellMolecules.Count > this.cellMolecules.Count || p.cost.environmentMolecules.Count > place.moleculesAvailableAt().Count);
-				List<moleculePack> validMP = new List<moleculePack>();
-				if (valid) 
-				{
-					//not finished yet
-				}
-			}
-		}
+		//not finished yet
 	}
 
 	public void Initialize(Vector3 position, int lifeTime, Species species, environment place, bool isPlayed, List<moleculePack> molecules, int ATP)
