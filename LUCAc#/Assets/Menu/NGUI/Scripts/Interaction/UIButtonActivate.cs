@@ -9,7 +9,6 @@ using UnityEngine;
 /// Very basic script that will activate or deactivate an object (and all of its children) when clicked.
 /// </summary>
 
-[AddComponentMenu("NGUI/Interaction/Button Activate")]
 public class UIButtonActivate : MonoBehaviour
 {
     public GameObject target;
