@@ -6,7 +6,10 @@ using System;
 using AssemblyCSharp;
 
 public class environment : MonoBehaviour {
-	
+
+	private int Heigth;
+	private int Width;
+
 	public List<Species> livings = new List<Species>();
 	public GameObject cellPrefab; //just for the test, will not be needed in the futur
 	private int coolDown = 0;
@@ -40,6 +43,11 @@ public class environment : MonoBehaviour {
 				s.update();
 			}
 		}
+	}
+
+	private int get_width()
+	{
+		return Width;
 	}
 
 	public void remove(GameObject G)
