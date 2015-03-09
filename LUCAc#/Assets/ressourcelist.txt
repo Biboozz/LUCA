@@ -1,0 +1,8 @@
+1
+bla
+2
+blabla
+
+3
+yolo
+ENDFILE
