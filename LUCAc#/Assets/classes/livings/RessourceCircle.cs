@@ -9,8 +9,18 @@ public class RessourceCircle : MonoBehaviour {
 
     private POINT center;
     private int radius;
-    //private List<>
+    private List<RessourcePoint> nodes = new List<RessourcePoint>();
     private int totalAmount;
+
+    public int get_radius()
+    {
+        return radius;
+    }
+
+    public POINT get_center()
+    {
+        return center;
+    }
 
 	// Use this for initialization
 	void Start () {
