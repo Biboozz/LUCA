@@ -21,7 +21,7 @@ public class SwitchScene : MonoBehaviour {
         switch (button)
         {
             case "Button - Jouer":
-                Application.LoadLevel("Game");
+                Application.LoadLevel(1);
                 break;
             case "Button - Quitter":
                 Application.Quit();
