@@ -117,10 +117,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Mad2D">
- <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
+ <HintPath>C:/Users/Biboozz/Desktop/Projet/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
  </Reference>
  <Reference Include="MadCommons">
- <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
+ <HintPath>C:/Users/Biboozz/Desktop/Projet/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -154,6 +154,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{24E35AEA-BDA2-5D93-791D-E7FE7B47381A}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">
       <Project>{E7BDD988-4DDD-D7AB-A00E-A586274FD2A3}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
   </ItemGroup>

@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System;
 
-public class POINT : MonoBehaviour {
+namespace AssemblyCSharp
+{
+	public class POINT
+	{
+		public int x;
+		public int y;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		public int distance(POINT P)
+		{
+			return Convert.ToInt32(System.Math.Sqrt(System.Math.Pow((this.x - P.x), 2) + System.Math.Pow((this.y - P.y), 2)));
+		}
 	}
 }
+

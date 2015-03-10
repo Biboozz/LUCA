@@ -119,10 +119,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Mad2D">
- <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
+ <HintPath>C:/Users/Biboozz/Desktop/Projet/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
  </Reference>
  <Reference Include="MadCommons">
- <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
+ <HintPath>C:/Users/Biboozz/Desktop/Projet/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

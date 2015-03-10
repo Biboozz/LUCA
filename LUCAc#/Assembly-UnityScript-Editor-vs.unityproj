@@ -114,16 +114,16 @@
      <None Include="Assets\Menu\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\Menu\NGUI\Examples\Resources\Localization.txt" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>C:/Users/Biboozz/Desktop/Projet/LUCA/LUCAc#/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Mad2D">
- <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
+ <HintPath>C:/Users/Biboozz/Desktop/Projet/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/Mad2D.dll</HintPath>
  </Reference>
  <Reference Include="MadCommons">
- <HintPath>C:/Users/Nicolas/Documents/GitHub/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
+ <HintPath>C:/Users/Biboozz/Desktop/Projet/LUCA/LUCAc#/Assets/Menu/Energy Bar Toolkit/Scripts/MadCommons.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -155,6 +155,10 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{24E35AEA-BDA2-5D93-791D-E7FE7B47381A}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
