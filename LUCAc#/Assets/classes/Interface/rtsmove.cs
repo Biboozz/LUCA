@@ -12,8 +12,7 @@ public class rtsmove : MonoBehaviour
     private int _ScrollWheelminPush = 0;
     private int _ScrollCount = 1;
     private const int ScrollArea = 25;  //Zone défini du déplacement
-    public GameObject blabla;
-    //blabla.GetComponent<perkTree>().shown
+    public GameObject TreeShow;
 
     // START
 
@@ -28,24 +27,31 @@ public class rtsmove : MonoBehaviour
     {
         //  MOVE - Deplace la caméra lorsque la souris est dans les bords ou avec les flèches directionnelles
 
-        if ((Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow)) && (GameObject.Find("PointRepere").transform.position.x - transform.localPosition.x >= -950) && !(blabla.GetComponent<perkTree>()._Shown))      //Left
+        if (TreeShow.GetComponent<perkTree>()._Shown == null || TreeShow.GetComponent<perkTree>()._Shown)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
+            //Do nothing
         }
-
-        if ((Input.mousePosition.x >= Screen.width - ScrollArea || Input.GetKey(KeyCode.RightArrow)) && (GameObject.Find("PointRepere").transform.position.x - transform.localPosition.x <= 950) && !(blabla.GetComponent<perkTree>()._Shown))     //Right
+        else
         {
-            transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
-        }
+            if ((Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow)) && (GameObject.Find("PointRepere").transform.position.x - transform.localPosition.x >= -950))      //Left
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
+            }
 
-        if ((Input.mousePosition.y < ScrollArea || Input.GetKey(KeyCode.DownArrow)) && (GameObject.Find("PointRepere").transform.position.z - transform.localPosition.z >= -950) && !(blabla.GetComponent<perkTree>()._Shown))      //Down
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
-        }
+            if ((Input.mousePosition.x >= Screen.width - ScrollArea || Input.GetKey(KeyCode.RightArrow)) && (GameObject.Find("PointRepere").transform.position.x - transform.localPosition.x <= 950))     //Right
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
+            }
 
-        if ((Input.mousePosition.y > Screen.height - ScrollArea || Input.GetKey(KeyCode.UpArrow)) && (GameObject.Find("PointRepere").transform.position.z - transform.localPosition.z <= 950) && !(blabla.GetComponent<perkTree>()._Shown))       //Top
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
+            if ((Input.mousePosition.y < ScrollArea || Input.GetKey(KeyCode.DownArrow)) && (GameObject.Find("PointRepere").transform.position.z - transform.localPosition.z >= -950))      //Down
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
+            }
+
+            if ((Input.mousePosition.y > Screen.height - ScrollArea || Input.GetKey(KeyCode.UpArrow)) && (GameObject.Find("PointRepere").transform.position.z - transform.localPosition.z <= 950))       //Top
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
+            }
         }
 
         //  ZOOM
