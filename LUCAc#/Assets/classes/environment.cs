@@ -6,10 +6,7 @@ using System;
 using AssemblyCSharp;
 
 public class environment : MonoBehaviour {
-
-	private int Heigth;
-	private int Width;
-
+	
 	public List<Species> livings = new List<Species>();
 	public GameObject cellPrefab; //just for the test, will not be needed in the futur
 	private int coolDown = 0;
@@ -18,7 +15,16 @@ public class environment : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-	    
+		Species S = new Species (this);
+		for (int i = 1; i <= 100; i++) 
+		{
+			S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
+		}
+		
+		for (int i = 0; i < S.Individuals.Count; i++) 
+		{
+			S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, false, new List<moleculePack>(), 100);
+		}
 	}
 	
 	// Update is called once per frame
@@ -32,18 +38,8 @@ public class environment : MonoBehaviour {
 				s.update();
 			}
 		}
-
-
-		if (Input.GetKeyDown (KeyCode.R)) 
-		{
-
-		}
 	}
-
-	private int get_width()
-	{
-		return Width;
-	}
+	
 
 	public void remove(GameObject G)
 	{
