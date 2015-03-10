@@ -46,7 +46,7 @@ public class Species
 		this.place = place;
 		this.isPlayed = isPlayed;
 		this.individualLifeTime = individualLifeTime;
-		place.livings.Add (place);
+		place.livings.Add (this);
 	}
 
 	public Species(GameObject cell, List<perkData> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
@@ -56,13 +56,13 @@ public class Species
 		this.place = place;
 		this.isPlayed = isPlayed;
 		this.individualLifeTime = individualLifeTime;
-		place.livings.Add (place);
+		place.livings.Add (this);
 	}
 
 	public Species(environment place) 
 	{
 		this.place = place;
-		place.livings.Add (place);
+		place.livings.Add (this);
 	}
 	#endregion
 
