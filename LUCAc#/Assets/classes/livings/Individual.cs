@@ -72,7 +72,7 @@ public class Individual : MonoBehaviour
 		transform.position = position;
 		_lifeTime = lifetime;
 		this.species = species;
-		transform.parent = place.transform;
+		transform.SetParent(place.transform);
 		this.place = place;
 		this.isPlayed = isPlayed;
 		cellMolecules = molecules;

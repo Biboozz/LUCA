@@ -15,12 +15,16 @@ using System.Linq;
 public class perkTree : MonoBehaviour 
 {
 	public GameObject prefab;		//the base prefab of a hexagon, copied and instanciated to draw the tree;
-	public perkData[] perks;		//this is a perkData class tab. As there's no way to use pointers in Unity, I had to build a static graph structure with it... Taugh shit.
+	public perkData[] perks;
+	public GameObject ressourcesPosition;
+	public GameObject ressourcePrefab;
+	//this is a perkData class tab. As there's no way to use pointers in Unity, I had to build a static graph structure with it... Taugh shit.
 	//for more info about the class "perkData", please refer to the file under \Assets\classes\perkData.cs
 	private string path = @"Assets\perktree.txt";
 	//I chose this folder because I don't know how to get the Assets folder. Need to work on it.
 	private bool valid = true;
 	private bool shown = false;
+	private bool ressshown = false;
 
 	public GameObject pos;
 	public GameObject cam;
@@ -40,6 +44,12 @@ public class perkTree : MonoBehaviour
 		}
 		drawPerkTree ();
 		QualitySettings.antiAliasing = 4;
+		Terrain T = new Terrain (2000, 2000, readMoleculeFile (@"Assets\molecules.txt"));
+		foreach (RessourceCircle RC in T.circles) 
+		{
+			RC.circleObject = (GameObject)Instantiate(ressourcePrefab, ressourcesPosition.transform.position,ressourcesPosition.transform.rotation);
+			RC.circleObject.transform.SetParent(ressourcesPosition.transform);
+		}
 	}
 
 	void Update() {
@@ -55,6 +65,11 @@ public class perkTree : MonoBehaviour
 			{
 				Debug.Log(new Exception("this perkTree is unvalid!"));
 			}
+		}
+		if (Input.GetKeyDown (KeyCode.R)) 
+		{
+			ressshown = !ressshown;
+			ressourcesPosition.SetActive(ressshown);
 		}
         Vector3 p = pos.transform.position;
         p.x = cam.transform.position.x;
@@ -219,6 +234,35 @@ public class perkTree : MonoBehaviour
 		}
 	}
 
+	public List<molecule> readMoleculeFile(string path)
+	{
+		try
+		{
+			List<molecule> molList = new List<molecule>();
+			StreamReader SR = new StreamReader(path);
+			int i = 0;
+			while (!SR.EndOfStream)
+			{
+				i++;
+				string [] line = SR.ReadLine().Split(' ');
+				string name = "";
+				for (int j = 0; j < line.Length - 1; j ++)
+				{
+					name = name + ' ' + line [j];
+				}
+				molList.Add(new simpleMolecule(i, name));
+				Debug.Log("new molecule: " + name);
+
+			}
+			return (molList);
+		}
+		catch
+		{
+			Debug.LogError("error trying to read the molecule file");
+			return (new List<molecule>());
+		}
+
+	}
 
 	static string formating(string input)
 	{

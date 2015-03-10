@@ -45,4 +45,11 @@ public class Terrain
         return Width;
     }
 
+	public List<RessourceCircle> circles
+	{
+		get
+		{
+			return Circles;
+		}
+	}
 }

@@ -11,12 +11,28 @@ public class RessourceCircle
 	private POINT Center;
 	private List<RessourceNode> Nodes = new List<RessourceNode>();
 	private int Radius;
+	private GameObject _circleObject;
+
+	public GameObject circleObject
+	{
+		get
+		{
+			return _circleObject;
+		}
+		set
+		{
+			_circleObject = value;
+			_circleObject.transform.position = new Vector3(Center.x, _circleObject.transform.position.y, Center.y);
+			_circleObject.transform.localScale = new Vector3(Radius * 2,Radius * 2,1);
+		}
+	}
 
     public RessourceCircle(POINT center, int radius, molecule molecule, Terrain T)
     {
         Center = center;
         Radius = radius;
         Molecule = molecule;
+
 
         POINT p = new POINT();
 
