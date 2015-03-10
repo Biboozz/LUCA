@@ -104,9 +104,5 @@ public class Individual : MonoBehaviour
 		}
 		transform.position = pos;
 	}
-
-	void OnMouseDown()
-	{
-		Debug.Log("lol");
-	}
+	
 }
