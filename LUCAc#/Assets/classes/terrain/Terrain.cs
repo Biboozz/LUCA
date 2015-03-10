@@ -30,10 +30,19 @@ public class Terrain
                 P.x = UnityEngine.Random.Range(0, Width + 1);
                 P.y = UnityEngine.Random.Range(0, Heigth + 1);
 
-                Circles.Add(new RessourceCircle(P, UnityEngine.Random.Range(100, 301), M));
+                Circles.Add(new RessourceCircle(P, UnityEngine.Random.Range(100, 301), M, this));
             }
         }
+    }
 
+    public int get_Heigth()
+    {
+        return Heigth;
+    }
+
+    public int get_Width()
+    {
+        return Width;
     }
 
 }
