@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using System.Text;
 using AssemblyCSharp;
 using System.Linq;
 
@@ -64,99 +65,96 @@ public class perkTree : MonoBehaviour
 		
 	}
 
+
 	private List<perkData> readPerkTreeFile(string path)  	//this function is used to read the file where the perktree is written. It builds a list of every readed perk from this file.										//Please refer to the end of this class to see how the file is built.
 	{
 		List<perkData> perkTree = new List<perkData>();
-		try 
-		{	//it's not really important if you don't understand what is in this try. Move on. It's just reading the file.
+		try {											//it's not really important if you don't understand what is in this try. Move on. It's just reading the file.
 			StreamReader SR = new StreamReader(path);
-			string[] file = SR.ReadToEnd().Split(new Char [] {'\n'});
-			for (int i = 0; i < file.Length; i++)
+			string line = SR.ReadLine();
+			perkData p = new perkData();
+			
+			while (line != "ENDFILE") 
 			{
-				perkData p = new perkData();
-				string[] splitedLine;
-				if (file[i].Contains("STARTPERK"))
+				if (line == "STARTPERK")
 				{
-					p  = new perkData();
-					Debug.Log("new perk (" + i + ")");
+					p = new perkData();
+					Debug.Log("new perk");
 				}
-				if (file[i].Contains("PNAME"))
+				if (line.Contains("PNAME:")) 
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
-					p.name = lineData[1];
-					Debug.Log("perk name: " + p.name);
+					p.name = line.Substring(10, line.Length - 10);
+					Debug.Log(p.name);
 				}
-				if (file[i].Contains("PID"))
+				if (line.Contains("PID:")) 
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
-					p.ID = Convert.ToInt32(lineData[1]);
-					Debug.Log("perk ID: " + p.ID);
+					p.ID = Int32.Parse(line.Substring(8, line.Length - 8));
+					Debug.Log("ID: " + p.ID);
 				}
-				if (file[i].Contains("PDESCRIPTION"))
+				if (line.Contains("PDESCRIPTION:"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
-					p.description = lineData[1];
-					Debug.Log("perk description: " + p.description);
+					p.description = line.Substring(17, line.Length - 17);
+					Debug.Log("description: " + p.description);
 				}
-				if (file[i].Contains("PNEIGHBORS"))
+				if (line.Contains("PNEIGHBORS:")) 
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
-					for (int j = 0; j < 6; j++)
+					string[] s = line.Substring(15, line.Length - 15).Split(';');
+					for (int i = 0; i < 6; i++) 
 					{
-						p.neigborsID[j] = Convert.ToInt32(lineData[j+1]);
-					}
-					Debug.Log("neighbors: [" + p.neigborsID[0] + "][" + p.neigborsID[1] + "][" + p.neigborsID[2] + "][" + p.neigborsID[3] + "][" + p.neigborsID[4] + "][" + p.neigborsID[5] + "]"); 
-				}
-				if (file[i].Contains("TYPE"))
-				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
-					p.type = (perkType)Convert.ToInt32(lineData[1]);
-					Debug.Log("type: " + p.type + "          (" + i + ")");
-				}
-				if (file[i].Contains("INNEE"))
-				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
-					p.innate = (lineData[1][0] == 'T');
-					Debug.Log("is innate: " + p.innate + "          (" + i + ")");
-				}
-				if (file[i].Contains("COSTDEV"))
-				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
-					actionData AD = new actionData(0 , new List<moleculePack>(), new List<moleculePack>());
-					if (lineData[1] == "-1")
-					{
-
+						p.neigborsID[i] = Int32.Parse(s[i]);
+						Debug.Log("neighboor " + i + ": " + p.neigborsID[i]);
 					}
 				}
-				if (file[i].Contains("COSTCELL"))
+				if (line.Contains("TYPE:"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
+					p.type = (perkType)Convert.ToInt32(line.Substring(9, line.Length - 9));
+					Debug.Log("Type: " + p.type.ToString());
 				}
-				if (file[i].Contains("COSTENV"))
+				if (line.Contains("COSTATP:"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
+					p.cost.ATP = Convert.ToInt32(line.Substring(12, line.Length - 12));
+					Debug.Log("cout en ATP: " + p.cost.ATP);
 				}
-				if (file[i].Contains("PRODDEV"))
+				if (line.Contains("COSTCELL:"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
+					
 				}
-				if (file[i].Contains("PRODCELL"))
+				if (line.Contains("TYPE"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
+					
 				}
-				if (file[i].Contains("PRODENV"))
+				if (line.Contains("TYPE"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
+					
 				}
-				if (file[i].Contains("REQU"))
+				if (line.Contains("TYPE"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
+					
 				}
-				if (file[i].Contains("ENDPERK"))
+				if (line.Contains("TYPE"))
 				{
-					string[] lineData = file[i].Split(new Char [] {':',';'});
+					
 				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line.Contains("TYPE"))
+				{
+					
+				}
+				if (line == "ENDPERK") 
+				{
+					perkTree.Add(p); 				//adding the perk to the list
+					Debug.Log("added");
+				}
+				line = SR.ReadLine();
 			}
+			
 		}
 		catch (Exception e)
 		{
@@ -196,8 +194,10 @@ public class perkTree : MonoBehaviour
 			{
 				Vector3 p1 = new Vector3(perks[n].x, prefab.transform.position.y, perks[n].z);
 				perks[n].hex = (GameObject)Instantiate(this.prefab, p1, prefab.transform.rotation);
+				perks[n].hex.GetComponentInChildren<TextMesh>().text = formating(perks[n].name);
+				perks[n].hex.GetComponentInChildren<TextMesh>().characterSize = 8f / Mathf.Log( (float)perks[n].name.Length);
 				perks[n].drawn = true;
-				perks[n].hex.transform.parent = pos.transform;
+				perks[n].hex.transform.SetParent(pos.transform);
 				for(int i = 0; i < 6; i ++)
 				{
 					float angle = Mathf.PI * (1 + 2 * i) / 6; //mathematics!! the angle's formula.
@@ -219,6 +219,38 @@ public class perkTree : MonoBehaviour
 		}
 	}
 
+
+	static string formating(string input)
+	{
+		if (input.Length > 20) 
+		{
+			string[] splitedinput = input.Split (' ');
+			string output = "";
+			int i = 0;
+			while (i < splitedinput.Length) 
+			{
+				if (i % 2 == 0 && i != 0) 
+				{
+					output = output + '\n' + splitedinput [i];
+				} 
+				else 
+				{
+					output = output + ' ' + splitedinput [i];
+				}
+				i++;
+			}
+			byte[] bytes = Encoding.Default.GetBytes(output);
+			output = Encoding.UTF8.GetString(bytes);
+			return output;
+		} 
+		else 
+		{
+			byte[] bytes = Encoding.Default.GetBytes(input);
+			input = Encoding.UTF8.GetString(bytes);
+			return input;
+		}
+
+	}
 }
 
 
