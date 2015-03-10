@@ -22,8 +22,9 @@ public class RessourceCircle
 		set
 		{
 			_circleObject = value;
-			_circleObject.transform.position = new Vector3(Center.x, _circleObject.transform.position.y, Center.y);
+			_circleObject.transform.position = new Vector3(Center.x, UnityEngine.Random.Range(0f,3f), Center.y);
 			_circleObject.transform.localScale = new Vector3(Radius * 2,Radius * 2,1);
+			_circleObject.GetComponent<MeshRenderer>().material.color = new Color(1/(float)Molecule.ID, 0 , 1/(float)Molecule.ID , 1);
 		}
 	}
 
