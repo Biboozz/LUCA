@@ -15,6 +15,10 @@ public class onClick : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		Debug.Log("lol");
+		Individual I = gameObject.GetComponent<Individual>();
+		if (I.isPlayed) 
+		{
+			I.isSelectioned = !I.isSelectioned;
+		}
 	}
 }
