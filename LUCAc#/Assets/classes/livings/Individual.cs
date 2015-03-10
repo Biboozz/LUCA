@@ -12,7 +12,15 @@ public class Individual : MonoBehaviour
 	public bool alive = true;
 	public Species species;
 	private int _survivedTime = 0;
-	public bool isPlayed = false;
+	private bool isPlayed = false;
+    private bool _isSelectioned = false;
+
+    public bool isSelectioned
+    {
+        get { return _isSelectioned; }
+        set { _isSelectioned = value; }
+    }
+
 	public List<moleculePack> cellMolecules = new List<moleculePack>();
 	public int ATP;
 	private int coolDown = 0;
