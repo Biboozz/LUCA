@@ -24,6 +24,12 @@ public class perkTree : MonoBehaviour
 	//I chose this folder because I don't know how to get the Assets folder. Need to work on it.
 	private bool valid = true;
 	private bool shown = false;
+
+    public bool _Shown
+    {
+        get { return shown; }
+    }
+
 	private bool ressshown = false;
 
 	public GameObject pos;
