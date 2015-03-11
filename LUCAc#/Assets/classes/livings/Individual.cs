@@ -14,6 +14,8 @@ public class Individual : MonoBehaviour
 	private int _survivedTime = 0;
 	private bool _isPlayed = false;
     private bool _isSelectioned = false;
+    private Ray ray_mouse;
+    private Vector3 cell_position;
 
     public bool isSelectioned
     {
@@ -58,21 +60,34 @@ public class Individual : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () 
-	{ 
-		transform.Translate(0.05f,0f,0f);
-		transform.Rotate (0, 0, UnityEngine.Random.Range(-2,3));
-		toCorrectPosition();
-		if (coolDown >= 10 && initialized) 
-		{
-			coolDown = 0;
-			_survivedTime = _survivedTime + 1;
-			alive = (_survivedTime < _lifeTime);
-			action ();
-		} 
-		else 
-		{
-			coolDown++;
-		}
+	{
+        if (_isSelectioned == false)
+        {
+            transform.Translate(0.05f, 0f, 0f);
+            transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
+            toCorrectPosition();
+            if (coolDown >= 10 && initialized)
+            {
+                coolDown = 0;
+                _survivedTime = _survivedTime + 1;
+                alive = (_survivedTime < _lifeTime);
+                action();
+            }
+            else
+            {
+                coolDown++;
+            }
+        }
+        else
+        {   //Paramétré ici script pour choisir direction et déplacement souhaité
+            if (Input.GetMouseButtonDown(1))    //if right click
+            {
+                ray_mouse = Camera.main.ScreenPointToRay(Input.mousePosition);
+                cell_position = transform.position;
+
+            }
+        }
+		
 	}
 	
 	public void action () 
