@@ -1,0 +1,107 @@
+Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4000 (ID=0x162)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\Mad2D.dll (this message is harmless)
+Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\Mad2D.dll into Unity Child Domain
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\MadCommons.dll (this message is harmless)
+Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\MadCommons.dll into Unity Child Domain
+- Completed reload, in  0.043 seconds
+desktop: 1680x1050 59Hz; virtual: 1680x1050 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\System.dll (this message is harmless)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.268425 ms
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 408.
+Total: 0.273173 ms (FindLiveObjects: 0.019318 ms CreateObjectMapping: 0.027468 ms MarkObjects: 0.151528 ms  DeleteObjects: 0.074556 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.421985 ms
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 467.
+Total: 0.505597 ms (FindLiveObjects: 0.027166 ms CreateObjectMapping: 0.038636 ms MarkObjects: 0.175072 ms  DeleteObjects: 0.263816 ms)
+
+System.Exception: No file was found at this path: Assets\perktree.txt
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+error trying to read the molecule file
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+System.Exception: this perkTree is unvalid!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+is selectioned True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+

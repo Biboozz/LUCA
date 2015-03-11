@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections;
 
+#if UNITY_EDITOR
 namespace PrimitivePlus {
 	public class PrimitivePlusEditor : MonoBehaviour {
 	
@@ -320,3 +323,4 @@ namespace PrimitivePlus {
 		}
 	}
 }
+#endif
