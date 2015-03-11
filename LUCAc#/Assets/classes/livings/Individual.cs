@@ -58,21 +58,30 @@ public class Individual : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () 
-	{ 
-		transform.Translate(0.05f,0f,0f);
-		transform.Rotate (0, 0, UnityEngine.Random.Range(-2,3));
-		toCorrectPosition();
-		if (coolDown >= 10 && initialized) 
-		{
-			coolDown = 0;
-			_survivedTime = _survivedTime + 1;
-			alive = (_survivedTime < _lifeTime);
-			action ();
-		} 
-		else 
-		{
-			coolDown++;
-		}
+	{
+        if (_isSelectioned == false)
+        {
+            transform.Translate(0.05f, 0f, 0f);
+            transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
+            toCorrectPosition();
+            if (coolDown >= 10 && initialized)
+            {
+                coolDown = 0;
+                _survivedTime = _survivedTime + 1;
+                alive = (_survivedTime < _lifeTime);
+                action();
+            }
+            else
+            {
+                coolDown++;
+            }
+        }
+        else
+        {
+            //Do nothing
+            //Paramétré ici script pour choisir direction et déplacement souhaité
+        }
+		
 	}
 	
 	public void action () 
