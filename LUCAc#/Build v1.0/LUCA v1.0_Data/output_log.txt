@@ -2,44 +2,44 @@ Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
-    Vendor:   Intel
-    VRAM:     128 MB
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\Mad2D.dll (this message is harmless)
-Loading C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\Mad2D.dll into Unity Child Domain
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\MadCommons.dll (this message is harmless)
-Loading C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\MadCommons.dll into Unity Child Domain
-- Completed reload, in  0.221 seconds
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\Mad2D.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\Mad2D.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\MadCommons.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\MadCommons.dll into Unity Child Domain
+- Completed reload, in  0.043 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Etienne Le Gourriere\Desktop\LUCA v1.0_Data\Managed\System.dll (this message is harmless)
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.0_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.496926 ms
+UnloadTime: 1.034822 ms
 System memory in use before: 43.4 MB.
 System memory in use after: 43.4 MB.
 
 Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 416.
-Total: 0.735137 ms (FindLiveObjects: 0.079971 ms CreateObjectMapping: 0.045331 ms MarkObjects: 0.356235 ms  DeleteObjects: 0.248894 ms)
+Total: 0.239908 ms (FindLiveObjects: 0.014921 ms CreateObjectMapping: 0.012287 ms MarkObjects: 0.120831 ms  DeleteObjects: 0.091574 ms)
 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.727011 ms
-System memory in use before: 102.8 MB.
+UnloadTime: 0.549740 ms
+System memory in use before: 102.7 MB.
 System memory in use after: 102.7 MB.
 
 Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 489.
-Total: 1.395862 ms (FindLiveObjects: 0.067996 ms CreateObjectMapping: 0.043620 ms MarkObjects: 0.381039 ms  DeleteObjects: 0.901922 ms)
+Total: 0.679934 ms (FindLiveObjects: 0.034523 ms CreateObjectMapping: 0.019602 ms MarkObjects: 0.232593 ms  DeleteObjects: 0.391752 ms)
 
 A file was found
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -128,7 +128,7 @@ perkTree:Start() (at D:\Documents\GitHub\LUCA\LUCAc#\Assets\classes\skills\perkT
  
 (Filename: D:/Documents/GitHub/LUCA/LUCAc#/Assets/classes/skills/perkTree.cs Line: 126)
 
-Type: liv
+Type: abs
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 perkTree:readPerkTreeFile(String) (at D:\Documents\GitHub\LUCA\LUCAc#\Assets\classes\skills\perkTree.cs:132)
@@ -136,7 +136,7 @@ perkTree:Start() (at D:\Documents\GitHub\LUCA\LUCAc#\Assets\classes\skills\perkT
  
 (Filename: D:/Documents/GitHub/LUCA/LUCAc#/Assets/classes/skills/perkTree.cs Line: 132)
 
-type: liv
+type: abs
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 perkTree:readPerkTreeFile(String) (at D:\Documents\GitHub\LUCA\LUCAc#\Assets\classes\skills\perkTree.cs:146)
@@ -1817,28 +1817,6 @@ UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32) (at C:\buildslave\un
  
 (Filename: D:/Documents/GitHub/LUCA/LUCAc#/Assets/classes/Selection/onClick.cs Line: 26)
 
-is selectioned True
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-onClick:OnMouseDown() (at D:\Documents\GitHub\LUCA\LUCAc#\Assets\classes\Selection\onClick.cs:26)
-UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
-UnityEngine.HitInfo:SendMessage(String) (at C:\buildslave\unity\build\Runtime\Export\MouseEvents.cs:17)
-UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo) (at C:\buildslave\unity\build\Runtime\Export\MouseEvents.cs:153)
-UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32) (at C:\buildslave\unity\build\Runtime\Export\MouseEvents.cs:135)
- 
-(Filename: D:/Documents/GitHub/LUCA/LUCAc#/Assets/classes/Selection/onClick.cs Line: 26)
-
-is selectioned False
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-onClick:OnMouseDown() (at D:\Documents\GitHub\LUCA\LUCAc#\Assets\classes\Selection\onClick.cs:26)
-UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
-UnityEngine.HitInfo:SendMessage(String) (at C:\buildslave\unity\build\Runtime\Export\MouseEvents.cs:17)
-UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo) (at C:\buildslave\unity\build\Runtime\Export\MouseEvents.cs:153)
-UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32) (at C:\buildslave\unity\build\Runtime\Export\MouseEvents.cs:135)
- 
-(Filename: D:/Documents/GitHub/LUCA/LUCAc#/Assets/classes/Selection/onClick.cs Line: 26)
-
 is selectioned False
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -1851,12 +1829,12 @@ UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32) (at C:\buildslave\un
 (Filename: D:/Documents/GitHub/LUCA/LUCAc#/Assets/classes/Selection/onClick.cs Line: 26)
 
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 18.739370 ms
-System memory in use before: 129.9 MB.
-System memory in use after: 106.0 MB.
+UnloadTime: 7.925743 ms
+System memory in use before: 129.7 MB.
+System memory in use after: 105.3 MB.
 
-Unloading 630 unused Assets to reduce memory usage. Loaded Objects now: 786.
-Total: 6.235195 ms (FindLiveObjects: 0.493085 ms CreateObjectMapping: 0.127868 ms MarkObjects: 1.105485 ms  DeleteObjects: 4.506617 ms)
+Unloading 627 unused Assets to reduce memory usage. Loaded Objects now: 786.
+Total: 2.929511 ms (FindLiveObjects: 0.286719 ms CreateObjectMapping: 0.039789 ms MarkObjects: 0.422472 ms  DeleteObjects: 2.179067 ms)
 
 MissingMethodException: The best match for method OnSelect has some invalid parameter.
   at System.MonoType.InvokeMember (System.String name, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) [0x00655] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System/MonoType.cs:525 
