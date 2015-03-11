@@ -86,6 +86,7 @@ public class Individual : MonoBehaviour
                 var mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 click_position = new Vector3(mousePositionInWorld.x, 0, mousePositionInWorld.z);
                 cell_position = transform.position;
+                Debug.Log(Input.mousePosition.x + " " + Input.mousePosition.y + " " + Input.mousePosition.z);
                 Debug.Log(mousePositionInWorld.x + " " + mousePositionInWorld.y + " " + mousePositionInWorld.z);
                 Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z);
                 
