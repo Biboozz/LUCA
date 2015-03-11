@@ -14,7 +14,7 @@ public class Individual : MonoBehaviour
 	private int _survivedTime = 0;
 	private bool _isPlayed = false;
     private bool _isSelectioned = false;
-    private Ray ray_mouse;
+    private Vector3 click_position;
     private Vector3 cell_position;
 
     public bool isSelectioned
@@ -83,8 +83,12 @@ public class Individual : MonoBehaviour
         {   //Paramétré ici script pour choisir direction et déplacement souhaité
             if (Input.GetMouseButtonDown(1))    //if right click
             {
-                ray_mouse = Camera.main.ScreenPointToRay(Input.mousePosition);
+                var mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                click_position = new Vector3(mousePositionInWorld.x, 0, mousePositionInWorld.z);
                 cell_position = transform.position;
+                Debug.Log(mousePositionInWorld.x + " " + mousePositionInWorld.y + " " + mousePositionInWorld.z);
+                Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z);
+                
 
             }
         }
