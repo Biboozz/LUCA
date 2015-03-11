@@ -16,7 +16,9 @@ public class Individual : MonoBehaviour
     private bool _isSelectioned = false;
     private Vector3 click_position;
     private Vector3 cell_position;
-	public float distance = 4.5f;
+	private float distance = 4.5f;
+	private bool direction = false;
+
 
     public bool isSelectioned
     {
@@ -81,21 +83,30 @@ public class Individual : MonoBehaviour
             }
         }
         else
-        {   //Paramétré ici script pour choisir direction et déplacement souhaité
+        {
             if (Input.GetMouseButtonDown(1))    //if right click
             {
-                var mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                click_position = new Vector3(mousePositionInWorld.x, 0, mousePositionInWorld.z);
-                cell_position = transform.position;
+				float _X;
+				float _Y;
 
+                cell_position = transform.position;		//Coords of cells selected
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    
-				Vector3 point  = ray.origin + (ray.direction * distance);    
-				Debug.Log( "World point " + point );
+				click_position  = ray.origin + (ray.direction * distance);    //Coords of Right Click
 
-                Debug.Log(Input.mousePosition.x + " " + Input.mousePosition.y + " " + Input.mousePosition.z);
-                Debug.Log(mousePositionInWorld.x + " " + mousePositionInWorld.y + " " + mousePositionInWorld.z);
-                Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z);
+				click_position = new Vector3(click_position.x, 0.1f, click_position.z);
+
+
+				Debug.Log(click_position);
+
+				direction = true;	//direction defini by right click
             }
+
+			if(direction)
+			{
+				cell_position = Vector3.MoveTowards(cell_position, click_position, 10f);
+				toCorrectPosition();
+			}
+
         }
 		
 	}
