@@ -79,22 +79,30 @@ public class Individual : MonoBehaviour
                 action();
             }
             else
-            {
+			{
                 coolDown++;
             }
         }
         else
         {
-			if (Input.GetMouseButtonDown(1))    //if right click
+			if (Input.GetKey(KeyCode.Q))      //Left
 			{
-				direction = true;
+				transform.Translate(Vector3.right * Time.deltaTime * 10, Space.World);
 			}
-
-			if(direction)
+			
+			if (Input.GetKey(KeyCode.D))     //Right
 			{
-				transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 2f);
-				toCorrectPosition();
-				direction = target.transform.position != transform.position;
+				transform.Translate(Vector3.right * Time.deltaTime * -10, Space.World);
+			}
+			
+			if (Input.GetKey(KeyCode.S))      //Down
+			{
+				transform.Translate(Vector3.forward * Time.deltaTime * 10, Space.World);
+			}
+			
+			if (Input.GetKey(KeyCode.Z))       //Top
+			{
+				transform.Translate(Vector3.forward * Time.deltaTime * -10, Space.World);
 			}
 
         }
