@@ -23,7 +23,7 @@ public class environment : MonoBehaviour {
 		
 		for (int i = 0; i < S.Individuals.Count; i++) 
 		{
-			S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, false, new List<moleculePack>(), 100);
+			S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, true, new List<moleculePack>(), 100);
 		}
 	}
 	

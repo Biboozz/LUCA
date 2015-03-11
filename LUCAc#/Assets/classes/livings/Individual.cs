@@ -12,7 +12,7 @@ public class Individual : MonoBehaviour
 	public bool alive = true;
 	public Species species;
 	private int _survivedTime = 0;
-	private bool isPlayed = false;
+	private bool _isPlayed = false;
     private bool _isSelectioned = false;
 
     public bool isSelectioned
@@ -20,6 +20,11 @@ public class Individual : MonoBehaviour
         get { return _isSelectioned; }
         set { _isSelectioned = value; }
     }
+
+	public bool isPlayed
+	{
+		get { return _isPlayed; }
+	}
 
 	public List<moleculePack> cellMolecules = new List<moleculePack>();
 	public int ATP;
@@ -82,7 +87,7 @@ public class Individual : MonoBehaviour
 		this.species = species;
 		transform.SetParent(place.transform);
 		this.place = place;
-		this.isPlayed = isPlayed;
+		this._isPlayed = isPlayed;
 		cellMolecules = molecules;
 		this.ATP = ATP;
 	}
