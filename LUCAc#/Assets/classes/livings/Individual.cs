@@ -18,7 +18,7 @@ public class Individual : MonoBehaviour
     private Vector3 cell_position;
 	private float distance = 4.5f;
 	private bool direction = false;
-
+	private Transform target;
 
     public bool isSelectioned
     {
@@ -59,6 +59,7 @@ public class Individual : MonoBehaviour
 	void Start () 
 	{
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
+		target = place.transform.GetChild(1).GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
@@ -84,27 +85,16 @@ public class Individual : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(1))    //if right click
-            {
-				float _X;
-				float _Y;
-
-                cell_position = transform.position;		//Coords of cells selected
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    
-				click_position  = ray.origin + (ray.direction * distance);    //Coords of Right Click
-
-				click_position = new Vector3(click_position.x, 0.1f, click_position.z);
-
-
-				Debug.Log(click_position);
-
-				direction = true;	//direction defini by right click
-            }
+			if (Input.GetMouseButtonDown(1))    //if right click
+			{
+				direction = true;
+			}
 
 			if(direction)
 			{
-				cell_position = Vector3.MoveTowards(cell_position, click_position, 10f);
+				transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 2f);
 				toCorrectPosition();
+				direction = target.transform.position != transform.position;
 			}
 
         }
