@@ -3,7 +3,7 @@ STARTPERK
     PID:0
     PDESCRIPTION:Vos cellules sont vivantes
     PNEIGHBORS:2;1;14;13;4;3
-    TYPE:1
+    TYPE:0
     INNEE:T
     COSTDEV:-1
     COSTCELL:-1

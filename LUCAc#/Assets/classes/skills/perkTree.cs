@@ -142,7 +142,8 @@ public class perkTree : MonoBehaviour
 				}
 				if (line.Contains("TYPE"))
 				{
-					
+					p.type = (perkType)Convert.ToInt32(line.Split(':')[1]);
+					Debug.Log("type: " + p.type.ToString());
 				}
 				if (line.Contains("TYPE"))
 				{

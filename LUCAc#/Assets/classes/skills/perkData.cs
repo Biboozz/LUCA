@@ -16,7 +16,7 @@ namespace AssemblyCSharp
 		public int ID = -1;							// base id of the perk
 		public string name = "";					// game name of ther perk
 		public bool drawn;							// true if the perk is drawn on the screen, false otherwise
-		public GameObject hex;						// hexagon on the screen representing the perk
+		private GameObject _hex;						// hexagon on the screen representing the perk
 		public float x;								// position x
 		public float z;								// position y
 		public GameObject[] links = new GameObject[6];
@@ -63,6 +63,42 @@ namespace AssemblyCSharp
 		public perkData () //overload constructor
 		{
 			this.drawn = false;
+		}
+
+		public GameObject hex
+		{
+			get
+			{
+				return _hex;
+			}
+			set
+			{
+				_hex = value;
+				switch ((int)type)
+				{
+				case 0:
+					_hex.GetComponent<MeshRenderer>().material.color = new Color (0, 0, 1, 1);
+					_hex.GetComponentInChildren<TextMesh>().color = new Color (1, 1, 0, 1);
+					break;
+				case 1:
+					_hex.GetComponent<MeshRenderer>().material.color = new Color (0, 1, 0, 1);
+					_hex.GetComponentInChildren<TextMesh>().color = new Color (1, 0, 1, 1);
+					break;
+				case 2:
+					_hex.GetComponent<MeshRenderer>().material.color = new Color (1, 0, 0, 1);
+					_hex.GetComponentInChildren<TextMesh>().color = new Color (0, 1, 1, 1);
+					break;
+				case 3:
+					_hex.GetComponent<MeshRenderer>().material.color = new Color (0, 1, 1, 1);
+					_hex.GetComponentInChildren<TextMesh>().color = new Color (1, 0, 0, 1);
+					break;
+				case 4:
+					_hex.GetComponent<MeshRenderer>().material.color = new Color (1, 0, 1, 1);
+					_hex.GetComponentInChildren<TextMesh>().color = new Color (0, 1, 0, 1);
+					break;
+				}
+
+			}
 		}
 
 	}
