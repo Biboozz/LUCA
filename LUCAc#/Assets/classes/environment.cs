@@ -16,7 +16,7 @@ public class environment : MonoBehaviour {
 	void Start () 
 	{
 		Species S = new Species (this);
-		for (int i = 1; i <= 100; i++) 
+		for (int i = 1; i <= 500; i++) 
 		{
 			S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
 		}

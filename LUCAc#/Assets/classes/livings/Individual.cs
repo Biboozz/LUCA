@@ -87,22 +87,22 @@ public class Individual : MonoBehaviour
         {
 			if (Input.GetKey(KeyCode.Q))      //Left
 			{
-				transform.Translate(Vector3.right * Time.deltaTime * 10, Space.World);
+				transform.Translate(Vector3.right * Time.deltaTime * 15, Space.World);
 			}
 			
 			if (Input.GetKey(KeyCode.D))     //Right
 			{
-				transform.Translate(Vector3.right * Time.deltaTime * -10, Space.World);
+				transform.Translate(Vector3.right * Time.deltaTime * -15, Space.World);
 			}
 			
 			if (Input.GetKey(KeyCode.S))      //Down
 			{
-				transform.Translate(Vector3.forward * Time.deltaTime * 10, Space.World);
+				transform.Translate(Vector3.forward * Time.deltaTime * 15, Space.World);
 			}
 			
 			if (Input.GetKey(KeyCode.Z))       //Top
 			{
-				transform.Translate(Vector3.forward * Time.deltaTime * -10, Space.World);
+				transform.Translate(Vector3.forward * Time.deltaTime * -15, Space.World);
 			}
 
         }
