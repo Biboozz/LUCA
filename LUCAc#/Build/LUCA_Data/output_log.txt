@@ -18,90 +18,24 @@ Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Man
 Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\Mad2D.dll into Unity Child Domain
 Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\MadCommons.dll (this message is harmless)
 Loading C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\MadCommons.dll into Unity Child Domain
-- Completed reload, in  0.043 seconds
+- Completed reload, in  0.041 seconds
 desktop: 1680x1050 59Hz; virtual: 1680x1050 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\epita\Desktop\Projet\LUCA\LUCAc#\Build\LUCA_Data\Managed\System.dll (this message is harmless)
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.268425 ms
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 408.
-Total: 0.273173 ms (FindLiveObjects: 0.019318 ms CreateObjectMapping: 0.027468 ms MarkObjects: 0.151528 ms  DeleteObjects: 0.074556 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.421985 ms
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 467.
-Total: 0.505597 ms (FindLiveObjects: 0.027166 ms CreateObjectMapping: 0.038636 ms MarkObjects: 0.175072 ms  DeleteObjects: 0.263816 ms)
-
-System.Exception: No file was found at this path: Assets\perktree.txt
+MissingMethodException: The best match for method OnSelect has some invalid parameter.
+  at System.MonoType.InvokeMember (System.String name, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMember (System.Object behaviour, System.String name, System.Object variable) [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:set_selectedObject(GameObject)
+UICamera:ProcessPress(Boolean, Single, Single)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:ProcessTouches()
+UICamera:Update()
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-error trying to read the molecule file
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-System.Exception: this perkTree is unvalid!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-is selectioned True
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename:  Line: -1)
 
