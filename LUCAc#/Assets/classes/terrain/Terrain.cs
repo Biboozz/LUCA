@@ -10,6 +10,7 @@ public class Terrain
 	private int Heigth;
 	private int Width;
 	private List<RessourceCircle> Circles = new List<RessourceCircle>();
+    private int moyTemperature;
 
     ///TODO: fair une fonction aui retourn une liste de mollecules a cote de la cellule.
 
