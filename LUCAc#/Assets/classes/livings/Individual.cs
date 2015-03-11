@@ -61,6 +61,7 @@ public class Individual : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
         if (_isSelectioned == false)
         {
             transform.Translate(0.05f, 0f, 0f);
