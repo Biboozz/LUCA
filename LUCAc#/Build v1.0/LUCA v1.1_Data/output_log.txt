@@ -1,0 +1,41 @@
+Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\Mad2D.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\Mad2D.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\MadCommons.dll (this message is harmless)
+Loading D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\MadCommons.dll into Unity Child Domain
+- Completed reload, in  0.043 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\GitHub\LUCA\LUCA\LUCAc#\Build v1.0\LUCA v1.1_Data\Managed\System.dll (this message is harmless)
+MissingMethodException: The best match for method OnSelect has some invalid parameter.
+  at System.MonoType.InvokeMember (System.String name, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) [0x00655] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System/MonoType.cs:525 
+  at UnityEngine.SetupCoroutine.InvokeMember (System.Object behaviour, System.String name, System.Object variable) [0x00013] in C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:18 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object) (at C:\Users\Biboozz\Desktop\Projet\LUCA\LUCAc#\Assets\Menu\NGUI\Scripts\UI\UICamera.cs:1074)
+UICamera:set_selectedObject(GameObject) (at C:\Users\Biboozz\Desktop\Projet\LUCA\LUCAc#\Assets\Menu\NGUI\Scripts\UI\UICamera.cs:546)
+UICamera:ProcessPress(Boolean, Single, Single) (at C:\Users\Biboozz\Desktop\Projet\LUCA\LUCAc#\Assets\Menu\NGUI\Scripts\UI\UICamera.cs:1738)
+UICamera:ProcessTouch(Boolean, Boolean) (at C:\Users\Biboozz\Desktop\Projet\LUCA\LUCAc#\Assets\Menu\NGUI\Scripts\UI\UICamera.cs:1908)
+UICamera:ProcessMouse() (at C:\Users\Biboozz\Desktop\Projet\LUCA\LUCAc#\Assets\Menu\NGUI\Scripts\UI\UICamera.cs:1427)
+UICamera:ProcessTouches() (at C:\Users\Biboozz\Desktop\Projet\LUCA\LUCAc#\Assets\Menu\NGUI\Scripts\UI\UICamera.cs:1544)
+UICamera:Update() (at C:\Users\Biboozz\Desktop\Projet\LUCA\LUCAc#\Assets\Menu\NGUI\Scripts\UI\UICamera.cs:1223)
+ 
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System/MonoType.cs Line: 525)
+
