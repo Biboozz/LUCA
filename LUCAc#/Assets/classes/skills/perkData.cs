@@ -27,7 +27,7 @@ namespace AssemblyCSharp
 		public actionData onDevProd;
 		public bool innate;
 		public perkType type;
-
+		public int[] required;
 
 		public perkData (string name, int[] neighborsID, string description, int ID) //use this for initialisation
 		{
@@ -60,9 +60,11 @@ namespace AssemblyCSharp
 			this.type = type;
 		}
 
-		public perkData () //overload constructor
+		public perkData () : this ("unNamed", new int[]{-1,-1,-1,-1,-1,-1}, "NoDescription", -42, new actionData(), new actionData(), false, 0)//overload constructor
 		{
 			this.drawn = false;
+			onDevCost = new actionData();
+			onDevProd = new actionData();
 		}
 
 		public GameObject hex

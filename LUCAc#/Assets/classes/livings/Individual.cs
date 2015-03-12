@@ -9,81 +9,57 @@ using System.Linq;
 public class Individual : MonoBehaviour
 {
 	private int _lifeTime;
-	public bool alive = true;
-	public Species species;
+	private bool _alive = true;
+	private Species _species;
 	private int _survivedTime = 0;
 	private bool _isPlayed = false;
     private bool _isSelectioned = false;
-    private Vector3 click_position;
-    private Vector3 cell_position;
-	private float distance = 4.5f;
-	private bool direction = false;
-	private Transform target;
-
-    public bool isSelectioned
-    {
-        get { return _isSelectioned; }
-        set { _isSelectioned = value; }
-    }
-
-	public bool isPlayed
-	{
-		get { return _isPlayed; }
-	}
-
-	public List<moleculePack> cellMolecules = new List<moleculePack>();
-	public int ATP;
+	private List<moleculePack> _cellMolecules = new List<moleculePack>();
+	private int _ATP;
 	private int coolDown = 0;
 	private bool initialized = false;
 	private environment place;
 
 	#region accessors
-	public int survivedTime
-	{
-		get
-		{
-			return _survivedTime;
-		}
-	}
-
-	public int lifetime
-	{
-		get
-		{
-			return _lifeTime;
-		}
-	}
+	public int survivedTime 		{ 	get { return _survivedTime; 	} 											}
+	public int lifetime 			{ 	get { return _lifeTime;			} 											}
+	public bool isSelectioned 		{ 	get { return _isSelectioned; 	} 		set { _isSelectioned = value; 	} 	}
+	public bool alive 				{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
+	public Species species 			{ 	get { return _species; 			} 		set { _species = value; 		} 	}
+	public bool isPlayed 			{ 	get { return _isPlayed; 		} 											}
+	public int ATP					{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
+	
 	#endregion
 
 	// Use this for initialization
 	void Start () 
 	{
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
-		target = place.transform.GetChild(1).GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
-        if (_isSelectioned == false)
+        if (_isSelectioned == false) //random movement
         {
             transform.Translate(0.05f, 0f, 0f);
             transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
-            toCorrectPosition();
+            
             if (coolDown >= 10 && initialized)
             {
                 coolDown = 0;
                 _survivedTime = _survivedTime + 1;
-                alive = (_survivedTime < _lifeTime);
+                _alive = (_survivedTime < _lifeTime);
                 action();
             }
             else
 			{
                 coolDown++;
             }
+			toCorrectPosition(20f);
         }
-        else
+        else //player control
         {
 			if (Input.GetKey(KeyCode.Q))      //Left
 			{
@@ -104,9 +80,9 @@ public class Individual : MonoBehaviour
 			{
 				transform.Translate(Vector3.forward * Time.deltaTime * -15, Space.World);
 			}
-
+			toCorrectPosition(0f);
         }
-		
+
 	}
 	
 	public void action () 
@@ -118,42 +94,37 @@ public class Individual : MonoBehaviour
 	{
 		transform.position = position;
 		_lifeTime = lifetime;
-		this.species = species;
+		_species = species;
 		transform.SetParent(place.transform);
 		this.place = place;
-		this._isPlayed = isPlayed;
-		cellMolecules = molecules;
-		this.ATP = ATP;
+		_isPlayed = isPlayed;
+		_cellMolecules = molecules;
+		_ATP = ATP;
 	}
 	
-	void toCorrectPosition()
+	public void toCorrectPosition(float angle) //correct the cell position, rotate it of the angle value
 	{
 		Vector3 pos = transform.position;
 		if (pos.x < 1) 
 		{
 			pos.x = 1;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		if (pos.x > 2000) 
 		{
 			pos.x = 2000;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		if (pos.z < 1) 
 		{
 			pos.z = 1;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		if (pos.z > 2000) 
 		{
 			pos.z = 2000;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		transform.position = pos;
-	}
-
-	void OnMouseDown()
-	{
-		Debug.Log("lol");
 	}
 }

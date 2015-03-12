@@ -35,9 +35,13 @@ public class perkTree : MonoBehaviour
 	public GameObject pos;
 	public GameObject cam;
 	public GameObject link;
+
+	private List<molecule> GameMolecules; 
 	
 	void Start()
 	{
+		QualitySettings.antiAliasing = 8;
+		GameMolecules = readMoleculeFile (@"Assets\molecules.txt");
 		if (File.Exists (path)) 
 		{
 			Debug.Log ("A file was found");
@@ -49,8 +53,7 @@ public class perkTree : MonoBehaviour
 			valid = false;
 		}
 		drawPerkTree ();
-		QualitySettings.antiAliasing = 4;
-		Terrain T = new Terrain (2000, 2000, readMoleculeFile (@"Assets\molecules.txt"));
+		Terrain T = new Terrain (2000, 2000, GameMolecules);
 		foreach (RessourceCircle RC in T.circles) 
 		{
 			RC.circleObject = (GameObject)Instantiate(ressourcePrefab, ressourcesPosition.transform.position,ressourcesPosition.transform.rotation);
@@ -65,6 +68,7 @@ public class perkTree : MonoBehaviour
 			if (valid) 
 			{
 				pos.SetActive(!shown);
+				newTreePos();
 				shown = !shown;
 			} 
 			else
@@ -76,13 +80,7 @@ public class perkTree : MonoBehaviour
 		{
 			ressshown = !ressshown;
 			ressourcesPosition.SetActive(ressshown);
-		}
-        Vector3 p = pos.transform.position;
-        p.x = cam.transform.position.x;
-        p.z = cam.transform.position.z;
-		p.y = 10;
-        pos.transform.position = p;
-        
+		}     
 		
 	}
 
@@ -90,7 +88,8 @@ public class perkTree : MonoBehaviour
 	private List<perkData> readPerkTreeFile(string path)  	//this function is used to read the file where the perktree is written. It builds a list of every readed perk from this file.										//Please refer to the end of this class to see how the file is built.
 	{
 		List<perkData> perkTree = new List<perkData>();
-		try {											//it's not really important if you don't understand what is in this try. Move on. It's just reading the file.
+		try 
+		{											//it's not really important if you don't understand what is in this try. Move on. It's just reading the file.
 			StreamReader SR = new StreamReader(path);
 			string line = SR.ReadLine();
 			perkData p = new perkData();
@@ -128,48 +127,51 @@ public class perkTree : MonoBehaviour
 				}
 				if (line.Contains("TYPE:"))
 				{
-					p.type = (perkType)Convert.ToInt32(line.Substring(9, line.Length - 9));
-					Debug.Log("Type: " + p.type.ToString());
-				}
-				if (line.Contains("COSTATP:"))
-				{
-					p.cost.ATP = Convert.ToInt32(line.Substring(12, line.Length - 12));
-					Debug.Log("cout en ATP: " + p.cost.ATP);
-				}
-				if (line.Contains("COSTCELL:"))
-				{
-					
-				}
-				if (line.Contains("TYPE"))
-				{
 					p.type = (perkType)Convert.ToInt32(line.Split(':')[1]);
 					Debug.Log("type: " + p.type.ToString());
 				}
-				if (line.Contains("TYPE"))
+				if (line.Contains("COSTDEV:"))
 				{
-					
+					addData(ref p.onDevCost.cellMolecules,ref p.onDevCost, line);
 				}
-				if (line.Contains("TYPE"))
+				if (line.Contains("COSTCELL:"))
 				{
-					
+					addData(ref p.cost.cellMolecules,ref p.cost, line);
 				}
-				if (line.Contains("TYPE"))
+				if (line.Contains("COSTENV"))
 				{
-					
+					addData(ref p.cost.environmentMolecules,ref p.cost, line);
 				}
-				if (line.Contains("TYPE"))
+				if (line.Contains("PRODDEV"))
 				{
-					
+					addData(ref p.onDevProd.cellMolecules,ref p.onDevProd, line);
 				}
-				if (line.Contains("TYPE"))
+				if (line.Contains("PRODCELL"))
 				{
-					
+					addData(ref p.products.cellMolecules,ref p.products, line);
 				}
-				if (line.Contains("TYPE"))
+				if (line.Contains("PRODENV"))
 				{
-					
+					addData(ref p.products.environmentMolecules,ref p.products, line);
 				}
-				if (line == "ENDPERK") 
+				if (line.Contains("REQU"))
+				{
+					string [] data = line.Split(new char[] {';',':'});
+					if (Convert.ToInt32(data [1]) == -1)
+					{
+						p.required = new int[] {-1};
+					}
+					else
+					{
+						p.required = new int[data.Length - 1];
+						for (int i = 1; i < data.Length; i++)
+						{
+							p.required[i - 1] = Convert.ToInt32(data[i]);
+						}
+					}
+
+				}
+				if (line.Contains("ENDPERK")) 
 				{
 					perkTree.Add(p); 				//adding the perk to the list
 					Debug.Log("added");
@@ -181,6 +183,7 @@ public class perkTree : MonoBehaviour
 		catch (Exception e)
 		{
 			Debug.Log(e);   // in case of trouble
+			valid = false;
 		}
 		return perkTree;
 	}
@@ -300,6 +303,45 @@ public class perkTree : MonoBehaviour
 			input = Encoding.UTF8.GetString(bytes);
 			return input;
 		}
+
+	}
+
+	public void addData (ref List<moleculePack> L,ref actionData AD, string s)
+	{
+		string [] data = s.Split(new Char [] {':',';'});
+		for (int i = 1; i < data.Length; i++)
+		{
+			if (data[i].Contains("["))
+			{
+				moleculePack MP = new moleculePack();
+				string [] dataMolecule = data[i].Split(new char[] {'[',']'});
+				if (dataMolecule[1].Contains("ATP"))
+				{
+					AD.ATP = Convert.ToInt32(dataMolecule[0]);
+				}
+				else
+				{
+					MP.count = Convert.ToInt32(dataMolecule[0]);
+					int j = 0;
+					int ID = Convert.ToInt32(dataMolecule[1]);
+					while (j < GameMolecules.Count - 1 && (GameMolecules[j].ID != ID))
+					{
+						j++;
+					}
+					MP.moleculeType = GameMolecules[j];
+					L.Add(MP);
+				}
+			}
+		}
+	}
+
+	public void newTreePos()
+	{
+		Vector3 p = pos.transform.position;
+		p.x = cam.transform.position.x;
+		p.z = cam.transform.position.z;
+		p.y = 10;
+		pos.transform.position = p;
 
 	}
 }

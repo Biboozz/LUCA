@@ -5,7 +5,7 @@ using System.IO;
 using System;
 using AssemblyCSharp;
 
-public struct actionData
+public class actionData
 {
 	public int ATP;
 	public List<moleculePack> environmentMolecules;
@@ -16,6 +16,11 @@ public struct actionData
 		this.ATP = ATP;
 		this.environmentMolecules = environmentMolecules;
 		this.cellMolecules = cellMolecules;
+	}
+
+	public actionData() : this(0, new List<moleculePack>(), new List<moleculePack>()) 
+	{
+
 	}
 }
 
