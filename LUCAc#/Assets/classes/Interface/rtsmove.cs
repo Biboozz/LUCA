@@ -6,6 +6,7 @@ public class rtsmove : MonoBehaviour
 
     // VARIABLES
 
+	public GameObject canvas;
     public float panSpeed = 10.0f;		// Vitesse de deplacement de la camera pour la deplacement
     public float ZoomSpeed = 1.0f;		// Vitesse de deplacement de la camera pour le zoom
     public int ScrollWheelLimit = 2000;
