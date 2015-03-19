@@ -42,9 +42,7 @@ public class CameraOperator : MonoBehaviour {
 	{
 		if (startclick != -Vector3.one) 
 		{
-			GUI.color = new Color(1, 1, 1, 0.5f);
-			GUI.DrawTexture(selection, selectionHighlight);
-			GUI.Box (selection, "test");
+			GUI.DragWindow(selection);
 		}
 	}
 
