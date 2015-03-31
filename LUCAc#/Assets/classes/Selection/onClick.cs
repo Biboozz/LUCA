@@ -32,8 +32,8 @@ public class onClick : MonoBehaviour {
 			}
 			else
 			{
-				I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
-				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
+				//I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
+				//I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
 
 			}
 		}

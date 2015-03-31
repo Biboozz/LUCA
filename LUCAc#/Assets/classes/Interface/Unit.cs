@@ -13,7 +13,7 @@ public class Unit : MonoBehaviour {
 		baseColor = I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color;
 	}
 
-	private void Update () 
+	private void Update ()
 	{
 		if (GetComponent<Renderer>().isVisible && Input.GetMouseButton(0)) 
 		{
@@ -22,15 +22,22 @@ public class Unit : MonoBehaviour {
 			selected = CameraOperator.selection.Contains(camPos);
 		}
 
+		if (Input.GetMouseButtonDown (0)) 
+		{
+			I.isSelectioned = true; 
+		}
+		else
+		{
+			I.isSelectioned = false;
+		}
+
 		if (selected) 
 		{
-			I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = new Color (1,1,0,1);
-			I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = new Color (1,1,0,1);
+			I.isSelectioned = true;
 		} 
 		else 
 		{
-			I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
-			I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
+			I.isSelectioned = false;
 		}
 	}
 }
