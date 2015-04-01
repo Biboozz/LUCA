@@ -14,7 +14,7 @@ public class onClick : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () { 
 	
 	}
 
@@ -32,8 +32,8 @@ public class onClick : MonoBehaviour {
 			}
 			else
 			{
-				//I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
-				//I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
+				I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
+				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
 
 			}
 		}
