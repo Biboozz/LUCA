@@ -6,7 +6,7 @@ public class Unit : MonoBehaviour {
 	private Individual I;
 	private Color baseColor;
 	public bool selected = false;
-	private bool alreadySelect = false;
+	private bool selectedByClick = false;
 
 	void Start () 
 	{
@@ -18,22 +18,24 @@ public class Unit : MonoBehaviour {
 	{
 		if (GetComponent<Renderer>().isVisible && Input.GetMouseButton(0)) 
 		{
-			Vector3 camPos = Camera.main.WorldToScreenPoint(transform.position);
-			camPos.y = CameraOperator.InvertMouseY(camPos.y);
-			selected = CameraOperator.selection.Contains(camPos);
-		}
-
-		if (selected || alreadySelect) 
-		{
-			I.isSelectioned = true;
-		}
-		else 
-		{
-			I.isSelectioned = false; //a REVOIR - Pose probleme !
+			if(!selectedByClick)
+			{
+				Vector3 camPos = Camera.main.WorldToScreenPoint(transform.position);
+				camPos.y = CameraOperator.InvertMouseY(camPos.y);
+				selected = CameraOperator.selection.Contains(camPos);
+			}
+			if (selected) 
+			{
+				I.isSelectioned = true;
+			}
+			else 
+			{
+				I.isSelectioned = false; //a REVOIR - Pose probleme !
+			}
 		}
 	}
 
-	void OnMouseDown()
+	private void OnMouseDown()
 	{
 		if (I.isPlayed) 
 		{
@@ -42,16 +44,25 @@ public class Unit : MonoBehaviour {
 			{
 				I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = new Color (1,1,0,1);
 				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = new Color (1,1,0,1);
-				alreadySelect = true;
 				selected = true;
+				selectedByClick = true;
 			}
-			else if(alreadySelect)
+			else
 			{
 				I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
 				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
-				alreadySelect = false;
 				selected = false;
 			}
 		}
 	}
+
+	private void OnMouseUp()
+	{
+		if (selectedByClick) 
+		{
+			selected = true;
+		}
+		selectedByClick = false;
+	}
+
 }
