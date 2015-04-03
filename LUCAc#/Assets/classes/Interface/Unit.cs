@@ -24,20 +24,20 @@ public class Unit : MonoBehaviour {
 				camPos.y = CameraOperator.InvertMouseY(camPos.y);
 				selected = CameraOperator.selection.Contains(camPos);
 			}
-			if (selected) 
+			if(selected)
 			{
 				I.isSelectioned = true;
 			}
-			else 
+			else
 			{
-				I.isSelectioned = false; //a REVOIR - Pose probleme !
+				I.isSelectioned = false;
 			}
 		}
 	}
 
 	private void OnMouseDown()
 	{
-		if (I.isPlayed) 
+		if (I.isPlayed)
 		{
 			I.isSelectioned = !I.isSelectioned;
 			if (I.isSelectioned) 
@@ -52,6 +52,7 @@ public class Unit : MonoBehaviour {
 				I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
 				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
 				selected = false;
+				I.isSelectioned = false;
 			}
 		}
 	}
@@ -61,8 +62,13 @@ public class Unit : MonoBehaviour {
 		if (selectedByClick) 
 		{
 			selected = true;
+			I.isSelectioned = true;
+		}
+		else 
+		{
+			selected = false;
+			I.isSelectioned = false;
 		}
 		selectedByClick = false;
 	}
-
 }
