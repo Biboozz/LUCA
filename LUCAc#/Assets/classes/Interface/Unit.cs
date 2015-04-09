@@ -6,7 +6,14 @@ public class Unit : MonoBehaviour {
 	private Individual I;
 	private Color baseColor;
 	public bool selected = false;
+
+	public float floorOffset = 1;
+	public float speed = 5;
+	public float stopDistanceOffset = 0.5f;
+
 	private bool selectedByClick = false;
+
+	private Vector3 moveToDest = Vector3.zero;
 
 	void Start () 
 	{
@@ -23,15 +30,45 @@ public class Unit : MonoBehaviour {
 				Vector3 camPos = Camera.main.WorldToScreenPoint(transform.position);
 				camPos.y = CameraOperator.InvertMouseY(camPos.y);
 				selected = CameraOperator.selection.Contains(camPos);
+
+				if(selected)
+				{
+					I.isSelectioned = true;
+				}
+				else
+				{
+					I.isSelectioned = false;
+				}
 			}
-			if(selected)
+		}
+
+		if(selected && Input.GetMouseButtonUp(1))
+		{
+			Vector3 destination = CameraOperator.GetDestination();
+			if(destination != Vector3.zero)
 			{
-				I.isSelectioned = true;
+				// gameObject.GetComponent<NavMeshAgent>().SetDestination(destination);
+				moveToDest = destination;
+				moveToDest.y += floorOffset;
 			}
-			else
-			{
-				I.isSelectioned = false;
+		}
+		UpdateMove();
+	}
+
+	private void UpdateMove()
+	{
+		if (moveToDest != Vector3.zero && transform.position != moveToDest) {
+			Vector3 direction = (moveToDest - transform.position).normalized;
+			direction.y = 0;
+			//transform.GetComponent<Rigidbody>().velocity = direction * speed;
+
+			if (Vector3.Distance(transform.position, moveToDest) < stopDistanceOffset) {
+				moveToDest = Vector3.zero;
 			}
+		} 
+		else 
+		{
+			//transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		}
 	}
 

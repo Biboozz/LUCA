@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CameraOperator : MonoBehaviour {
 
@@ -7,9 +8,13 @@ public class CameraOperator : MonoBehaviour {
 	public static Rect selection = new Rect(0, 0, 0, 0);
 	private Vector3 startclick = -Vector3.one;
 
+	private static Vector3 moveToDestination = Vector3.zero;
+	private static List<string> passables = new List<string>() { "Terrain" };
+
 	private void Update () 
 	{
 		CheckCamera ();
+		Cleanup ();
 	}
 
 	private void CheckCamera()
@@ -49,5 +54,37 @@ public class CameraOperator : MonoBehaviour {
 	public static float InvertMouseY (float y)
 	{
 		return Screen.height - y;
+	}
+
+	private void Cleanup()
+	{
+		if (!Input.GetMouseButtonUp(1)) 
+		{
+			moveToDestination = Vector3.zero;
+		}
+	}
+
+	public static Vector3 GetDestination()
+	{
+		if (moveToDestination == Vector3.zero) 
+		{
+			RaycastHit hit;
+			Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			if(Physics.Raycast(r, out hit))
+			{
+				while(!passables.Contains(hit.transform.gameObject.name))	//Error
+				{
+					if(!Physics.Raycast(hit.point + r.direction * 0.1f, r.direction, out hit))
+					{
+						break;
+					}
+				}
+			}
+			if(hit.transform != null)
+				moveToDestination = hit.point;
+		}
+
+		return moveToDestination;
 	}
 }
