@@ -73,7 +73,7 @@ public class CameraOperator : MonoBehaviour {
 
 			if(Physics.Raycast(r, out hit))
 			{
-				while(!passables.Contains(hit.transform.gameObject.name))	//Error
+				while(!passables.Contains(hit.transform.gameObject.name))
 				{
 					if(!Physics.Raycast(hit.point + r.direction * 0.1f, r.direction, out hit))
 					{

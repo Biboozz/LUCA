@@ -42,7 +42,7 @@ public class Unit : MonoBehaviour {
 			}
 		}
 
-		if(selected && Input.GetMouseButtonUp(1))
+		/*if(selected && Input.GetMouseButtonUp(1))
 		{
 			Vector3 destination = CameraOperator.GetDestination();
 			if(destination != Vector3.zero)
@@ -52,10 +52,10 @@ public class Unit : MonoBehaviour {
 				moveToDest.y += floorOffset;
 			}
 		}
-		UpdateMove();
+		UpdateMove();*/
 	}
 
-	private void UpdateMove()
+	/*private void UpdateMove()
 	{
 		if (moveToDest != Vector3.zero && transform.position != moveToDest) {
 			Vector3 direction = (moveToDest - transform.position).normalized;
@@ -70,7 +70,7 @@ public class Unit : MonoBehaviour {
 		{
 			//transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		}
-	}
+	}*/
 
 	private void OnMouseDown()
 	{
