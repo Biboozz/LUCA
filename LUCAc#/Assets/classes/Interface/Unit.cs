@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour {
 	public float stopDistanceOffset = 0.5f;
 
 	private bool selectedByClick = false;
-
+	private float angle;
 	private Vector3 moveToDest = Vector3.zero;
 
 	void Start () 
@@ -42,35 +42,21 @@ public class Unit : MonoBehaviour {
 			}
 		}
 
-		/*if(selected && Input.GetMouseButtonUp(1))
+		if(selected && Input.GetMouseButtonDown(1))		//Si sélectionné et clic droit
 		{
-			Vector3 destination = CameraOperator.GetDestination();
-			if(destination != Vector3.zero)
-			{
-				// gameObject.GetComponent<NavMeshAgent>().SetDestination(destination);
-				moveToDest = destination;
-				moveToDest.y += floorOffset;
-			}
+			Vector3 dest = CameraOperator.GetDestination();
+			if(dest.x >= transform.position.x && dest.z >= transform.position.z)
+				angle = Mathf.Tan((dest.x - transform.position.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
+			if(dest.x > transform.position.x && dest.z < transform.position.z)
+				angle = Mathf.Tan((dest.x - transform.position.x)/(transform.position.z - dest.z)) * Mathf.Rad2Deg;
+			if(dest.x <= transform.position.x && dest.z <= transform.position.z)
+				angle = Mathf.Tan((transform.position.x - dest.x)/(transform.position.z - dest.z)) * Mathf.Rad2Deg;
+			if(dest.x < transform.position.x && dest.z > transform.position.z)
+				angle = Mathf.Tan((transform.position.x - dest.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
+
+			transform.Rotate(0, 0, angle);
 		}
-		UpdateMove();*/
 	}
-
-	/*private void UpdateMove()
-	{
-		if (moveToDest != Vector3.zero && transform.position != moveToDest) {
-			Vector3 direction = (moveToDest - transform.position).normalized;
-			direction.y = 0;
-			//transform.GetComponent<Rigidbody>().velocity = direction * speed;
-
-			if (Vector3.Distance(transform.position, moveToDest) < stopDistanceOffset) {
-				moveToDest = Vector3.zero;
-			}
-		} 
-		else 
-		{
-			//transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-		}
-	}*/
 
 	private void OnMouseDown()
 	{
@@ -79,14 +65,12 @@ public class Unit : MonoBehaviour {
 			I.isSelectioned = !I.isSelectioned;
 			if (I.isSelectioned) 
 			{
-				I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = new Color (1,1,0,1);
 				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = new Color (1,1,0,1);
 				selected = true;
 				selectedByClick = true;
 			}
 			else
 			{
-				I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color = baseColor;
 				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
 				selected = false;
 				I.isSelectioned = false;
