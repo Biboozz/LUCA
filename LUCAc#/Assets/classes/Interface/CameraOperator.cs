@@ -43,14 +43,6 @@ public class CameraOperator : MonoBehaviour {
 		}
 	}
 
-	private void OnGui()	//Problème ici de l'affichage de la box de sélection
-	{
-		if (startclick != -Vector3.one) 
-		{
-			GUI.DragWindow(selection);
-		}
-	}
-
 	public static float InvertMouseY (float y)
 	{
 		return Screen.height - y;

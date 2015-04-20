@@ -495,11 +495,11 @@ public class PolyNav2D : MonoBehaviour {
 
 
 		//the inflated actualy used polygons
-        foreach (Polygon pathPoly in map.masterPolygons)
+        /*foreach (Polygon pathPoly in map.masterPolygons)
         	DebugDrawPolygon(pathPoly.points, new Color(1f,1f,1f,0.2f));
 
 		foreach(Polygon poly in map.obstaclePolygons)
-			DebugDrawPolygon(poly.points, new Color(1, 0.7f, 0.7f, 0.1f));
+			DebugDrawPolygon(poly.points, new Color(1, 0.7f, 0.7f, 0.1f));*/
 		//
 	}
 
