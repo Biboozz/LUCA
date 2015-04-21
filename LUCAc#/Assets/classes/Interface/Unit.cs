@@ -12,13 +12,18 @@ public class Unit : MonoBehaviour {
 	public float stopDistanceOffset = 0.5f;
 
 	private bool selectedByClick = false;
-	private float angle;
+	//private float angle;
 	private Vector3 moveToDest = Vector3.zero;
+
+	private GameObject target;
+	private Vector3 newPosition;
+	private float timeTaken;
 
 	void Start () 
 	{
 		I = gameObject.GetComponentInParent<Individual>();
 		baseColor = I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color;
+		newPosition = transform.position;
 	}
 
 	private void Update ()
@@ -44,8 +49,21 @@ public class Unit : MonoBehaviour {
 
 		if(selected && Input.GetMouseButtonDown(1))		//Si sélectionné et clic droit
 		{
-			Vector3 dest = CameraOperator.GetDestination();
-			if(dest.x >= transform.position.x && dest.z >= transform.position.z)
+			target = GameObject.FindGameObjectWithTag("target");
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out hit))
+			{
+				newPosition = hit.point;
+				target.transform.position = newPosition;
+			}
+			//transform.position = moveSomething(yourObject, target);
+
+			/*Vector3 dest = CameraOperator.GetDestination();
+			target = GameObject.FindGameObjectWithTag("target");
+			target.transform.position = dest;*/
+
+			/*if(dest.x >= transform.position.x && dest.z >= transform.position.z)
 				angle = Mathf.Tan((dest.x - transform.position.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
 			if(dest.x > transform.position.x && dest.z < transform.position.z)
 				angle = Mathf.Tan((dest.x - transform.position.x)/(transform.position.z - dest.z)) * Mathf.Rad2Deg;
@@ -54,10 +72,26 @@ public class Unit : MonoBehaviour {
 			if(dest.x < transform.position.x && dest.z > transform.position.z)
 				angle = Mathf.Tan((transform.position.x - dest.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
 
-			transform.Rotate(0, 0, angle);
+			transform.localEulerAngles = new Vector3(90, angle, 0);
+			//transform.Rotate(0, 0, angle);*/
 		}
 	}
 
+	public bool moveSomething(GameObject start, GameObject end){ // return bool when finished moving
+		
+		if(start.transform.position == end.transform.position){
+			return false;
+		}else{
+			timeTaken += (float) move(start, end);
+			return true;
+		}
+	}
+
+	public float move(GameObject start, GameObject end){
+		start.transform.position = Vector3.Lerp(start.transform.position, end.transform.position, Time.deltaTime*10f);
+		return Time.deltaTime*10f;
+	}
+	
 	private void OnMouseDown()
 	{
 		if (I.isPlayed)

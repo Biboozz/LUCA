@@ -40,7 +40,7 @@ private bool coll=false;
     }
 	 void OnTriggerEnter(Collider hit) {
 		PanWM.shake_value=1f;
-		GameObject collide = Instantiate(collide_p,this.transform.position,this.transform.rotation) as GameObject;
+		//GameObject collide = Instantiate(collide_p,this.transform.position,this.transform.rotation) as GameObject;
 		lf.color = new Color(1f,202f/255f,135f/255f,0f);
 	}
 	 void OnTriggerExit(Collider hit) {

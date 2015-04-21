@@ -41,7 +41,6 @@ public class displaySelection : MonoBehaviour {
 			selection.transform.position = new Vector3((C2.x + C1.x)/2,(C2.y + C1.y)/2, 0);
 			((RectTransform)selection.transform).sizeDelta = new Vector2 (C1.x - C2.x, C2.y - C1.y);
 		}
-
 	}
 
 	void OnMouseDown()
