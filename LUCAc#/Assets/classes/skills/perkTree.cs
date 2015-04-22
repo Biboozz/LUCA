@@ -261,7 +261,7 @@ public class perkTree : MonoBehaviour
 				{
 					name = name + ' ' + line [j];
 				}
-				molList.Add(new simpleMolecule(i, name));
+				//molList.Add(new simpleMolecule(i, name));
 				Debug.Log("new molecule: " + name);
 
 			}
@@ -269,7 +269,7 @@ public class perkTree : MonoBehaviour
 		}
 		catch
 		{
-			Debug.LogError("error trying to read the molecule file");
+			//Debug.LogError("error trying to read the molecule file");
 			return (new List<molecule>());
 		}
 
