@@ -12,13 +12,11 @@ public class Unit : MonoBehaviour {
 	public float stopDistanceOffset = 0.5f;
 
 	private bool selectedByClick = false;
-	//private float angle;
-	private Vector3 moveToDest = Vector3.zero;
 
 	private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
-	private Vector3 MovingDirection = Vector3.up;
+	private float duration = 40.0f;
 
 	void Start () 
 	{
@@ -56,38 +54,25 @@ public class Unit : MonoBehaviour {
 			if (Physics.Raycast(ray, out hit))
 			{
 				newPosition = hit.point;
+				newPosition.y = 1;
 				target.transform.position = newPosition;	//Object target prend position du clic
+				I.target = newPosition;
 				I.gotDest = true;		//Objet possède une destination
 			}
 		}
 
 		if(I.gotDest)
 		{
-			if(transform.position == target.transform.position)
+			if(transform.position == I.target)	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 			{
 				I.gotDest = false;		//Plus de destination car elle a été atteinte
 			}
 			else
 			{
-				timeTaken += (float) move(transform.position, target);
+				transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));
+
 			}
 		}
-	}
-
-	/*public bool moveSomething(Vector3 start, GameObject end){ // return bool when finished moving
-		
-		if(start.transform.position == end.transform.position){
-			return false;
-		}else{
-			timeTaken += (float) move(start, end);
-			return true;
-		}
-	}*/
-
-	public float move(Vector3 start, GameObject end)
-	{
-		start = Vector3.Lerp(start, end.transform.position, Time.deltaTime*10f);
-		return Time.deltaTime*10f;
 	}
 	
 	private void OnMouseDown()
