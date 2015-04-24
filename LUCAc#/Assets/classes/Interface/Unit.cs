@@ -18,6 +18,7 @@ public class Unit : MonoBehaviour {
 	private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
+	private Vector3 MovingDirection = Vector3.up;
 
 	void Start () 
 	{
@@ -55,29 +56,25 @@ public class Unit : MonoBehaviour {
 			if (Physics.Raycast(ray, out hit))
 			{
 				newPosition = hit.point;
-				target.transform.position = newPosition;
+				target.transform.position = newPosition;	//Object target prend position du clic
+				I.gotDest = true;		//Objet possède une destination
 			}
-			//transform.position = moveSomething(yourObject, target);
+		}
 
-			/*Vector3 dest = CameraOperator.GetDestination();
-			target = GameObject.FindGameObjectWithTag("target");
-			target.transform.position = dest;*/
-
-			/*if(dest.x >= transform.position.x && dest.z >= transform.position.z)
-				angle = Mathf.Tan((dest.x - transform.position.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
-			if(dest.x > transform.position.x && dest.z < transform.position.z)
-				angle = Mathf.Tan((dest.x - transform.position.x)/(transform.position.z - dest.z)) * Mathf.Rad2Deg;
-			if(dest.x <= transform.position.x && dest.z <= transform.position.z)
-				angle = Mathf.Tan((transform.position.x - dest.x)/(transform.position.z - dest.z)) * Mathf.Rad2Deg;
-			if(dest.x < transform.position.x && dest.z > transform.position.z)
-				angle = Mathf.Tan((transform.position.x - dest.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
-
-			transform.localEulerAngles = new Vector3(90, angle, 0);
-			//transform.Rotate(0, 0, angle);*/
+		if(I.gotDest)
+		{
+			if(transform.position == target.transform.position)
+			{
+				I.gotDest = false;		//Plus de destination car elle a été atteinte
+			}
+			else
+			{
+				timeTaken += (float) move(transform.position, target);
+			}
 		}
 	}
 
-	public bool moveSomething(GameObject start, GameObject end){ // return bool when finished moving
+	/*public bool moveSomething(Vector3 start, GameObject end){ // return bool when finished moving
 		
 		if(start.transform.position == end.transform.position){
 			return false;
@@ -85,10 +82,11 @@ public class Unit : MonoBehaviour {
 			timeTaken += (float) move(start, end);
 			return true;
 		}
-	}
+	}*/
 
-	public float move(GameObject start, GameObject end){
-		start.transform.position = Vector3.Lerp(start.transform.position, end.transform.position, Time.deltaTime*10f);
+	public float move(Vector3 start, GameObject end)
+	{
+		start = Vector3.Lerp(start, end.transform.position, Time.deltaTime*10f);
 		return Time.deltaTime*10f;
 	}
 	

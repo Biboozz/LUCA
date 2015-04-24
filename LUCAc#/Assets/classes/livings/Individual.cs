@@ -14,6 +14,7 @@ public class Individual : MonoBehaviour
 	private int _survivedTime = 0;
 	private bool _isPlayed = false;
     private bool _isSelectioned = false;
+	public bool _gotDest = false;
 	private List<moleculePack> _cellMolecules = new List<moleculePack>();
 	private int _ATP;
 	private int coolDown = 0;
@@ -28,6 +29,7 @@ public class Individual : MonoBehaviour
 	public Species species 			{ 	get { return _species; 			} 		set { _species = value; 		} 	}
 	public bool isPlayed 			{ 	get { return _isPlayed; 		} 											}
 	public int ATP					{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
+	public bool gotDest				{	get { return _gotDest;			}		set { _gotDest = value;			}	}
 	
 	#endregion
 
