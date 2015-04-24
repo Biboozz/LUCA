@@ -63,7 +63,7 @@ public class Unit : MonoBehaviour {
 
 		if(I.gotDest)
 		{
-			if(transform.position == I.target)	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
+			if(-0.1 < transform.position.x - I.target.x && transform.position.x - I.target.x < 0.1 && -0.1 < transform.position.y - I.target.y && transform.position.y - I.target.y < 0.1)	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 			{
 				I.gotDest = false;		//Plus de destination car elle a été atteinte
 			}
@@ -71,6 +71,10 @@ public class Unit : MonoBehaviour {
 			{
 				transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));
 
+				Vector3 relativePos = I.target - transform.position;
+				Quaternion rotation = Quaternion.LookRotation(relativePos);
+				rotation.x = 90;
+				transform.rotation = rotation;
 			}
 		}
 	}
