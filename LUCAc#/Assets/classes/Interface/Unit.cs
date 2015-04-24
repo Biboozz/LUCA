@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour {
 
 	private bool selectedByClick = false;
 
+	private float angle;
 	private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
@@ -58,23 +59,30 @@ public class Unit : MonoBehaviour {
 				target.transform.position = newPosition;	//Object target prend position du clic
 				I.target = newPosition;
 				I.gotDest = true;		//Objet possède une destination
-			}
+
+				/*if(I.target.x >= transform.position.x && I.target.z >= transform.position.z)
+					angle = 270f + Mathf.Tan((I.target.x - transform.position.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
+				if(I.target.x > transform.position.x && I.target.z < transform.position.z)
+					angle = Mathf.Tan((I.target.x - transform.position.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
+				if(I.target.x <= transform.position.x && I.target.z <= transform.position.z)
+					angle = 180f - Mathf.Tan((transform.position.x - I.target.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
+				if(I.target.x < transform.position.x && I.target.z > transform.position.z)
+					angle = 270f - Mathf.Tan((transform.position.x - I.target.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
+				//transform.localEulerAngles.z = angle;*/
+				//transform.Rotate(0, 0, angle);
+			}	//Definit angle, pour que la cellule regarde vers la target
 		}
 
-		if(I.gotDest)
+		if(I.gotDest)	//Beug a trouver ! Clignote quand on déselectionne après avoir atteint la destination
 		{
-			if(-0.1 < transform.position.x - I.target.x && transform.position.x - I.target.x < 0.1 && -0.1 < transform.position.y - I.target.y && transform.position.y - I.target.y < 0.1)	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
+			if((-0.05 >= transform.position.x - I.target.x || transform.position.x - I.target.x <= 0.05) && (-0.05 >= transform.position.z - I.target.z || transform.position.z - I.target.z <= 0.05))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 			{
 				I.gotDest = false;		//Plus de destination car elle a été atteinte
+				Debug.Log("Destination atteinte");
 			}
 			else
 			{
 				transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));
-
-				Vector3 relativePos = I.target - transform.position;
-				Quaternion rotation = Quaternion.LookRotation(relativePos);
-				rotation.x = 90;
-				transform.rotation = rotation;
 			}
 		}
 	}
