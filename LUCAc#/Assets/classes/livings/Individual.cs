@@ -45,7 +45,7 @@ public class Individual : MonoBehaviour
 	void Update () 
 	{
 		gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
-        if (_isSelectioned == false) //random movement
+        if (_isSelectioned == false && _gotDest == false) //random movement
         {
             transform.Translate(0.05f, 0f, 0f);
             transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
