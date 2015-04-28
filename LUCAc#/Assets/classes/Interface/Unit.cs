@@ -12,12 +12,12 @@ public class Unit : MonoBehaviour {
 	public float stopDistanceOffset = 0.5f;
 
 	private bool selectedByClick = false;
-	//private float angle;
-	private Vector3 moveToDest = Vector3.zero;
 
+	private float angle;
 	private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
+	private float duration = 40.0f;
 
 	void Start () 
 	{
@@ -55,41 +55,36 @@ public class Unit : MonoBehaviour {
 			if (Physics.Raycast(ray, out hit))
 			{
 				newPosition = hit.point;
-				target.transform.position = newPosition;
+				newPosition.y = 1;
+				target.transform.position = newPosition;	//Object target prend position du clic
+				I.target = newPosition;
+				I.gotDest = true;		//Objet possède une destination
+
+				/*if(I.target.x >= transform.position.x && I.target.z >= transform.position.z)
+					angle = 270f + Mathf.Tan((I.target.x - transform.position.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
+				if(I.target.x > transform.position.x && I.target.z < transform.position.z)
+					angle = Mathf.Tan((I.target.x - transform.position.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
+				if(I.target.x <= transform.position.x && I.target.z <= transform.position.z)
+					angle = 180f - Mathf.Tan((transform.position.x - I.target.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
+				if(I.target.x < transform.position.x && I.target.z > transform.position.z)
+					angle = 270f - Mathf.Tan((transform.position.x - I.target.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
+				//transform.localEulerAngles.z = angle;*/
+				//transform.Rotate(0, 0, angle);
+			}	//Definit angle, pour que la cellule regarde vers la target
+		}
+
+		if(I.gotDest)	//Beug a trouver ! Clignote quand on déselectionne après avoir atteint la destination
+		{
+			if((-0.05 >= transform.position.x - I.target.x || transform.position.x - I.target.x <= 0.05) && (-0.05 >= transform.position.z - I.target.z || transform.position.z - I.target.z <= 0.05))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
+			{
+				I.gotDest = false;		//Plus de destination car elle a été atteinte
+				Debug.Log("Destination atteinte");
 			}
-			//transform.position = moveSomething(yourObject, target);
-
-			/*Vector3 dest = CameraOperator.GetDestination();
-			target = GameObject.FindGameObjectWithTag("target");
-			target.transform.position = dest;*/
-
-			/*if(dest.x >= transform.position.x && dest.z >= transform.position.z)
-				angle = Mathf.Tan((dest.x - transform.position.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
-			if(dest.x > transform.position.x && dest.z < transform.position.z)
-				angle = Mathf.Tan((dest.x - transform.position.x)/(transform.position.z - dest.z)) * Mathf.Rad2Deg;
-			if(dest.x <= transform.position.x && dest.z <= transform.position.z)
-				angle = Mathf.Tan((transform.position.x - dest.x)/(transform.position.z - dest.z)) * Mathf.Rad2Deg;
-			if(dest.x < transform.position.x && dest.z > transform.position.z)
-				angle = Mathf.Tan((transform.position.x - dest.x)/(dest.z - transform.position.z)) * Mathf.Rad2Deg;
-
-			transform.localEulerAngles = new Vector3(90, angle, 0);
-			//transform.Rotate(0, 0, angle);*/
+			else
+			{
+				transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));
+			}
 		}
-	}
-
-	public bool moveSomething(GameObject start, GameObject end){ // return bool when finished moving
-		
-		if(start.transform.position == end.transform.position){
-			return false;
-		}else{
-			timeTaken += (float) move(start, end);
-			return true;
-		}
-	}
-
-	public float move(GameObject start, GameObject end){
-		start.transform.position = Vector3.Lerp(start.transform.position, end.transform.position, Time.deltaTime*10f);
-		return Time.deltaTime*10f;
 	}
 	
 	private void OnMouseDown()

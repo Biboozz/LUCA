@@ -45,7 +45,6 @@ public class displaySelection : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		Debug.Log ("down");
 		C1 = Input.mousePosition;
 		C2 = Input.mousePosition;
 		focused = C1;
@@ -54,7 +53,6 @@ public class displaySelection : MonoBehaviour {
 
 	void OnMouseUp()
 	{
-		Debug.Log ("up");
 		selection.SetActive (false);
 	}
 }

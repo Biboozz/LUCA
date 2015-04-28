@@ -14,6 +14,8 @@ public class Individual : MonoBehaviour
 	private int _survivedTime = 0;
 	private bool _isPlayed = false;
     private bool _isSelectioned = false;
+	private bool _gotDest = false;
+	private Vector3 _target;
 	private List<moleculePack> _cellMolecules = new List<moleculePack>();
 	private int _ATP;
 	private int coolDown = 0;
@@ -21,6 +23,7 @@ public class Individual : MonoBehaviour
 	private environment place;
 
 	#region accessors
+<<<<<<< HEAD
 	public int survivedTime 				{ 	get { return _survivedTime; 	} 											}
 	public int lifetime 					{ 	get { return _lifeTime;			} 											}
 	public bool isSelectioned 				{ 	get { return _isSelectioned; 	} 		set { _isSelectioned = value; 	} 	}
@@ -30,6 +33,18 @@ public class Individual : MonoBehaviour
 	public int ATP							{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
 	public List<moleculePack> cellMolecules	{ 	get { return _cellMolecules; 	} 											}
 
+=======
+	public int survivedTime 		{ 	get { return _survivedTime; 	} 											}
+	public int lifetime 			{ 	get { return _lifeTime;			} 											}
+	public bool isSelectioned 		{ 	get { return _isSelectioned; 	} 		set { _isSelectioned = value; 	} 	}
+	public bool alive 				{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
+	public Species species 			{ 	get { return _species; 			} 		set { _species = value; 		} 	}
+	public bool isPlayed 			{ 	get { return _isPlayed; 		} 											}
+	public int ATP					{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
+	public bool gotDest				{	get { return _gotDest;			}		set { _gotDest = value;			}	}
+	public Vector3 target			{	get { return _target;			}		set { _target = value;			}	}
+	
+>>>>>>> origin/master
 	#endregion
 
 	// Use this for initialization
@@ -42,7 +57,7 @@ public class Individual : MonoBehaviour
 	void Update () 
 	{
 		gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
-        if (_isSelectioned == false) //random movement
+        if (_isSelectioned == false && _gotDest == false) //random movement
         {
             transform.Translate(0.05f, 0f, 0f);
             transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
