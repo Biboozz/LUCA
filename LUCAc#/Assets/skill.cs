@@ -39,6 +39,12 @@ namespace AssemblyCSharp
 		public GameObject hex;
 		[XmlIgnore]
 		public bool treated = false;
+		[XmlIgnore]
+		public bool accessible = false;
+		[XmlIgnore]
+		public bool unlockable = false;
+		[XmlIgnore]
+		public bool unlocked = false;
 		
 		public skill(skill[] neighbors, string name, string description, actionData workCosts, actionData workProducts, actionData devCosts, actionData devProducts, bool innate, string type, List<skill> required)
 		{
@@ -56,6 +62,7 @@ namespace AssemblyCSharp
 			this.requiredID = new List<int>();
 			this.SerialisableType = serialisableTypes.skill;
 			this.neighborsID = new int[6] { -1, -1, -1, -1, -1, -1 };
+			this.unlocked = innate;
 		}
 		
 		public skill()
@@ -74,6 +81,7 @@ namespace AssemblyCSharp
 			this.type = "unvalid";
 			this.SerialisableType = serialisableTypes.skill;
 			this.neighborsID = new int[6] { -1, -1, -1, -1, -1, -1 };
+			this.unlocked = innate;
 		}
 
 		

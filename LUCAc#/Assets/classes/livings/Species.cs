@@ -9,7 +9,7 @@ public class Species
 {
 	public List<Individual> Individuals = new List<Individual>();
 	private int _IndividualsNumber = 0;
-	public List<perkData> unlockedPerks = new List<perkData> ();
+	public List<skill> unlockedPerks = new List<skill> ();
 	public bool isPlayed = false;
 	public string name;
 	public GameObject cell;
@@ -38,7 +38,7 @@ public class Species
 
 
 	#region constructors
-	public Species(List<Individual> Individuals, GameObject cell, List<perkData> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
+	public Species(List<Individual> Individuals, GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
 	{
 		this.Individuals = Individuals;
 		this.cell = cell;
@@ -49,7 +49,7 @@ public class Species
 		place.livings.Add (this);
 	}
 
-	public Species(GameObject cell, List<perkData> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
+	public Species(GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
 	{
 		this.cell = cell;
 		this.unlockedPerks = unlockedPerks;

@@ -21,14 +21,15 @@ public class Individual : MonoBehaviour
 	private environment place;
 
 	#region accessors
-	public int survivedTime 		{ 	get { return _survivedTime; 	} 											}
-	public int lifetime 			{ 	get { return _lifeTime;			} 											}
-	public bool isSelectioned 		{ 	get { return _isSelectioned; 	} 		set { _isSelectioned = value; 	} 	}
-	public bool alive 				{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
-	public Species species 			{ 	get { return _species; 			} 		set { _species = value; 		} 	}
-	public bool isPlayed 			{ 	get { return _isPlayed; 		} 											}
-	public int ATP					{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
-	
+	public int survivedTime 				{ 	get { return _survivedTime; 	} 											}
+	public int lifetime 					{ 	get { return _lifeTime;			} 											}
+	public bool isSelectioned 				{ 	get { return _isSelectioned; 	} 		set { _isSelectioned = value; 	} 	}
+	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
+	public Species species 					{ 	get { return _species; 			} 		set { _species = value; 		} 	}
+	public bool isPlayed 					{ 	get { return _isPlayed; 		} 											}
+	public int ATP							{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
+	public List<moleculePack> cellMolecules	{ 	get { return _cellMolecules; 	} 											}
+
 	#endregion
 
 	// Use this for initialization
