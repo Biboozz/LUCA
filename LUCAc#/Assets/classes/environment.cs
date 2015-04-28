@@ -20,11 +20,12 @@ public class environment : MonoBehaviour {
 		{
 			S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
 		}
-		
+		S.isPlayed = true;
 		for (int i = 0; i < S.Individuals.Count; i++) 
 		{
 			S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, true, new List<moleculePack>(), 100);
 		}
+		livings.Add (S);
 	}
 	
 	// Update is called once per frame

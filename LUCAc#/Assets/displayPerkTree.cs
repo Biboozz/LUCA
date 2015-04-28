@@ -11,6 +11,7 @@ public class displayPerkTree : MonoBehaviour {
 	public GameObject Link;
 	private bool _shown;
 	public List<skill> perkTree;
+	public Image[] images;
 
 	// Use this for initialization
 	void Start () {
@@ -79,13 +80,101 @@ public class displayPerkTree : MonoBehaviour {
 
 	public void update(Species species)
 	{
-
+		reset ();
+		activateUnlockable (displayUnlocked (species), species);
 	}
 
+	public void update()
+	{
+		update(GetComponent<environment>().livings[0]);
+	}
 
+	private void reset()
+	{
+		foreach (skill S in perkTree) 
+		{
+			S.hex.GetComponent<Image>().sprite = images[2].sprite;
+			S.hex.GetComponent<Button>().interactable = false;
+		}
+	}
+		    
+	public bool isUnlockable(skill S, Species species)
+	{
+		int c = 0;
+		for (int i = 0; i < species.Individuals.Count; i++) 
+		{
+			bool b = true;
+			for (int j = 0; j < S.devCosts.cellMolecules.Count && b; j++)
+			{
+				moleculePack mpCell = species.Individuals[i].cellMolecules.Find(mp => mp.moleculeType.ID == S.devCosts.cellMolecules[j].moleculeType.ID);
+				if (mpCell == null)
+				{
+					b = false;
+				}
+				else
+				{
+					if (mpCell.count > S.devCosts.cellMolecules[j].count)
+					{
+						b = false;
+					}
+				}
+			}
+			if (b)
+			{
+				c++;
+			}
+		}
+		return (c * 100 / species.Individuals.Count >= 60);
+	}
+
+	private void activateUnlockable(List<skill> unlockedNeighborhood, Species species)
+	{
+		for (int i = 0; i < unlockedNeighborhood.Count; i++)
+		{
+			if (isUnlockable(unlockedNeighborhood[i], species))
+			{
+				unlockedNeighborhood[i].hex.GetComponent<Image>().sprite = images[1].sprite;
+				unlockedNeighborhood[i].hex.GetComponent<Button>().interactable = true;
+			}
+		}
+	}
+
+	public bool isUnlocked(skill S, Species species)
+	{
+
+		return (S.innate || (species.unlockedPerks.Find(T => T.ID == S.ID) != null));
+	}
+
+	private List<skill> displayUnlocked (Species species)
+	{
+		List<skill> treated = new List<skill> ();
+		List<skill> neighborhood = new List<skill> ();
+		for (int i = 0; i < this.perkTree.Count; i++) 
+		{
+			treated.Add(perkTree[i]);
+			if (isUnlocked(this.perkTree[i], species))
+			{
+				perkTree[i].hex.GetComponent<Image>().sprite = images[0].sprite;
+				perkTree[i].hex.GetComponent<Button>().interactable = true;
+				for( int j = 0; j < 6; j++)
+				{
+					if ((this.perkTree[i].neighbors[j] != null) && !isUnlocked(this.perkTree[i].neighbors[j], species))
+					{
+						if (neighborhood.Find(T => T.ID == this.perkTree[i].neighbors[j].ID) == null)
+						{
+							neighborhood.Add(perkTree[i].neighbors[j]);
+						}
+					}
+				}
+			}
+		}
+		return neighborhood;
+	}
+	
 
 	public void display()
 	{
+		reset ();
 		if (_shown) 
 		{
 			foreach (skill S in perkTree) 
@@ -95,6 +184,7 @@ public class displayPerkTree : MonoBehaviour {
 		} 
 		else 
 		{
+			update();
 			foreach (skill S in perkTree) 
 			{
 				S.hex.SetActive(true);
