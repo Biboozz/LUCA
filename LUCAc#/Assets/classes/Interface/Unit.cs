@@ -22,7 +22,6 @@ public class Unit : MonoBehaviour {
 	void Start () 
 	{
 		I = gameObject.GetComponentInParent<Individual>();
-		baseColor = I.gameObject.transform.GetChild(2).GetComponent<MeshRenderer>().material.color;
 		newPosition = transform.position;
 	}
 
@@ -73,17 +72,14 @@ public class Unit : MonoBehaviour {
 			}	//Definit angle, pour que la cellule regarde vers la target
 		}
 
-		if(I.gotDest)	//Beug a trouver ! Clignote quand on déselectionne après avoir atteint la destination
+		if(I.gotDest)
 		{
-			if((-0.05 >= transform.position.x - I.target.x || transform.position.x - I.target.x <= 0.05) && (-0.05 >= transform.position.z - I.target.z || transform.position.z - I.target.z <= 0.05))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
+			if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.z - I.target.z >= -2 && transform.position.z - I.target.z <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 			{
 				I.gotDest = false;		//Plus de destination car elle a été atteinte
 				Debug.Log("Destination atteinte");
 			}
-			else
-			{
-				transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));
-			}
+			transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));
 		}
 	}
 	
@@ -94,13 +90,11 @@ public class Unit : MonoBehaviour {
 			I.isSelectioned = !I.isSelectioned;
 			if (I.isSelectioned) 
 			{
-				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = new Color (1,1,0,1);
 				selected = true;
 				selectedByClick = true;
 			}
 			else
 			{
-				I.gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = baseColor;
 				selected = false;
 				I.isSelectioned = false;
 			}
