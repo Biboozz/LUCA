@@ -28,7 +28,7 @@ public class gameDataReader : MonoBehaviour {
 	private void ReadXML()
 	{
 		System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(List<serialisable>));
-		System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\Nicolas\Documents\game data.xml");
+		System.IO.StreamReader file = new System.IO.StreamReader(@"game data.xml");
 		List<serialisable> deserialisedItems = new List<serialisable>();
 		deserialisedItems = (List<serialisable>)reader.Deserialize(file);
 		foreach (serialisable S in deserialisedItems) 
