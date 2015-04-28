@@ -72,6 +72,8 @@ public class Unit : MonoBehaviour {
 				if(I.target.x < transform.position.x && I.target.z > transform.position.z)	//Cas target en bas a droite de la cible
 					angle = 270f - Mathf.Tan((transform.position.x - I.target.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
 
+				angle = angle % 360;
+
 				transform.rotation = Quaternion.Euler(new Vector3( 90, angle, 0 ));
 
 				Debug.Log(angle);
