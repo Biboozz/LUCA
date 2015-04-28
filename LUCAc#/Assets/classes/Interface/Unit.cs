@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour {
 	private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
-	private float duration = 40.0f;
+	private float duration = 22.0f;
 
 	void Start () 
 	{
@@ -59,7 +59,7 @@ public class Unit : MonoBehaviour {
 				I.target = newPosition;
 				I.gotDest = true;		//Objet possède une destination
 
-				/*if(I.target.x >= transform.position.x && I.target.z >= transform.position.z)
+				if(I.target.x >= transform.position.x && I.target.z >= transform.position.z)
 					angle = 270f + Mathf.Tan((I.target.x - transform.position.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
 				if(I.target.x > transform.position.x && I.target.z < transform.position.z)
 					angle = Mathf.Tan((I.target.x - transform.position.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
@@ -67,6 +67,8 @@ public class Unit : MonoBehaviour {
 					angle = 180f - Mathf.Tan((transform.position.x - I.target.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
 				if(I.target.x < transform.position.x && I.target.z > transform.position.z)
 					angle = 270f - Mathf.Tan((transform.position.x - I.target.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
+				angle = angle % 360;
+
 				//transform.localEulerAngles.z = angle;*/
 				//transform.Rotate(0, 0, angle);
 			}	//Definit angle, pour que la cellule regarde vers la target
@@ -77,9 +79,8 @@ public class Unit : MonoBehaviour {
 			if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.z - I.target.z >= -2 && transform.position.z - I.target.z <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 			{
 				I.gotDest = false;		//Plus de destination car elle a été atteinte
-				Debug.Log("Destination atteinte");
 			}
-			transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));
+			transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
 		}
 	}
 	
