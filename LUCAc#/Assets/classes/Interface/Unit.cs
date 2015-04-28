@@ -59,19 +59,23 @@ public class Unit : MonoBehaviour {
 				I.target = newPosition;
 				I.gotDest = true;		//Objet possède une destination
 
-				if(I.target.x >= transform.position.x && I.target.z >= transform.position.z)
-					angle = 270f + Mathf.Tan((I.target.x - transform.position.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
-				if(I.target.x > transform.position.x && I.target.z < transform.position.z)
-					angle = Mathf.Tan((I.target.x - transform.position.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
-				if(I.target.x <= transform.position.x && I.target.z <= transform.position.z)
-					angle = 180f - Mathf.Tan((transform.position.x - I.target.x)/(transform.position.z - I.target.z)) * Mathf.Rad2Deg;
-				if(I.target.x < transform.position.x && I.target.z > transform.position.z)
-					angle = 270f - Mathf.Tan((transform.position.x - I.target.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
-				angle = angle % 360;
+				//Definit angle, pour que la cellule regarde vers la target
+				if(I.target.x > transform.position.x && I.target.z < transform.position.z)	//Cas target en haut a gauche de la cible
+					angle = Mathf.Tan((transform.position.z - I.target.z)/(I.target.x - transform.position.x)) * Mathf.Rad2Deg;
 
-				//transform.localEulerAngles.z = angle;*/
-				//transform.Rotate(0, 0, angle);
-			}	//Definit angle, pour que la cellule regarde vers la target
+				if(I.target.x < transform.position.x && I.target.z < transform.position.z)	//Cas target en haut a droite de la cible
+					angle = 180f - Mathf.Tan((transform.position.z - I.target.z)/(transform.position.x - I.target.x)) * Mathf.Rad2Deg;
+
+				if(I.target.x > transform.position.x && I.target.z > transform.position.z)	//Cas target en bas a gauche de la cible
+					angle = 270f + Mathf.Tan((I.target.x - transform.position.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
+
+				if(I.target.x < transform.position.x && I.target.z > transform.position.z)	//Cas target en bas a droite de la cible
+					angle = 270f - Mathf.Tan((transform.position.x - I.target.x)/(I.target.z - transform.position.z)) * Mathf.Rad2Deg;
+
+				transform.rotation = Quaternion.Euler(new Vector3( 90, angle, 0 ));
+
+				Debug.Log(angle);
+			}
 		}
 
 		if(I.gotDest)
