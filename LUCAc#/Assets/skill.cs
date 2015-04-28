@@ -45,6 +45,8 @@ namespace AssemblyCSharp
 		public bool unlockable = false;
 		[XmlIgnore]
 		public bool unlocked = false;
+		[XmlIgnore]
+		public skillType typeNColor;
 		
 		public skill(skill[] neighbors, string name, string description, actionData workCosts, actionData workProducts, actionData devCosts, actionData devProducts, bool innate, string type, List<skill> required)
 		{

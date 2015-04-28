@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using AssemblyCSharp;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class displayPerkTree : MonoBehaviour {
 	private bool _shown;
 	public List<skill> perkTree;
 	public Image[] images;
+	private List<skillType> types;
 
 	// Use this for initialization
 	void Start () {
@@ -38,8 +40,18 @@ public class displayPerkTree : MonoBehaviour {
 
 	public void Initialize(List<skill> skillList)
 	{
+		System.Random rdm = new System.Random(0);
+		types = new List<skillType> ();
 		foreach (skill S in skillList) 
 		{
+			skillType st = types.Find(T => T.name == S.type);
+			if (st == null)
+			{
+				st = new skillType(S.type);
+				st.Color = new Color(((float)rdm.Next(256))/255f,((float)rdm.Next(30))/255f,((float)rdm.Next(256))/255f);
+				this.types.Add(st);
+			}
+			S.typeNColor = st;
 			S.hex = (GameObject)Instantiate (GUIhexagon, new Vector3 (transform.localPosition.x, transform.localPosition.z, 0), canvas.transform.rotation);
 			S.hex.transform.SetParent (canvas.transform, false);
 			S.hex.GetComponentInChildren<Text>().text = S.name;
@@ -59,6 +71,7 @@ public class displayPerkTree : MonoBehaviour {
 		}
 		place (skillList.Find(b => b.name == "En vie"));
 		perkTree = skillList;
+
 	}
 
 	private void place (skill S)
@@ -155,6 +168,8 @@ public class displayPerkTree : MonoBehaviour {
 			if (isUnlocked(this.perkTree[i], species))
 			{
 				perkTree[i].hex.GetComponent<Image>().sprite = images[0].sprite;
+				perkTree[i].hex.GetComponent<Image>().color = perkTree[i].typeNColor.Color;
+				perkTree[i].hex.transform.GetChild(0).GetComponent<Text>().color = IdealTextColor(perkTree[i].hex.GetComponent<Image>().color);
 				perkTree[i].hex.GetComponent<Button>().interactable = true;
 				for( int j = 0; j < 6; j++)
 				{
@@ -170,7 +185,24 @@ public class displayPerkTree : MonoBehaviour {
 		}
 		return neighborhood;
 	}
-	
+
+	private Color IdealTextColor(Color bg)
+	{
+		int [] bgInt = new int[3];
+		bgInt[0] = (int)(bg.r * 255f);
+		bgInt[1] = (int)(bg.g * 255f);
+		bgInt[2] = (int)(bg.b * 255f);
+		int nThreshold = 105;
+		int bgDelta = Convert.ToInt32 ((bgInt [0] * 0.299) + (bgInt [1] * 0.587) + (bgInt [2] * 0.114));
+		if (255 - bgDelta < nThreshold) 
+		{
+			return new Color(0,0,0,1);
+		} 
+		else 
+		{
+			return new Color(1,1,1,1);
+		}
+	}
 
 	public void display()
 	{
