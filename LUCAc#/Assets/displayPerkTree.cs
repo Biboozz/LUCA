@@ -82,39 +82,7 @@ public class displayPerkTree : MonoBehaviour {
 
 	}
 
-	private List<skill> updateAccessible(Species species)
-	{
-		foreach (skill S in species.unlockedPerks) 
-		{
-			if (S.unlocked)
-			{
-				//trt image du skill débloqué, il faut l'afficher comme débloqué
-				foreach (skill T in S.neighbors)
-				{
-					//trt image du skill accessible
-					T.accessible = true;
-				}
-			}
-		}
-	}
 
-	private List<skill> updateUnlockable(List<skill> accessibleSkills, Species species)
-	{
-		foreach (skill s in accessibleSkills) 
-		{
-			foreach (Individual I in species.Individuals)
-			{
-				foreach (moleculePack mpDev in s.devCosts.cellMolecules)
-				{
-					moleculePack mpCell = I.cellMolecules.Find(mp => mp.moleculeType.ID = mpDev.moleculeType.ID);
-					if (mpCell != null)
-					{
-
-					}
-				}
-			}
-		}
-	}
 
 	public void display()
 	{
