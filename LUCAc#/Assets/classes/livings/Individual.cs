@@ -67,7 +67,7 @@ public class Individual : MonoBehaviour
         }
         else //player control
         {
-			if (Input.GetKey(KeyCode.Q))      //Left
+			/*if (Input.GetKey(KeyCode.Q))      //Left
 			{
 				transform.Translate(Vector3.right * Time.deltaTime * 15, Space.World);
 			}
@@ -86,7 +86,7 @@ public class Individual : MonoBehaviour
 			{
 				transform.Translate(Vector3.forward * Time.deltaTime * -15, Space.World);
 			}
-			toCorrectPosition(0f);
+			toCorrectPosition(0f);*/
         }
 
 	}

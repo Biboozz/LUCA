@@ -20,9 +20,15 @@ public class SwitchScene : MonoBehaviour {
         string button = gameObject.name;
         switch (button)
         {
-            case "Button - Jouer":
+			case "Button - Solo":
                 Application.LoadLevel(1);
                 break;
+			case "Button - RejoindreServ":
+				//Blabla
+				break;
+			case "Button - CreerServ":
+				//Blabla
+				break;
             case "Button - Quitter":
                 Application.Quit();
                 break;
