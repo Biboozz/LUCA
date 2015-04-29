@@ -14,6 +14,7 @@ public class displayPerkTree : MonoBehaviour {
 	public List<skill> perkTree;
 	public Image[] images;
 	private List<skillType> types;
+	private Species _focusedSpecies;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,19 @@ public class displayPerkTree : MonoBehaviour {
 			display();
 		}
 	}
-	
+
+	public Species focusedSpecies
+	{
+		get
+		{
+			return _focusedSpecies;
+		}
+		set
+		{
+			_focusedSpecies = value;
+			update(value);
+		}
+	}
 
 	public bool shown
 	{
@@ -73,6 +86,10 @@ public class displayPerkTree : MonoBehaviour {
 		}
 		place (skillList.Find(b => b.name == "En vie"));
 		perkTree = skillList;
+	}
+
+	public void redraw(skill center)
+	{
 
 	}
 
@@ -150,6 +167,7 @@ public class displayPerkTree : MonoBehaviour {
 			{
 				unlockedNeighborhood[i].hex.GetComponent<Image>().sprite = images[1].sprite;
 				unlockedNeighborhood[i].hex.GetComponent<Button>().interactable = true;
+				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(true);
 			}
 		}
 	}

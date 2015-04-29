@@ -50,12 +50,12 @@ public class displaySkillDescription : MonoBehaviour {
 
 	public void click()
 	{
+		foreach (skill S in perkTree) 
+		{
+			S.hex.transform.FindChild("skillDescriptionWindow").gameObject.SetActive(false);
+		}
 		visible = !visible;
 		_skill.hex.transform.SetAsLastSibling();
-		_skill.hex.transform.GetChild (1).GetComponent<Image> ().enabled = visible;
-		foreach (Text T in _skill.hex.transform.GetChild (1).GetComponentsInChildren<Text>()) 
-		{
-			T.enabled = visible;
-		}
+		_skill.hex.transform.FindChild("skillDescriptionWindow").gameObject.SetActive(visible);
 	}
 }
