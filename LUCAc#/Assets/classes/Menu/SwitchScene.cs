@@ -23,6 +23,12 @@ public class SwitchScene : MonoBehaviour {
 			case "Button - Solo":
                 Application.LoadLevel(1);
                 break;
+			case "Button - RejoindreServ":
+				//Blabla
+				break;
+			case "Button - CreerServ":
+				//Blabla
+				break;
             case "Button - Quitter":
                 Application.Quit();
                 break;

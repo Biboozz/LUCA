@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour {
 	private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
-	private float duration = 22.0f;
+	private float duration = 20.0f;
 
 	void Start () 
 	{
