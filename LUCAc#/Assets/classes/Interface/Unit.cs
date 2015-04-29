@@ -59,6 +59,7 @@ public class Unit : MonoBehaviour {
 				I.target = newPosition;
 				I.gotDest = true;		//Objet possède une destination
 
+				/*
 				//Definit angle, pour que la cellule regarde vers la target
 				if(I.target.x > transform.position.x && I.target.z < transform.position.z)	//Cas target en haut a gauche de la cible
 					angle = Mathf.Tan((transform.position.z - I.target.z)/(I.target.x - transform.position.x)) * Mathf.Rad2Deg;
@@ -76,7 +77,7 @@ public class Unit : MonoBehaviour {
 
 				transform.rotation = Quaternion.Euler(new Vector3( 90, angle, 0 ));
 
-				Debug.Log(angle);
+				Debug.Log(angle);*/
 			}
 		}
 
