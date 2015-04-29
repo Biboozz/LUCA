@@ -16,6 +16,7 @@ public class Species
 	public environment place;
 	private int _survivedTime = 0;
 	public int individualLifeTime;
+	public Color color;
 
 	#region accessors
 	public int survivedTime
@@ -38,7 +39,7 @@ public class Species
 
 
 	#region constructors
-	public Species(List<Individual> Individuals, GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
+	public Species(List<Individual> Individuals, GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime, Color color)
 	{
 		this.Individuals = Individuals;
 		this.cell = cell;
@@ -47,9 +48,10 @@ public class Species
 		this.isPlayed = isPlayed;
 		this.individualLifeTime = individualLifeTime;
 		place.livings.Add (this);
+		this.color = color;
 	}
 
-	public Species(GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
+	public Species(GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime, Color color)
 	{
 		this.cell = cell;
 		this.unlockedPerks = unlockedPerks;
@@ -57,12 +59,14 @@ public class Species
 		this.isPlayed = isPlayed;
 		this.individualLifeTime = individualLifeTime;
 		place.livings.Add (this);
+		this.color = color;
 	}
 
-	public Species(environment place) 
+	public Species(environment place, Color color) 
 	{
 		this.place = place;
 		place.livings.Add (this);
+		this.color = color;
 	}
 	#endregion
 

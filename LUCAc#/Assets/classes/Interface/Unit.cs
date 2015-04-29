@@ -6,7 +6,6 @@ public class Unit : MonoBehaviour {
 	private Individual I;
 	private Color baseColor;
 	public bool selected = false;
-
 	public float floorOffset = 1;
 	public float speed = 5;
 	public float stopDistanceOffset = 0.5f;
@@ -38,6 +37,7 @@ public class Unit : MonoBehaviour {
 				if(selected)
 				{
 					I.isSelectioned = true;
+					//fuyducu
 				}
 				else
 				{
@@ -98,6 +98,7 @@ public class Unit : MonoBehaviour {
 			I.isSelectioned = !I.isSelectioned;
 			if (I.isSelectioned) 
 			{
+				//sdfsdfsdf
 				selected = true;
 				selectedByClick = true;
 			}

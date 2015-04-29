@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using AssemblyCSharp;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Individual : MonoBehaviour
 {
@@ -21,12 +22,12 @@ public class Individual : MonoBehaviour
 	private int coolDown = 0;
 	private bool initialized = false;
 	private environment place;
+	public GameObject representation;
 
 	#region accessors
 
 	public int survivedTime 				{ 	get { return _survivedTime; 	} 											}
 	public int lifetime 					{ 	get { return _lifeTime;			} 											}
-	public bool isSelectioned 				{ 	get { return _isSelectioned; 	} 		set { _isSelectioned = value; 	} 	}
 	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
 	public Species species 					{ 	get { return _species; 			} 		set { _species = value; 		} 	}
 	public bool isPlayed 					{ 	get { return _isPlayed; 		} 											}
@@ -34,7 +35,21 @@ public class Individual : MonoBehaviour
 	public List<moleculePack> cellMolecules	{ 	get { return _cellMolecules; 	} 											}
 	public bool gotDest						{	get { return _gotDest;			}		set { _gotDest = value;			}	}
 	public Vector3 target					{	get { return _target;			}		set { _target = value;			}	}
-
+	public bool isSelectioned 				
+	{ 	
+		get 
+		{ 
+			return _isSelectioned; 	
+		} 		
+		set 
+		{ 
+			_isSelectioned = value;
+			if (value)
+			{
+				representation.transform.FindChild("Image").gameObject.GetComponent<Image>().color = _species.color;
+			}
+		} 	
+	}
 	#endregion
 
 	// Use this for initialization
