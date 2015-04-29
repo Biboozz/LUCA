@@ -23,7 +23,7 @@ public class displayPerkTree : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.S)) 
+		if (Input.GetKeyDown (KeyCode.C)) 
 		{
 			display();
 		}
@@ -54,6 +54,8 @@ public class displayPerkTree : MonoBehaviour {
 			S.typeNColor = st;
 			S.hex = (GameObject)Instantiate (GUIhexagon, new Vector3 (transform.localPosition.x, transform.localPosition.z, 0), canvas.transform.rotation);
 			S.hex.transform.SetParent (canvas.transform, false);
+			S.hex.transform.GetChild(1).GetComponent<displaySkillDescription>().Skill = S;
+			S.hex.transform.GetChild(1).GetComponent<displaySkillDescription>().perkTree = skillList;
 			S.hex.GetComponentInChildren<Text>().text = S.name;
 			for (int i = 0; i < 6; i++)
 			{
