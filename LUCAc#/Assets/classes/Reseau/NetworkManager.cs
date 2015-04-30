@@ -10,7 +10,7 @@ public class NetworkManager : MonoBehaviour
 
 	/*** création serveur ***/
 
-	private void StartServer()
+	public void StartServer()
 	{
 		Network.InitializeServer(16, 2500, true);
 		MasterServer.RegisterHost(registered_game, "LUCA I", "Test implamentation of server code");
@@ -48,14 +48,14 @@ public class NetworkManager : MonoBehaviour
 
 	/*** initialisation du serveur ***/
 
-	void OnserverInitialized()
+	public void OnserverInitialized()
 	{
 		Debug.Log ("Le serveur est initialisé.");
 	}
 
 	/*** enregistrement **/
 
-	void OnMasterServerEvent(MasterServerEvent masterServerEvent)
+	public void OnMasterServerEvent(MasterServerEvent masterServerEvent)
 	{
 		if (masterServerEvent == MasterServerEvent.RegistrationSucceeded) 
 		{

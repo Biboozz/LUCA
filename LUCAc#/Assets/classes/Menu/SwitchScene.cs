@@ -17,18 +17,25 @@ public class SwitchScene : MonoBehaviour {
 
     void OnClick()
     {
+
+
         string button = gameObject.name;
         switch (button)
         {
 			case "Button - Solo":
                 Application.LoadLevel(1);
                 break;
+
 			case "Button - RejoindreServ":
-				//Blabla
+				/*StartCoroutine("refresh_host_list");
+				NetworkManager.OnserverInitialized();*/
 				break;
+
 			case "Button - CreerServ":
-				//Blabla
+				//NetworkManager.StartServer();
+				//NetworkManager.OnserverInitialized();
 				break;
+
             case "Button - Quitter":
                 Application.Quit();
                 break;
