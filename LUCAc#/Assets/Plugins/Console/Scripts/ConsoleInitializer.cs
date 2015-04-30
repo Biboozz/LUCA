@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ConsoleCommandRouter : MonoBehaviour {
-
+public class ConsoleInitializer : MonoBehaviour {
+	
 	void Start () 
 	{
 		var repo = ConsoleCommandsRepository.Instance;
@@ -19,3 +19,4 @@ public class ConsoleCommandRouter : MonoBehaviour {
 		return "Votre vitesse est désormais de" + speed;
 	}
 }
+
