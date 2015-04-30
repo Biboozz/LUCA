@@ -17,6 +17,7 @@ public class gameDataReader : MonoBehaviour {
 		ReadXML();
 		buildLinks ();
 		GetComponentInParent<displayPerkTree> ().Initialize (skillList);
+		GetComponentInParent<environment> ().molecules = moleculeList;
 	}
 	
 	// Update is called once per frame
