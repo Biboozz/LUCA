@@ -15,18 +15,25 @@ public class environment : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Species S = new Species (this, Color.blue);
-		for (int i = 1; i <= 500; i++) 
+		System.Random Rdm = new System.Random (25);
+		for (int j = 0; j < 6; j++) 
 		{
-			S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
+			Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
+			for (int i = 1; i <= 100; i++) 
+			{
+				S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
+			}
+			S.isPlayed = j == 0;
+			for (int i = 0; i < S.Individuals.Count; i++) 
+			{
+				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, j == 0, new List<moleculePack>(), 100);
+				S.Individuals[i].representation = UICellImage;
+				S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+				S.Individuals[i].transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+			}
+			livings.Add (S);
 		}
-		S.isPlayed = true;
-		for (int i = 0; i < S.Individuals.Count; i++) 
-		{
-			S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, true, new List<moleculePack>(), 100);
-			S.Individuals[i].representation = UICellImage;
-		}
-		livings.Add (S);
+
 	}
 	
 	// Update is called once per frame

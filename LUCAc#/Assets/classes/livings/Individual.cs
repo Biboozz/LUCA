@@ -46,7 +46,8 @@ public class Individual : MonoBehaviour
 			_isSelectioned = value;
 			if (value)
 			{
-				representation.transform.FindChild("Image").gameObject.GetComponent<Image>().color = _species.color;
+				representation.transform.FindChild("Membrane").gameObject.GetComponent<Image>().color = _species.color;
+				representation.transform.FindChild("core").gameObject.GetComponent<Image>().color = _species.color;
 			}
 		} 	
 	}
