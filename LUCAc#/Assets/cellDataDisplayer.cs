@@ -6,10 +6,11 @@ using AssemblyCSharp;
 
 public class cellDataDisplayer : MonoBehaviour {
 
-	public ListBox cellMolecules;
+	private ListBox cellMolecules;
 	private int lastSelected;
 	private Individual _target;
 	public displayPerkTree DPT;
+	public selectedSpeciesDataDisplayer SSDD;
 
 	// Use this for initialization
 	void Start () {
@@ -60,6 +61,7 @@ public class cellDataDisplayer : MonoBehaviour {
 		{
 			_target = value;
 			transform.FindChild("cellSkillButton").gameObject.GetComponent<Button>().interactable = (_target != null);
+			transform.FindChild("cellSpeciesButton").gameObject.GetComponent<Button>().interactable = (_target != null);
 		}
 	}
 
@@ -69,5 +71,10 @@ public class cellDataDisplayer : MonoBehaviour {
 		{
 			DPT.display(target.species);
 		}
+	}
+
+	public void displaySpecies()
+	{
+		SSDD.species = target.species;
 	}
 }

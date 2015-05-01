@@ -22,11 +22,20 @@ public class environment : MonoBehaviour {
 		for (int j = 0; j < 6; j++) 
 		{
 			Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
+
 			for (int i = 1; i <= 100; i++) 
 			{
 				S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
 			}
 			S.isPlayed = j == 0;
+			if (S.isPlayed)
+			{
+				S.name = "LUCA";
+			}
+			else
+			{
+				S.name = "test";
+			}
 			for (int i = 0; i < S.Individuals.Count; i++) 
 			{
 				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, j == 0, new List<moleculePack>(), Rdm.Next(500));
@@ -85,6 +94,5 @@ public class environment : MonoBehaviour {
 			}
 		}
 	}
-		
 
 }
