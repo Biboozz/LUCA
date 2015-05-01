@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SwitchScene : MonoBehaviour 
 {
-	string registered_game = "network_luca_game!&@&"; //nom de notre jeu sur les serveurs unity (volontairement complexe)
+	string registered_game = "network_luca_game_partie_1"; //nom de notre jeu sur les serveurs unity (volontairement complexe)
 	bool is_refresing = false;
 	float refresh_request_lenght = 3.0f; //temps supplémentaire : donner une impression de recherche 
 	HostData[] host_data; //tableau contenant les serveurs créés
