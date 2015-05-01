@@ -31,7 +31,7 @@ public class SwitchScene : MonoBehaviour
 			yield return new WaitForEndOfFrame ();
 		}
 
-
+		Debug.Log ("test");
 		
 		if (host_data == null || host_data.Length == 0) 
 		{
