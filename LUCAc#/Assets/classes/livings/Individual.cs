@@ -52,6 +52,7 @@ public class Individual : MonoBehaviour
 				descriptionBox.GetComponent<cellDataDisplayer>().displayData(_cellMolecules);
 				descriptionBox.transform.FindChild("toggleIsPlayed").gameObject.GetComponent<Toggle>().isOn = this.isPlayed;
 				descriptionBox.transform.FindChild("ATP").gameObject.GetComponent<Text>().text = this.ATP.ToString();
+				descriptionBox.GetComponent<cellDataDisplayer>().target = this;
 			}
 		} 	
 	}

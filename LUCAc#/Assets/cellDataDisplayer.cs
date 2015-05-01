@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using AssemblyCSharp;
@@ -7,6 +8,8 @@ public class cellDataDisplayer : MonoBehaviour {
 
 	public ListBox cellMolecules;
 	private int lastSelected;
+	private Individual _target;
+	public displayPerkTree DPT;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +47,27 @@ public class cellDataDisplayer : MonoBehaviour {
 		foreach (moleculePack MP in MPList) 
 		{
 			cellMolecules.AddItem(MP.moleculeType.name + " - " + MP.count);
+		}
+	}
+
+	public Individual target
+	{
+		get
+		{
+			return _target;
+		}
+		set
+		{
+			_target = value;
+			transform.FindChild("cellSkillButton").gameObject.GetComponent<Button>().interactable = (_target != null);
+		}
+	}
+
+	public void display()
+	{
+		if (_target != null) 
+		{
+			DPT.display(target.species);
 		}
 	}
 }

@@ -66,10 +66,11 @@ public class displayPerkTree : MonoBehaviour {
 			}
 			S.typeNColor = st;
 			S.hex = (GameObject)Instantiate (GUIhexagon, new Vector3 (transform.localPosition.x, transform.localPosition.z, 0), canvas.transform.rotation);
-			S.hex.transform.SetParent (canvas.transform, false);
+			S.hex.transform.SetParent (canvas.transform.FindChild("UI Skill Tree"), false);
 			S.hex.transform.GetChild(1).GetComponent<displaySkillDescription>().Skill = S;
 			S.hex.transform.GetChild(1).GetComponent<displaySkillDescription>().perkTree = skillList;
 			S.hex.GetComponentInChildren<Text>().text = S.name;
+			S.hex.GetComponent<moveSkill>().Position = canvas.transform.FindChild("UI Skill Tree").gameObject;
 			for (int i = 0; i < 6; i++)
 			{
 				float angle = Mathf.PI * (1 + 2 * i) / 6;
@@ -167,7 +168,8 @@ public class displayPerkTree : MonoBehaviour {
 			{
 				unlockedNeighborhood[i].hex.GetComponent<Image>().sprite = images[1].sprite;
 				unlockedNeighborhood[i].hex.GetComponent<Button>().interactable = true;
-				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(true);
+
+				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(species.isPlayed);
 			}
 		}
 	}
@@ -237,6 +239,27 @@ public class displayPerkTree : MonoBehaviour {
 		else 
 		{
 			update();
+			foreach (skill S in perkTree) 
+			{
+				S.hex.SetActive(true);
+			}
+		}
+		_shown = !_shown;
+	}
+
+	public void display(Species Spe)
+	{
+		reset ();
+		if (_shown) 
+		{
+			foreach (skill S in perkTree) 
+			{
+				S.hex.SetActive(false);
+			}
+		} 
+		else 
+		{
+			update(Spe);
 			foreach (skill S in perkTree) 
 			{
 				S.hex.SetActive(true);
