@@ -30,9 +30,9 @@ public class ConsoleInitializer : MonoBehaviour {
 
 	public string Help(params string[] args) {
 		return "god -- Vie illimitée\n" +
-				"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
-				"all_unlock -- débloque toutes les compétences de l'arbre\n" +
-				"help -- cette commande"
+			"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
+			"all_unlock -- débloque toutes les compétences de l'arbre\n" +
+			"help -- cette commande";
 	}
 }
 
