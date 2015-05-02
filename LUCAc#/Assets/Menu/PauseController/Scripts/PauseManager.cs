@@ -42,7 +42,6 @@ public class PauseManager : MonoBehaviour {
 	}
 		
 	public void OnQuit() {
-		Debug.Log ("PauseManager.OnQuit");
 
 		foreach (var quittableComponent in quittableInterfaces) {		
 			IQuittable quittableInterface = (IQuittable)quittableComponent;
@@ -51,8 +50,7 @@ public class PauseManager : MonoBehaviour {
 		}		
 	}
 	
-	public void OnUnPause() {
-		Debug.Log ("PauseManager.OnUnPause");	
+	public void OnUnPause() {	
 		isPaused = false;
 
 		foreach (var pausableComponent in pausableInterfaces) {		
@@ -63,7 +61,6 @@ public class PauseManager : MonoBehaviour {
 	}
 
 	public void OnPause() {
-		Debug.Log ("PauseManager.OnPause");
 		isPaused = true;
 
 		foreach (var pausableComponent in pausableInterfaces) {		
