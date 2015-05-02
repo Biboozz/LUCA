@@ -3,6 +3,7 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour 
 {
+
 	string registered_game = "network_luca_game!&@&"; //nom de notre jeu sur les serveurs unity (volontairement complexe)
 	bool is_refresing = false;
 	float refresh_request_lenght = 3.0f; //temps supplémentaire : donner une impression de recherche 
@@ -62,4 +63,5 @@ public class NetworkManager : MonoBehaviour
 			Debug.Log ("Enregistrement réussi.");
 		}
 	}
+
 }
