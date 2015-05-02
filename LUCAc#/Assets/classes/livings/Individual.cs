@@ -70,7 +70,7 @@ public class Individual : MonoBehaviour
 		if (Time.timeScale >= 1f)		//Test si le temps est en pause ou pas
 		{
 			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned); //selection de la cellule
-			if (_isSelectioned == false && _gotDest == false) //est-elle selectionné et n'a pas de dest
+			if ((_isSelectioned == false || (_isSelectioned && !_isPlayed)) && _gotDest == false) //est-elle selectionné et n'a pas de dest
 			{
 				transform.Translate(0.05f, 0f, 0f);
 				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));

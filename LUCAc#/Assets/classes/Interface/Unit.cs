@@ -38,7 +38,7 @@ public class Unit : MonoBehaviour {
 					camPos.y = CameraOperator.InvertMouseY(camPos.y);
 					selected = CameraOperator.selection.Contains(camPos);
 					
-					if(selected)
+					if(selected && I.isPlayed)
 					{
 						I.isSelectioned = true;
 						//fuyducu
@@ -50,7 +50,7 @@ public class Unit : MonoBehaviour {
 				}
 			}
 			
-			if(selected && Input.GetMouseButtonDown(1))		//Si sélectionné et clic droit
+			if(I.isSelectioned && I.isPlayed && Input.GetMouseButtonDown(1))		//Si sélectionné et clic droit
 			{
 				target = GameObject.FindGameObjectWithTag("target");
 				RaycastHit hit;
@@ -100,20 +100,17 @@ public class Unit : MonoBehaviour {
 	{
 		if (Time.timeScale >= 1f) 
 		{
-			if (I.isPlayed)
+			I.isSelectioned = !I.isSelectioned;
+			if (I.isSelectioned) 
 			{
-				I.isSelectioned = !I.isSelectioned;
-				if (I.isSelectioned) 
-				{
-					//sdfsdfsdf
-					selected = true;
-					selectedByClick = true;
-				}
-				else
-				{
-					selected = false;
-					I.isSelectioned = false;
-				}
+				//sdfsdfsdf
+				selected = true;
+				selectedByClick = true;
+			}
+			else
+			{
+				selected = false;
+				I.isSelectioned = false;
 			}
 		}
 	}
