@@ -1,8 +1,0 @@
-sucre simple [SS]
-acide aminé [AA]
-acide nucléique [AN]
-acide gras [AG]
-sucre complexe [SC]
-protéine [P]
-acide désoxyribonucléique [ADN]
-lipide [L]
