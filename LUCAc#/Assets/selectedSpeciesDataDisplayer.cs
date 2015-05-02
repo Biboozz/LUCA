@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using AssemblyCSharp;
 
 public class selectedSpeciesDataDisplayer : MonoBehaviour {
 
@@ -65,6 +67,28 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 				ColorBlock CB = color.colors;
 				CB.disabledColor = _species.color;
 				color.colors = CB;
+				List<moleculePack> moleculePackSum = new List<moleculePack>();
+				speciesCellsMoleculesAverage.Clear();
+				foreach (Individual I in _species.Individuals)
+				{
+					foreach (moleculePack mp in I.cellMolecules)
+					{
+						moleculePack MPS = moleculePackSum.Find(MP => MP.moleculeType.ID == mp.moleculeType.ID);
+						if (MPS == null)
+						{
+							moleculePackSum.Add(mp);
+						}
+						else
+						{
+							MPS.count = MPS.count + mp.count;
+						}
+					}
+				}
+				foreach (moleculePack MP in moleculePackSum)
+				{
+					MP.count = MP.count / _species.Individuals.Count;
+					speciesCellsMoleculesAverage.AddItem(MP.moleculeType.name + " - " + MP.count.ToString());
+				}
 			}
 		}
 	}

@@ -86,9 +86,12 @@ public class environment : MonoBehaviour {
 			{
 				foreach(Individual I in S.Individuals)
 				{
-					foreach(molecule m in molecules)
+					foreach(molecule m in _molecules)
 					{
-						I.cellMolecules.Add(new moleculePack(RdmMol.Next(30),m));
+						if(I.cellMolecules.Find(mp => mp.moleculeType.ID == m.ID) == null)
+						{
+							I.cellMolecules.Add(new moleculePack(RdmMol.Next(30),m));
+						}
 					}
 				}
 			}
