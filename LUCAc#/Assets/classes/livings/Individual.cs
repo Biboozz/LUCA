@@ -69,8 +69,8 @@ public class Individual : MonoBehaviour
 	{
 		if (Time.timeScale >= 1f)		//Test si le temps est en pause ou pas
 		{
-			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
-			if (_isSelectioned == false && _gotDest == false) //random movement
+			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned); //selection de la cellule
+			if (_isSelectioned == false && _gotDest == false) //est-elle selectionné et n'a pas de dest
 			{
 				transform.Translate(0.05f, 0f, 0f);
 				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
@@ -86,7 +86,7 @@ public class Individual : MonoBehaviour
 				{
 					coolDown++;
 				}
-				toCorrectPosition(20f);
+				toCorrectPosition(20f); //si mur, changement d'angle
 			}
 		}
 	}

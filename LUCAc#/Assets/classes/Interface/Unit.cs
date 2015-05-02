@@ -23,18 +23,18 @@ public class Unit : MonoBehaviour {
 	void Start () 
 	{
 		I = gameObject.GetComponentInParent<Individual>();
-		newPosition = transform.position;
+		newPosition = transform.position; // position de la cell
 	}
 
 	private void Update ()
 	{
 		if (Time.timeScale >= 1f) 
 		{
-			if (GetComponent<Renderer>().isVisible && Input.GetMouseButton(0)) 
+			if (Input.GetMouseButton(0) && GetComponent<Renderer>().isVisible) // test si clique sur cell (cell jouée)
 			{
-				if(!selectedByClick)
+				if(!selectedByClick) // si pas deja selectionnée
 				{
-					Vector3 camPos = Camera.main.WorldToScreenPoint(transform.position);
+					Vector3 camPos = Camera.main.WorldToScreenPoint(transform.position); // selection drag and drop
 					camPos.y = CameraOperator.InvertMouseY(camPos.y);
 					selected = CameraOperator.selection.Contains(camPos);
 					

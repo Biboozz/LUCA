@@ -92,7 +92,7 @@ public class Species
 		}
 	}
 
-	public void update()
+	public void update() //augmentation temps de survie + 1
 	{
 		_survivedTime = _survivedTime + 1;
 		checkDeath ();
