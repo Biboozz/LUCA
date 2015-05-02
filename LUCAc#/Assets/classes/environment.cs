@@ -13,6 +13,7 @@ public class environment : MonoBehaviour {
 	public GameObject UICellImage; // affichage infos
 	public GameObject UICellDescriptionBox; // affichage infos
 	private List<molecule> _molecules; // liste molécules
+	public playerSpeciesDataDisplayer PSDD;
 
 	// Use this for initialization
 	void Start () 
@@ -31,6 +32,7 @@ public class environment : MonoBehaviour {
 			if (S.isPlayed)
 			{
 				S.name = "LUCA";
+				PSDD.species = S;
 			}
 			else
 			{
