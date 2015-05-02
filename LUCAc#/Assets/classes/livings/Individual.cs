@@ -67,49 +67,28 @@ public class Individual : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
-        if (_isSelectioned == false && _gotDest == false) //random movement
-        {
-            transform.Translate(0.05f, 0f, 0f);
-            transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
-            
-            if (coolDown >= 10 && initialized)
-            {
-                coolDown = 0;
-                _survivedTime = _survivedTime + 1;
-                _alive = (_survivedTime < _lifeTime);
-                action();
-            }
-            else
+		if (Time.timeScale >= 1f)		//Test si le temps est en pause ou pas
+		{
+			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
+			if (_isSelectioned == false && _gotDest == false) //random movement
 			{
-                coolDown++;
-            }
-			toCorrectPosition(20f);
-        }
-        else //player control
-        {
-			/*if (Input.GetKey(KeyCode.Q))      //Left
-			{
-				transform.Translate(Vector3.right * Time.deltaTime * 15, Space.World);
+				transform.Translate(0.05f, 0f, 0f);
+				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
+				
+				if (coolDown >= 10 && initialized)
+				{
+					coolDown = 0;
+					_survivedTime = _survivedTime + 1;
+					_alive = (_survivedTime < _lifeTime);
+					action();
+				}
+				else
+				{
+					coolDown++;
+				}
+				toCorrectPosition(20f);
 			}
-			
-			if (Input.GetKey(KeyCode.D))     //Right
-			{
-				transform.Translate(Vector3.right * Time.deltaTime * -15, Space.World);
-			}
-			
-			if (Input.GetKey(KeyCode.S))      //Down
-			{
-				transform.Translate(Vector3.forward * Time.deltaTime * 15, Space.World);
-			}
-			
-			if (Input.GetKey(KeyCode.Z))       //Top
-			{
-				transform.Translate(Vector3.forward * Time.deltaTime * -15, Space.World);
-			}
-			toCorrectPosition(0f);*/
-        }
-
+		}
 	}
 	
 	public void action () 
