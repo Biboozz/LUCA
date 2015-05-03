@@ -14,6 +14,7 @@ public class environment : MonoBehaviour {
 	public GameObject UICellDescriptionBox; // affichage infos
 	private List<molecule> _molecules; // liste molécules
 	public playerSpeciesDataDisplayer PSDD;
+	public resourcesManager RM;
 
 	// Use this for initialization
 	void Start () 
@@ -97,6 +98,7 @@ public class environment : MonoBehaviour {
 					}
 				}
 			}
+			RM.molecules = _molecules;
 		}
 	}
 
