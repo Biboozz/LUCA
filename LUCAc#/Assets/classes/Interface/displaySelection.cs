@@ -15,9 +15,40 @@ public class displaySelection : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frameS
 	void Update () 
 	{
+		if (Input.GetMouseButtonDown (0)) 
+		{
+			Debug.Log("sdfsdf");
+			bool b = true;
+			foreach (RectTransform T in transform.GetComponentsInChildren<RectTransform>()) 
+			{
+				if (T.rect.Contains (Input.mousePosition)) 
+				{
+					b = false;
+					break;
+				}
+			}
+			if (b) 
+			{
+				if (Time.timeScale >= 1f) {
+					C1 = Input.mousePosition;
+					C2 = Input.mousePosition;
+					focused = C1;
+					selection.SetActive (true);
+				}
+			}
+		} 
+		if (Input.GetMouseButtonDown(0))
+		{
+			Debug.Log("gggg");
+			if (Time.timeScale >= 1f) 
+			{
+				selection.SetActive (false);
+			}
+		}
+
 		if (Time.timeScale >= 1f) 
 		{
 			if (C1.y >= C2.y && C2.x >= C1.x) {
@@ -63,4 +94,5 @@ public class displaySelection : MonoBehaviour {
 			selection.SetActive (false);
 		}
 	}
+
 }
