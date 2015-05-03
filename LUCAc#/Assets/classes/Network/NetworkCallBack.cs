@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[BoltGlobalBehaviour]
 public class NetworkCallBack : Bolt.GlobalEventListener 
 {
 	public override void SceneLoadLocalDone(string map) 
