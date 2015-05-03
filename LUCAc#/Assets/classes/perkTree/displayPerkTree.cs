@@ -168,7 +168,7 @@ public class displayPerkTree : MonoBehaviour {
 			{
 				unlockedNeighborhood[i].hex.GetComponent<Image>().sprite = images[1].sprite;
 				unlockedNeighborhood[i].hex.GetComponent<Button>().interactable = true;
-
+				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.SetActive(species.isPlayed);
 				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(species.isPlayed);
 			}
 		}
