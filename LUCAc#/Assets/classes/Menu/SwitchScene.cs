@@ -22,7 +22,7 @@ public class SwitchScene : MonoBehaviour
 
 				// START CLIENT
 				BoltLauncher.StartClient();
-				BoltNetwork.Connect(UdpKit.UdpEndPoint.Parse("127.0.0.1:27000"));
+				BoltNetwork.Connect(UdpKit.UdpEndPoint.Parse("127.0.0.1:12110"));
 				break;
 
 			case "Button - Creer Serveur":
@@ -31,7 +31,7 @@ public class SwitchScene : MonoBehaviour
 
 
 				// START SERVER
-				BoltLauncher.StartServer(UdpKit.UdpEndPoint.Parse("127.0.0.1:27000"));
+				BoltLauncher.StartServer(UdpKit.UdpEndPoint.Parse("127.0.0.1:12110"));
 				BoltNetwork.LoadScene("Multijoueur_game");
 				break;
 
