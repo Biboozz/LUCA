@@ -29,9 +29,10 @@ public class displaySelection : MonoBehaviour {
 //					b = false;
 //					break;
 //				}
-//			}
+//			}S
 			Vector2 pos = Input.mousePosition;
-			if (pos.x / (float)Screen.width < 0.75)
+			Debug.Log(pos.y / (float)Screen.height > 0.58);
+			if ((!(pos.x / (float)Screen.width > 0.75) && (pos.y / (float)Screen.height > 0.58)) && !((pos.x / (float)Screen.width < 0.19) && (pos.y / (float)Screen.height > 0.52)))
 			{
 				if (Time.timeScale >= 1f) {
 					C1 = Input.mousePosition;
