@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CellBehaviour : Bolt.EntityBehaviour<ICellState> 
 {
+	private Color _color;
+
 	public override void Attached() 
 	{
 		state.CellTransform.SetTransforms (transform);
@@ -10,6 +12,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		if (entity.isOwner) 
 		{
 			Color color = new Color(Random.value, Random.value, Random.value);
+			_color = color;
 			transform.FindChild("cytoplasm").gameObject.GetComponent<MeshRenderer>().material.color = color;
 		}
 		
@@ -41,7 +44,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 	{
 		if (entity.isOwner) 
 		{
-			GUI.color = state.CellColor;
+			GUI.color = _color;
 			GUILayout.Label("@@@");
 			GUI.color = Color.white;
 		}
