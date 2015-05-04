@@ -21,14 +21,6 @@ public class displaySelection : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) 
 		{
 			bool b = true;
-//			foreach (RectTransform T in transform.GetComponentsInChildren<RectTransform>()) 
-//			{
-//				if (T.rect.Contains (Input.mousePosition)) 
-//				{
-//					b = false;
-//					break;
-//				}
-//			}S
 			Vector2 pos = Input.mousePosition;
 			float RX = pos.x / Screen.width;
 			float RY = pos.y / Screen.height;
