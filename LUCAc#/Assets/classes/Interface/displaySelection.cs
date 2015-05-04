@@ -20,7 +20,6 @@ public class displaySelection : MonoBehaviour {
 	{
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			Debug.Log("down");
 			bool b = true;
 //			foreach (RectTransform T in transform.GetComponentsInChildren<RectTransform>()) 
 //			{
@@ -31,8 +30,26 @@ public class displaySelection : MonoBehaviour {
 //				}
 //			}S
 			Vector2 pos = Input.mousePosition;
-			Debug.Log(pos.y / (float)Screen.height > 0.58);
-			if ((!(pos.x / (float)Screen.width > 0.75) && (pos.y / (float)Screen.height > 0.58)) && !((pos.x / (float)Screen.width < 0.19) && (pos.y / (float)Screen.height > 0.52)))
+			float RX = pos.x / Screen.width;
+			float RY = pos.y / Screen.height;
+
+			if(RX < 0.19 && RY > 0.52)
+			{
+				b = false;
+			}
+
+			if (RX < 0.22 && RY < 0.47)
+			{
+				b = false;
+			}
+
+			if (RX > 0.82 && RY > 0.58)
+			{
+				b = false;
+			}
+
+
+			if (b) 
 			{
 				if (Time.timeScale >= 1f) {
 					C1 = Input.mousePosition;
@@ -41,19 +58,9 @@ public class displaySelection : MonoBehaviour {
 					selection.SetActive (true);
 				}
 			}
-//			if (b) 
-//			{
-//				if (Time.timeScale >= 1f) {
-//					C1 = Input.mousePosition;
-//					C2 = Input.mousePosition;
-//					focused = C1;
-//					selection.SetActive (true);
-//				}
-//			}
 		} 
 		if (Input.GetMouseButtonUp(0))
 		{
-			Debug.Log("up");
 			if (Time.timeScale >= 1f) 
 			{
 				selection.SetActive (false);
