@@ -3,8 +3,12 @@ using System.Collections;
 
 public class SwitchScene : MonoBehaviour 
 {
+	private string _pseudo;
+	public string pseudo 					{ 	get { return _pseudo; 			} 		set { _pseudo = value; 		} 	}
+
     void OnClick()
     {
+		Debug.Log (pseudo);
         string button = gameObject.name;
         switch (button)
         {
