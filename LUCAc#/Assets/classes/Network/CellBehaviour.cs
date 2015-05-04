@@ -9,7 +9,8 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 
 		if (entity.isOwner) 
 		{
-			state.CellColor = new Color(Random.value, Random.value, Random.value);
+			Color color = new Color(Random.value, Random.value, Random.value);
+			transform.FindChild("cytoplasm").gameObject.GetComponent<MeshRenderer>().material.color = color
 		}
 		
 		state.AddCallback("CellColor", ColorChanged);
@@ -38,7 +39,8 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 
 	void OnGUI() 
 	{
-		if (entity.isOwner) {
+		if (entity.isOwner) 
+		{
 			GUI.color = state.CellColor;
 			GUILayout.Label("@@@");
 			GUI.color = Color.white;
