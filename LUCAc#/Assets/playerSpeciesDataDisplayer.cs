@@ -15,6 +15,8 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 	private Text name;
 	private Toggle color;
 
+	public unlockSkillWindow USW;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -84,6 +86,7 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 				color.colors = CB;
 				nbIndividual.text = _species.IndividualsNumber.ToString();
 				name.text = _species.name;
+				USW.player = _species;
 			}
 		}
 	}
