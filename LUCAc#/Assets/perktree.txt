@@ -1,0 +1,241 @@
+STARTPERK
+    PNAME:En vie
+    PID:0
+    PDESCRIPTION:Vos cellules sont vivantes
+    PNEIGHBORS:2;1;14;13;4;3
+    TYPE:0
+    INNEE:T
+    COSTDEV:-1
+    COSTCELL:-1
+    COSTENV:-1
+    PRODDEV:-1
+    PRODCELL:-1
+    PRODENV:-1
+    REQU:-1
+ENDPERK
+STARTPERK
+    PNAME:Absorption des sucres simples
+    PID:1
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les sucres simples presents dans son environnement.
+    PNEIGHBORS:5;-1;-1;-1;0;-1
+    TYPE:1
+    INNEE:T
+    COSTDEV:-1
+    COSTCELL:-1
+    COSTENV:1[1]
+    PRODDEV:1{1}
+    PRODCELL:1[1]
+    PRODENV:-1
+    REQU:-1
+ENDPERK
+STARTPERK
+    PNAME:Absorption des acides amines
+    PID:2
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les acides amines presents dans son environnement.
+    PNEIGHBORS:6;-1;-1;0;-1;-1
+    TYPE:1
+    INNEE:T
+    COSTDEV:-1
+    COSTCELL:-1
+    COSTENV:1[2]
+    PRODDEV:1{2}
+    PRODCELL:1[2]
+    PRODENV:-1
+    REQU:-1
+ENDPERK
+STARTPERK
+    PNAME:Absorption des acides nucleiques
+    PID:3
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les acides nucleiques presents dans son environnement.
+    PNEIGHBORS:-1;-1;0;-1;-1;7
+    TYPE:1
+    INNEE:T
+    COSTDEV:-1
+    COSTCELL:-1
+    COSTENV:1[3]
+    PRODDEV:1{3}
+    PRODCELL:1[3]
+    PRODENV:-1
+    REQU:-1
+ENDPERK
+STARTPERK
+    PNAME:Absorption des acides gras
+    PID:4
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les acides gras presents dans son environnement.
+    PNEIGHBORS:-1;0;-1;-1;-1;8
+    TYPE:1
+    INNEE:T
+    COSTDEV:-1
+    COSTCELL:-1
+    COSTENV:1[4]
+    PRODDEV:1{4}
+    PRODCELL:1[4]
+    PRODENV:-1
+    REQU:-1
+ENDPERK
+STARTPERK
+    PNAME:Absorption des sucres complexes
+    PID:5
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les sucres complexes presents dans son environnement.
+    PNEIGHBORS:9;-1;-1;-1;-1;-1
+    TYPE:1
+    INNEE:F
+    COSTDEV:10[4]
+    COSTCELL:-1
+    COSTENV:1[5]
+    PRODDEV:1{5}
+    PRODCELL:1[5]
+    PRODENV:-1
+    REQU:1
+ENDPERK
+STARTPERK
+    PNAME:Absorption des proteines
+    PID:6
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les sucres complexes presents dans son environnement.
+    PNEIGHBORS:-1;-1;-1;-1;-1;10
+    TYPE:1
+    INNEE:F
+    COSTDEV:10[4]
+    COSTCELL:-1
+    COSTENV:1[6]
+    PRODDEV:1{6}
+    PRODCELL:1[6]
+    PRODENV:-1
+    REQU:2
+ENDPERK
+STARTPERK
+    PNAME:Absorption des ADN
+    PID:7
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les lipides presents dans son environnement.
+    PNEIGHBORS:11;-1;-1;-1;-1;-1
+    TYPE:1
+    INNEE:F
+    COSTDEV:10[4]
+    COSTCELL:-1
+    COSTENV:1[7]
+    PRODDEV:1{7}
+    PRODCELL:1[7]
+    PRODENV:-1
+    REQU:3
+ENDPERK
+STARTPERK
+    PNAME:Absorption des lipides
+    PID:8
+    PDESCRIPTION:Un pore est produit a la surface de la cellule pour lui permettre d’absorber les ADN presents dans son environnement.
+    PNEIGHBORS:-1;-1;-1;-1;-1;12
+    TYPE:1
+    INNEE:F
+    COSTDEV:10[4]
+    COSTCELL:-1
+    COSTENV:1[8]
+    PRODDEV:1{8}
+    PRODCELL:1[8]
+    PRODENV:-1
+    REQU:4
+ENDPERK
+STARTPERK
+    PNAME:Hydrolyse des sucres complexes
+    PID:9
+    PDESCRIPTION:Cree une enzyme : la sucrase qui convertit les sucres complexes absorbés en sucres simples utilisables.
+    PNEIGHBORS:-1;-1;-1;-1;-1;-1
+    TYPE:2
+    INNEE:F
+    COSTDEV:30[3];10[2];1000[ATP]
+    COSTCELL:1[5]
+    COSTENV:-1
+    PRODDEV:1{9}
+    PRODCELL:1[1]
+    PRODENV:-1
+    REQU:5
+ENDPERK
+STARTPERK
+    PNAME:Hydrolyse des proteines
+    PID:10
+    PDESCRIPTION:Créé une enzyme : la protéase qui convertit les protéines absorbées en acides aminés utilisables.
+    PNEIGHBORS:-1;-1;-1;-1;-1;-1
+    TYPE:2
+    INNEE:F
+    COSTDEV:90[3];30[2];3000[ATP]
+    COSTCELL:1[6]
+    COSTENV:-1
+    PRODDEV:1{10}
+    PRODCELL:1[2]
+    PRODENV:-1
+    REQU:6
+ENDPERK
+STARTPERK
+    PNAME:Hydrolyse des ADN
+    PID:11
+    PDESCRIPTION:Créé une enzyme : l'ADN Hydrolase qui convertit les ADN absorbées en acides nucléiques utilisables.
+    PNEIGHBORS:-1;-1;-1;-1;-1;-1
+    TYPE:2
+    INNEE:F
+    COSTDEV:75[3];25[2];2500[ATP]
+    COSTCELL:1[7]
+    COSTENV:-1
+    PRODDEV:1{11}
+    PRODCELL:1[3]
+    PRODENV:-1
+    REQU:7
+ENDPERK
+STARTPERK
+    PNAME:Hydrolyse des lipides
+    PID:12
+    PDESCRIPTION:Créé une enzyme : la lipide Hydrolase qui convertit les lipides absorbées en acides nucléiques utilisables.
+    PNEIGHBORS:-1;-1;-1;-1;-1;-1
+    TYPE:2
+    INNEE:F
+    COSTDEV:100[3];35[2];3500[ATP]
+    COSTCELL:1[8]
+    COSTENV:-1
+    PRODDEV:1{12}
+    PRODCELL:1[4]
+    PRODENV:-1
+    REQU:8
+ENDPERK
+STARTPERK
+    PNAME:Synthese des acides gras
+    PID:13
+    PDESCRIPTION:Créé une enzyme : l’acide gras synthase qui converti 5 sucres et 10 ATP en 1 AG utilisable.
+    PNEIGHBORS:0;-1;-1;-1;-1;-1
+    TYPE:3
+    INNEE:T
+    COSTDEV:-1
+    COSTCELL:5[1];10[ATP]
+    COSTENV:-1
+    PRODDEV:1{13}
+    PRODCELL:1[1]
+    PRODENV:-1
+    REQU:-1
+ENDPERK
+STARTPERK
+    PNAME:Conversion des sucres simples en ATP
+    PID:14
+    PDESCRIPTION:Créé une enzyme : l’ATP synthase I qui converti 1 sucre en 30 ATP utilisables.
+    PNEIGHBORS:-1;-1;15;-1;-1;0
+    TYPE:4
+    INNEE:T
+    COSTDEV:-1
+    COSTCELL:1[1]
+    COSTENV:-1
+    PRODDEV:1{14}
+    PRODCELL:30[ATP]
+    PRODENV:-1
+    REQU:-1
+ENDPERK
+STARTPERK
+    PNAME:Conversion des acides gras en ATP
+    PID:15
+    PDESCRIPTION:Créé une enzyme : l’ATP synthase II qui converti 1 acide gras en 100 ATP utilisables.
+    PNEIGHBORS:-1;-1;-1;-1;-1;-1
+    TYPE:4
+    INNEE:F
+    COSTDEV:50[3];25[2];1500[ATP]
+    COSTCELL:1[4]
+    COSTENV:-1
+    PRODDEV:1{15}
+    PRODCELL:100[ATP]
+    PRODENV:-1
+    REQU:14
+ENDPERK
+ENDFILE
