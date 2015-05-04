@@ -17,10 +17,10 @@ public class pseudo_multi : MonoBehaviour
 
 	public void OnChange ()
 	{
-		pseudos = NGUIText.StripSymbols(mInput.value);
 		if (pseudos != null && pseudos != "Pseudo")
 		{
-			GetComponent<SwitchScene>().pseudo = pseudos;
+			pseudos = NGUIText.StripSymbols(mInput.value);
+			//gameObject.GetComponent<CellBehaviour>().pseudo = pseudos;
 			Debug.Log(pseudos);
 		}
 	}
