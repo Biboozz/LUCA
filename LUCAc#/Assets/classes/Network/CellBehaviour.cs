@@ -10,7 +10,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		if (entity.isOwner) 
 		{
 			Color color = new Color(Random.value, Random.value, Random.value);
-			transform.FindChild("cytoplasm").gameObject.GetComponent<MeshRenderer>().material.color = color
+			transform.FindChild("cytoplasm").gameObject.GetComponent<MeshRenderer>().material.color = color;
 		}
 		
 		state.AddCallback("CellColor", ColorChanged);
