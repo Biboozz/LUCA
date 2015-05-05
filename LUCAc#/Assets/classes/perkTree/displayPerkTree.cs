@@ -124,12 +124,16 @@ public class displayPerkTree : MonoBehaviour {
 		update(GetComponent<environment>().livings[0]);
 	}
 
-	private void reset()
+	public void reset()
 	{
 		foreach (skill S in perkTree) 
 		{
 			S.hex.GetComponent<Image>().sprite = images[2].sprite;
+			S.hex.GetComponent<Image>().color = Color.white;
+			S.hex.transform.FindChild("Text").GetComponent<Text>().color = Color.black;
 			S.hex.GetComponent<Button>().interactable = false;
+			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(false);
+			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.SetActive(false);
 		}
 	}
 		    
@@ -240,6 +244,7 @@ public class displayPerkTree : MonoBehaviour {
 				reset ();
 				if (_shown) 
 				{
+					update();
 					foreach (skill S in perkTree) 
 					{
 						S.hex.SetActive(false);
@@ -262,6 +267,7 @@ public class displayPerkTree : MonoBehaviour {
 		reset ();
 		if (_shown) 
 		{
+			update(Spe);
 			foreach (skill S in perkTree) 
 			{
 				S.hex.SetActive(false);
