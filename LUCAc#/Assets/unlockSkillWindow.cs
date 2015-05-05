@@ -6,9 +6,19 @@ using AssemblyCSharp;
 public class unlockSkillWindow : MonoBehaviour {
 	
 	private skill _skill;
-	private ListBox _requirements;
 	private Species _player;
 
+	private ListBox _requirements;
+	private int lastSelected;
+	private Text _skillName;//
+	private Image _skillAppearence;
+	private Text _description;//
+	private Text _skillHexName;
+	private Text _rate;
+
+	private bool initialized = false;
+
+	public displayPerkTree DPT;
 
 	// Use this for initialization
 	void Start () 
@@ -21,6 +31,23 @@ public class unlockSkillWindow : MonoBehaviour {
 	
 	}
 
+	void drawListBox()
+	{
+		//Click Test
+		if (_requirements.ReDraw())
+		{
+			lastSelected = _requirements.GetSelectedID();
+		}
+		//----------
+	}
+	
+	void OnGUI()
+	{
+		drawListBox ();
+		GUI.skin.button.fontSize = 11;
+		GUI.skin.button.alignment = TextAnchor.LowerLeft;
+	}
+
 	public skill skill
 	{
 		get
@@ -31,8 +58,44 @@ public class unlockSkillWindow : MonoBehaviour {
 		{
 			if (value != null)
 			{
+				Init ();
 				_skill = value;
+				_skillName.text = _skill.name;
+				_description.text = _skill.description;
+				_skillHexName.text = _skill.type;
+				_skillAppearence.sprite = _skill.hex.GetComponent<Image>().sprite;
+
+				if (_player == null)
+				{
+					throw new System.Exception("error undefined player");
+				}
+				else
+				{
+					_requirements.Clear ();
+					foreach (moleculePack MPreq in _skill.devCosts.cellMolecules)
+					{
+						_requirements.AddItem(MPreq.moleculeType.name + MPreq.count.ToString());
+					}
+				}
 			}
+		}
+	}
+
+	private void Init()
+	{
+
+		if (!initialized) 
+		{
+			_skillName = transform.FindChild ("skillName").gameObject.GetComponent<Text> ();
+			_description = transform.FindChild ("description").gameObject.GetComponent<Text> ();
+			_skillHexName = transform.FindChild ("skillHexName").gameObject.GetComponent<Text> ();
+			_rate = transform.FindChild ("rateName").gameObject.GetComponent<Text> ();
+			_skillAppearence = transform.FindChild ("skillAppearence").gameObject.GetComponent<Image> ();
+			Transform t = gameObject.transform.FindChild ("requirementsListbox");
+			Rect listBoxRect = ((RectTransform)t).rect;
+			listBoxRect.position = new Vector2 (Screen.width * 0.52f, Screen.height * 0.27f);
+			_requirements = new ListBox (listBoxRect, new Rect (0, 0, 140, 150), false, true);
+			initialized = true;
 		}
 	}
 
@@ -49,5 +112,17 @@ public class unlockSkillWindow : MonoBehaviour {
 				_player = value;
 			}
 		}
+	}
+
+	public void unlock()
+	{
+		_player.unlockedPerks.Add (_skill);
+		DPT.display ();
+		gameObject.SetActive (false);
+	}
+
+	public void cancel()
+	{
+		gameObject.SetActive (false);
 	}
 }
