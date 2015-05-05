@@ -55,23 +55,18 @@ public class ConsoleInitializer : MonoBehaviour {
 		foreach(Individual I in cellsplayed)
 		{
 			I.duration = float.Parse(speed) ;
-			if(float.Parse(speed) == 2)
-			{
-
-			}
 			I.speed = 1/(float.Parse(speed) / 100);
 		}
 		return "Votre vitesse est désormais de " + speed;
 	}
 
 	public string SpeedBase(params string[] args) {
-		var speed = args[0];
 		foreach(Individual I in cellsplayed)
 		{
 			I.duration = 20f;
 			I.speed = 0.05f;
 		}
-		return "Votre vitesse est désormais de " + speed;
+		return "La vitesse de base a été rétabli";
 	}
 	
 	public string Allunlock(params string[] args) {
