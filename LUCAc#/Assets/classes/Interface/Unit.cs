@@ -13,7 +13,7 @@ public class Unit : MonoBehaviour {
 	private bool selectedByClick = false;
 
 	private float angle;
-	private GameObject target;
+	//private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
 
@@ -49,14 +49,13 @@ public class Unit : MonoBehaviour {
 			
 			if(I.isSelectioned && I.isPlayed && Input.GetMouseButtonDown(1))		//Si sélectionné et clic droit
 			{
-				target = GameObject.FindGameObjectWithTag("target");
 				RaycastHit hit;
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				if (Physics.Raycast(ray, out hit))
 				{
 					newPosition = hit.point;
 					newPosition.y = 1;
-					target.transform.position = newPosition;	//Object target prend position du clic
+					//target.transform.position = newPosition;	//Object target prend position du clic
 					I.target = newPosition;
 					I.gotDest = true;		//Objet possède une destination
 					
