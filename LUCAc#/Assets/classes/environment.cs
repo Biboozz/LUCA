@@ -69,9 +69,7 @@ public class environment : MonoBehaviour {
 		}
 	}
 
-
-
-	public void eateration(Terrain Terr, List<Species> Me)
+	/*public void eateration(Terrain Terr, List<Species> Me)
 	{
 		foreach (RessourceCircle C in Terr.circles) 
 		{
@@ -86,7 +84,7 @@ public class environment : MonoBehaviour {
 				}
 			}
 		}
-	}
+	}*/
 
 	public void remove(GameObject G)
 	{
