@@ -64,11 +64,12 @@ public class RessourceCircle
 				{
 					if ((N.Amount > 0) & (Math.Abs (Math.Sqrt (Math.Pow ((I.transform.position.x - N.get_Center ().x), 2) - Math.Pow ((I.transform.position.y - N.get_Center ().y), 2))) <= radius)) 
 					{
-						
-						//Absorb
-						
-						if (N.Amount < 0) {
-							N.Amount = 0;
+						foreach (moleculePack stored in I._cellMolecules_temp)
+						{
+							if (stored.moleculeType == Molecule)
+							{
+								N.Amount = N.Amount - S.absorb_amount;
+							}
 						}
 					}
 				}

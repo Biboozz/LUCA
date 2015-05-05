@@ -17,6 +17,7 @@ public class Individual : MonoBehaviour
 	private bool _gotDest = false;
 	private Vector3 _target;
 	private List<moleculePack> _cellMolecules = new List<moleculePack>();
+	public List<moleculePack> _cellMolecules_temp = new List<moleculePack>();
 	private int _ATP;
 	private bool _consumeATP = true;
 	private int coolDown = 0;
@@ -110,7 +111,12 @@ public class Individual : MonoBehaviour
 		_cellMolecules = molecules;
 		_ATP = ATP;
 	}
-	
+
+	public void eat (ref RessourceNode N)
+	{
+
+	}
+
 	public void toCorrectPosition(float angle) //correct the cell position, rotate it of the angle value
 	{
 		Vector3 pos = transform.position;

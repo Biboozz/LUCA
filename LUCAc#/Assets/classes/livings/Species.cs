@@ -17,6 +17,7 @@ public class Species
 	private int _survivedTime = 0;
 	public int individualLifeTime;
 	public Color color;
+	private int _absorb_amount = 10;
 	public List<molecule> absorb = new List<molecule>();
 
 	#region accessors
@@ -25,6 +26,13 @@ public class Species
 		get
 		{
 			return _survivedTime;
+		}
+	}
+	public int absorb_amount
+	{
+		get
+		{
+			return _absorb_amount;
 		}
 	}
 	public int IndividualsNumber
