@@ -9,6 +9,7 @@ public class displaySkillDescription : MonoBehaviour {
 	private skill _skill;
 	private bool visible;
 	private List<skill> _perkTree;
+	public unlockSkillWindow USW;
 
 	// Use this for initialization
 	void Start () 
@@ -57,5 +58,11 @@ public class displaySkillDescription : MonoBehaviour {
 		visible = !visible;
 		_skill.hex.transform.SetAsLastSibling();
 		_skill.hex.transform.FindChild("skillDescriptionWindow").gameObject.SetActive(visible);
+	}
+
+	public void unlock()
+	{
+		USW.gameObject.SetActive (true);
+		USW.skill = _skill;
 	}
 }

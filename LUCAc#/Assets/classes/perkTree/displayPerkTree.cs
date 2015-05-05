@@ -15,6 +15,7 @@ public class displayPerkTree : MonoBehaviour {
 	public Image[] images;
 	private List<skillType> types;
 	private Species _focusedSpecies;
+	public unlockSkillWindow USW;
 
 	// Use this for initialization
 	void Start () {
@@ -84,6 +85,7 @@ public class displayPerkTree : MonoBehaviour {
 				}
 			}
 			S.hex.SetActive(false);
+			S.hex.transform.FindChild("skillDescriptionWindow").gameObject.GetComponent<displaySkillDescription>().USW = USW;
 		}
 		place (skillList.Find(b => b.name == "En vie"));
 		perkTree = skillList;
@@ -226,25 +228,33 @@ public class displayPerkTree : MonoBehaviour {
 		}
 	}
 
+
 	public void display()
 	{
-		reset ();
-		if (_shown) 
+		if (_focusedSpecies != null) 
 		{
-			foreach (skill S in perkTree) 
-			{
-				S.hex.SetActive(false);
-			}
+			display (_focusedSpecies);
 		} 
 		else 
 		{
-			update();
-			foreach (skill S in perkTree) 
-			{
-				S.hex.SetActive(true);
-			}
+				reset ();
+				if (_shown) 
+				{
+					foreach (skill S in perkTree) 
+					{
+						S.hex.SetActive(false);
+					}
+				} 
+				else 
+				{
+					update();
+					foreach (skill S in perkTree) 
+					{
+						S.hex.SetActive(true);
+					}
+				}
+				_shown = !_shown;
 		}
-		_shown = !_shown;
 	}
 
 	public void display(Species Spe)
