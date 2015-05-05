@@ -15,11 +15,12 @@ public class environment : MonoBehaviour {
 	private List<molecule> _molecules; // liste molécules
 	public playerSpeciesDataDisplayer PSDD;
 	public resourcesManager RM;
+	private System.Random Rdm;
 
 	// Use this for initialization
 	void Start () 
 	{
-		System.Random Rdm = new System.Random (25); // nombre alléatoire 0-25
+		Rdm = new System.Random (25); // nombre alléatoire 0-25
 
 		for (int j = 0; j < 6; j++) // création de 6 especes
 		{
@@ -53,7 +54,26 @@ public class environment : MonoBehaviour {
 			}
 			livings.Add (S); //ajout liste espece vivante
 		}
+	}
 
+	public Species addSpecies(Species parent, List<Individual> starters)
+	{
+		Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
+		S.isPlayed = parent.isPlayed;
+		if (S.isPlayed) 
+		{
+			PSDD.species = S;
+		}
+		S.name = parent.name;
+		foreach (Individual I in starters) 
+		{
+			I.transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+			I.transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+			parent.Individuals.RemoveAt(parent.Individuals.FindIndex(r => r.Equals(I)));
+			S.Individuals.Add(I);
+		}
+		livings.Add (S);
+		return S;
 	}
 	
 	// Update is called once per frame

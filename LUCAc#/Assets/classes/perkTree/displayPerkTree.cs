@@ -163,7 +163,15 @@ public class displayPerkTree : MonoBehaviour {
 				c++;
 			}
 		}
-		return (c * 100 / species.Individuals.Count >= 60);
+		if (species.Individuals.Count == 0) 
+		{
+			return false;
+		} 
+		else 
+		{
+			return (c * 100 / species.Individuals.Count >= 60);
+		}
+
 	}
 
 	private void activateUnlockable(List<skill> unlockedNeighborhood, Species species)
