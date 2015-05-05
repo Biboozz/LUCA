@@ -76,7 +76,7 @@ public class Individual : MonoBehaviour
 			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned); //selection de la cellule
 			if ((_isSelectioned == false || (_isSelectioned && !_isPlayed)) && _gotDest == false) //est-elle selectionné et n'a pas de dest
 			{
-				transform.Translate(0.05f, 0f, 0f);
+				transform.Translate(speed, 0f, 0f);
 				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
 				
 				if (coolDown >= 10 && initialized)

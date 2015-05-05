@@ -53,7 +53,8 @@ public class ConsoleInitializer : MonoBehaviour {
 		var speed = args[0];
 		foreach(Individual I in cellsplayed)
 		{
-			I.duration = float.Parse(speed);
+			I.duration = 1 / float.Parse(speed);
+			I.speed = 1/(float.Parse(speed) / 100);
 		}
 		return "Votre vitesse est désormais de " + speed;
 	}
