@@ -39,7 +39,7 @@ public class Individual : MonoBehaviour
 	public Vector3 target					{	get { return _target;			}		set { _target = value;			}	}
 	public bool consumeATP					{	get { return _consumeATP;		}		set { _consumeATP = value;		}	}
 	public float duration 					{ 	get { return _duration; 		} 		set { _duration = value; 		} 	}
-	public bool speed						{	get { return _speed;			}		set { _speed = value;			}	}
+	public float speed						{	get { return _speed;			}		set { _speed = value;			}	}
 	public bool isSelectioned
 	{ 	
 		get 
