@@ -43,7 +43,6 @@ public class environment : MonoBehaviour {
 			for (int i = 0; i < S.Individuals.Count; i++) 
 			{
 				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, j == 0, new List<moleculePack>(), Rdm.Next(500)); //apparition coordonnées random
-				S.Individuals[i].representation = UICellImage;
 				S.Individuals[i].descriptionBox = UICellDescriptionBox;
 				S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color; //modif couleur core en fonction de l'espece
 				S.Individuals[i].transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
