@@ -6,7 +6,14 @@ using System.Collections.Generic;
 public class ConsoleInitializer : MonoBehaviour {
 
 	public environment Environment;
+	public Species Especes;
+	public displayPerkTree SpecsTree;
 	private List<Species> _species;
+	private List<Individual> cellsplayed;
+	//private List<skill> _allskill;
+	//private List<skill> _skillunlock;
+	private bool play = false;
+	private int i = 0;
 
 	void Start () 
 	{
@@ -15,22 +22,44 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("speed", Speed);
 		repo.RegisterCommand("all_unlock", Allunlock);
 		repo.RegisterCommand("help", Help);
+
 		_species = Environment.livings;
+		//_allskill = SpecsTree.perkTree;
+		while (!play) 
+		{
+			if(_species[i].isPlayed == true)
+			{
+				play = true;
+			}
+			else
+			{
+				i++;
+			}
+		}
+
+		cellsplayed = _species [i].Individuals;
 	}
 	
 	public string God(params string[] args) {
-		//Rajouter modifications de la vie pour les cellules jouées
+		foreach(Individual I in cellsplayed)
+		{
+			I.ATP = 1000;
+			I.consumeATP = false;	//Cellule ne consomme plus son énergie
+		}
 		return "Vos cellules sont désormais immortelles";
 	}
 	
 	public string Speed(params string[] args) {
 		var speed = args[0];
-		//Rajouter modifications de la vitesse pour les cellules jouées
+		foreach(Individual I in cellsplayed)
+		{
+			I.duration = speed;
+		}
 		return "Votre vitesse est désormais de" + speed;
 	}
 
 	public string Allunlock(params string[] args) {
-		//Rajouter commandes
+		//_skillunlock = _allskill;
 		return "Vous avez débloqués toutes les compétences";
 	}
 

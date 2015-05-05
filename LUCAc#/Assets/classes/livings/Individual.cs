@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class Individual : MonoBehaviour
 {
-	private int _lifeTime;
 	private bool _alive = true;
 	private Species _species;
 	private int _survivedTime = 0;
@@ -19,16 +18,18 @@ public class Individual : MonoBehaviour
 	private Vector3 _target;
 	private List<moleculePack> _cellMolecules = new List<moleculePack>();
 	private int _ATP;
+	private bool _consumeATP = true;
 	private int coolDown = 0;
 	private bool initialized = false;
 	private environment place;
 	public GameObject representation;
 	public GameObject descriptionBox;
+	private float _duration = 20.0f;
+	private float _speed = 0.05f;
 
 	#region accessors
 
-	public int survivedTime 				{ 	get { return _survivedTime; 	} 											}
-	public int lifetime 					{ 	get { return _lifeTime;			} 											}
+	public int survivedTime 				{ 	get { return _survivedTime; 	}											}
 	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
 	public Species species 					{ 	get { return _species; 			} 		set { _species = value; 		} 	}
 	public bool isPlayed 					{ 	get { return _isPlayed; 		} 											}
@@ -36,7 +37,10 @@ public class Individual : MonoBehaviour
 	public List<moleculePack> cellMolecules	{ 	get { return _cellMolecules; 	} 											}
 	public bool gotDest						{	get { return _gotDest;			}		set { _gotDest = value;			}	}
 	public Vector3 target					{	get { return _target;			}		set { _target = value;			}	}
-	public bool isSelectioned 				
+	public bool consumeATP					{	get { return _consumeATP;		}		set { _consumeATP = value;		}	}
+	public float duration 					{ 	get { return _duration; 		} 		set { _duration = value; 		} 	}
+	public bool speed						{	get { return _speed;			}		set { _speed = value;			}	}
+	public bool isSelectioned
 	{ 	
 		get 
 		{ 
@@ -79,7 +83,7 @@ public class Individual : MonoBehaviour
 				{
 					coolDown = 0;
 					_survivedTime = _survivedTime + 1;
-					_alive = (_survivedTime < _lifeTime);
+					//_alive = (_survivedTime < _lifeTime);
 					action();
 				}
 				else
@@ -99,7 +103,6 @@ public class Individual : MonoBehaviour
 	public void Initialize(Vector3 position, int lifeTime, Species species, environment place, bool isPlayed, List<moleculePack> molecules, int ATP)
 	{
 		transform.position = position;
-		_lifeTime = lifetime;
 		_species = species;
 		transform.SetParent(place.transform);
 		this.place = place;
