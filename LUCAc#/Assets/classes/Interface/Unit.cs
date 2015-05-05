@@ -84,7 +84,7 @@ public class Unit : MonoBehaviour {
 				{
 					I.gotDest = false;		//Plus de destination car elle a été atteinte
 				}
-				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.speed*400*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
+				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
 			}
 		}
 	}
