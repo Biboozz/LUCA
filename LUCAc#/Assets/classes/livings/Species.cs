@@ -9,13 +9,15 @@ public class Species
 {
 	public List<Individual> Individuals = new List<Individual>();
 	private int _IndividualsNumber = 0;
-	public List<perkData> unlockedPerks = new List<perkData> ();
+	public List<skill> unlockedPerks = new List<skill> ();
 	public bool isPlayed = false;
 	public string name;
 	public GameObject cell;
 	public environment place;
 	private int _survivedTime = 0;
 	public int individualLifeTime;
+	public Color color;
+	public List<molecule> absorb = new List<molecule>;
 
 	#region accessors
 	public int survivedTime
@@ -38,7 +40,7 @@ public class Species
 
 
 	#region constructors
-	public Species(List<Individual> Individuals, GameObject cell, List<perkData> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
+	public Species(List<Individual> Individuals, GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime, Color color)
 	{
 		this.Individuals = Individuals;
 		this.cell = cell;
@@ -47,9 +49,10 @@ public class Species
 		this.isPlayed = isPlayed;
 		this.individualLifeTime = individualLifeTime;
 		place.livings.Add (this);
+		this.color = color;
 	}
 
-	public Species(GameObject cell, List<perkData> unlockedPerks, environment place, bool isPlayed, int individualLifeTime)
+	public Species(GameObject cell, List<skill> unlockedPerks, environment place, bool isPlayed, int individualLifeTime, Color color)
 	{
 		this.cell = cell;
 		this.unlockedPerks = unlockedPerks;
@@ -57,12 +60,14 @@ public class Species
 		this.isPlayed = isPlayed;
 		this.individualLifeTime = individualLifeTime;
 		place.livings.Add (this);
+		this.color = color;
 	}
 
-	public Species(environment place) 
+	public Species(environment place, Color color) 
 	{
 		this.place = place;
 		place.livings.Add (this);
+		this.color = color;
 	}
 	#endregion
 
@@ -88,7 +93,7 @@ public class Species
 		}
 	}
 
-	public void update()
+	public void update() //augmentation temps de survie + 1
 	{
 		_survivedTime = _survivedTime + 1;
 		checkDeath ();

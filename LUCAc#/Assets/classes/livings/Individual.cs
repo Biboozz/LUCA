@@ -5,53 +5,56 @@ using System.IO;
 using System;
 using AssemblyCSharp;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Individual : MonoBehaviour
 {
 	private int _lifeTime;
-	public bool alive = true;
-	public Species species;
+	private bool _alive = true;
+	private Species _species;
 	private int _survivedTime = 0;
 	private bool _isPlayed = false;
     private bool _isSelectioned = false;
-    private Vector3 click_position;
-    private Vector3 cell_position;
-	private float distance = 4.5f;
-	private bool direction = false;
-	private Transform target;
-
-    public bool isSelectioned
-    {
-        get { return _isSelectioned; }
-        set { _isSelectioned = value; }
-    }
-
-	public bool isPlayed
-	{
-		get { return _isPlayed; }
-	}
-
-	public List<moleculePack> cellMolecules = new List<moleculePack>();
-	public int ATP;
+	private bool _gotDest = false;
+	private Vector3 _target;
+	private List<moleculePack> _cellMolecules = new List<moleculePack>();
+	private int _ATP;
 	private int coolDown = 0;
 	private bool initialized = false;
 	private environment place;
+	public GameObject representation;
+	public GameObject descriptionBox;
 
 	#region accessors
-	public int survivedTime
-	{
-		get
-		{
-			return _survivedTime;
-		}
-	}
 
-	public int lifetime
-	{
-		get
-		{
-			return _lifeTime;
-		}
+	public int survivedTime 				{ 	get { return _survivedTime; 	} 											}
+	public int lifetime 					{ 	get { return _lifeTime;			} 											}
+	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
+	public Species species 					{ 	get { return _species; 			} 		set { _species = value; 		} 	}
+	public bool isPlayed 					{ 	get { return _isPlayed; 		} 											}
+	public int ATP							{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
+	public List<moleculePack> cellMolecules	{ 	get { return _cellMolecules; 	} 											}
+	public bool gotDest						{	get { return _gotDest;			}		set { _gotDest = value;			}	}
+	public Vector3 target					{	get { return _target;			}		set { _target = value;			}	}
+	public bool isSelectioned 				
+	{ 	
+		get 
+		{ 
+			return _isSelectioned; 	
+		} 		
+		set 
+		{ 
+			_isSelectioned = value;
+			if (value)
+			{
+				representation.transform.FindChild("Membrane").gameObject.GetComponent<Image>().color = _species.color;
+				representation.transform.FindChild("core").gameObject.GetComponent<Image>().color = _species.color;
+				descriptionBox.GetComponent<cellDataDisplayer>().displayData(_cellMolecules);
+				descriptionBox.transform.FindChild("toggleIsPlayed").gameObject.GetComponent<Toggle>().isOn = this.isPlayed;
+				descriptionBox.transform.FindChild("ATP").gameObject.GetComponent<Text>().text = this.ATP.ToString();
+				descriptionBox.GetComponent<cellDataDisplayer>().target = this;
+			}
+		} 	
 	}
 	#endregion
 
@@ -59,54 +62,33 @@ public class Individual : MonoBehaviour
 	void Start () 
 	{
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
-		target = place.transform.GetChild(1).GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned);
-        if (_isSelectioned == false)
-        {
-            transform.Translate(0.05f, 0f, 0f);
-            transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
-            toCorrectPosition();
-            if (coolDown >= 10 && initialized)
-            {
-                coolDown = 0;
-                _survivedTime = _survivedTime + 1;
-                alive = (_survivedTime < _lifeTime);
-                action();
-            }
-            else
+		if (Time.timeScale >= 1f)		//Test si le temps est en pause ou pas
+		{
+			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned); //selection de la cellule
+			if ((_isSelectioned == false || (_isSelectioned && !_isPlayed)) && _gotDest == false) //est-elle selectionné et n'a pas de dest
 			{
-                coolDown++;
-            }
-        }
-        else
-        {
-			if (Input.GetKey(KeyCode.Q))      //Left
-			{
-				transform.Translate(Vector3.right * Time.deltaTime * 15, Space.World);
+				transform.Translate(0.05f, 0f, 0f);
+				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
+				
+				if (coolDown >= 10 && initialized)
+				{
+					coolDown = 0;
+					_survivedTime = _survivedTime + 1;
+					_alive = (_survivedTime < _lifeTime);
+					action();
+				}
+				else
+				{
+					coolDown++;
+				}
+				toCorrectPosition(20f); //si mur, changement d'angle
 			}
-			
-			if (Input.GetKey(KeyCode.D))     //Right
-			{
-				transform.Translate(Vector3.right * Time.deltaTime * -15, Space.World);
-			}
-			
-			if (Input.GetKey(KeyCode.S))      //Down
-			{
-				transform.Translate(Vector3.forward * Time.deltaTime * 15, Space.World);
-			}
-			
-			if (Input.GetKey(KeyCode.Z))       //Top
-			{
-				transform.Translate(Vector3.forward * Time.deltaTime * -15, Space.World);
-			}
-
-        }
-		
+		}
 	}
 	
 	public void action () 
@@ -118,42 +100,37 @@ public class Individual : MonoBehaviour
 	{
 		transform.position = position;
 		_lifeTime = lifetime;
-		this.species = species;
+		_species = species;
 		transform.SetParent(place.transform);
 		this.place = place;
-		this._isPlayed = isPlayed;
-		cellMolecules = molecules;
-		this.ATP = ATP;
+		_isPlayed = isPlayed;
+		_cellMolecules = molecules;
+		_ATP = ATP;
 	}
 	
-	void toCorrectPosition()
+	public void toCorrectPosition(float angle) //correct the cell position, rotate it of the angle value
 	{
 		Vector3 pos = transform.position;
 		if (pos.x < 1) 
 		{
 			pos.x = 1;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		if (pos.x > 2000) 
 		{
 			pos.x = 2000;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		if (pos.z < 1) 
 		{
 			pos.z = 1;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		if (pos.z > 2000) 
 		{
 			pos.z = 2000;
-			transform.Rotate(0, 0, UnityEngine.Random.Range(20,30));
+			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		transform.position = pos;
-	}
-
-	void OnMouseDown()
-	{
-		Debug.Log("lol");
 	}
 }

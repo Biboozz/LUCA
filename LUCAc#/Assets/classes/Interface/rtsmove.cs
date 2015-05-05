@@ -27,11 +27,7 @@ public class rtsmove : MonoBehaviour
     {
         //  MOVE - Deplace la caméra lorsque la souris est dans les bords ou avec les flèches directionnelles
 
-        if (TreeShow.GetComponent<perkTree>()._Shown == null || TreeShow.GetComponent<perkTree>()._Shown)
-        {
-            //Do nothing
-        }
-        else
+        if (!TreeShow.GetComponent<displayPerkTree>().shown)
         {
             if ((Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow)) && (GameObject.Find("PointRepere").transform.position.x - transform.localPosition.x >= -950))      //Left
             {
