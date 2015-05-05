@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CellBehaviour : Bolt.EntityBehaviour<ICellState> 
 {
+	public GameObject[] Cell_element_objects;
+
 	private Color _color;
 	private bool gotDest = false;
 	private Vector3 target;
@@ -15,8 +17,12 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		if (entity.isOwner) 
 		{
 			Color color = new Color(Random.value, Random.value, Random.value);
-			_color = color;
+
 			transform.FindChild("cytoplasm").gameObject.GetComponent<MeshRenderer>().material.color = color;
+
+			state.Cell_elements[1].Cell_element_Color = color;
+
+			_color = color;
 		}
 		
 		state.AddCallback("CellColor", ColorChanged);
@@ -24,7 +30,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 
 	void ColorChanged() 
 	{
-		GetComponent<Renderer> ().material.color = state.CellColor;
+		GetComponent<Renderer> ().material.color = _color;
 	}
 
 	public override void SimulateOwner() 
@@ -41,7 +47,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		{
 			transform.position = transform.position + (movement.normalized * speed * BoltNetwork.frameDeltaTime);
 		}
-
+	
 		if(Input.GetMouseButtonDown(1))		//Si clic droit
 		{
 			target = transform.FindChild("target").gameObject.transform.position;	//Définition du Vector3 target
@@ -62,6 +68,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 			}
 			transform.position = Vector3.Lerp(transform.position, target, 1/(duration*(Vector3.Distance(transform.position, target))));		//Déplacement de la cellule au fur et a mesure !
 		}
+
 	}
 	
 	void OnGUI() 

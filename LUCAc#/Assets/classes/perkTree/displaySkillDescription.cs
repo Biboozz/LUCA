@@ -10,6 +10,7 @@ public class displaySkillDescription : MonoBehaviour {
 	private bool visible;
 	private List<skill> _perkTree;
 	public unlockSkillWindow USW;
+	public environment Env;
 
 	// Use this for initialization
 	void Start () 
@@ -64,5 +65,34 @@ public class displaySkillDescription : MonoBehaviour {
 	{
 		USW.gameObject.SetActive (true);
 		USW.skill = _skill;
+	}
+
+	private List<Individual> upgradables(skill S, Species species)
+	{
+		List<Individual> c = new List<Individual>();
+		for (int i = 0; i < species.Individuals.Count; i++) 
+		{
+			bool b = true;
+			for (int j = 0; j < S.devCosts.cellMolecules.Count && b; j++)
+			{
+				moleculePack mpCell = species.Individuals[i].cellMolecules.Find(mp => mp.moleculeType.ID == S.devCosts.cellMolecules[j].moleculeType.ID);
+				if (mpCell == null)
+				{
+					b = false;
+				}
+				else
+				{
+					if (mpCell.count > S.devCosts.cellMolecules[j].count)
+					{
+						b = false;
+					}
+				}
+			}
+			if (b)
+			{
+				c.Add(species.Individuals[i]);
+			}
+		}
+		return c;
 	}
 }

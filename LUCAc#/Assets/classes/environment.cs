@@ -15,11 +15,12 @@ public class environment : MonoBehaviour {
 	private List<molecule> _molecules; // liste molécules
 	public playerSpeciesDataDisplayer PSDD;
 	public resourcesManager RM;
+	private System.Random Rdm;
 
 	// Use this for initialization
 	void Start () 
 	{
-		System.Random Rdm = new System.Random (25); // nombre alléatoire 0-25
+		Rdm = new System.Random (25); // nombre alléatoire 0-25
 
 		for (int j = 0; j < 6; j++) // création de 6 especes
 		{
@@ -42,7 +43,6 @@ public class environment : MonoBehaviour {
 			for (int i = 0; i < S.Individuals.Count; i++) 
 			{
 				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, j == 0, new List<moleculePack>(), Rdm.Next(500)); //apparition coordonnées random
-				S.Individuals[i].representation = UICellImage;
 				S.Individuals[i].descriptionBox = UICellDescriptionBox;
 				S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color; //modif couleur core en fonction de l'espece
 				S.Individuals[i].transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
@@ -53,7 +53,26 @@ public class environment : MonoBehaviour {
 			}
 			livings.Add (S); //ajout liste espece vivante
 		}
+	}
 
+	public Species addSpecies(Species parent, List<Individual> starters)
+	{
+		Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
+		S.isPlayed = parent.isPlayed;
+		if (S.isPlayed) 
+		{
+			PSDD.species = S;
+		}
+		S.name = parent.name;
+		foreach (Individual I in starters) 
+		{
+			I.transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+			I.transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+			parent.Individuals.RemoveAt(parent.Individuals.FindIndex(r => r.Equals(I)));
+			S.Individuals.Add(I);
+		}
+		livings.Add (S);
+		return S;
 	}
 	
 	// Update is called once per frame

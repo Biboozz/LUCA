@@ -11,6 +11,7 @@ public class cellDataDisplayer : MonoBehaviour {
 	private Individual _target;
 	public displayPerkTree DPT;
 	public selectedSpeciesDataDisplayer SSDD;
+	public GameObject representation;
 
 	// Use this for initialization
 	void Start () {
@@ -62,6 +63,8 @@ public class cellDataDisplayer : MonoBehaviour {
 			_target = value;
 			transform.FindChild("cellSkillButton").gameObject.GetComponent<Button>().interactable = (_target != null);
 			transform.FindChild("cellSpeciesButton").gameObject.GetComponent<Button>().interactable = (_target != null);
+			representation.transform.FindChild("Membrane").gameObject.GetComponent<Image>().color = _target.species.color;
+			representation.transform.FindChild("core").gameObject.GetComponent<Image>().color = _target.species.color;
 		}
 	}
 

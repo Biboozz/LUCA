@@ -7,13 +7,11 @@ public class Unit : MonoBehaviour {
 	private Color baseColor;
 	public bool selected = false;
 	public float floorOffset = 1;
-	public float speed = 5;
 	public float stopDistanceOffset = 0.5f;
 
 	private bool selectedByClick = false;
 
 	private float angle;
-	//private GameObject target;
 	private Vector3 newPosition;
 	private float timeTaken;
 
@@ -55,7 +53,6 @@ public class Unit : MonoBehaviour {
 				{
 					newPosition = hit.point;
 					newPosition.y = 1;
-					//target.transform.position = newPosition;	//Object target prend position du clic
 					I.target = newPosition;
 					I.gotDest = true;		//Objet possède une destination
 					
@@ -80,14 +77,14 @@ public class Unit : MonoBehaviour {
 				Debug.Log(angle);*/
 				}
 			}
-			
+
 			if(I.gotDest && (Time.timeScale >= 1f))
 			{
 				if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.z - I.target.z >= -2 && transform.position.z - I.target.z <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 				{
 					I.gotDest = false;		//Plus de destination car elle a été atteinte
 				}
-				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
+				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.speed*400*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
 			}
 		}
 	}

@@ -23,7 +23,7 @@ public class Individual : MonoBehaviour
 	private int coolDown = 0;
 	private bool initialized = false;
 	private environment place;
-	public GameObject representation;
+
 	public GameObject descriptionBox;
 	private float _duration = 20.0f;
 	private float _speed = 0.05f;
@@ -52,8 +52,7 @@ public class Individual : MonoBehaviour
 			_isSelectioned = value;
 			if (value)
 			{
-				representation.transform.FindChild("Membrane").gameObject.GetComponent<Image>().color = _species.color;
-				representation.transform.FindChild("core").gameObject.GetComponent<Image>().color = _species.color;
+
 				descriptionBox.GetComponent<cellDataDisplayer>().displayData(_cellMolecules);
 				descriptionBox.transform.FindChild("toggleIsPlayed").gameObject.GetComponent<Toggle>().isOn = this.isPlayed;
 				descriptionBox.transform.FindChild("ATP").gameObject.GetComponent<Text>().text = this.ATP.ToString();
@@ -77,7 +76,7 @@ public class Individual : MonoBehaviour
 			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned); //selection de la cellule
 			if ((_isSelectioned == false || (_isSelectioned && !_isPlayed)) && _gotDest == false) //est-elle selectionné et n'a pas de dest
 			{
-				transform.Translate(0.05f, 0f, 0f);
+				transform.Translate(speed, 0f, 0f);
 				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
 				
 				if (coolDown >= 10 && initialized)
