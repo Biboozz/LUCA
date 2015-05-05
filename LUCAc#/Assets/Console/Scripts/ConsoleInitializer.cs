@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class ConsoleInitializer : MonoBehaviour {
-	
+
+	public environment Environment;
+	private List<Species> _species;
+
 	void Start () 
 	{
 		var repo = ConsoleCommandsRepository.Instance;
@@ -10,6 +15,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("speed", Speed);
 		repo.RegisterCommand("all_unlock", Allunlock);
 		repo.RegisterCommand("help", Help);
+		_species = Environment.livings;
 	}
 	
 	public string God(params string[] args) {
