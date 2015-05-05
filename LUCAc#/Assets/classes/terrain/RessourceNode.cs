@@ -9,7 +9,7 @@ public class RessourceNode
 {
 	private molecule Molecule;
 	private POINT Center;
-	private int Amount;
+	public int Amount;
 
     public RessourceNode(POINT center, molecule molecule)
     {

@@ -17,9 +17,6 @@ public class Unit : MonoBehaviour {
 	private Vector3 newPosition;
 	private float timeTaken;
 
-	private float _duration = 20.0f;
-	public float duration 				{ 	get { return _duration; 	} 		set { _duration = value; 	} 	}
-
 	void Start () 
 	{
 		I = gameObject.GetComponentInParent<Individual>();
@@ -91,7 +88,7 @@ public class Unit : MonoBehaviour {
 				{
 					I.gotDest = false;		//Plus de destination car elle a été atteinte
 				}
-				transform.position = Vector3.Lerp(transform.position, I.target, 1/(duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
+				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
 			}
 		}
 	}

@@ -69,22 +69,22 @@ public class environment : MonoBehaviour {
 		}
 	}
 
-	/*public void eateration(Terrain Terr, List<Species> Me)
+	public void eateration(ref Terrain Terr, List<Species> Me)
 	{
 		foreach (RessourceCircle C in Terr.circles) 
 		{
 			foreach (Species Spec in Me)
 			{
-				foreach (molecule M in Spec.absorb)
+				foreach (molecule Mol in Spec.absorb)
 				{
-					if (M=C.Molecule)
+					if ( Mol == C.Get_mol())
 					{
-
+						C.eat(Spec);
 					}
 				}
 			}
 		}
-	}*/
+	}
 
 	public void remove(GameObject G)
 	{

@@ -52,4 +52,43 @@ public class RessourceCircle
         }
     }
 
+	public void eat (Species S)
+	{
+		int radius = 0;
+		
+		foreach (Individual I in S.Individuals) 
+		{
+			if (Math.Abs (Math.Sqrt (Math.Pow ((I.transform.position.x - Get_Center ().x), 2) - Math.Pow ((I.transform.position.y - Get_Center ().y), 2))) < radius + Get_radius ()) 
+			{
+				foreach (RessourceNode N in Nodes) 
+				{
+					if ((N.Amount > 0) & (Math.Abs (Math.Sqrt (Math.Pow ((I.transform.position.x - N.get_Center ().x), 2) - Math.Pow ((I.transform.position.y - N.get_Center ().y), 2))) <= radius)) 
+					{
+						
+						//Absorb
+						
+						if (N.Amount < 0) {
+							N.Amount = 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public molecule Get_mol()
+	{
+		return Molecule;
+	}
+	
+	public int Get_radius()
+	{
+		return Radius;
+	}
+	
+	public POINT Get_Center()
+	{
+		return Center;
+	}
+
 }

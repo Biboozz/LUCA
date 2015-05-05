@@ -27,7 +27,6 @@ public class Species
 			return _survivedTime;
 		}
 	}
-
 	public int IndividualsNumber
 	{
 		get
