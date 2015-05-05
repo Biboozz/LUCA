@@ -20,6 +20,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		var repo = ConsoleCommandsRepository.Instance;
 		repo.RegisterCommand("god", God);
 		repo.RegisterCommand("speed", Speed);
+		repo.RegisterCommand("speedbase", SpeedBase);
 		repo.RegisterCommand("all_unlock", Allunlock);
 		repo.RegisterCommand("help", Help);
 
@@ -53,12 +54,26 @@ public class ConsoleInitializer : MonoBehaviour {
 		var speed = args[0];
 		foreach(Individual I in cellsplayed)
 		{
-			I.duration = 1 / float.Parse(speed);
+			I.duration = float.Parse(speed) ;
+			if(float.Parse(speed) == 2)
+			{
+
+			}
 			I.speed = 1/(float.Parse(speed) / 100);
 		}
 		return "Votre vitesse est désormais de " + speed;
 	}
 
+	public string SpeedBase(params string[] args) {
+		var speed = args[0];
+		foreach(Individual I in cellsplayed)
+		{
+			I.duration = 20f;
+			I.speed = 0.05f;
+		}
+		return "Votre vitesse est désormais de " + speed;
+	}
+	
 	public string Allunlock(params string[] args) {
 		//_skillunlock = _allskill;
 		return "Vous avez débloqués toutes les compétences";
@@ -67,6 +82,7 @@ public class ConsoleInitializer : MonoBehaviour {
 	public string Help(params string[] args) {
 		return "god -- Vie illimitée\n" +
 			"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
+			"speedbase -- remet la vitesse de base\n" +
 			"all_unlock -- débloque toutes les compétences de l'arbre\n" +
 			"help -- cette commande";
 	}
