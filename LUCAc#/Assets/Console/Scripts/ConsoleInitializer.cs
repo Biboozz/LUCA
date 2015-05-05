@@ -53,9 +53,9 @@ public class ConsoleInitializer : MonoBehaviour {
 		var speed = args[0];
 		foreach(Individual I in cellsplayed)
 		{
-			//I.duration = Single.Parse(speed);
+			I.duration = float.Parse(speed);
 		}
-		return "Votre vitesse est désormais de" + speed;
+		return "Votre vitesse est désormais de " + speed;
 	}
 
 	public string Allunlock(params string[] args) {
