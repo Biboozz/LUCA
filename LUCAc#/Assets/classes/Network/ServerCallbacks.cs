@@ -8,6 +8,7 @@ public class ServerCallbacks : Bolt.GlobalEventListener
 	{
 		var log = LogEvent.Create();
 		log.Message = string.Format("{0} connected", connection.RemoteEndPoint);
+		Debug.Log (connection.RemoteEndPoint);
 		log.Send();
 	}
 	
