@@ -6,7 +6,6 @@ public class ServerCallbacks : Bolt.GlobalEventListener
 {
 	public override void Connected(BoltConnection connection) 
 	{
-		BoltLauncher.Shutdown ();
 		var log = LogEvent.Create();
 		log.Message = string.Format("{0} connected", connection.RemoteEndPoint);
 		Debug.Log (connection.RemoteEndPoint);
