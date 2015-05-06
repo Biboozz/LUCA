@@ -12,8 +12,6 @@ public class ConsoleInitializer : MonoBehaviour {
 	public List<Individual> cellsplayed;
 	//private List<skill> _allskill;
 	//private List<skill> _skillunlock;
-	private bool play = false;
-	private int i = 0;
 
 	void Start () 
 	{
@@ -26,19 +24,7 @@ public class ConsoleInitializer : MonoBehaviour {
 
 		_species = Environment.livings;
 		//_allskill = SpecsTree.perkTree;
-		while (!play) 
-		{
-			if(_species[i].isPlayed == true)
-			{
-				play = true;
-			}
-			else
-			{
-				i++;
-			}
-		}
 
-		cellsplayed = _species [i].Individuals;
 	}
 	
 	public string God(params string[] args) {

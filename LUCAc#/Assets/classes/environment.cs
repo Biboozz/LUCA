@@ -30,6 +30,7 @@ public class environment : MonoBehaviour {
 			for (int i = 1; i <= 100; i++) // création de 100 cellules de l'espece
 			{
 				S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
+				CI.cellsplayed.Add(S.Individuals[S.Individuals.Count - 1]);
 			}
 			S.isPlayed = j == 0;
 			if (S.isPlayed)
@@ -63,15 +64,18 @@ public class environment : MonoBehaviour {
 		if (S.isPlayed) 
 		{
 			PSDD.species = S;
+			//CI.cellsplayed.Clear();
 		}
 		S.name = parent.name;
 		foreach (Individual I in starters) 
 		{
 			I.transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
 			I.transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+			I.isPlayed = S.isPlayed;
 			parent.Individuals.RemoveAt(parent.Individuals.FindIndex(r => r.Equals(I)));
 			S.Individuals.Add(I);
 		}
+		CI.cellsplayed = S.Individuals;
 		livings.Add (S);
 		return S;
 	}
