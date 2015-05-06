@@ -9,7 +9,7 @@ public class ConsoleInitializer : MonoBehaviour {
 	public Species Especes;
 	public displayPerkTree SpecsTree;
 	private List<Species> _species;
-	private List<Individual> cellsplayed;
+	public List<Individual> cellsplayed;
 	//private List<skill> _allskill;
 	//private List<skill> _skillunlock;
 	private bool play = false;

@@ -14,6 +14,7 @@ public class Unit : MonoBehaviour {
 	private float angle;
 	private Vector3 newPosition;
 	private float timeTaken;
+	public ConsoleInitializer CI;
 
 	void Start () 
 	{
@@ -102,8 +103,13 @@ public class Unit : MonoBehaviour {
 			}
 			else
 			{
-				selected = false;
-				I.isSelectioned = false;
+				foreach(Individual D in CI.cellsplayed)
+				{
+					selected = false;
+					selectedByClick = false;
+					D.isSelectioned = false;
+					I.isSelectioned = false;
+				}
 			}
 		}
 	}
