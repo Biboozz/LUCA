@@ -23,9 +23,9 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 		Transform t = gameObject.transform.FindChild ("objectiveListbox");
 		Rect listBoxRect = ((RectTransform)t).rect;
 		listBoxRect.position = new Vector2 (Screen.width * 0.115f, Screen.height * 0.71f);
-		_objectiveMolecules = new ListBox (listBoxRect, new Rect (0, 0, 140, 150), false, true);
+		_objectiveMolecules = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
 		listBoxRect.position = new Vector2 (Screen.width * 0.005f, Screen.height * 0.71f);
-		_moleculeAverages = new ListBox (listBoxRect, new Rect (0, 0, 140, 150), false, true);
+		_moleculeAverages = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
 		color = transform.FindChild("speciesColorToggle").gameObject.GetComponent<Toggle>();
 		nbIndividual = transform.FindChild("nbIndividual").gameObject.GetComponent<Text>();
 		name = transform.FindChild("name").gameObject.GetComponent<Text>();

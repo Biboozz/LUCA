@@ -64,6 +64,7 @@ public class environment : MonoBehaviour {
 		if (S.isPlayed) 
 		{
 			PSDD.species = S;
+			parent.isPlayed = false;
 			//CI.cellsplayed.Clear();
 		}
 		S.name = parent.name;
@@ -76,7 +77,10 @@ public class environment : MonoBehaviour {
 			S.Individuals.Add(I);
 			I.species = S;
 		}
-		CI.cellsplayed = S.Individuals;
+		foreach (skill ski in parent.unlockedPerks) 
+		{
+			S.unlockedPerks.Add(ski);
+		}
 		livings.Add (S);
 		return S;
 	}
@@ -134,7 +138,7 @@ public class environment : MonoBehaviour {
 					{
 						if(I.cellMolecules.Find(mp => mp.moleculeType.ID == m.ID) == null)
 						{
-							I.cellMolecules.Add(new moleculePack(RdmMol.Next(30),m));
+							I.cellMolecules.Add(new moleculePack(RdmMol.Next(5,6000),m));
 						}
 					}
 				}

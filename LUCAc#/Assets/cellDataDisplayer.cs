@@ -18,7 +18,7 @@ public class cellDataDisplayer : MonoBehaviour {
 		Transform t = gameObject.transform.FindChild ("cellMoleculesListBox");
 		Rect listBoxRect = ((RectTransform)t).rect;
 		listBoxRect.position = new Vector2 (Screen.width * 0.86f, Screen.height * 0.23f);
-		cellMolecules = new ListBox (listBoxRect, new Rect (0, 0, 140, 150), false, true);
+		cellMolecules = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
 	}
 	
 	// Update is called once per frame

@@ -24,7 +24,7 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 		Transform t = gameObject.transform.FindChild ("moleculeRateListbox");
 		Rect listBoxRect = ((RectTransform)t).rect;
 		listBoxRect.position = new Vector2 (Screen.width * 0.03f, Screen.height * 0.25f);
-		speciesCellsMoleculesAverage = new ListBox (listBoxRect, new Rect (0, 0, 140, 150), false, true);
+		speciesCellsMoleculesAverage = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
 	}
 	
 	// Update is called once per frame

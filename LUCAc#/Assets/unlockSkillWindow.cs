@@ -91,13 +91,13 @@ public class unlockSkillWindow : MonoBehaviour {
 		{
 			_skillName = transform.FindChild ("skillName").gameObject.GetComponent<Text> ();
 			_description = transform.FindChild ("description").gameObject.GetComponent<Text> ();
-			_skillHexName = transform.FindChild ("skillHexName").gameObject.GetComponent<Text> ();
+			_skillHexName = transform.FindChild ("skillAppearence").FindChild ("skillHexName").gameObject.GetComponent<Text> ();
 			_rate = transform.FindChild ("rateName").gameObject.GetComponent<Text> ();
 			_skillAppearence = transform.FindChild ("skillAppearence").gameObject.GetComponent<Image> ();
 			Transform t = gameObject.transform.FindChild ("requirementsListbox");
 			Rect listBoxRect = ((RectTransform)t).rect;
 			listBoxRect.position = new Vector2 (Screen.width * 0.52f, Screen.height * 0.27f);
-			_requirements = new ListBox (listBoxRect, new Rect (0, 0, 140, 150), false, true);
+			_requirements = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
 			initialized = true;
 		}
 	}

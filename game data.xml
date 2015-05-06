@@ -4,11 +4,11 @@
     <SerialisableType>skill</SerialisableType>
     <ID>0</ID>
     <neighborsID>
-      <int>2</int>
-      <int>11</int>
-      <int>18</int>
-      <int>3</int>
       <int>1</int>
+      <int>2</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>3</int>
       <int>4</int>
     </neighborsID>
     <name>Absorption des Monosaccharides</name>
@@ -69,8 +69,8 @@
     <type>Structure</type>
     <requiredID />
     <hexPos>
-      <X>361</X>
-      <Y>231</Y>
+      <X>359</X>
+      <Y>241</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -78,11 +78,11 @@
     <ID>1</ID>
     <neighborsID>
       <int>-1</int>
+      <int>8</int>
+      <int>-1</int>
       <int>0</int>
       <int>-1</int>
-      <int>-1</int>
       <int>6</int>
-      <int>-1</int>
     </neighborsID>
     <name>Absorption des Acides Aminés </name>
     <description>Il y en a 20 : Alanine, Arginine, Asparagine, Aspartate, Cystéine, Glutamate, Glutamine, Glycine, Histidine, Isoleucine, Leucine, Lysine, Méthionine, Phénylalanine, Proline, Sérine, Thréonine, Tryptophane, Tyrosine, Valine. Ces molécules sont absorbées grâce un pore situé dans la membrane des cellules. Elles vont principalement servir à produire des protéines.</description>
@@ -138,24 +138,24 @@
       <environmentMolecules />
       <ATP>0</ATP>
     </devProducts>
-    <innate>true</innate>
+    <innate>false</innate>
     <type>Structure</type>
     <requiredID />
     <hexPos>
-      <X>285</X>
-      <Y>205</Y>
+      <X>430</X>
+      <Y>204</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>2</ID>
     <neighborsID>
-      <int>-1</int>
+      <int>8</int>
+      <int>11</int>
       <int>-1</int>
       <int>-1</int>
       <int>0</int>
-      <int>-1</int>
-      <int>8</int>
+      <int>1</int>
     </neighborsID>
     <name>Absorption des Bases Azotées</name>
     <description>Il existe plusieurs types de bases azotés dans l'environnement d'une cellules. Celles utilisées pour la synthèse des acides nucléiques sont principalement : l'Adénosine, la Cytosine, la Thymine, la Guanine et l'Uracile. L'absorption de ces molécules se fait via un pore situé à la surface de la membrane. Elles servent a construire les gènes des différentes capacités de votre cellule.</description>
@@ -215,20 +215,20 @@
     <type>Structure</type>
     <requiredID />
     <hexPos>
-      <X>435</X>
-      <Y>198</Y>
+      <X>430</X>
+      <Y>275</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>3</ID>
     <neighborsID>
+      <int>-1</int>
       <int>0</int>
       <int>-1</int>
       <int>-1</int>
-      <int>-1</int>
       <int>9</int>
-      <int>-1</int>
+      <int>14</int>
     </neighborsID>
     <name>Absorption des Acides Gras</name>
     <description>Un acide gras est une longue chaine d'atomes de carbone lié à une molécule d'acide. Cette structure leur donne une caractéristique particulière : ils sont amphiphiles. Ils ont la capacités de former des strutures hydrophiles et hydrophobes. Ils sont utilisés dans la construction de différents lipides assurant plusieurs fonctions. Leurs rôles principaux sont d'être une unité structurelle et une grande réserve d'énergie.</description>
@@ -288,8 +288,8 @@
     <type>Structure</type>
     <requiredID />
     <hexPos>
-      <X>287</X>
-      <Y>280</Y>
+      <X>289</X>
+      <Y>207</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -378,7 +378,7 @@
       <int>0</int>
     </requiredID>
     <hexPos>
-      <X>359</X>
+      <X>362</X>
       <Y>169</Y>
     </hexPos>
   </serialisable>
@@ -388,7 +388,7 @@
     <neighborsID>
       <int>-1</int>
       <int>-1</int>
-      <int>-1</int>
+      <int>4</int>
       <int>-1</int>
       <int>15</int>
       <int>-1</int>
@@ -468,19 +468,19 @@
       <int>4</int>
     </requiredID>
     <hexPos>
-      <X>361</X>
-      <Y>106</Y>
+      <X>363</X>
+      <Y>102</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>6</ID>
     <neighborsID>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
       <int>12</int>
+      <int>-1</int>
+      <int>1</int>
+      <int>-1</int>
+      <int>-1</int>
       <int>7</int>
     </neighborsID>
     <name>Absorption des Peptides</name>
@@ -558,19 +558,19 @@
       <int>1</int>
     </requiredID>
     <hexPos>
-      <X>214</X>
-      <Y>171</Y>
+      <X>431</X>
+      <Y>137</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>7</ID>
     <neighborsID>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
       <int>13</int>
+      <int>-1</int>
+      <int>6</int>
+      <int>-1</int>
+      <int>-1</int>
       <int>-1</int>
     </neighborsID>
     <name>Absorption des Protéines</name>
@@ -648,8 +648,8 @@
       <int>6</int>
     </requiredID>
     <hexPos>
-      <X>216</X>
-      <Y>102</Y>
+      <X>436</X>
+      <Y>67</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -658,8 +658,8 @@
     <neighborsID>
       <int>-1</int>
       <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
+      <int>2</int>
+      <int>2</int>
       <int>-1</int>
       <int>16</int>
     </neighborsID>
@@ -738,8 +738,8 @@
       <int>2</int>
     </requiredID>
     <hexPos>
-      <X>438</X>
-      <Y>131</Y>
+      <X>503</X>
+      <Y>243</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -747,8 +747,8 @@
     <ID>9</ID>
     <neighborsID>
       <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
+      <int>3</int>
+      <int>3</int>
       <int>-1</int>
       <int>17</int>
       <int>-1</int>
@@ -828,8 +828,8 @@
       <int>3</int>
     </requiredID>
     <hexPos>
-      <X>212</X>
-      <Y>246</Y>
+      <X>221</X>
+      <Y>171</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -839,7 +839,7 @@
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
-      <int>-1</int>
+      <int>11</int>
       <int>-1</int>
       <int>-1</int>
     </neighborsID>
@@ -902,8 +902,8 @@
       <int>-1</int>
     </requiredID>
     <hexPos>
-      <X>505</X>
-      <Y>231</Y>
+      <X>573</X>
+      <Y>282</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -914,7 +914,7 @@
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
-      <int>0</int>
+      <int>2</int>
       <int>-1</int>
     </neighborsID>
     <name>Cils vibratiles</name>
@@ -974,8 +974,8 @@
     <type>Structure</type>
     <requiredID />
     <hexPos>
-      <X>434</X>
-      <Y>273</Y>
+      <X>501</X>
+      <Y>318</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -985,9 +985,9 @@
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
+      <int>6</int>
       <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
+      <int>13</int>
     </neighborsID>
     <name>Hydrolyse des Peptides</name>
     <description>Les peptides que votre cellule à récupéré sont inutilisable tel quel. Il faut les dégrader pour récupérer des acides aminés qui seront utilisés par votre cellule. Cette capacité vous donne la posibilité de dégrader les peptide à l'aide d'une enzyme : la peptidase</description>
@@ -1076,8 +1076,8 @@
       <int>6</int>
     </requiredID>
     <hexPos>
-      <X>147</X>
-      <Y>136</Y>
+      <X>504</X>
+      <Y>102</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -1086,8 +1086,8 @@
     <neighborsID>
       <int>-1</int>
       <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
+      <int>12</int>
+      <int>7</int>
       <int>-1</int>
       <int>-1</int>
     </neighborsID>
@@ -1179,8 +1179,8 @@
       <int>12</int>
     </requiredID>
     <hexPos>
-      <X>146</X>
-      <Y>63</Y>
+      <X>499</X>
+      <Y>22</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -1188,11 +1188,11 @@
     <ID>14</ID>
     <neighborsID>
       <int>-1</int>
+      <int>4</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
+      <int>15</int>
     </neighborsID>
     <name>Hydrolyse des Disaccharides</name>
     <description>C'est cool un disaccharide, ça rapporte deux molécules de sucre, par contre comment faire pour les utiliser ? Il faut casser votre molécule en deux. Et comment ? Avec une enzyme spécifique. Il en existe plusieurs : Beta-galactosidase, alpha-glucosidase, ... Regroupons les sous le nom d'osidase : des hydrolases spécifiques des diosides.</description>
@@ -1281,8 +1281,8 @@
       <int>4</int>
     </requiredID>
     <hexPos>
-      <X>285</X>
-      <Y>134</Y>
+      <X>290</X>
+      <Y>135</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -1290,8 +1290,8 @@
     <ID>15</ID>
     <neighborsID>
       <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
+      <int>5</int>
+      <int>14</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
@@ -1384,8 +1384,8 @@
       <int>14</int>
     </requiredID>
     <hexPos>
-      <X>287</X>
-      <Y>64</Y>
+      <X>288</X>
+      <Y>67</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -1394,7 +1394,7 @@
     <neighborsID>
       <int>-1</int>
       <int>-1</int>
-      <int>-1</int>
+      <int>8</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
@@ -1486,8 +1486,8 @@
       <int>8</int>
     </requiredID>
     <hexPos>
-      <X>436</X>
-      <Y>64</Y>
+      <X>502</X>
+      <Y>172</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -1495,7 +1495,7 @@
     <ID>17</ID>
     <neighborsID>
       <int>-1</int>
-      <int>-1</int>
+      <int>9</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
@@ -1588,156 +1588,8 @@
       <int>3</int>
     </requiredID>
     <hexPos>
-      <X>145</X>
-      <Y>208</Y>
-    </hexPos>
-  </serialisable>
-  <serialisable xsi:type="skill">
-    <SerialisableType>skill</SerialisableType>
-    <ID>18</ID>
-    <neighborsID>
-      <int>-1</int>
-      <int>-1</int>
-      <int>19</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>0</int>
-    </neighborsID>
-    <name>Glycolyse et Cycle de Krebs</name>
-    <description>Votre cellule bouge, mange, se défend, attaque, se divise, se diversifie ... Que ce doit être épuisant !! Ceci n'est pas le cas si vous avez suffisamment d'énergie et pour cela rien de mieux que les sucres. La molécule principale chargée d'énergie, permettant à la cellule de faire toutes ces activités est l'ATP. Un monosaccharide permet, en étant dégradé via la glycolyse et le cycle de Krebs, de fournir 30 molécules d'ATP</description>
-    <workCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Monosaccharide</name>
-            <ID>0</ID>
-            <rarity>0.25</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workCosts>
-    <workProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workProducts>
-    <devCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devCosts>
-    <devProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devProducts>
-    <innate>true</innate>
-    <type>Métabolisme</type>
-    <requiredID />
-    <hexPos>
-      <X>361</X>
-      <Y>304</Y>
-    </hexPos>
-  </serialisable>
-  <serialisable xsi:type="skill">
-    <SerialisableType>skill</SerialisableType>
-    <ID>19</ID>
-    <neighborsID>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-    </neighborsID>
-    <name>Hélice de Lynen</name>
-    <description>L'hélice de Lynen est une suite de réactions complexes regroupées sous le nom de Bétâ-oxydation. Ces réactions permettent la dégradation des acides gras en énergie. Vous allez me dire que vous avez déjà le cycle de Krebs pour ça ! Oui mais si jamais vous apprenez qu'un acide gras donne 200 molécules d'ATP ? c'est tout de suite plus intéressant !</description>
-    <workCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Gras</name>
-            <ID>8</ID>
-            <rarity>0.15</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workCosts>
-    <workProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workProducts>
-    <devCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Aminé</name>
-            <ID>3</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>500</count>
-        </moleculePack>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>1500</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>200</ATP>
-    </devCosts>
-    <devProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devProducts>
-    <innate>false</innate>
-    <type>Métabolisme</type>
-    <requiredID>
-      <int>3</int>
-      <int>18</int>
-    </requiredID>
-    <hexPos>
-      <X>362</X>
-      <Y>375</Y>
+      <X>154</X>
+      <Y>132</Y>
     </hexPos>
   </serialisable>
   <serialisable xsi:type="molecule">

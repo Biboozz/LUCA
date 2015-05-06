@@ -27,7 +27,7 @@ public class displayPerkTree : MonoBehaviour {
 	{
 		if (Input.GetKeyDown (KeyCode.C)) 
 		{
-			display();
+			display(GetComponent<environment>().livings.Find(s => s.isPlayed));
 		}
 	}
 
@@ -87,7 +87,7 @@ public class displayPerkTree : MonoBehaviour {
 			S.hex.SetActive(false);
 			S.hex.transform.FindChild("skillDescriptionWindow").gameObject.GetComponent<displaySkillDescription>().USW = USW;
 		}
-		place (skillList.Find(b => b.name == "En vie"));
+		place (skillList.Find(b => b.ID == 0));
 		perkTree = skillList;
 	}
 
@@ -121,7 +121,7 @@ public class displayPerkTree : MonoBehaviour {
 
 	public void update()
 	{
-		update(GetComponent<environment>().livings[0]);
+		update(GetComponent<environment>().livings.Find(s => s.isPlayed));
 	}
 
 	public void reset()
@@ -191,7 +191,6 @@ public class displayPerkTree : MonoBehaviour {
 
 	public bool isUnlocked(skill S, Species species)
 	{
-
 		return (S.innate || (species.unlockedPerks.Find(T => T.ID == S.ID) != null));
 	}
 
