@@ -82,7 +82,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		if (entity.isOwner) 
 		{
 			GUI.color = _color;
-			GUILayout.Label("@@@");
+			GUILayout.Label("Joueur");
 			GUI.color = Color.white;
 		}
 	}
