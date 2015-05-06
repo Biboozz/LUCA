@@ -119,6 +119,10 @@ public class unlockSkillWindow : MonoBehaviour {
 
 	public void unlock()
 	{
+		if (_skill == null) 
+		{
+			Debug.Log("troll");
+		}
 		Env.addSpecies(_player, upgrade(_skill, _player)).unlockedPerks.Add (_skill);
 		DPT.display ();
 		gameObject.SetActive (false);
@@ -145,7 +149,7 @@ public class unlockSkillWindow : MonoBehaviour {
 				}
 				else
 				{
-					if (mpCell.count > S.devCosts.cellMolecules[j].count)
+					if (mpCell.count < S.devCosts.cellMolecules[j].count)
 					{
 						b = false;
 					}

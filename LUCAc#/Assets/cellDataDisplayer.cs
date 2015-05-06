@@ -64,6 +64,8 @@ public class cellDataDisplayer : MonoBehaviour {
 			{
 				_target = value;
 				displayData(_target.cellMolecules);
+				transform.FindChild("toggleIsPlayed").gameObject.GetComponent<Toggle>().isOn = _target.isPlayed;
+				transform.FindChild("ATP").gameObject.GetComponent<Text>().text = _target.ATP.ToString();
 				transform.FindChild("cellSkillButton").gameObject.GetComponent<Button>().interactable = (_target != null);
 				transform.FindChild("cellSpeciesButton").gameObject.GetComponent<Button>().interactable = (_target != null);
 				representation.transform.FindChild("Membrane").gameObject.GetComponent<Image>().color = _target.species.color;

@@ -74,6 +74,7 @@ public class environment : MonoBehaviour {
 			I.isPlayed = S.isPlayed;
 			parent.Individuals.RemoveAt(parent.Individuals.FindIndex(r => r.Equals(I)));
 			S.Individuals.Add(I);
+			I.species = S;
 		}
 		CI.cellsplayed = S.Individuals;
 		livings.Add (S);

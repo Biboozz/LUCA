@@ -132,6 +132,7 @@ public class displayPerkTree : MonoBehaviour {
 			S.hex.GetComponent<Image>().color = Color.white;
 			S.hex.transform.FindChild("Text").GetComponent<Text>().color = Color.black;
 			S.hex.GetComponent<Button>().interactable = false;
+			S.hex.transform.FindChild("skillDescriptionWindow").gameObject.SetActive(false);
 			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(false);
 			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.SetActive(false);
 		}
@@ -152,7 +153,7 @@ public class displayPerkTree : MonoBehaviour {
 				}
 				else
 				{
-					if (mpCell.count > S.devCosts.cellMolecules[j].count)
+					if (mpCell.count < S.devCosts.cellMolecules[j].count)
 					{
 						b = false;
 					}
