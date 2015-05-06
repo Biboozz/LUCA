@@ -22,7 +22,7 @@ public class Individual : MonoBehaviour
 	private bool _consumeATP = true;
 	private int coolDown = 0;
 	private bool initialized = false;
-	private environment place;
+	public environment place;
 
 	public GameObject descriptionBox;
 	private float _duration = 20.0f;

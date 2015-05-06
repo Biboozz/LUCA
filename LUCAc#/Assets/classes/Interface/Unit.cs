@@ -14,18 +14,20 @@ public class Unit : MonoBehaviour {
 	private float angle;
 	private Vector3 newPosition;
 	private float timeTaken;
-	public ConsoleInitializer CI;
+	private ConsoleInitializer CI;
 
 	void Start () 
 	{
 		I = gameObject.GetComponentInParent<Individual>();
 		newPosition = transform.position; // position de la cell
+		CI = I.place.CI;
 	}
 
 	private void Update ()
 	{
 		if (Time.timeScale >= 1f) 
 		{
+
 			if (Input.GetMouseButton(0) && GetComponent<Renderer>().isVisible) // test si clique sur cell (cell jouée)
 			{
 				if(!selectedByClick) // si pas deja selectionnée
@@ -37,7 +39,6 @@ public class Unit : MonoBehaviour {
 					if(selected && I.isPlayed)
 					{
 						I.isSelectioned = true;
-						//fuyducu
 					}
 					else
 					{
@@ -45,6 +46,17 @@ public class Unit : MonoBehaviour {
 					}
 				}
 			}
+			else if(Input.GetMouseButtonDown(0))
+			{
+				foreach(Individual D in CI.cellsplayed)
+				{
+					selected = false;
+					selectedByClick = false;
+					D.isSelectioned = false;
+				}
+			}
+
+
 			
 			if(I.isSelectioned && I.isPlayed && Input.GetMouseButtonDown(1))		//Si sélectionné et clic droit
 			{
@@ -103,17 +115,12 @@ public class Unit : MonoBehaviour {
 			}
 			else
 			{
-				foreach(Individual D in CI.cellsplayed)
-				{
-					selected = false;
-					selectedByClick = false;
-					D.isSelectioned = false;
-					I.isSelectioned = false;
-				}
+				selected = false;
+				I.isSelectioned = false;
 			}
 		}
 	}
-
+	
 	private void OnMouseUp()
 	{
 		if (Time.timeScale >= 1f) 

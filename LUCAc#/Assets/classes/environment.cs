@@ -16,6 +16,7 @@ public class environment : MonoBehaviour {
 	public playerSpeciesDataDisplayer PSDD;
 	public resourcesManager RM;
 	private System.Random Rdm;
+	public ConsoleInitializer CI;
 
 	// Use this for initialization
 	void Start () 
