@@ -33,7 +33,7 @@ public class Individual : MonoBehaviour
 	public int survivedTime 				{ 	get { return _survivedTime; 	}											}
 	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
 	public Species species 					{ 	get { return _species; 			} 		set { _species = value; 		} 	}
-	public bool isPlayed 					{ 	get { return _isPlayed; 		} 											}
+	public bool isPlayed 					{ 	get { return _isPlayed; 		} 		set { _isPlayed = value; 		}	}
 	public int ATP							{ 	get { return _ATP; 				} 		set { _ATP = value; 			} 	}
 	public List<moleculePack> cellMolecules	{ 	get { return _cellMolecules; 	} 											}
 	public bool gotDest						{	get { return _gotDest;			}		set { _gotDest = value;			}	}
@@ -53,7 +53,7 @@ public class Individual : MonoBehaviour
 			if (value)
 			{
 
-				descriptionBox.GetComponent<cellDataDisplayer>().displayData(_cellMolecules);
+				//descriptionBox.GetComponent<cellDataDisplayer>().displayData(_cellMolecules);
 				descriptionBox.transform.FindChild("toggleIsPlayed").gameObject.GetComponent<Toggle>().isOn = this.isPlayed;
 				descriptionBox.transform.FindChild("ATP").gameObject.GetComponent<Text>().text = this.ATP.ToString();
 				descriptionBox.GetComponent<cellDataDisplayer>().target = this;

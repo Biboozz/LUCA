@@ -60,11 +60,15 @@ public class cellDataDisplayer : MonoBehaviour {
 		}
 		set
 		{
-			_target = value;
-			transform.FindChild("cellSkillButton").gameObject.GetComponent<Button>().interactable = (_target != null);
-			transform.FindChild("cellSpeciesButton").gameObject.GetComponent<Button>().interactable = (_target != null);
-			representation.transform.FindChild("Membrane").gameObject.GetComponent<Image>().color = _target.species.color;
-			representation.transform.FindChild("core").gameObject.GetComponent<Image>().color = _target.species.color;
+			if (value != null)
+			{
+				_target = value;
+				displayData(_target.cellMolecules);
+				transform.FindChild("cellSkillButton").gameObject.GetComponent<Button>().interactable = (_target != null);
+				transform.FindChild("cellSpeciesButton").gameObject.GetComponent<Button>().interactable = (_target != null);
+				representation.transform.FindChild("Membrane").gameObject.GetComponent<Image>().color = _target.species.color;
+				representation.transform.FindChild("core").gameObject.GetComponent<Image>().color = _target.species.color;
+			}
 		}
 	}
 
