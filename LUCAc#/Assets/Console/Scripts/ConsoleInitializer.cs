@@ -30,8 +30,11 @@ public class ConsoleInitializer : MonoBehaviour {
 	public string God(params string[] args) {
 		foreach(Individual I in cellsplayed)
 		{
-			I.ATP = 1000;
-			I.consumeATP = false;	//Cellule ne consomme plus son énergie
+			if(I.isPlayed)
+			{
+				I.ATP = 1000;
+				I.consumeATP = false;	//Cellule ne consomme plus son énergie
+			}
 		}
 		return "Vos cellules sont désormais immortelles";
 	}
@@ -40,8 +43,11 @@ public class ConsoleInitializer : MonoBehaviour {
 		var speed = args[0];
 		foreach(Individual I in cellsplayed)
 		{
-			I.duration = float.Parse(speed) ;
-			I.speed = 1/(float.Parse(speed) / 100);
+			if(I.isPlayed)
+			{
+				I.duration = float.Parse(speed) ;
+				I.speed = 1/(float.Parse(speed) / 100);
+			}
 		}
 		return "Votre vitesse est désormais de " + speed;
 	}
@@ -49,8 +55,11 @@ public class ConsoleInitializer : MonoBehaviour {
 	public string SpeedBase(params string[] args) {
 		foreach(Individual I in cellsplayed)
 		{
-			I.duration = 20f;
-			I.speed = 0.05f;
+			if(I.isPlayed)
+			{
+				I.duration = 20f;
+				I.speed = 0.05f;
+			}
 		}
 		return "La vitesse de base a été rétabli";
 	}
