@@ -1,0 +1,30 @@
+Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\udpkit_wp8.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\udpkit_wp8.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\bolt.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\bolt.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\bolt.user.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\bolt.user.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\udpkit.common.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\udpkit.common.dll into Unity Child Domain
+Platform assembly: D:\Downloads\Soutenance\LUCA_Data\Managed\udpkit.dll (this message is harmless)
+Loading D:\Downloads\Soutenance\LUCA_Data\Managed\udpkit.dll into Unity Child Domain
+- Completed reload, in  0.049 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
