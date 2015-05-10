@@ -73,13 +73,11 @@ public class Individual : MonoBehaviour
 			if ((_isSelectioned == false || (_isSelectioned && !_isPlayed)) && _gotDest == false) //est-elle selectionné et n'a pas de dest
 			{
 				transform.Translate(speed, 0f, 0f);
-				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
+				//transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
 				
 				if (coolDown >= 10 && initialized)
 				{
 					coolDown = 0;
-					_survivedTime = _survivedTime + 1;
-					//_alive = (_survivedTime < _lifeTime);
 					action();
 				}
 				else
@@ -125,14 +123,14 @@ public class Individual : MonoBehaviour
 			pos.x = 2000;
 			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
-		if (pos.z < 1) 
+		if (pos.y < 1) 
 		{
-			pos.z = 1;
+			pos.y = 1;
 			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
-		if (pos.z > 2000) 
+		if (pos.y > 2000) 
 		{
-			pos.z = 2000;
+			pos.y = 2000;
 			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		transform.position = pos;

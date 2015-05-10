@@ -29,24 +29,24 @@ public class rtsmove : MonoBehaviour
 
         if (!TreeShow.GetComponent<displayPerkTree>().shown)
         {
-            if ((Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow)) && (GameObject.Find("PointRepere").transform.position.x - transform.localPosition.x >= -950))      //Left
+            if ((Input.mousePosition.x < ScrollArea || Input.GetKey(KeyCode.LeftArrow)) && (transform.localPosition.x >= 50))     //Left
             {
-                transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
+                transform.Translate(Vector3.left * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
             }
 
-            if ((Input.mousePosition.x >= Screen.width - ScrollArea || Input.GetKey(KeyCode.RightArrow)) && (GameObject.Find("PointRepere").transform.position.x - transform.localPosition.x <= 950))     //Right
+			if ((Input.mousePosition.x >= Screen.width - ScrollArea || Input.GetKey(KeyCode.RightArrow)) && (transform.localPosition.x <= 1950))     //Right
             {
-                transform.Translate(Vector3.right * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
+                transform.Translate(Vector3.left * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
             }
 
-            if ((Input.mousePosition.y < ScrollArea || Input.GetKey(KeyCode.DownArrow)) && (GameObject.Find("PointRepere").transform.position.z - transform.localPosition.z >= -950))      //Down
+			if ((Input.mousePosition.y < ScrollArea || Input.GetKey(KeyCode.DownArrow)) && (transform.localPosition.y >= 50)/*&& (GameObject.Find("PointRepere").transform.position.y - transform.localPosition.z >= -950)*/)      //Down
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
+                transform.Translate(Vector3.down * Time.deltaTime * (_ScrollCount + 1) * panSpeed * 7, Space.World);
             }
 
-            if ((Input.mousePosition.y > Screen.height - ScrollArea || Input.GetKey(KeyCode.UpArrow)) && (GameObject.Find("PointRepere").transform.position.z - transform.localPosition.z <= 950))       //Top
+			if ((Input.mousePosition.y > Screen.height - ScrollArea || Input.GetKey(KeyCode.UpArrow)) && (transform.localPosition.y <= 1950)/*&& (GameObject.Find("PointRepere").transform.position.y - transform.localPosition.z <= 950)*/)       //Top
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
+                transform.Translate(Vector3.down * Time.deltaTime * (_ScrollCount + 1) * panSpeed * -7, Space.World);
             }
         }
 
@@ -56,7 +56,7 @@ public class rtsmove : MonoBehaviour
         {
             if (_ScrollCount >= _ScrollWheelminPush && _ScrollCount < ScrollWheelLimit)
             {
-                GetComponent<Camera>().transform.position += new Vector3(0, ZoomSpeed * 40, 0);
+				GetComponent<Camera>().transform.position -= new Vector3(0, 0, ZoomSpeed * 40);
                 _ScrollCount++;
             }
         }
@@ -65,7 +65,7 @@ public class rtsmove : MonoBehaviour
         {
             if (_ScrollCount > _ScrollWheelminPush && _ScrollCount <= ScrollWheelLimit)
             {
-                GetComponent<Camera>().transform.position -= new Vector3(0, ZoomSpeed * 40, 0);
+				GetComponent<Camera>().transform.position += new Vector3(0, 0, ZoomSpeed * 40);
                 _ScrollCount--;
             }
         }

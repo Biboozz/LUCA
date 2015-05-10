@@ -44,10 +44,10 @@ public class environment : MonoBehaviour {
 			}
 			for (int i = 0; i < S.Individuals.Count; i++) 
 			{
-				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000), 0.1f,UnityEngine.Random.Range(0,2000)), 50000, S, this, j == 0, new List<moleculePack>(), Rdm.Next(500)); //apparition coordonnées random
+				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000),UnityEngine.Random.Range(0,2000), 0.1f), 50000, S, this, j == 0, new List<moleculePack>(), Rdm.Next(500)); //apparition coordonnées random
 				S.Individuals[i].descriptionBox = UICellDescriptionBox;
-				S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color; //modif couleur core en fonction de l'espece
-				S.Individuals[i].transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+				S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = S.color; //modif couleur core en fonction de l'espece
+				S.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
 //				foreach(molecule m in molecules)
 //				{
 //					S.Individuals[i].cellMolecules.Add(new moleculePack(RdmMol.Next(30),m));

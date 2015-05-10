@@ -25,10 +25,15 @@ public class Unit : MonoBehaviour {
 
 	private void Update ()
 	{
+		if (transform.FindChild ("membrane").gameObject.GetComponent<SpriteRenderer> ().isVisible) 
+		{
+			//gamObject.GetComponent<RigidBody>().isKinematic = false;
+		}
+
 		if (Time.timeScale >= 1f) 
 		{
 
-			if (Input.GetMouseButton(0) && GetComponent<Renderer>().isVisible) // test si clique sur cell (cell jouée)
+			if (Input.GetMouseButton(0) && transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().isVisible) // test si clique sur cell (cell jouée)
 			{
 				if(!selectedByClick) // si pas deja selectionnée
 				{
@@ -65,7 +70,7 @@ public class Unit : MonoBehaviour {
 				if (Physics.Raycast(ray, out hit))
 				{
 					newPosition = hit.point;
-					newPosition.y = 1;
+					newPosition.z = 1;
 					I.target = newPosition;
 					I.gotDest = true;		//Objet possède une destination
 					
@@ -93,7 +98,7 @@ public class Unit : MonoBehaviour {
 
 			if(I.gotDest && (Time.timeScale >= 1f))
 			{
-				if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.z - I.target.z >= -2 && transform.position.z - I.target.z <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
+				if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.y - I.target.y >= -2 && transform.position.y - I.target.y <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 				{
 					I.gotDest = false;		//Plus de destination car elle a été atteinte
 				}
