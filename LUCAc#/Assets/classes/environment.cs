@@ -65,13 +65,16 @@ public class environment : MonoBehaviour {
 		{
 			PSDD.species = S;
 			parent.isPlayed = false;
-			//CI.cellsplayed.Clear();
+			foreach(Individual I in parent.Individuals)
+			{
+				I.isPlayed = false;
+			}
 		}
 		S.name = parent.name;
 		foreach (Individual I in starters) 
 		{
-			I.transform.FindChild("core").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
-			I.transform.FindChild("Membrane").gameObject.GetComponent<MeshRenderer>().material.color = S.color;
+			I.transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = S.color;
+			I.transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
 			I.isPlayed = S.isPlayed;
 			parent.Individuals.RemoveAt(parent.Individuals.FindIndex(r => r.Equals(I)));
 			S.Individuals.Add(I);
@@ -98,7 +101,7 @@ public class environment : MonoBehaviour {
 		}
 	}
 
-	public void eateration(ref Terrain Terr, List<Species> Me)
+	/*public void eateration(ref Terrain Terr, List<Species> Me)
 	{
 		foreach (RessourceCircle C in Terr.circles) 
 		{
@@ -113,7 +116,7 @@ public class environment : MonoBehaviour {
 				}
 			}
 		}
-	}
+	}*/
 
 	public void remove(GameObject G)
 	{
