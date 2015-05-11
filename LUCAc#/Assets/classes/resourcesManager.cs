@@ -15,13 +15,13 @@ public class resourcesManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		_moleculeRepartition = new List<moleculePack>[100,100];
-		representationMatrix = new GameObject[100,100];
-		for (int i = 0; i < 100; i++) 
+		_moleculeRepartition = new List<moleculePack>[200,200];
+		representationMatrix = new GameObject[200,200];
+		for (int i = 0; i < 200; i++) 
 		{
-			for (int j = 0; j < 100; j++) 
+			for (int j = 0; j < 200; j++) 
 			{
-				representationMatrix[i,j] = (GameObject)Instantiate(representation, new Vector3 (representation.transform.position.x + (i * 20), 1, representation.transform.position.z + (j * 20)), representation.transform.rotation);
+				representationMatrix[i,j] = (GameObject)Instantiate(representation, new Vector3 (representation.transform.position.x + (i * 10), representation.transform.position.z + (j * 10), 120), representation.transform.rotation);
 				representationMatrix[i,j].transform.SetParent(position.transform);
 			}
 		}
