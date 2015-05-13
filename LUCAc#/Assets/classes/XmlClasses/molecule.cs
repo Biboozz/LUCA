@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using UnityEngine;
+using System.Xml.Serialization;
 namespace AssemblyCSharp
 {
 	public class molecule : serialisable
@@ -19,6 +21,8 @@ namespace AssemblyCSharp
 		public int size;
 		public int componantID;
 		public molecule componant;
+		[XmlIgnore]
+		public Color color;
 
 		public molecule ()
 		{

@@ -25,6 +25,7 @@ public class CollisionOptimizer : MonoBehaviour {
 
 	void OnBecameVisible()
 	{
+
 		addCollisions ();
 	}
 

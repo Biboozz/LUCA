@@ -37,7 +37,8 @@ public class gameDataReader : MonoBehaviour {
 			switch(S.SerialisableType)
 			{
 				case serialisableTypes.molecule :
-					moleculeList.Add((molecule)S);
+					molecule m = (molecule)S;
+					moleculeList.Add(m);
 					break;
 				case serialisableTypes.skill :
 					skillList.Add((skill)S);

@@ -147,6 +147,7 @@ public class environment : MonoBehaviour {
 				}
 			}
 			RM.molecules = _molecules;
+
 		}
 	}
 

@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using UnityEngine;
+using System.Xml.Serialization;
 namespace AssemblyCSharp
 {
 	public class moleculePack : serialisable
