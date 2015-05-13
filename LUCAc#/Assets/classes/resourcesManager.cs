@@ -58,7 +58,6 @@ public class resourcesManager : MonoBehaviour {
 						_moleculeRepartition[i,j] = new List<moleculePack>();
 					}
 				}
-				System.Random RDM = new System.Random();
 				foreach (molecule M in _molecules)
 				{
 					for (int i = 0; i < 100; i++)
@@ -88,7 +87,7 @@ public class resourcesManager : MonoBehaviour {
 		{
 			for (int j = 0; j < 100; j++) 
 			{
-				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, 255f / (float)_moleculeRepartition[i,j][n].count);
+				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, 200f / (float)_moleculeRepartition[i,j][n].count);
 			}
 		}
 	}

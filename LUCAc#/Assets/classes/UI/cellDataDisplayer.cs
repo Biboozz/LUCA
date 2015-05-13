@@ -12,6 +12,7 @@ public class cellDataDisplayer : MonoBehaviour {
 	public displayPerkTree DPT;
 	public selectedSpeciesDataDisplayer SSDD;
 	public GameObject representation;
+	public resourcesManager RM;
 
 	// Use this for initialization
 	void Start () {
