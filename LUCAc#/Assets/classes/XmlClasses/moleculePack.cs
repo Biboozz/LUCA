@@ -17,6 +17,7 @@ namespace AssemblyCSharp
 		public molecule moleculeType;
 		public int count;
 
+
 		public moleculePack(int count, molecule moleculeType)
 		{
 			this.count = count;
