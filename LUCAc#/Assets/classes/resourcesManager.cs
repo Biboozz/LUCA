@@ -16,7 +16,6 @@ public class resourcesManager : MonoBehaviour {
 
 	private int min;
 	private int max;
-	private int total = 2000000000;
 
 	// Use this for initialization
 	void Start () 
@@ -31,8 +30,9 @@ public class resourcesManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.R)) 
 		{
 			_shown = !_shown;
-			displayRessources(_molecules[mol]);
 			mol = (mol + 1) % _molecules.Count;
+			displayRessources(_molecules[mol]);
+
 			position.SetActive (_shown);
 		}
 
@@ -66,30 +66,15 @@ public class resourcesManager : MonoBehaviour {
 						_moleculeRepartition[i,j] = new List<moleculePack>();
 					}
 				}
-				RandomPolynom PJ = new RandomPolynom();
-				RandomPolynom PI = new RandomPolynom();
+
 				foreach (molecule M in _molecules)
 				{
-					PJ.newPolynom(-1f, 0f, -3f, 3f, 0f, 0f);
-					if (PJ.f (0) <= 0)
+					System.Random RDM = new System.Random();
+					int N = (int)(20f * M.rarity);
+					while (N > 0)
 					{
-						PJ.C = - PJ.f (0) + 100f;
-					}
-					Debug.Log("fct pour la molecule " + M.name + " en j: " + PJ.A + " " + PJ.B + " " + PJ.C);
-					PI.newPolynom(-1f, 0f, -3f, 3f, 0f, 0f);
-					if (PI.f (0) <= 0)
-					{
-						PI.C = - PI.f (0) + 100f;
-					}
-					Debug.Log("fct pour la molecule " + M.name + " en i: " + PI.A + " " + PI.B + " " + PI.C);
-					for (int i = 0; i < 100; i++)
-					{
-						for (int j = 0; j < 100; j++)
-						{
-							moleculePack MP = new moleculePack(System.Convert.ToInt32(PJ.f (j - 50) * PI.f (i - 50)), M);
-							MP.moleculeType.color = new Color(UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f));
-							_moleculeRepartition[i,j].Add(MP);
-						}
+						N--;
+						addSmallCircle(RDM.Next(10, 90),RDM.Next(10, 90), M);
 					}
 				}
 
@@ -97,6 +82,97 @@ public class resourcesManager : MonoBehaviour {
 			else
 			{
 				Debug.Log ("resourcesManager: empty list of molecules loaded.");
+			}
+		}
+	}
+
+	public void addRandomForm (int decalI, int decalJ, molecule M)
+	{
+		RandomPolynom PJ = new RandomPolynom();
+		RandomPolynom PI = new RandomPolynom();
+		PJ.newPolynom(-1f, 0f, -3f, 3f, 0f, 0f);
+		if (PJ.f (0) <= 0)
+		{
+			PJ.C = - PJ.f (0) + 100f;
+		}
+		Debug.Log("fct pour la molecule " + M.name + " en j: " + PJ.A + " " + PJ.B + " " + PJ.C);
+		PI.newPolynom(-1f, 0f, -3f, 3f, 0f, 0f);
+		if (PI.f (0) <= 0)
+		{
+			PI.C = - PI.f (0) + 100f;
+		}
+		Debug.Log("fct pour la molecule " + M.name + " en i: " + PI.A + " " + PI.B + " " + PI.C);
+		for (int i = 0; i < 100; i++)
+		{
+			for (int j = 0; j < 100; j++)
+			{
+				moleculePack MPtest = _moleculeRepartition[i,j].Find(mp => mp.moleculeType.ID == M.ID);
+				if (MPtest == null)
+				{
+					moleculePack MP = new moleculePack(System.Convert.ToInt32(PJ.f (j - decalJ) * PI.f (i - decalI)), M);
+					MP.moleculeType.color = new Color(UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f));
+					_moleculeRepartition[i,j].Add(MP);
+				}
+				else
+				{
+					MPtest.count = MPtest.count + System.Convert.ToInt32(PJ.f (j - decalJ) * PI.f (i - decalI));
+				}
+			}
+		}
+	}
+
+	public void addRandomCircle (int decalI, int decalJ, molecule M)
+	{
+		RandomPolynom P = new RandomPolynom();
+		P.newPolynom(-1f, 0f, -3f, 3f, 0f, 0f);
+		if (P.f (0) <= 0)
+		{
+			P.C = - P.f (0) + 100f;
+		}
+		Debug.Log("fct pour la molecule " + M.name + ": " + P.A + " " + P.B + " " + P.C);
+		for (int i = 0; i < 100; i++)
+		{
+			for (int j = 0; j < 100; j++)
+			{
+				moleculePack MPtest = _moleculeRepartition[i,j].Find(mp => mp.moleculeType.ID == M.ID);
+				if (MPtest == null)
+				{
+					moleculePack MP = new moleculePack(System.Convert.ToInt32(P.f (j - decalJ) * P.f (i - decalI)), M);
+					MP.moleculeType.color = new Color(UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f));
+					_moleculeRepartition[i,j].Add(MP);
+				}
+				else
+				{
+					MPtest.count = MPtest.count + System.Convert.ToInt32(P.f (j - decalJ) * P.f (i - decalI));
+				}
+			}
+		}
+	}
+
+	public void addSmallCircle (int decalI, int decalJ, molecule M)
+	{
+		RandomPolynom P = new RandomPolynom();
+		P.newPolynom(-0.8559355f, -0.8559355f, -1.737144f, -1.737144f, 0f, 0f);
+		if (P.f (0) <= 0)
+		{
+			P.C = - P.f (0) + 100f;
+		}
+		Debug.Log("fct pour la molecule " + M.name + ": " + P.A + " " + P.B + " " + P.C);
+		for (int i = 0; i < 100; i++)
+		{
+			for (int j = 0; j < 100; j++)
+			{
+				moleculePack MPtest = _moleculeRepartition[i,j].Find(mp => mp.moleculeType.ID == M.ID);
+				if (MPtest == null)
+				{
+					moleculePack MP = new moleculePack(System.Convert.ToInt32(P.f (j - decalJ) * P.f (i - decalI)), M);
+					MP.moleculeType.color = new Color(UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f),UnityEngine.Random.Range(0f,1f));
+					_moleculeRepartition[i,j].Add(MP);
+				}
+				else
+				{
+					MPtest.count = MPtest.count + System.Convert.ToInt32(P.f (j - decalJ) * P.f (i - decalI));
+				}
 			}
 		}
 	}
