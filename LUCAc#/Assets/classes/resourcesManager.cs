@@ -17,10 +17,11 @@ public class resourcesManager : MonoBehaviour {
 	private int min;
 	private int max;
 
+	public List<moleculePack>[,] moleculeRepartition	{ 	get { return _moleculeRepartition; 	}	}
+
 	// Use this for initialization
 	void Start () 
 	{
-
 
 	}
 	
