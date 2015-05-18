@@ -132,12 +132,19 @@ public class environment : MonoBehaviour {
 		set
 		{
 			System.Random RdmMol = new System.Random (45);
-			_molecules = value;
+			List<molecule> nm = new List<molecule>();
+			foreach(molecule m in value)
+			{
+				if(nm.Find(mp => mp.ID == m.ID) == null)
+				{
+					nm.Add(m);
+				}
+			}
 			foreach(Species S in livings)
 			{
 				foreach(Individual I in S.Individuals)
 				{
-					foreach(molecule m in _molecules)
+					foreach(molecule m in value)
 					{
 						if(I.cellMolecules.Find(mp => mp.moleculeType.ID == m.ID) == null)
 						{
@@ -146,8 +153,8 @@ public class environment : MonoBehaviour {
 					}
 				}
 			}
-			RM.molecules = _molecules;
-
+			RM.molecules = nm;
+			_molecules = nm;
 		}
 	}
 

@@ -31,9 +31,11 @@ public class resourcesManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.R)) 
 		{
 			_shown = !_shown;
-			mol = (mol + 1) % _molecules.Count;
 			displayRessources(_molecules[mol]);
-
+			if(!_shown)
+			{
+				mol = (mol + 1) % _molecules.Count;
+			}
 			position.SetActive (_shown);
 		}
 
@@ -48,6 +50,7 @@ public class resourcesManager : MonoBehaviour {
 		set
 		{
 			_molecules = value;
+
 			if (_molecules != null)
 			{
 				representationMatrix = new GameObject[100,100];
@@ -71,11 +74,19 @@ public class resourcesManager : MonoBehaviour {
 				foreach (molecule M in _molecules)
 				{
 					System.Random RDM = new System.Random();
-					int N = (int)(20f * M.rarity);
+					int N = (int)(60f * M.rarity);
 					while (N > 0)
 					{
 						N--;
 						addSmallCircle(RDM.Next(10, 90),RDM.Next(10, 90), M);
+					}
+					for (int i = 0; i < 100; i++) 
+					{
+						for (int j = 0; j < 100; j++) 
+						{
+							moleculePack mp = new moleculePack((int)((float)4000 * M.rarity), M);
+							_moleculeRepartition[i,j].Add(mp);
+						}
 					}
 				}
 
@@ -181,22 +192,25 @@ public class resourcesManager : MonoBehaviour {
 	public void displayRessources(molecule m)
 	{
 		int n = _molecules.FindIndex (M => m.ID == M.ID);
+
 		checkBounds (n);
+
 		for (int i = 0; i < 100; i++) 
 		{
 			for (int j = 0; j < 100; j++) 
 			{
-				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((0.8f * _moleculeRepartition[i,j][n].count) / max) + 0.1f);
+				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((0.9f * _moleculeRepartition[i,j][n].count) / max) + 0f);
+
 			}
 		}
 	}
 
 	private void checkBounds(int n)
 	{
-		max = _moleculeRepartition [0, 0][n].count;
-		for (int i = 1; i < 100; i++) 
+		max = 0;
+		for (int i = 0; i < 100; i++) 
 		{
-			for (int j = 1; j < 100; j++) 
+			for (int j = 0; j < 100; j++) 
 			{
 				int test = _moleculeRepartition [i, j][n].count;
 				if (max < test)
