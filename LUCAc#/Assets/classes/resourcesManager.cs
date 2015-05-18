@@ -74,17 +74,18 @@ public class resourcesManager : MonoBehaviour {
 				foreach (molecule M in _molecules)
 				{
 					System.Random RDM = new System.Random();
-					int N = (int)(60f * M.rarity);
+					int N = (int)(200f * M.rarity);
+					addSmallCircle(RDM.Next(10, 90),RDM.Next(10, 90), M);
 					while (N > 0)
 					{
 						N--;
 						addSmallCircle(RDM.Next(10, 90),RDM.Next(10, 90), M);
 					}
-					for (int i = 0; i < 100; i++) 
+					for (int i = 0; i < 100; i++)
 					{
-						for (int j = 0; j < 100; j++) 
+						for (int j = 0; j < 100; j++)
 						{
-							moleculePack mp = new moleculePack((int)((float)4000 * M.rarity), M);
+							moleculePack mp = new moleculePack(0, M);
 							_moleculeRepartition[i,j].Add(mp);
 						}
 					}
@@ -194,13 +195,14 @@ public class resourcesManager : MonoBehaviour {
 		int n = _molecules.FindIndex (M => m.ID == M.ID);
 
 		checkBounds (n);
+		max += 1000;
+		min += 1000;
 
 		for (int i = 0; i < 100; i++) 
 		{
-			for (int j = 0; j < 100; j++) 
+			for (int j = 0; j < 100; j++)
 			{
 				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((0.9f * _moleculeRepartition[i,j][n].count) / max) + 0f);
-
 			}
 		}
 	}
