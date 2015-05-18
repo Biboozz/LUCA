@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class Individual : MonoBehaviour
 {
+
 	private bool _alive = true;
 	private Species _species;
 	private int _survivedTime = 0;
@@ -88,7 +89,16 @@ public class Individual : MonoBehaviour
 			}
 		}
 	}
-	
+
+	/*public void eat(ref resourcesManager R)
+	{
+		Vector3 pos = transform.position;
+		int squarex = pos.x / 20;
+		int squarey = pos.y / 20;
+
+		R.moleculeRepartition = R.moleculeRepartition - species.absorb_amount ;
+	}*/
+
 	public void action () 
 	{
 		//not finished yet
