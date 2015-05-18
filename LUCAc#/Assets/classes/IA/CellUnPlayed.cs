@@ -37,8 +37,10 @@ public class CellUnPlayed : MonoBehaviour {
 		return moleculetarget.moleculeType.name;
 	}
 
-	/*public Vector3 closeMolecule()
+	/*public void closeMolecule()
 	{
+		List<moleculePack>[,] carrecell = R.moleculeRepartition[(int)(transform.position.x / 20),(int)(transform.position.y / 20)];			//Liste des molecules presentes dans la case de la cellule
+
 
 	}*/
 }
