@@ -10,6 +10,7 @@ public class CellUnPlayed : MonoBehaviour {
 	private List<moleculePack> cellMolecules = new List<moleculePack>();	//Liste des molecules de la cellules
 	private moleculePack moleculetarget;
 	private List<moleculePack>[,] moleculesTerrain;
+	private List<List<moleculePack>[,]> moleculesAroundCell;
 
 	// Use this for initialization
 	void Start () 
@@ -37,10 +38,10 @@ public class CellUnPlayed : MonoBehaviour {
 		return moleculetarget.moleculeType.name;
 	}
 
-	/*public void closeMolecule()
+	public void closeMolecule()
 	{
-		List<moleculePack>[,] carrecell = R.moleculeRepartition[(int)(transform.position.x / 20),(int)(transform.position.y / 20)];			//Liste des molecules presentes dans la case de la cellule
+		//List<moleculePack>[,] carrecell = R.moleculeRepartition[(int)(transform.position.x / 20),(int)(transform.position.y / 20)];			//Liste des molecules presentes dans la case de la cellule
 
 
-	}*/
+	}
 }
