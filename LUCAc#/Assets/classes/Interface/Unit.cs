@@ -85,6 +85,10 @@ public class Unit : MonoBehaviour {
 				}
 				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
 			}
+			else
+			{
+
+			}
 		}
 	}
 	

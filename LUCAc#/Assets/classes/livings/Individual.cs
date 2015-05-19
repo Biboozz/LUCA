@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class Individual : MonoBehaviour
 {
-
 	private bool _alive = true;
 	private Species _species;
 	private int _survivedTime = 0;
@@ -24,6 +23,7 @@ public class Individual : MonoBehaviour
 	private int coolDown = 0;
 	private bool initialized = false;
 	public environment place;
+	public resourcesManager _RM;
 
 	public GameObject descriptionBox;
 	private float _duration = 20.0f;
@@ -31,7 +31,8 @@ public class Individual : MonoBehaviour
 
 	#region accessors
 
-	public int survivedTime 				{ 	get { return _survivedTime; 	}											}
+	public int survivedTime 				{   get { return _survivedTime; 	} 	}
+	public resourcesManager RM 				{ 	get { return _RM; 				}	}
 	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
 	public Species species 					{ 	get { return _species; 			} 		set { _species = value; 		} 	}
 	public bool isPlayed 					{ 	get { return _isPlayed; 		} 		set { _isPlayed = value; 		}	}
@@ -62,6 +63,7 @@ public class Individual : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		_RM = place.gameObject.GetComponent<resourcesManager> ();
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
 	}
 	
@@ -71,7 +73,7 @@ public class Individual : MonoBehaviour
 		if (Time.timeScale >= 1f)		//Test si le temps est en pause ou pas
 		{
 			gameObject.transform.GetChild (3).gameObject.SetActive (_isSelectioned); //selection de la cellule
-			if ((!_isSelectioned && _isPlayed) && _gotDest == false) //Les cellules du joueur non selectionnees se deplacent
+			if ((!_isSelectioned && !_gotDest) || (_isSelectioned && !_isPlayed && !_gotDest)) //Les cellules du joueur non selectionnees se deplacent
 			{
 				transform.Translate(speed, 0f, 0f);
 				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
