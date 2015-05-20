@@ -12,7 +12,7 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 	private ListBox _objectiveMolecules;
 
 	private Text nbIndividual;
-	private Text name;
+	private Text _name;
 	private Toggle color;
 
 	public unlockSkillWindow USW;
@@ -28,7 +28,7 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 		_moleculeAverages = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
 		color = transform.FindChild("speciesColorToggle").gameObject.GetComponent<Toggle>();
 		nbIndividual = transform.FindChild("nbIndividual").gameObject.GetComponent<Text>();
-		name = transform.FindChild("name").gameObject.GetComponent<Text>();
+		_name = transform.FindChild("name").gameObject.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -36,7 +36,7 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 		if (_species != null)
 		{
 			nbIndividual.text = _species.Individuals.Count.ToString();
-			name.text = _species.name;
+			_name.text = _species.name;
 			List<moleculePack> moleculePackSum = new List<moleculePack>();
 			_moleculeAverages.Clear();
 			foreach (Individual I in _species.Individuals)
@@ -85,7 +85,7 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 				CB.disabledColor = _species.color;
 				color.colors = CB;
 				nbIndividual.text = _species.IndividualsNumber.ToString();
-				name.text = _species.name;
+				_name.text = _species.name;
 				USW.player = _species;
 			}
 		}

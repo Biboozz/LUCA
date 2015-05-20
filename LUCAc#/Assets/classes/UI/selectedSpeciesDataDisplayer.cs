@@ -7,8 +7,8 @@ using AssemblyCSharp;
 public class selectedSpeciesDataDisplayer : MonoBehaviour {
 
 	private Species _species;
-	private int lastSelected;
-	private Text name;
+	//private int lastSelected;
+	private Text _name;
 	private Text nbIndividual;
 	private Toggle isPlayedToggle;
 	private Toggle color;
@@ -17,7 +17,7 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		name = transform.FindChild ("name").gameObject.GetComponent<Text> ();
+		_name = transform.FindChild ("name").gameObject.GetComponent<Text> ();
 		nbIndividual = transform.FindChild ("nbIndividual").gameObject.GetComponent<Text> ();
 		isPlayedToggle = transform.FindChild("isPlayedToggle").gameObject.GetComponent<Toggle> ();
 		color = transform.FindChild("speciesColorToggle").gameObject.GetComponent<Toggle> ();
@@ -38,7 +38,7 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 		//Click Test
 		if (speciesCellsMoleculesAverage.ReDraw())
 		{
-			lastSelected = speciesCellsMoleculesAverage.GetSelectedID();
+			//lastSelected = speciesCellsMoleculesAverage.GetSelectedID();
 		}
 		//----------
 	}
@@ -61,7 +61,7 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 			_species = value;
 			if (_species != null)
 			{
-				name.text = _species.name;
+				_name.text = _species.name;
 				nbIndividual.text = _species.Individuals.Count.ToString();
 				isPlayedToggle.isOn = _species.isPlayed;
 				ColorBlock CB = color.colors;

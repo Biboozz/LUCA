@@ -108,13 +108,11 @@ public class resourcesManager : MonoBehaviour {
 		{
 			PJ.C = - PJ.f (0) + 100f;
 		}
-		Debug.Log("fct pour la molecule " + M.name + " en j: " + PJ.A + " " + PJ.B + " " + PJ.C);
 		PI.newPolynom(-1f, 0f, -3f, 3f, 0f, 0f);
 		if (PI.f (0) <= 0)
 		{
 			PI.C = - PI.f (0) + 100f;
 		}
-		Debug.Log("fct pour la molecule " + M.name + " en i: " + PI.A + " " + PI.B + " " + PI.C);
 		for (int i = 0; i < 100; i++)
 		{
 			for (int j = 0; j < 100; j++)
@@ -142,7 +140,6 @@ public class resourcesManager : MonoBehaviour {
 		{
 			P.C = - P.f (0) + 100f;
 		}
-		Debug.Log("fct pour la molecule " + M.name + ": " + P.A + " " + P.B + " " + P.C);
 		for (int i = 0; i < 100; i++)
 		{
 			for (int j = 0; j < 100; j++)
@@ -170,7 +167,6 @@ public class resourcesManager : MonoBehaviour {
 		{
 			P.C = - P.f (0) + 100f;
 		}
-		Debug.Log("fct pour la molecule " + M.name + ": " + P.A + " " + P.B + " " + P.C);
 		for (int i = 0; i < 100; i++)
 		{
 			for (int j = 0; j < 100; j++)

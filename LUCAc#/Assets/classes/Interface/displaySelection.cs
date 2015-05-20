@@ -7,7 +7,6 @@ public class displaySelection : MonoBehaviour {
 	public GameObject selection;
 	private Vector3 C1;
 	private Vector3 C2;
-	private Vector3 focused;
 
 	// Use this for initialization
 	void Start () 
@@ -46,7 +45,6 @@ public class displaySelection : MonoBehaviour {
 				if (Time.timeScale >= 1f) {
 					C1 = Input.mousePosition;
 					C2 = Input.mousePosition;
-					focused = C1;
 					selection.SetActive (true);
 				}
 			}
@@ -93,7 +91,6 @@ public class displaySelection : MonoBehaviour {
 		{
 			C1 = Input.mousePosition;
 			C2 = Input.mousePosition;
-			focused = C1;
 			selection.SetActive (true);
 		}
 	}

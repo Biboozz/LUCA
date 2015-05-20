@@ -7,7 +7,7 @@ using AssemblyCSharp;
 public class cellDataDisplayer : MonoBehaviour {
 
 	private ListBox cellMolecules;
-	private int lastSelected;
+	//private int lastSelected;
 	private Individual _target;
 	public displayPerkTree DPT;
 	public selectedSpeciesDataDisplayer SSDD;
@@ -32,7 +32,7 @@ public class cellDataDisplayer : MonoBehaviour {
 		//Click Test
 		if (cellMolecules.ReDraw())
 		{
-			lastSelected = cellMolecules.GetSelectedID();
+			//lastSelected = cellMolecules.GetSelectedID();
 		}
 		//----------
 	}

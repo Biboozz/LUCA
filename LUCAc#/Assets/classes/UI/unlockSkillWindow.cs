@@ -10,7 +10,7 @@ public class unlockSkillWindow : MonoBehaviour {
 	private Species _player;
 
 	private ListBox _requirements;
-	private int lastSelected;
+	//private int lastSelected;
 	private Text _skillName;//
 	private Image _skillAppearence;
 	private Text _description;//
@@ -39,7 +39,7 @@ public class unlockSkillWindow : MonoBehaviour {
 		//Click Test
 		if (_requirements.ReDraw())
 		{
-			lastSelected = _requirements.GetSelectedID();
+			//lastSelected = _requirements.GetSelectedID();
 		}
 		//----------
 	}
@@ -67,7 +67,7 @@ public class unlockSkillWindow : MonoBehaviour {
 				_description.text = _skill.description;
 				_skillHexName.text = _skill.type;
 				_skillAppearence.sprite = _skill.hex.GetComponent<Image>().sprite;
-
+				_rate.text = (((float)countUnlockers(_player, _skill) * 100f)/(float)_player.Individuals.Count).ToString() + "% sur 60% de vos cellules peuvent debloquer cette competence";
 				if (_player == null)
 				{
 					throw new System.Exception("error undefined player");
@@ -166,6 +166,35 @@ public class unlockSkillWindow : MonoBehaviour {
 			foreach(moleculePack mp in S.devCosts.cellMolecules)
 			{
 				I.cellMolecules.Find(r => r.moleculeType.ID == mp.moleculeType.ID).count -= mp.count;
+			}
+		}
+		return c;
+	}
+
+	public static int countUnlockers(Species species, skill S)
+	{
+		int c = 0;
+		for (int i = 0; i < species.Individuals.Count; i++) 
+		{
+			bool b = true;
+			for (int j = 0; j < S.devCosts.cellMolecules.Count && b; j++)
+			{
+				moleculePack mpCell = species.Individuals[i].cellMolecules.Find(mp => mp.moleculeType.ID == S.devCosts.cellMolecules[j].moleculeType.ID);
+				if (mpCell == null)
+				{
+					b = false;
+				}
+				else
+				{
+					if (mpCell.count < S.devCosts.cellMolecules[j].count)
+					{
+						b = false;
+					}
+				}
+			}
+			if (b)
+			{
+				c++;
 			}
 		}
 		return c;

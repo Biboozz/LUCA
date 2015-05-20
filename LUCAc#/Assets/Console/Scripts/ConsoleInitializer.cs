@@ -8,7 +8,7 @@ public class ConsoleInitializer : MonoBehaviour {
 	public environment Environment;
 	public Species Especes;
 	public displayPerkTree SpecsTree;
-	private List<Species> _species;
+	//private List<Species> _species;
 	public List<Individual> cellsplayed;
 	//private List<skill> _allskill;
 	//private List<skill> _skillunlock;
@@ -22,7 +22,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("all_unlock", Allunlock);
 		repo.RegisterCommand("help", Help);
 
-		_species = Environment.livings;
+		//_species = Environment.livings;
 		//_allskill = SpecsTree.perkTree;
 
 	}

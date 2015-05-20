@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[BoltGlobalBehaviour(BoltNetworkModes.Server)]
+[BoltGlobalBehaviour(BoltNetworkModes.Host)]
 public class ServerCallbacks : Bolt.GlobalEventListener 
 {
 	public override void Connected(BoltConnection connection) 
