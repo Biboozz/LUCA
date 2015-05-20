@@ -12,8 +12,6 @@ public class resourcesManager : MonoBehaviour {
 	public GameObject position;
 	private bool _shown;
 
-	private int mol = 0;
-
 	private int min;
 	private int max;
 
@@ -28,16 +26,6 @@ public class resourcesManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.R)) 
-		{
-			_shown = !_shown;
-			displayRessources(_molecules[mol]);
-			if(!_shown)
-			{
-				mol = (mol + 1) % _molecules.Count;
-			}
-			position.SetActive (_shown);
-		}
 
 	}
 
@@ -189,10 +177,10 @@ public class resourcesManager : MonoBehaviour {
 	public void displayRessources(molecule m)
 	{
 		int n = _molecules.FindIndex (M => m.ID == M.ID);
-
+		representation.SetActive (true);
 		checkBounds (n);
 		max += 1000;
-		min += 1000;
+		min += 500;
 
 		for (int i = 0; i < 100; i++) 
 		{
@@ -201,6 +189,12 @@ public class resourcesManager : MonoBehaviour {
 				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((0.9f * _moleculeRepartition[i,j][n].count) / max) + 0f);
 			}
 		}
+
+	}
+
+	public void hide()
+	{
+		representation.SetActive (false);
 	}
 
 	private void checkBounds(int n)

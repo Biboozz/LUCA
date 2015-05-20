@@ -7,7 +7,7 @@ using AssemblyCSharp;
 public class cellDataDisplayer : MonoBehaviour {
 
 	private ListBox cellMolecules;
-	//private int lastSelected;
+	private int _lastMoleculeSelected;
 	private Individual _target;
 	public displayPerkTree DPT;
 	public selectedSpeciesDataDisplayer SSDD;
@@ -27,12 +27,33 @@ public class cellDataDisplayer : MonoBehaviour {
 	
 	}
 
+	private int lastMoleculeSelected
+	{
+		get
+		{
+			return _lastMoleculeSelected;
+		}
+		set
+		{
+			if (_lastMoleculeSelected == value)
+			{
+				RM.hide ();
+			}
+			else
+			{
+				_lastMoleculeSelected = value;
+				Debug.Log(cellMolecules.listItems[value - 1].ToString());
+				RM.displayRessources(RM.molecules.Find(m => m.name == cellMolecules.listItems[value].ToString()));
+			}
+		}
+	}
+
 	void drawListBox()
 	{
 		//Click Test
 		if (cellMolecules.ReDraw())
 		{
-			//lastSelected = cellMolecules.GetSelectedID();
+			lastMoleculeSelected = cellMolecules.GetSelectedID();
 		}
 		//----------
 	}

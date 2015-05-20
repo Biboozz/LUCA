@@ -20,7 +20,7 @@ public class ListBox {
 	private bool horScrollVisible;
 	private bool vertScrollVisible;
 	
-	private List<ListItem> listItems = new List<ListItem>();
+	public List<ListItem> listItems = new List<ListItem>();
 	
 	protected int lastSelectedIndex = -1;
 	
@@ -76,6 +76,8 @@ public class ListBox {
 	//Methods
 	//---ITEMS---
 	//Text items
+
+
 	public int AddItem(System.String c_ItemLabel)
 	{
 		int itemIndex = listItems.Count+1;
@@ -198,7 +200,7 @@ public class ListBox {
 //*************************
 
 //****LISTITEM CLASS****
-class ListItem {
+public class ListItem {
 	private int id;
 	
 	private Rect drawRect;
@@ -263,6 +265,11 @@ class ListItem {
 	public int GetHeight()
 	{
 		return (int)drawRect.height;
+	}
+
+	public override string ToString ()
+	{
+		return ItemLabel.Split(new char[] {' '})[0];
 	}
 	//-------------------
 }
