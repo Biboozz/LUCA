@@ -167,7 +167,6 @@ public class CellUnPlayed : MonoBehaviour {
 			{
 				I.gotDest = true;
 				I.target = new Vector3(posx_square * 20 + 10, posy_square * 20 + 10);
-				Debug.Log(I.transform.position + " to " + I.target);
 				return true;
 			}
 			else
