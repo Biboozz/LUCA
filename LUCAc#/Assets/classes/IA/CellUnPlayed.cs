@@ -32,7 +32,7 @@ public class CellUnPlayed : MonoBehaviour {
 		if (time >= 420) 
 		{
 			time = 0;
-			if(!I.gotDest)
+			if(!I.gotDest && !I.isPlayed)
 				AnalyseMolecules ();
 		} 
 		else
@@ -58,42 +58,6 @@ public class CellUnPlayed : MonoBehaviour {
 		int posy = (int)(transform.position.y / 20);
 		bool b = true;
 
-		for (int i = 0; i < 3 && b; i++) //Ligne n°1
-		{
-			if((posx - 1 + i < 100 && posx - 1 + i > 0) && (posy + 5 < 100))
-			{
-				posx_square = posx - 1 + i;
-				posy_square = posy + 5;
-				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
-			}
-		}
-		for (int i = 0; i < 5 && b; i++) //Ligne n°2
-		{
-			if((posx - 2 + i < 100 && posx - 2 + i > 0) && (posy + 4 < 100))
-			{
-				posx_square = posx - 2 + i;
-				posy_square = posy + 4;
-				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
-			}
-		}
-		for (int i = 0; i < 7 && b; i++) //Ligne n°3
-		{
-			if((posx - 3 + i < 100 && posx - 3 + i > 0) && (posy + 3 < 100))
-			{
-				posx_square = posx - 3 + i;
-				posy_square = posy + 3;
-				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
-			}
-		}
-		for (int i = 0; i < 9 && b; i++) //Ligne n°4
-		{
-			if((posx - 4 + i < 100 && posx - 4 + i > 0) && (posy + 2 < 100))
-			{
-				posx_square = posx - 4 + i;
-				posy_square = posy + 2;
-				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
-			}
-		}
 		for (int i = 0; i < 11 && b; i++) //Ligne n°5
 		{
 			if((posx - 5 + i < 100 && posx - 5 + i > 0) && (posy + 1 < 100))
@@ -121,6 +85,16 @@ public class CellUnPlayed : MonoBehaviour {
 				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);
 			}
 		}
+		for (int i = 0; i < 9 && b; i++) //Ligne n°4
+		{
+			if((posx - 4 + i < 100 && posx - 4 + i > 0) && (posy + 2 < 100))
+			{
+				posx_square = posx - 4 + i;
+				posy_square = posy + 2;
+				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
+			}
+		}
+		
 		for (int i = 0; i < 9 && b; i++) //Ligne n°8
 		{
 			if((posx - 4 + i < 100 && posx - 4 + i > 0) && (posy - 2 > 0))
@@ -128,6 +102,33 @@ public class CellUnPlayed : MonoBehaviour {
 				posx_square = posx - 4 + i;
 				posy_square = posy - 2;
 				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);
+			}
+		}
+		for (int i = 0; i < 3 && b; i++) //Ligne n°1
+		{
+			if((posx - 1 + i < 100 && posx - 1 + i > 0) && (posy + 5 < 100))
+			{
+				posx_square = posx - 1 + i;
+				posy_square = posy + 5;
+				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
+			}
+		}
+		for (int i = 0; i < 5 && b; i++) //Ligne n°2
+		{
+			if((posx - 2 + i < 100 && posx - 2 + i > 0) && (posy + 4 < 100))
+			{
+				posx_square = posx - 2 + i;
+				posy_square = posy + 4;
+				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
+			}
+		}
+		for (int i = 0; i < 7 && b; i++) //Ligne n°3
+		{
+			if((posx - 3 + i < 100 && posx - 3 + i > 0) && (posy + 3 < 100))
+			{
+				posx_square = posx - 3 + i;
+				posy_square = posy + 3;
+				b = !TestAnalyse(R.moleculeRepartition[posx_square, posy_square]);	//*
 			}
 		}
 		for (int i = 0; i < 7 && b; i++) //Ligne n°9
