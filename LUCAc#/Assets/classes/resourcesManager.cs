@@ -176,8 +176,9 @@ public class resourcesManager : MonoBehaviour {
 
 	public void displayRessources(molecule m)
 	{
+
 		int n = _molecules.FindIndex (M => m.ID == M.ID);
-		representation.SetActive (true);
+		position.SetActive (true);
 		checkBounds (n);
 		max += 1000;
 		min += 500;
@@ -194,7 +195,7 @@ public class resourcesManager : MonoBehaviour {
 
 	public void hide()
 	{
-		representation.SetActive (false);
+		position.SetActive (false);
 	}
 
 	private void checkBounds(int n)
