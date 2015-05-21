@@ -176,10 +176,12 @@ public class resourcesManager : MonoBehaviour {
 
 	public void displayRessources(molecule m)
 	{
-
-		int n = _molecules.FindIndex (M => m.ID == M.ID);
+		if (_molecules.FindIndex (M => m.ID == M.ID) == -1) 
+		{
+			Debug.Log("dslfjhsoduhgf");
+		}
 		position.SetActive (true);
-		checkBounds (n);
+		checkBounds (m);
 		max += 1000;
 		min += 500;
 
@@ -187,7 +189,7 @@ public class resourcesManager : MonoBehaviour {
 		{
 			for (int j = 0; j < 100; j++)
 			{
-				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((0.9f * _moleculeRepartition[i,j][n].count) / max) + 0f);
+				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((0.8f * _moleculeRepartition[i,j].Find(M => m.ID == M.moleculeType.ID).count) / max) + 0.1f);
 			}
 		}
 
@@ -198,14 +200,14 @@ public class resourcesManager : MonoBehaviour {
 		position.SetActive (false);
 	}
 
-	private void checkBounds(int n)
+	private void checkBounds(molecule m)
 	{
 		max = 0;
 		for (int i = 0; i < 100; i++) 
 		{
 			for (int j = 0; j < 100; j++) 
 			{
-				int test = _moleculeRepartition [i, j][n].count;
+				int test = _moleculeRepartition [i, j].Find(M => M.moleculeType.ID == m.ID).count;
 				if (max < test)
 				{
 					max = test;
