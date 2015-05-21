@@ -38,12 +38,13 @@ public class cellDataDisplayer : MonoBehaviour {
 			if (_lastMoleculeSelected == value)
 			{
 				RM.hide ();
+				_lastMoleculeSelected = -1;
 			}
 			else
 			{
 				_lastMoleculeSelected = value;
 				Debug.Log(cellMolecules.listItems[value - 1].ToString());
-				RM.displayRessources(RM.molecules.Find(m => m.name == cellMolecules.listItems[value].ToString()));
+				RM.displayRessources(RM.molecules.Find(m => m.name == cellMolecules.listItems[value -1].ToString()));
 			}
 		}
 	}

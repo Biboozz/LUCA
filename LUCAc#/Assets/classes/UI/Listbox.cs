@@ -269,7 +269,22 @@ public class ListItem {
 
 	public override string ToString ()
 	{
-		return ItemLabel.Split(new char[] {' '})[0];
+		string[] tokens = ItemLabel.Split(new char[] {' '});
+		string r = tokens [0];
+		int i = 1;
+		while (i < tokens.Length) 
+		{
+			if (tokens[i] != "-")
+			{
+				r = r + " " + tokens[i];
+			}
+			else
+			{
+				break;
+			}
+			i++;
+		}
+		return r;
 	}
 	//-------------------
 }
