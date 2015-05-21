@@ -14,12 +14,9 @@ public class CellUnPlayed : MonoBehaviour {
 	private int posx_square;
 	private int posy_square;
 
-	private int time;
-
 	// Use this for initialization
 	void Start () 
 	{
-		time = 0;
 		I = gameObject.GetComponentInParent<Individual>();
 		R = I.RM;
 		cellMolecules = I.cellMolecules;
@@ -29,14 +26,14 @@ public class CellUnPlayed : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (time >= 420) 
+		if (I.delay >= 420) 
 		{
-			time = 0;
+			I.delay = 0;
 			if(!I.gotDest && !I.isPlayed)
 				AnalyseMolecules ();
 		} 
 		else
-			time++;
+			I.delay++;
 	}
 
 	public string FindMoleculeLack()

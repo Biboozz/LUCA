@@ -28,6 +28,7 @@ public class Individual : MonoBehaviour
 	public GameObject descriptionBox;
 	private float _duration = 20.0f;
 	private float _speed = 0.05f;
+	private int _delay = 0;
 
 	#region accessors
 
@@ -43,6 +44,7 @@ public class Individual : MonoBehaviour
 	public bool consumeATP					{	get { return _consumeATP;		}		set { _consumeATP = value;		}	}
 	public float duration 					{ 	get { return _duration; 		} 		set { _duration = value; 		} 	}
 	public float speed						{	get { return _speed;			}		set { _speed = value;			}	}
+	public int delay						{ 	get { return _delay; 			} 		set { _delay= value; 			} 	}
 	public bool isSelectioned
 	{ 	
 		get 

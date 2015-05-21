@@ -16,6 +16,8 @@ public class Unit : MonoBehaviour {
 	private float timeTaken;
 	private ConsoleInitializer CI;
 
+	public int time;
+
 	void Start () 
 	{
 		I = gameObject.GetComponentInParent<Individual>();
@@ -81,13 +83,19 @@ public class Unit : MonoBehaviour {
 			{
 				if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.y - I.target.y >= -2 && transform.position.y - I.target.y <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 				{
-					I.gotDest = false;		//Plus de destination car elle a été atteinte
+					int delay = 0;
+					if(!I.isPlayed)
+					{
+						if(I.delay >= 420)
+						{
+							I.delay = 0;
+							I.gotDest = false;
+						}
+					}
+					else
+						I.gotDest = false;		//Plus de destination car elle a été atteinte
 				}
 				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
-			}
-			else
-			{
-
 			}
 		}
 	}
