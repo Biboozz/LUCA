@@ -13,6 +13,8 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 	private Toggle isPlayedToggle;
 	private Toggle color;
 	private ListBox speciesCellsMoleculesAverage;
+	public resourcesManager RM;
+	private int _lastMoleculeSelected;
 
 	// Use this for initialization
 	void Start () 
@@ -38,7 +40,7 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 		//Click Test
 		if (speciesCellsMoleculesAverage.ReDraw())
 		{
-			//lastSelected = speciesCellsMoleculesAverage.GetSelectedID();
+			lastMoleculeSelected = speciesCellsMoleculesAverage.GetSelectedID();
 		}
 		//----------
 	}
@@ -48,6 +50,27 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 		drawListBox ();
 		GUI.skin.button.fontSize = 11;
 		GUI.skin.button.alignment = TextAnchor.LowerLeft;
+	}
+
+	private int lastMoleculeSelected
+	{
+		get
+		{
+			return _lastMoleculeSelected;
+		}
+		set
+		{
+			if (_lastMoleculeSelected == value)
+			{
+				RM.hide ();
+				_lastMoleculeSelected = -1;
+			}
+			else
+			{
+				_lastMoleculeSelected = value;
+				RM.displayRessources(RM.molecules.Find(m => m.name == speciesCellsMoleculesAverage.listItems[value -1].ToString()));
+			}
+		}
 	}
 
 	public Species species

@@ -10,6 +10,9 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 	private skill _objective;
 	private ListBox _moleculeAverages;
 	private ListBox _objectiveMolecules;
+	private int _lastMoleculeSelectedAv;
+	private int _lastMoleculeSelectedOb;
+	public resourcesManager RM;
 
 	private Text nbIndividual;
 	private Text _name;
@@ -64,8 +67,14 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 
 	void OnGUI()
 	{
-		_moleculeAverages.ReDraw ();
-		_objectiveMolecules.ReDraw ();
+		if (_moleculeAverages.ReDraw ()) 
+		{
+			lastMoleculeSelectedAv = _moleculeAverages.GetSelectedID();
+		}
+		if (_objectiveMolecules.ReDraw ()) 
+		{
+			lastMoleculeSelectedOb = _objectiveMolecules.GetSelectedID();
+		}
 		GUI.skin.button.fontSize = 11;
 		GUI.skin.button.alignment = TextAnchor.LowerLeft;
 	}
@@ -87,6 +96,48 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 				nbIndividual.text = _species.IndividualsNumber.ToString();
 				_name.text = _species.name;
 				USW.player = _species;
+			}
+		}
+	}
+
+	private int lastMoleculeSelectedAv
+	{
+		get
+		{
+			return _lastMoleculeSelectedAv;
+		}
+		set
+		{
+			if (_lastMoleculeSelectedAv == value)
+			{
+				RM.hide ();
+				_lastMoleculeSelectedAv = -1;
+			}
+			else
+			{
+				_lastMoleculeSelectedAv = value;
+				RM.displayRessources(RM.molecules.Find(m => m.name == _moleculeAverages.listItems[value -1].ToString()));
+			}
+		}
+	}
+
+	private int lastMoleculeSelectedOb
+	{
+		get
+		{
+			return _lastMoleculeSelectedOb;
+		}
+		set
+		{
+			if (_lastMoleculeSelectedOb == value)
+			{
+				RM.hide ();
+				_lastMoleculeSelectedOb = -1;
+			}
+			else
+			{
+				_lastMoleculeSelectedOb = value;
+				RM.displayRessources(RM.molecules.Find(m => m.name == _objectiveMolecules.listItems[value -1].ToString()));
 			}
 		}
 	}
