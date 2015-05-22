@@ -189,7 +189,7 @@ public class resourcesManager : MonoBehaviour {
 		{
 			for (int j = 0; j < 100; j++)
 			{
-				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((0.8f * _moleculeRepartition[i,j].Find(M => m.ID == M.moleculeType.ID).count) / max) + 0.1f);
+				representationMatrix[i,j].GetComponent<SpriteRenderer>().color = new Color(m.color.r, m.color.g, m.color.b, ((1f * _moleculeRepartition[i,j].Find(M => m.ID == M.moleculeType.ID).count) / max));
 			}
 		}
 

@@ -24,6 +24,10 @@ namespace AssemblyCSharp
 		[XmlIgnore]
 		public Color color;
 
+		public bool toxic;
+		public string toxineType;
+		public int toxineStrength;
+
 		public molecule ()
 		{
 		}

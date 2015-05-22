@@ -27,6 +27,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -46,6 +49,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -72,6 +78,22 @@
       <X>361</X>
       <Y>231</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -100,6 +122,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -119,6 +144,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -145,6 +173,22 @@
       <X>285</X>
       <Y>205</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -173,6 +217,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -192,6 +239,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -218,6 +268,22 @@
       <X>435</X>
       <Y>198</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -246,6 +312,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -265,6 +334,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -291,6 +363,22 @@
       <X>287</X>
       <Y>280</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -319,6 +407,9 @@
             <complex>true</complex>
             <size>2</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -338,6 +429,9 @@
             <complex>true</complex>
             <size>2</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -358,6 +452,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -381,6 +478,22 @@
       <X>359</X>
       <Y>169</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -409,6 +522,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -428,6 +544,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -448,6 +567,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -471,6 +593,22 @@
       <X>361</X>
       <Y>106</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -499,6 +637,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -518,6 +659,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -538,6 +682,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -561,6 +708,22 @@
       <X>214</X>
       <Y>171</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -589,6 +752,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>4</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -608,6 +774,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>4</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -628,6 +797,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -651,6 +823,22 @@
       <X>216</X>
       <Y>102</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -679,6 +867,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>6</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -698,6 +889,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>6</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -718,6 +912,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -741,6 +938,22 @@
       <X>438</X>
       <Y>131</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -769,6 +982,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>8</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -788,6 +1004,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>8</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -808,6 +1027,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -831,6 +1053,22 @@
       <X>212</X>
       <Y>246</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -870,6 +1108,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>150</count>
         </moleculePack>
@@ -883,6 +1124,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>450</count>
         </moleculePack>
@@ -905,6 +1149,22 @@
       <X>505</X>
       <Y>231</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>true</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>0.9</sizeXModifier>
+    <sizeYModifier>0.9</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>2</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -944,6 +1204,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>150</count>
         </moleculePack>
@@ -957,6 +1220,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>50</count>
         </moleculePack>
@@ -977,6 +1243,22 @@
       <X>434</X>
       <Y>273</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>true</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1.5</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1004,6 +1286,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1024,6 +1309,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -1044,6 +1332,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1057,6 +1348,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>300</count>
         </moleculePack>
@@ -1079,6 +1373,22 @@
       <X>147</X>
       <Y>136</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>true</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1106,6 +1416,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1126,6 +1439,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1146,6 +1462,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>600</count>
         </moleculePack>
@@ -1159,6 +1478,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>200</count>
         </moleculePack>
@@ -1182,6 +1504,22 @@
       <X>146</X>
       <Y>63</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>true</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1209,6 +1547,9 @@
             <complex>true</complex>
             <size>2</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1229,6 +1570,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>2</count>
         </moleculePack>
@@ -1249,6 +1593,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>90</count>
         </moleculePack>
@@ -1262,6 +1609,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>30</count>
         </moleculePack>
@@ -1284,6 +1634,22 @@
       <X>285</X>
       <Y>134</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>true</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1311,6 +1677,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1331,6 +1700,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1351,6 +1723,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>200</count>
         </moleculePack>
@@ -1364,6 +1739,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>600</count>
         </moleculePack>
@@ -1387,6 +1765,22 @@
       <X>287</X>
       <Y>64</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>true</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1414,6 +1808,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>6</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1434,6 +1831,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1454,6 +1854,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>600</count>
         </moleculePack>
@@ -1467,6 +1870,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>200</count>
         </moleculePack>
@@ -1489,6 +1895,22 @@
       <X>436</X>
       <Y>64</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>true</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1516,6 +1938,9 @@
             <complex>true</complex>
             <size>10</size>
             <componantID>8</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1536,6 +1961,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -1556,6 +1984,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>300</count>
         </moleculePack>
@@ -1569,6 +2000,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1591,6 +2025,22 @@
       <X>145</X>
       <Y>208</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>true</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1618,6 +2068,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1650,6 +2103,22 @@
       <X>361</X>
       <Y>304</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1677,6 +2146,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -1703,6 +2175,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>500</count>
         </moleculePack>
@@ -1716,6 +2191,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1500</count>
         </moleculePack>
@@ -1739,6 +2217,22 @@
       <X>362</X>
       <Y>375</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1748,6 +2242,9 @@
     <complex>false</complex>
     <size>0</size>
     <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1757,6 +2254,9 @@
     <complex>true</complex>
     <size>2</size>
     <componantID>0</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1766,6 +2266,9 @@
     <complex>true</complex>
     <size>100</size>
     <componantID>0</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1775,6 +2278,9 @@
     <complex>false</complex>
     <size>0</size>
     <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1784,6 +2290,9 @@
     <complex>true</complex>
     <size>10</size>
     <componantID>3</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1793,6 +2302,9 @@
     <complex>true</complex>
     <size>100</size>
     <componantID>3</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1802,6 +2314,9 @@
     <complex>false</complex>
     <size>0</size>
     <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1811,6 +2326,9 @@
     <complex>true</complex>
     <size>100</size>
     <componantID>6</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1820,6 +2338,9 @@
     <complex>false</complex>
     <size>0</size>
     <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1829,5 +2350,20 @@
     <complex>true</complex>
     <size>10</size>
     <componantID>8</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
+  </serialisable>
+  <serialisable xsi:type="molecule">
+    <SerialisableType>molecule</SerialisableType>
+    <name>toxine test</name>
+    <ID>10</ID>
+    <rarity>0.2</rarity>
+    <complex>false</complex>
+    <size>0</size>
+    <componantID>-1</componantID>
+    <toxic>true</toxic>
+    <toxineType>test</toxineType>
+    <toxineStrength>50</toxineStrength>
   </serialisable>
 </ArrayOfSerialisable>

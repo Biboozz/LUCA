@@ -30,6 +30,23 @@ namespace AssemblyCSharp
 		public bool innate;
 		public string type;
 		public List<int> requiredID;
+
+		public float agingDeltaModifier;
+		public bool canPhagocyt;
+		public string immunityType;
+		public int immunityStrength;
+		public bool addFlagel;
+		public bool removeFlagel;
+		public bool addLashes;
+		public bool removeLashes;
+		public bool addMacro;
+		public bool addOoze;
+		public float sizeXModifier;
+		public float sizeYModifier;
+		public float membraneSizeModifier;
+		public float coreSizeModifier;
+		public float speedModifier;
+		public int coordinationLevel;
 		
 		[XmlIgnore]
 		private List<skill> _required;
