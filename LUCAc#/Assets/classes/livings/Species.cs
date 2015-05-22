@@ -17,7 +17,8 @@ public class Species
 	private int _survivedTime = 0;
 	public int individualLifeTime;
 	public Color color;
-	private int _absorb_amount = 10;
+	private int _absorb_amount = 10000; // Nombre de mollecules absorbees par la cellule en une fois
+	private int _absorb_cooldown = 300; //temps entre 2 absorptions (ms)
 	public List<molecule> absorb = new List<molecule>();
 
 	#region accessors
@@ -33,6 +34,13 @@ public class Species
 		get
 		{
 			return _absorb_amount;
+		}
+	}
+	public int absorb_cooldown
+	{
+		get
+		{
+			return _absorb_cooldown;
 		}
 	}
 	public int IndividualsNumber

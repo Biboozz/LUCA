@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using AssemblyCSharp;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine.UI;
 
@@ -63,7 +64,7 @@ public class Individual : MonoBehaviour
 	#endregion
 
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
 		_RM = place.gameObject.GetComponent<resourcesManager> ();
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
@@ -79,30 +80,46 @@ public class Individual : MonoBehaviour
 			{
 				transform.Translate(speed, 0f, 0f);
 				transform.Rotate(0, 0, UnityEngine.Random.Range(-2, 3));
-				
-				if (coolDown >= 10 && initialized)
-				{
-					coolDown = 0;
-					action();
-				}
-				else
-				{
-					coolDown++;
-				}
+
 				toCorrectPosition(20f); //si mur, changement d'angle
 			}
 		}
+
+		if ((coolDown % species.absorb_cooldown) == 0) {
+			eat (_RM);
+			coolDown = 0;
+		} 
+
+		coolDown++;
 	}
 
-	/*public void eat(ref resourcesManager R)
+	public void eat(resourcesManager R)
 	{
 		Vector3 pos = transform.position;
-		int squarex = pos.x / 20;
-		int squarey = pos.y / 20;
-
-		R.moleculeRepartition = R.moleculeRepartition - species.absorb_amount ;
-	}*/
-
+		int squarex = (int)(pos.x / 20f);
+		int squarey = (int)(pos.y / 20f);
+		
+		foreach (moleculePack Mi in _cellMolecules) 
+		{
+			foreach (moleculePack Mc in R.moleculeRepartition[squarex,squarey])
+			{
+				if ((Mi.moleculeType == Mc.moleculeType)&&(Mc.count > 0))
+				{
+					
+					if (Mc.count > _species.absorb_amount) 
+					{
+						Mi.count += _species.absorb_amount;
+						Mc.count -= _species.absorb_amount;
+					}
+					else
+					{
+						Mi.count += Mc.count;
+						Mc.count = 0;
+					}
+				}
+			}
+		}
+	}
 	public void action () 
 	{
 		//not finished yet
