@@ -83,7 +83,6 @@ public class Unit : MonoBehaviour {
 			{
 				if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.y - I.target.y >= -2 && transform.position.y - I.target.y <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 				{
-					int delay = 0;
 					if(!I.isPlayed)
 					{
 						if(I.delay >= 420)

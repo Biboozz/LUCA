@@ -161,10 +161,10 @@ public class CellUnPlayed : MonoBehaviour {
 	{
 		foreach(moleculePack P in M)
 		{
-			if(P.moleculeType.name == FindMoleculeLack() && P.count > 0)	//Molécule trouvé
+			if(P.moleculeType.name == FindMoleculeLack() && P.count > 40)	//Molécule trouvé
 			{
 				I.gotDest = true;
-				I.target = new Vector3(posx_square * 20 + 10, posy_square * 20 + 10);
+				I.target = new Vector3(posx_square * 20 + 10, posy_square * 20 + 10, 0.1f);
 				return true;
 			}
 			else
