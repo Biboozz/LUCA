@@ -15,6 +15,9 @@ public class resourcesManager : MonoBehaviour {
 	private int min;
 	private int max;
 
+	private int counter = 0;
+	private molecule focus;
+
 	public List<moleculePack>[,] moleculeRepartition	{ 	get { return _moleculeRepartition; 	}	}
 
 	// Use this for initialization
@@ -26,7 +29,15 @@ public class resourcesManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-
+		counter++;
+		if (counter == 60) 
+		{
+			counter = 0;
+			if (focus != null)
+			{
+				displayRessources(focus);
+			}
+		}
 	}
 
 	public List<molecule> molecules
@@ -176,6 +187,7 @@ public class resourcesManager : MonoBehaviour {
 
 	public void displayRessources(molecule m)
 	{
+		focus = m;
 		if (_molecules.FindIndex (M => m.ID == M.ID) == -1) 
 		{
 			Debug.Log("dslfjhsoduhgf");
@@ -198,6 +210,7 @@ public class resourcesManager : MonoBehaviour {
 	public void hide()
 	{
 		position.SetActive (false);
+		focus = null;
 	}
 
 	private void checkBounds(molecule m)

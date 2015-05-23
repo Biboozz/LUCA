@@ -22,7 +22,6 @@ public class Individual : MonoBehaviour
 	private int _ATP;
 	private bool _consumeATP = true;
 	private int coolDown = 0;
-	private bool initialized = false;
 	public environment place;
 	public resourcesManager _RM;
 
