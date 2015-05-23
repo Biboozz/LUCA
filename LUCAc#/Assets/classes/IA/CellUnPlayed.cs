@@ -26,7 +26,7 @@ public class CellUnPlayed : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (I.delay >= 420) 
+		if (I.delay >= 360) 
 		{
 			I.delay = 0;
 			if(!I.gotDest && !I.isPlayed)

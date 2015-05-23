@@ -85,9 +85,8 @@ public class Unit : MonoBehaviour {
 				{
 					if(!I.isPlayed)
 					{
-						if(I.delay >= 420)
+						if(I.delay >= 360)
 						{
-							I.delay = 0;
 							I.gotDest = false;
 						}
 					}

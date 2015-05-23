@@ -65,6 +65,7 @@ public class Individual : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		delay = UnityEngine.Random.Range (0, 420);
 		_RM = place.gameObject.GetComponent<resourcesManager> ();
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
 	}
@@ -133,11 +134,6 @@ public class Individual : MonoBehaviour
 		_isPlayed = isPlayed;
 		_cellMolecules = molecules;
 		_ATP = ATP;
-	}
-
-	public void eat (ref RessourceNode N)
-	{
-
 	}
 
 	public void toCorrectPosition(float angle) //correct the cell position, rotate it of the angle value
