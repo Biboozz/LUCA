@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using AssemblyCSharp;
+using UnityEngine.UI;
 
 public class resourcesManager : MonoBehaviour {
 	
@@ -11,6 +12,7 @@ public class resourcesManager : MonoBehaviour {
 	private GameObject[,] representationMatrix;
 	public GameObject position;
 	private bool _shown;
+	public GameObject displayer;
 
 	private int min;
 	private int max;
@@ -25,7 +27,6 @@ public class resourcesManager : MonoBehaviour {
 	{
 
 	}
-	
 	// Update is called once per frame
 	void Update () 
 	{
@@ -38,6 +39,43 @@ public class resourcesManager : MonoBehaviour {
 				displayRessources(focus);
 			}
 		}
+
+		int countToDisplay = moleculeCount ();
+		if (countToDisplay != -1) 
+		{
+			displayer.SetActive (true);
+			displayer.transform.position = Input.mousePosition;
+			displayer.transform.GetChild (0).FindChild ("count").GetComponent<Text> ().text = countToDisplay.ToString ();
+		} 
+		else
+		{
+			displayer.SetActive (false);
+		}
+	}
+
+	private int moleculeCount()
+	{
+		if (focus != null) 
+		{
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast (ray, out hit)) 
+			{
+				Vector3 newPosition = hit.point;
+				int x = ((int)newPosition.x)/20;
+				int y = ((int)newPosition.y)/20;
+				if (x < 0 || 99 < x || y < 0 || 99 < y)
+				{
+					return -1;
+				}
+				return _moleculeRepartition[x,y].Find(mp => mp.moleculeType.ID == focus.ID).count;
+			}
+			else 
+			{
+				return -1;
+			}
+		}
+		return -1;
 	}
 
 	public List<molecule> molecules
@@ -89,7 +127,6 @@ public class resourcesManager : MonoBehaviour {
 						}
 					}
 				}
-
 			}
 			else
 			{
@@ -188,10 +225,6 @@ public class resourcesManager : MonoBehaviour {
 	public void displayRessources(molecule m)
 	{
 		focus = m;
-		if (_molecules.FindIndex (M => m.ID == M.ID) == -1) 
-		{
-			Debug.Log("dslfjhsoduhgf");
-		}
 		position.SetActive (true);
 		checkBounds (m);
 		max += 1000;
@@ -209,6 +242,7 @@ public class resourcesManager : MonoBehaviour {
 
 	public void hide()
 	{
+
 		position.SetActive (false);
 		focus = null;
 	}
