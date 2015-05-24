@@ -8,7 +8,6 @@ public class CellFlagellaAnimation : MonoBehaviour {
 	public int period;
 
 	private int update = 0;
-	private int increment = 1;
 	private int n = 0;
 
 	// Use this for initialization

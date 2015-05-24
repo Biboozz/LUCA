@@ -50,6 +50,7 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 		drawListBox ();
 		GUI.skin.button.fontSize = 11;
 		GUI.skin.button.alignment = TextAnchor.LowerLeft;
+		GUI.skin.label.fontSize = 11;
 	}
 
 	private int lastMoleculeSelected
@@ -110,7 +111,7 @@ public class selectedSpeciesDataDisplayer : MonoBehaviour {
 				foreach (moleculePack MP in moleculePackSum)
 				{
 					MP.count = MP.count / _species.Individuals.Count;
-					speciesCellsMoleculesAverage.AddItem(MP.moleculeType.name + " - " + MP.count.ToString());
+					speciesCellsMoleculesAverage.AddItem(MP.moleculeType.name, MP.count);
 				}
 			}
 		}

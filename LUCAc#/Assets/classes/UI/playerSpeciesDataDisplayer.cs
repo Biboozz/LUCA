@@ -60,7 +60,7 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 			foreach (moleculePack MP in moleculePackSum)
 			{
 				MP.count = MP.count / _species.Individuals.Count;
-				_moleculeAverages.AddItem(MP.moleculeType.name + " - " + MP.count.ToString());
+				_moleculeAverages.AddItem(MP.moleculeType.name, MP.count);
 			}
 		}
 	}
@@ -76,6 +76,7 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 			lastMoleculeSelectedOb = _objectiveMolecules.GetSelectedID();
 		}
 		GUI.skin.button.fontSize = 11;
+		GUI.skin.label.fontSize = 11;
 		GUI.skin.button.alignment = TextAnchor.LowerLeft;
 	}
 

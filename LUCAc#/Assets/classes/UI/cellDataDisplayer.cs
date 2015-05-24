@@ -62,6 +62,7 @@ public class cellDataDisplayer : MonoBehaviour {
 	{
 		drawListBox ();
 		GUI.skin.button.fontSize = 11;
+		GUI.skin.label.fontSize = 11;
 		GUI.skin.button.alignment = TextAnchor.LowerLeft;
 	}
 
@@ -70,7 +71,7 @@ public class cellDataDisplayer : MonoBehaviour {
 		cellMolecules.Clear ();
 		foreach (moleculePack MP in MPList) 
 		{
-			cellMolecules.AddItem(MP.moleculeType.name + " - " + MP.count);
+			cellMolecules.AddItem(MP.moleculeType.name, MP.count);
 		}
 	}
 

@@ -95,7 +95,7 @@ public class resourcesManager : MonoBehaviour {
 				{
 					for (int j = 0; j < 100; j++) 
 					{
-						representationMatrix[i,j] = (GameObject)Instantiate(representation, new Vector3 (representation.transform.position.x + (i * 20), representation.transform.position.z + (j * 20), -10), representation.transform.rotation);
+						representationMatrix[i,j] = (GameObject)Instantiate(representation, new Vector3 (representation.transform.position.x + (i * 20 + 10), representation.transform.position.z + (j * 20 + 10), -10), representation.transform.rotation);
 						representationMatrix[i,j].transform.SetParent(position.transform);
 					}
 				}

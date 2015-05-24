@@ -78,29 +78,29 @@ public class ListBox {
 	//Text items
 
 
-	public int AddItem(System.String c_ItemLabel)
+	public int AddItem(System.String c_ItemLabel, int count)
 	{
 		int itemIndex = listItems.Count+1;
-		listItems.Add(new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width, 17), c_ItemLabel));
+		listItems.Add(new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width - 60, 17), c_ItemLabel, count));
 		return itemIndex;
 	}
-	public int AddItem(System.String c_ItemLabel, int c_ItemH)
+	public int AddItemH(System.String c_ItemLabel, int c_ItemH, int count)
 	{
 		int itemIndex = listItems.Count+1;
-		listItems.Add(new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width, c_ItemH), c_ItemLabel));
+		listItems.Add(new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width, c_ItemH), c_ItemLabel, count));
 		return itemIndex;
 	}
 	
-	public int InsertItem(int insertPos, System.String c_ItemLabel)
+	public int InsertItem(int insertPos, System.String c_ItemLabel, int count)
 	{
 		int itemIndex = listItems.Count+1;
-		listItems.Insert(insertPos, new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width, 17), c_ItemLabel));
+		listItems.Insert(insertPos, new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width - 60, 17), c_ItemLabel, count));
 		return itemIndex;
 	}
-	public int InsertItem(int insertPos,System.String c_ItemLabel, int c_ItemH)
+	public int InsertItemH(int insertPos,System.String c_ItemLabel, int c_ItemH, int count)
 	{
 		int itemIndex = listItems.Count+1;
-		listItems.Insert(insertPos, new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width, c_ItemH), c_ItemLabel));
+		listItems.Insert(insertPos, new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width, c_ItemH), c_ItemLabel, count));
 		return itemIndex;
 	}
 	//---------
@@ -205,15 +205,16 @@ public class ListItem {
 	
 	private Rect drawRect;
 	private System.String ItemLabel;
+	private int ItemCount;
 	private Texture2D ItemIcon;
 	
 	private bool is_iconButton;
 	
 	//Constructor
-	public ListItem(int c_id, Rect c_drawRect, System.String c_ItemLabel)
+	public ListItem(int c_id, Rect c_drawRect, System.String c_ItemLabel, int count)
 	{
 		id = c_id;
-		
+		ItemCount = count;
 		drawRect = c_drawRect;
 		ItemLabel = c_ItemLabel;
 		
@@ -242,6 +243,7 @@ public class ListItem {
 		else
 		{
 			is_clicked = GUI.Button(drawRect, ItemLabel);
+			GUI.Label(new Rect(drawRect.width + 10, drawRect.position.y, drawRect.width, drawRect.height), ItemCount.ToString());
 		}
 		
 		return is_clicked;
@@ -269,22 +271,7 @@ public class ListItem {
 
 	public override string ToString ()
 	{
-		string[] tokens = ItemLabel.Split(new char[] {' '});
-		string r = tokens [0];
-		int i = 1;
-		while (i < tokens.Length) 
-		{
-			if (tokens[i] != "-")
-			{
-				r = r + " " + tokens[i];
-			}
-			else
-			{
-				break;
-			}
-			i++;
-		}
-		return r;
+		return ItemLabel;
 	}
 	//-------------------
 }

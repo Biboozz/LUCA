@@ -77,7 +77,7 @@ public class unlockSkillWindow : MonoBehaviour {
 					_requirements.Clear ();
 					foreach (moleculePack MPreq in _skill.devCosts.cellMolecules)
 					{
-						_requirements.AddItem(MPreq.moleculeType.name + MPreq.count.ToString());
+						_requirements.AddItem(MPreq.moleculeType.name, MPreq.count);
 					}
 				}
 			}
