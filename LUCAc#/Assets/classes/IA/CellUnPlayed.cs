@@ -14,9 +14,12 @@ public class CellUnPlayed : MonoBehaviour {
 	private int posx_square;
 	private int posy_square;
 
+	private int[,] tab_Pos = new int[81, 2];
+
 	// Use this for initialization
 	void Start () 
 	{
+		GenerateTab ();
 		I = gameObject.GetComponentInParent<Individual>();
 		R = I.RM;
 		cellMolecules = I.cellMolecules;
@@ -171,6 +174,37 @@ public class CellUnPlayed : MonoBehaviour {
 				return false;
 		}
 		return false;
+	}
+
+	public void GenerateTab()
+	{
+		tab_Pos [0, 0] = posx_square;		//Case centrale, où est la cellule
+		tab_Pos [0, 1] = posy_square;
+
+		tab_Pos [1, 0] = posx_square - 1;
+		tab_Pos [1, 1] = posy_square + 1;
+
+		tab_Pos [2, 0] = posx_square;
+		tab_Pos [2, 1] = posy_square + 1;
+
+		tab_Pos [3, 0] = posx_square + 1;
+		tab_Pos [3, 1] = posy_square + 1;
+
+		tab_Pos [4, 0] = posx_square + 1;
+		tab_Pos [4, 1] = posy_square;
+
+		tab_Pos [5, 0] = posx_square + 1;
+		tab_Pos [5, 1] = posy_square - 1;
+
+		tab_Pos [6, 0] = posx_square;
+		tab_Pos [6, 1] = posy_square - 1;
+
+		tab_Pos [7, 0] = posx_square - 1;
+		tab_Pos [7, 1] = posy_square - 1;
+
+		tab_Pos [8, 0] = posx_square - 1;
+		tab_Pos [8, 1] = posy_square;
+
 	}
 
 }
