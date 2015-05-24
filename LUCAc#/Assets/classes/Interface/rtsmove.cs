@@ -56,7 +56,8 @@ public class rtsmove : MonoBehaviour
         {
             if (_ScrollCount >= _ScrollWheelminPush && _ScrollCount < ScrollWheelLimit)
             {
-				GetComponent<Camera>().transform.position -= new Vector3(0, 0, ZoomSpeed * 40);
+				//GetComponent<Camera>().transform.position -= new Vector3(0, 0, ZoomSpeed * 40);
+				Camera.main.orthographicSize += ZoomSpeed * 30;
                 _ScrollCount++;
             }
         }
@@ -65,7 +66,8 @@ public class rtsmove : MonoBehaviour
         {
             if (_ScrollCount > _ScrollWheelminPush && _ScrollCount <= ScrollWheelLimit)
             {
-				GetComponent<Camera>().transform.position += new Vector3(0, 0, ZoomSpeed * 40);
+				//GetComponent<Camera>().transform.position += new Vector3(0, 0, ZoomSpeed * 40);
+				Camera.main.orthographicSize -= ZoomSpeed * 30;
                 _ScrollCount--;
             }
         }
