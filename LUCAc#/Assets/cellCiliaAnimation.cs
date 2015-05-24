@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CellFlagellaAnimation : MonoBehaviour {
+public class cellCiliaAnimation : MonoBehaviour {
 
 	public Sprite[] sprites;
-	public bool shown = true;
+	public bool shown;
 	public int period;
 
 	private int update = 0;
-	private int increment = 1;
-	private int n = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -20,20 +18,19 @@ public class CellFlagellaAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+
 		if (shown) 
 		{
 			update++;
 			if (update >= period) 
 			{
+				GetComponent<SpriteRenderer> ().sprite = sprites [Random.Range(0,12)];
 				update = 0;
-				GetComponent<SpriteRenderer> ().sprite = sprites [n];
-				n = (n + 1) % 8;
 			}
-		}
+		} 
 		else 
 		{
 			GetComponent<SpriteRenderer> ().sprite = null;
 		}
-
 	}
 }
