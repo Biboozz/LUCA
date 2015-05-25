@@ -10,6 +10,8 @@ public class Species
 	public List<Individual> Individuals = new List<Individual>();
 	private int _IndividualsNumber = 0;
 	public List<skill> unlockedPerks = new List<skill> ();
+	private actionData workCost;
+	private actionData workProducts;
 	public bool isPlayed = false;
 	public string name;
 	public GameObject cell;

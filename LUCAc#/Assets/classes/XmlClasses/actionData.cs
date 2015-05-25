@@ -8,8 +8,8 @@ using AssemblyCSharp;
 public class actionData
 {
 	public int ATP;
-	public List<moleculePack> environmentMolecules;
-	public List<moleculePack> cellMolecules;
+	public List<moleculePack> environmentMolecules; //WorkCost + environnementMollecules = Miam.
+	public List<moleculePack> cellMolecules; //WorkProduct + cellMollecules = Emission.
 
 	public actionData(int ATP, List<moleculePack>  environmentMolecules, List<moleculePack>  cellMolecules)
 	{
@@ -18,7 +18,7 @@ public class actionData
 		this.cellMolecules = cellMolecules;
 	}
 
-	public actionData() : this(0, new List<moleculePack>(), new List<moleculePack>()) 
+	public actionData() : this(0, new List<moleculePack>(), new List<moleculePack>())
 	{
 
 	}

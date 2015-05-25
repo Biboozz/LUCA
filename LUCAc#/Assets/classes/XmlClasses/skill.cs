@@ -22,8 +22,8 @@ namespace AssemblyCSharp
 		public string name;
 		public string description;
 		
-		public actionData workCosts;
-		public actionData workProducts;
+		public actionData workCosts; //
+		public actionData workProducts; //
 		public actionData devCosts;
 		public actionData devProducts;
 		
