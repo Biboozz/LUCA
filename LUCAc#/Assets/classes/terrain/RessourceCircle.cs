@@ -51,31 +51,6 @@ public class RessourceCircle
             Nodes.Add(new RessourceNode(p,molecule));
         }
     }
-
-	public void eat (Species S)
-	{
-		int radius = 0;
-		
-		foreach (Individual I in S.Individuals) 
-		{
-			if (Math.Abs (Math.Sqrt (Math.Pow ((I.transform.position.x - Get_Center ().x), 2) - Math.Pow ((I.transform.position.y - Get_Center ().y), 2))) < radius + Get_radius ()) 
-			{
-				foreach (RessourceNode N in Nodes) 
-				{
-					if ((N.Amount > 0) & (Math.Abs (Math.Sqrt (Math.Pow ((I.transform.position.x - N.get_Center ().x), 2) - Math.Pow ((I.transform.position.y - N.get_Center ().y), 2))) <= radius)) 
-					{
-						foreach (moleculePack stored in I._cellMolecules_temp)
-						{
-							if (stored.moleculeType == Molecule)
-							{
-								N.Amount = N.Amount - S.absorb_amount;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
 	
 	public molecule Get_mol()
 	{

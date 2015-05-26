@@ -18,7 +18,6 @@ public class Individual : MonoBehaviour
 	private bool _gotDest = false;
 	private Vector3 _target;
 	private List<moleculePack> _cellMolecules = new List<moleculePack>();
-	public List<moleculePack> _cellMolecules_temp = new List<moleculePack>();
 	private int _ATP;
 	private bool _consumeATP = true;
 	private int coolDown = 0;
@@ -93,11 +92,65 @@ public class Individual : MonoBehaviour
 		coolDown++;
 	}
 
-	public void eat(resourcesManager R)
+	private int existmol(List<moleculePack> packs, molecule searched)
+	{
+		int i;
+
+		for (i=0; i<packs.Count; i++) {
+			if (packs [i].moleculeType == searched) {
+				return i;
+			}
+		}
+		return (-1);
+	}
+
+	/*public void harvest(ref moleculePack Subject)
+	{
+		int poslist = existmol (cellMolecules, Subject.moleculeType);
+
+		if (Subject.toxic) { //true si la mollecules est une toxine
+			if (poslist > 0) {
+				cellMolecules[poslist].count = cellMolecules[poslist].count ; // Ajoute des molecules a l'individu selon le taux subject.count (si elle est presente)
+			} else {
+				cellMolecules.Add (Subject); //Si la cellule n'est pas deja presente dans la liste alors on l'ajoute
+			}
+		} 
+		else 
+		{
+			if (poslist >0)
+			{
+				cellMolecules [poslist].count = cellMolecules [poslist].count + Subject.count;
+
+			}
+		}
+	}
+
+	public void emite(List<moleculePack> Absorbable, moleculePack Subject)
+	{
+		
+	}
+
+	public void action(resourcesManager R)
 	{
 		Vector3 pos = transform.position;
 		int squarex = (int)(pos.x / 20f);
 		int squarey = (int)(pos.y / 20f);
+
+		foreach (moleculePack Subject in R.moleculeRepartition[squarex,squarey]) 
+		{
+			harvest (ref Subject);
+		}
+		foreach (moleculePack Subject in _species.workCost.environmentMolecules) 
+		{
+			emite (R, Subject);
+		}
+	}*/
+
+	public void eat(resourcesManager R)
+	{
+		Vector3 pos = transform.position;
+		int squarex = (int)(pos.x-1 / 20f);
+		int squarey = (int)(pos.y-1 / 20f);
 		
 		foreach (moleculePack Mi in _cellMolecules) 
 		{
@@ -119,10 +172,6 @@ public class Individual : MonoBehaviour
 				}
 			}
 		}
-	}
-	public void action () 
-	{
-		//not finished yet
 	}
 
 	public void Initialize(Vector3 position, int lifeTime, Species species, environment place, bool isPlayed, List<moleculePack> molecules, int ATP)
