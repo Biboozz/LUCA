@@ -32,7 +32,7 @@ public class Individual : MonoBehaviour
 	#region accessors
 
 	public int survivedTime 				{   get { return _survivedTime; 	} 	}
-	public resourcesManager RM 				{ 	get { return _RM; 				}	}
+	public resourcesManager RM 				{ 	get { return _RM; 				}		set { _RM = value;				}	}
 	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}
 	public Species species 					{ 	get { return _species; 			} 		set { _species = value; 		} 	}
 	public bool isPlayed 					{ 	get { return _isPlayed; 		} 		set { _isPlayed = value; 		}	}
@@ -213,11 +213,18 @@ public class Individual : MonoBehaviour
 
 	public void splitGive(Individual I)
 	{
-		foreach (moleculePack MP in cellMolecules) 
+		moleculePack.operation op = delegate(ref int s, ref int d)
 		{
-
-		}
+			s = s / 2;
+			return s;
+		};
+		moleculePack.moleculeListFusion(cellMolecules, I.cellMolecules, op);
 	}
 
-
+	public void division()
+	{
+		GameObject son = (GameObject)Instantiate (_species.cell);
+		son.transform.position = transform.position;
+		_species.addCell (son.GetComponent<Individual>());
+	}
 }

@@ -10,14 +10,15 @@
 using System;
 using UnityEngine;
 using System.Xml.Serialization;
-//using System.Collections;
-//using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 namespace AssemblyCSharp
 {
 	public class moleculePack : serialisable
 	{
 		public molecule moleculeType;
 		public int count;
+
 
 
 		public moleculePack(int count, molecule moleculeType)
@@ -44,17 +45,23 @@ namespace AssemblyCSharp
 			}
 		}
 
-//		public static moleculePack operator + (List<moleculePack> mp1, List<moleculePack> mp2)
-//		{
-//			if (mp1.moleculeType.ID == mp2.moleculeType.i) 
-//			{
-//				return new moleculePack (mp1.count + mp2.count, mp1.moleculeType);
-//			} 
-//			else 
-//			{
-//				throw new ArgumentException("These two moleculePacks are of the same type: " + mp1.moleculeType.name + ", " + mp2.moleculeType.name);
-//			}
-//		}
+		public delegate int operation(ref int source, ref int destination);
+		
+		public static void moleculeListFusion(List<moleculePack> src, List<moleculePack> dst, operation action)
+		{
+			foreach (moleculePack mpS in src) 
+			{
+				int i = dst.FindIndex(mpD => mpD.moleculeType.ID == mpS.moleculeType.ID);
+				if (i == -1)
+				{
+					dst.Add(mpS);
+				}
+				else
+				{
+					dst[i].count = action(ref mpS.count, ref dst[i].count);
+				}
+			}
+		}
 	}
 }
 

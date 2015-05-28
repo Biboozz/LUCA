@@ -115,4 +115,15 @@ public class Species
 		_survivedTime = _survivedTime + 1;
 		checkDeath ();
 	}
+
+	public void addCell(Individual I)
+	{
+		I.species = this;
+		I.isPlayed = isPlayed;
+		I.place = place;
+		I.RM = place.RM;
+		Individuals.Add (I);
+		place.CI.cellsplayed.Add (I);
+		I.Initialize (I.transform.position, 0, this, place, isPlayed, new List<moleculePack> (), I.ATP);
+	}
 }
