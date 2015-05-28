@@ -19,11 +19,20 @@ public class Species
 	private int _survivedTime = 0;
 	public int individualLifeTime;
 	public Color color;
+	private int toxic_absorb_amount = 10;// Nombres de toxines abosrbees en une seule fois.
 	private int _absorb_amount = 10000; // Nombre de mollecules absorbees par la cellule en une fois
 	private int _absorb_cooldown = 300; //temps entre 2 absorptions (ms)
 	public List<molecule> absorb = new List<molecule>();
 
 	#region accessors
+	public int toxic_absorb
+	{
+		get
+		{
+			return toxic_absorb_amount;
+		}
+	}
+
 	public int survivedTime
 	{
 		get
