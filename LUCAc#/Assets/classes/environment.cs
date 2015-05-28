@@ -26,7 +26,7 @@ public class environment : MonoBehaviour {
 		for (int j = 0; j < 6; j++) // création de 6 especes
 		{
 			Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
-
+			S.cell = cellPrefab;
 			for (int i = 1; i <= 100; i++) // création de 100 cellules de l'espece
 			{
 				S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
