@@ -21,7 +21,7 @@ public class CellUnPlayed : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GenerateTab ();
+		//GenerateTab ();
 		I = gameObject.GetComponentInParent<Individual>();
 		R = I.RM;
 		cellMolecules = I.cellMolecules;
@@ -183,35 +183,86 @@ public class CellUnPlayed : MonoBehaviour {
 		return false;
 	}
 
-	public void GenerateTab()
-	{
-		tab_Pos [0, 0] = posx_square;		//Case centrale, où est la cellule
-		tab_Pos [0, 1] = posy_square;
+    public void First_radius(int posx_square, int posy_square)
+    {
+        //Case centrale, où est la cellule
+        //tab_Pos [0, 0] = posx_square;
+        //tab_Pos [0, 1] = posy_square;
 
-		tab_Pos [1, 0] = posx_square - 1;
-		tab_Pos [1, 1] = posy_square + 1;
+        tab_Pos[1, 0] = posx_square - 1;
+        tab_Pos[1, 1] = posy_square + 1;
 
-		tab_Pos [2, 0] = posx_square;
-		tab_Pos [2, 1] = posy_square + 1;
+        tab_Pos[2, 0] = posx_square;
+        tab_Pos[2, 1] = posy_square + 1;
 
-		tab_Pos [3, 0] = posx_square + 1;
-		tab_Pos [3, 1] = posy_square + 1;
+        tab_Pos[3, 0] = posx_square + 1;
+        tab_Pos[3, 1] = posy_square + 1;
 
-		tab_Pos [4, 0] = posx_square + 1;
-		tab_Pos [4, 1] = posy_square;
+        tab_Pos[4, 0] = posx_square + 1;
+        tab_Pos[4, 1] = posy_square;
 
-		tab_Pos [5, 0] = posx_square + 1;
-		tab_Pos [5, 1] = posy_square - 1;
+        tab_Pos[5, 0] = posx_square + 1;
+        tab_Pos[5, 1] = posy_square - 1;
 
-		tab_Pos [6, 0] = posx_square;
-		tab_Pos [6, 1] = posy_square - 1;
+        tab_Pos[6, 0] = posx_square;
+        tab_Pos[6, 1] = posy_square - 1;
 
-		tab_Pos [7, 0] = posx_square - 1;
-		tab_Pos [7, 1] = posy_square - 1;
+        tab_Pos[7, 0] = posx_square - 1;
+        tab_Pos[7, 1] = posy_square - 1;
 
-		tab_Pos [8, 0] = posx_square - 1;
-		tab_Pos [8, 1] = posy_square;
+        tab_Pos[8, 0] = posx_square - 1;
+        tab_Pos[8, 1] = posy_square;
+    }
 
-	}
+    public void Second_radius(int posx_square, int posy_square)
+    {
+        tab_Pos[9, 0] = posx_square - 2;
+        tab_Pos[9, 1] = posy_square + 2;
+
+        tab_Pos[10, 0] = posx_square - 1;
+        tab_Pos[10, 1] = posy_square + 2;
+
+        tab_Pos[11, 0] = posx_square;
+        tab_Pos[11, 1] = posy_square + 2;
+
+        tab_Pos[12, 0] = posx_square + 1;
+        tab_Pos[12, 1] = posy_square + 2;
+
+        tab_Pos[13, 0] = posx_square + 2;
+        tab_Pos[13, 1] = posy_square + 2;
+
+        tab_Pos[14, 0] = posx_square + 2;
+        tab_Pos[14, 1] = posy_square + 1;
+
+        tab_Pos[15, 0] = posx_square + 2;
+        tab_Pos[15, 1] = posy_square;
+
+        tab_Pos[16, 0] = posx_square + 2;
+        tab_Pos[16, 1] = posy_square - 1;
+
+        tab_Pos[17, 0] = posx_square + 2;
+        tab_Pos[17, 1] = posy_square - 2;
+
+        tab_Pos[18, 0] = posx_square + 1;
+        tab_Pos[18, 1] = posy_square - 2;
+
+        tab_Pos[19, 0] = posx_square;
+        tab_Pos[19, 1] = posy_square;
+
+        tab_Pos[20, 0] = posx_square;
+        tab_Pos[20, 1] = posy_square;
+
+        tab_Pos[21, 0] = posx_square;
+        tab_Pos[21, 1] = posy_square;
+
+        tab_Pos[22, 0] = posx_square;
+        tab_Pos[22, 1] = posy_square;
+
+        tab_Pos[23, 0] = posx_square;
+        tab_Pos[23, 1] = posy_square;
+
+        tab_Pos[24, 0] = posx_square;
+        tab_Pos[24, 1] = posy_square;
+    }
 
 }
