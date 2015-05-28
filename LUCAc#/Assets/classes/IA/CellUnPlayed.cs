@@ -16,6 +16,8 @@ public class CellUnPlayed : MonoBehaviour {
 
 	private int[,] tab_Pos = new int[81, 2];
 
+	private bool started = false;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -24,6 +26,7 @@ public class CellUnPlayed : MonoBehaviour {
 		R = I.RM;
 		cellMolecules = I.cellMolecules;
 		moleculetarget = cellMolecules[0];
+		started = true;
 	}
 	
 	// Update is called once per frame
@@ -31,6 +34,10 @@ public class CellUnPlayed : MonoBehaviour {
 	{
 		if (I.delay >= 360) 
 		{
+			if(!started)
+			{
+				Start();
+			}
 			I.delay = 0;
 			if(!I.gotDest && !I.isPlayed)
 				AnalyseMolecules ();

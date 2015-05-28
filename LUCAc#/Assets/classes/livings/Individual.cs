@@ -29,6 +29,9 @@ public class Individual : MonoBehaviour
 	private float _speed = 0.05f;	//Quand on augmente va plus vite
 	private int _delay = 0;
 
+	private int _splitDelay = UnityEngine.Random.Range(18000, 36000);
+	private int _splitIncrement;
+
 	#region accessors
 
 	public int survivedTime 				{   get { return _survivedTime; 	} 	}
@@ -89,6 +92,13 @@ public class Individual : MonoBehaviour
 			coolDown = 0;
 		} 
 
+		if (_splitIncrement == _splitDelay) 
+		{
+			_splitIncrement = 0;
+			division();
+		}
+
+		_splitIncrement++;
 		coolDown++;
 	}
 
@@ -224,7 +234,9 @@ public class Individual : MonoBehaviour
 	public void division()
 	{
 		GameObject son = (GameObject)Instantiate (_species.cell);
+		splitGive (son.GetComponent<Individual> ());
 		son.transform.position = transform.position;
 		_species.addCell (son.GetComponent<Individual>());
+		son.GetComponent<Individual>().descriptionBox = descriptionBox;
 	}
 }
