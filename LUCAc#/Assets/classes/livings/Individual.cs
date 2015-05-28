@@ -92,17 +92,17 @@ public class Individual : MonoBehaviour
 		coolDown++;
 	}
 
-	private int existmol(List<moleculePack> packs, molecule searched)
-	{
-		int i;
-
-		for (i=0; i<packs.Count; i++) {
-			if (packs [i].moleculeType == searched) {
-				return i;
-			}
-		}
-		return (-1);
-	}
+//	private int existmol(List<moleculePack> packs, molecule searched)
+//	{
+//		int i;
+//
+//		for (i=0; i<packs.Count; i++) {
+//			if (packs [i].moleculeType == searched) {
+//				return i;
+//			}
+//		}
+//		return (-1);
+//	}
 
 	/*public void harvest(ref moleculePack Subject)
 	{
@@ -149,8 +149,8 @@ public class Individual : MonoBehaviour
 	public void eat(resourcesManager R)
 	{
 		Vector3 pos = transform.position;
-		int squarex = (int)(pos.x-1 / 20f);
-		int squarey = (int)(pos.y-1 / 20f);
+		int squarex = (int)(pos.x / 20f);
+		int squarey = (int)(pos.y / 20f);
 		
 		foreach (moleculePack Mi in _cellMolecules) 
 		{
@@ -209,6 +209,14 @@ public class Individual : MonoBehaviour
 			transform.Rotate(0, 0, UnityEngine.Random.Range(angle, angle + angle / 2));
 		}
 		transform.position = pos;
+	}
+
+	public void splitGive(Individual I)
+	{
+		foreach (moleculePack MP in cellMolecules) 
+		{
+
+		}
 	}
 
 

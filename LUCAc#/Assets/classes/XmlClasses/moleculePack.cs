@@ -10,6 +10,8 @@
 using System;
 using UnityEngine;
 using System.Xml.Serialization;
+//using System.Collections;
+//using System.Collections.Generic;
 namespace AssemblyCSharp
 {
 	public class moleculePack : serialisable
@@ -29,6 +31,30 @@ namespace AssemblyCSharp
 		{
 			
 		}
+
+		public static moleculePack operator + (moleculePack mp1, moleculePack mp2)
+		{
+			if (mp1.moleculeType.ID == mp2.moleculeType.ID) 
+			{
+				return new moleculePack (mp1.count + mp2.count, mp1.moleculeType);
+			} 
+			else 
+			{
+				throw new ArgumentException("These two moleculePacks are of the same type: " + mp1.moleculeType.name + ", " + mp2.moleculeType.name);
+			}
+		}
+
+//		public static moleculePack operator + (List<moleculePack> mp1, List<moleculePack> mp2)
+//		{
+//			if (mp1.moleculeType.ID == mp2.moleculeType.i) 
+//			{
+//				return new moleculePack (mp1.count + mp2.count, mp1.moleculeType);
+//			} 
+//			else 
+//			{
+//				throw new ArgumentException("These two moleculePacks are of the same type: " + mp1.moleculeType.name + ", " + mp2.moleculeType.name);
+//			}
+//		}
 	}
 }
 
