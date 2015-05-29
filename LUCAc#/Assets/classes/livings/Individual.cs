@@ -136,20 +136,20 @@ public class Individual : MonoBehaviour
 		if (Tile.count > 0) 
 		{
 			int posowned = existmol (cellMolecules,Tile.moleculeType);
-
+			
 			if (Tile.moleculeType.toxic)
 			{
 				if (Tile.count > species.toxic_absorb)
 				{
 					Tile.count -= species.toxic_absorb;
-
+					
 					if (posowned == -1)
 					{
 						cellMolecules.Add(new moleculePack(species.toxic_absorb,Tile.moleculeType));
 					}
 					else
 					{
-					cellMolecules[posowned].count += species.toxic_absorb;
+						cellMolecules[posowned].count += species.toxic_absorb;
 					}
 				}
 				else
@@ -168,12 +168,13 @@ public class Individual : MonoBehaviour
 			else
 			{
 				molecule temp = Tile.moleculeType;
-				int posskill = existmol (species.workCost.environmentMolecules, temp);
-
+				
+				int posskill = existmol(species.workCost.environmentMolecules, temp);
+				
 				if(posskill >= 0)
 				{
 					moleculePack Skill = species.workCost.environmentMolecules[posskill];
-
+					
 					if (Tile.count > Skill.count)
 					{
 						Tile.count -= Skill.count;
@@ -197,7 +198,6 @@ public class Individual : MonoBehaviour
 						{
 							cellMolecules[posowned].count += Tile.count;
 						}
-						Tile.count = 0;
 					}
 				}
 			}
@@ -219,8 +219,8 @@ public class Individual : MonoBehaviour
 		//foreach (moleculePack Tile in R.moleculeRepartition[squarex,squarey]) 
 		foreach (moleculePack Tile in _RM.moleculeRepartition[squarex,squarey]) 
 		{
-			//harvest (Subject);
-			if (Tile.count > 0) 
+			harvest (Tile);
+			/*if (Tile.count > 0) 
 			{
 				int posowned = existmol (cellMolecules,Tile.moleculeType);
 				
@@ -288,7 +288,7 @@ public class Individual : MonoBehaviour
 						}
 					}
 				}
-			}
+			}*/
 		}
 		//foreach (moleculePack Subject in _species.workCost.environmentMolecules) 
 		//{
