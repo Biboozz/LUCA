@@ -93,8 +93,7 @@ public class Individual : MonoBehaviour
 		coolDown++;
 	}
 
-<<<<<<< HEAD
-	/*private int existmol(List<moleculePack> packs, molecule searched)
+	private int existmol(List<moleculePack> packs, molecule searched)
 	{
 		int i = 0;
 
@@ -109,7 +108,7 @@ public class Individual : MonoBehaviour
 		}
 		return (-1);
 	}
-=======
+
 //	private int existmol(List<moleculePack> packs, molecule searched)
 //	{
 //		int i;
@@ -121,7 +120,6 @@ public class Individual : MonoBehaviour
 //		}
 //		return (-1);
 //	}
->>>>>>> origin/master
 
 	public void harvest(moleculePack Tile)
 	{
@@ -286,18 +284,13 @@ public class Individual : MonoBehaviour
 		//{
 			//emite (R, Subject);
 		//}
-	}*/
+	}
 
 	public void eat(resourcesManager R)
 	{
 		Vector3 pos = transform.position;
-<<<<<<< HEAD
 		int squarex = (int)(pos.x/ 20f);
 		int squarey = (int)(pos.y/ 20f);
-=======
-		int squarex = (int)(pos.x / 20f);
-		int squarey = (int)(pos.y / 20f);
->>>>>>> origin/master
 		
 		foreach (moleculePack Mi in _cellMolecules) 
 		{
