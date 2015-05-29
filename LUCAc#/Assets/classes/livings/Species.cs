@@ -134,5 +134,8 @@ public class Species
 		Individuals.Add (I);
 		place.CI.cellsplayed.Add (I);
 		I.Initialize (I.transform.position, 0, this, place, isPlayed, new List<moleculePack> (), I.ATP);
+		I.transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = color; //modif couleur core en fonction de l'espece
+		I.transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = color;
+
 	}
 }
