@@ -119,18 +119,6 @@ public class Individual : MonoBehaviour
 		return (-1);
 	}
 
-//	private int existmol(List<moleculePack> packs, molecule searched)
-//	{
-//		int i;
-//
-//		for (i=0; i<packs.Count; i++) {
-//			if (packs [i].moleculeType == searched) {
-//				return i;
-//			}
-//		}
-//		return (-1);
-//	}
-
 	public void harvest(moleculePack Tile)
 	{
 		if (Tile.count > 0) 
@@ -220,77 +208,8 @@ public class Individual : MonoBehaviour
 		foreach (moleculePack Tile in _RM.moleculeRepartition[squarex,squarey]) 
 		{
 			harvest (Tile);
-			/*if (Tile.count > 0) 
-			{
-				int posowned = existmol (cellMolecules,Tile.moleculeType);
-				
-				if (Tile.moleculeType.toxic)
-				{
-					if (Tile.count > species.toxic_absorb)
-					{
-						Tile.count -= species.toxic_absorb;
-						
-						if (posowned == -1)
-						{
-							cellMolecules.Add(new moleculePack(species.toxic_absorb,Tile.moleculeType));
-						}
-						else
-						{
-							cellMolecules[posowned].count += species.toxic_absorb;
-						}
-					}
-					else
-					{
-						if (posowned == -1)
-						{
-							cellMolecules.Add(Tile);
-						}
-						else
-						{
-							cellMolecules[posowned].count += Tile.count;
-						}
-						Tile.count = 0;
-					}
-				}
-				else
-				{
-					molecule temp = Tile.moleculeType;
-
-					int posskill = existmol(species.workCost.environmentMolecules, temp);
-					
-					if(posskill >= 0)
-					{
-						moleculePack Skill = species.workCost.environmentMolecules[posskill];
-						
-						if (Tile.count > Skill.count)
-						{
-							Tile.count -= Skill.count;
-							
-							if (posowned == -1)
-							{
-								cellMolecules.Add(new moleculePack(Skill.count,Tile.moleculeType));
-							}
-							else
-							{
-								cellMolecules[posowned].count += Skill.count;
-							}
-						}
-						else
-						{
-							if (posowned == -1)
-							{
-								cellMolecules.Add(Tile);
-							}
-							else
-							{
-								cellMolecules[posowned].count += Tile.count;
-							}
-						}
-					}
-				}
-			}*/
 		}
-		//foreach (moleculePack Subject in _species.workCost.environmentMolecules) 
+		//foreach (moleculePack Subject in _species.workProducts.cellMolecules) 
 		//{
 			//emite (R, Subject);
 		//}
