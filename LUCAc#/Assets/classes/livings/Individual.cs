@@ -112,12 +112,12 @@ public class Individual : MonoBehaviour
 			if (M.moleculeType == searched){
 				return i;
 			}
-			else {
-				i++;
-			}
+			i++;
 		}
 		return (-1);
 	}
+
+	#region action------------------------------------------------------------
 
 	public void harvest(moleculePack Tile)
 	{
@@ -192,10 +192,19 @@ public class Individual : MonoBehaviour
 		}
 	}
 
-	//public void emite(List<moleculePack> Absorbable, moleculePack Subject)
-	//{
-	//	
-	//}
+	public void emite(moleculePack Emission, List<moleculePack> Tile)
+	{
+		int poslist = existmol (Tile, Emission.moleculeType);
+
+		if (poslist == -1) 
+		{
+			Tile.Add(Emission);
+		} 
+		else 
+		{
+			Tile[poslist].count += Emission.count;
+		}
+	}
 
 	//public void action(resourcesManager R)
 	public void action()
@@ -209,11 +218,13 @@ public class Individual : MonoBehaviour
 		{
 			harvest (Tile);
 		}
-		//foreach (moleculePack Subject in _species.workProducts.cellMolecules) 
-		//{
-			//emite (R, Subject);
-		//}
+		foreach (moleculePack Subject in _species.workProducts.cellMolecules) 
+		{
+			emite (Subject, _RM.moleculeRepartition[squarex,squarey]);
+		}
 	}
+
+	#endregion action--------------------------------------------------------------------
 
 	public void eat(resourcesManager R)
 	{
