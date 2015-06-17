@@ -77,10 +77,10 @@ public class displayPerkTree : MonoBehaviour {
 				float angle = Mathf.PI * (1 + 2 * i) / 6;
 				if (S.neighbors[i] != null)
 				{
-					Link = (GameObject)Instantiate(Link, new Vector3(S.hex.transform.position.x - Mathf.Cos(angle) * 14f * S.hex.transform.localScale.z, S.hex.transform.position.y - Mathf.Sin(angle) * 14f * S.hex.transform.localScale.z, 0), transform.rotation);
-					Link.transform.localScale = new Vector3(1,1,1);
-					Link.transform.Rotate(0,0, 180 + ((i+2)%6)*60);
-					Link.transform.SetParent(S.hex.transform);
+					GameObject L = (GameObject)Instantiate(Link, new Vector3(S.hex.transform.position.x - Mathf.Cos(angle) * 14f * S.hex.transform.localScale.z, S.hex.transform.position.y - Mathf.Sin(angle) * 14f * S.hex.transform.localScale.z, 0), new Quaternion());
+					L.transform.localScale = new Vector3(1,1,1);
+					L.transform.Rotate(0,0, 180 + ((i+2)%6)*60);
+					L.transform.SetParent(S.hex.transform);
 					//trt image
 				}
 			}
