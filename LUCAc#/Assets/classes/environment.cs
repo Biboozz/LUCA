@@ -17,6 +17,8 @@ public class environment : MonoBehaviour {
 	public resourcesManager RM;
 	private System.Random Rdm;
 	public ConsoleInitializer CI;
+	private int YouCursor = 0;
+	public GameObject Cam;
 
 	// Use this for initialization
 	void Start () 
@@ -101,23 +103,6 @@ public class environment : MonoBehaviour {
 		}
 	}
 
-	/*public void eateration(ref Terrain Terr, List<Species> Me)
-	{
-		foreach (RessourceCircle C in Terr.circles) 
-		{
-			foreach (Species Spec in Me)
-			{
-				foreach (molecule Mol in Spec.absorb)
-				{
-					if ( Mol == C.Get_mol())
-					{
-						C.eat(Spec);
-					}
-				}
-			}
-		}
-	}*/
-
 	public void remove(GameObject G)
 	{
 		Destroy (G);
@@ -156,6 +141,38 @@ public class environment : MonoBehaviour {
 			RM.molecules = nm;
 			_molecules = nm;
 		}
+	}
+
+	public void YouButton()
+	{
+		Vector3 pos = Cam.transform.position;
+
+		foreach (Species S in this.livings) 
+		{
+			if (S.isPlayed) 
+			{
+				if (YouCursor >= S.Individuals.Count) 
+				{
+					YouCursor = 0;
+				}
+
+				//Selectionne la cellule courante
+				pos = S.Individuals [YouCursor].transform.position;
+				S.Individuals[YouCursor].isSelectioned = true;
+
+				//Deselctionne la cellule précédente
+				int backYouCursor = YouCursor - 1;
+				if (backYouCursor < 0)
+					backYouCursor = S.Individuals.Count -1;
+				S.Individuals[backYouCursor].isSelectioned = false;
+
+				YouCursor++;
+			}
+		}
+
+		pos.z = -500;
+
+		Cam.transform.position = pos;
 	}
 
 }

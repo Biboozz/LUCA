@@ -45,23 +45,32 @@ namespace AssemblyCSharp
 			}
 		}
 
-		public delegate int operation(ref int source, ref int destination);
+//S		public delegate int operation(ref int source, ref int destination);
 		
-		public static void moleculeListFusion(List<moleculePack> src, List<moleculePack> dst, operation action)
-		{
-			foreach (moleculePack mpS in src) 
-			{
-				int i = dst.FindIndex(mpD => mpD.moleculeType.ID == mpS.moleculeType.ID);
-				if (i == -1)
-				{
-					dst.Add(mpS);
-				}
-				else
-				{
-					dst[i].count = action(ref mpS.count, ref dst[i].count);
-				}
-			}
-		}
+//		public static void moleculeListFusion(List<moleculePack> src, List<moleculePack> dst, operation action)
+//		{
+////			if (dst == null) 
+////			{
+////				dst = new List<moleculePack>();
+////			}
+//			foreach (moleculePack mpS in src) 
+//			{
+//				int i = dst.FindIndex(mpD => mpD.moleculeType.ID == mpS.moleculeType.ID);
+//				if (i == -1)
+//				{
+//					moleculePack nmp = new moleculePack();
+//					nmp.count = action(ref mpS.count, ref nmp.count);
+//					nmp.moleculeType = mpS.moleculeType;
+//					dst.Add(nmp);
+//
+//				}
+//				else
+//				{
+//					dst[i].count = action(ref mpS.count, ref dst[i].count);
+//					Debug.Log("bien");
+//				}
+//			}
+//		}
 	}
 }
 

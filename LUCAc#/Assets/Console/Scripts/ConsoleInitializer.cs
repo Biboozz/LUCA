@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using AssemblyCSharp;
 
 public class ConsoleInitializer : MonoBehaviour {
 
 	public environment Environment;
 	public Species Especes;
 	public displayPerkTree SpecsTree;
-	//private List<Species> _species;
+
+	public List<Species> _species;
+	public Species speciesplayed;
 	public List<Individual> cellsplayed;
-	//private List<skill> _allskill;
-	//private List<skill> _skillunlock;
+	public List<skill> _allskill;
+	public List<skill> _skillunlock;
 
 	void Start () 
 	{
@@ -19,11 +21,20 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("god", God);
 		repo.RegisterCommand("speed", Speed);
 		repo.RegisterCommand("speedbase", SpeedBase);
-		repo.RegisterCommand("all_unlock", Allunlock);
+		repo.RegisterCommand("allunlock", Allunlock);
 		repo.RegisterCommand("help", Help);
 
-		//_species = Environment.livings;
-		//_allskill = SpecsTree.perkTree;
+		//_species = Environment.livings;	//Liste des espèces
+		//_allskill = SpecsTree.perkTree;	//Liste des compétences
+		//_skillunlock = Especes.unlockedPerks; //Liste des compétences débloqués de l'espèce
+
+		foreach (Species especes in _species) 
+		{
+			if(especes.isPlayed)
+			{
+				speciesplayed = especes;
+			}
+		}
 
 	}
 	
@@ -65,7 +76,7 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 	
 	public string Allunlock(params string[] args) {
-		//_skillunlock = _allskill;
+		speciesplayed.unlockedPerks = SpecsTree.perkTree;
 		return "Vous avez débloqués toutes les compétences";
 	}
 
@@ -73,7 +84,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		return "god -- Vie illimitée\n" +
 			"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
 			"speedbase -- remet la vitesse de base\n" +
-			"all_unlock -- débloque toutes les compétences de l'arbre\n" +
+			"allunlock -- débloque toutes les compétences de l'arbre\n" +
 			"help -- cette commande";
 	}
 }

@@ -25,6 +25,15 @@ public class CellUnPlayed : MonoBehaviour {
 	void Start () 
 	{
 		//GenerateTab ();
+//		I = gameObject.GetComponentInParent<Individual>();
+//		R = I.RM;
+//		cellMolecules = I.cellMolecules;
+//		moleculetarget = cellMolecules[0];
+//		started = true;
+	}
+
+	public void Initialize()
+	{
 		I = gameObject.GetComponentInParent<Individual>();
 		R = I.RM;
 		cellMolecules = I.cellMolecules;
@@ -35,23 +44,23 @@ public class CellUnPlayed : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (I.delay >= 360) 
+		if (started) 
 		{
-			if(!started)
+			if (I.delay >= 360) 
 			{
-				Start();
-			}
-			I.delay = 0;
-			if(!I.gotDest && !I.isPlayed)
-			{
-				posx = (int)(transform.position.x / 20);
-				posy = (int)(transform.position.y / 20);
-				if(posx > 6 && posx < 94 && posy > 6 && posy < 94)
-				AnalyseMolecules ();
-			}
-		} 
-		else
-			I.delay++;
+				I.delay = 0;
+				if(!I.gotDest && !I.isPlayed)
+				{
+					posx = (int)(transform.position.x / 20);
+					posy = (int)(transform.position.y / 20);
+					if(posx > 6 && posx < 94 && posy > 6 && posy < 94)
+						AnalyseMolecules ();
+				}
+			} 
+			else
+				I.delay++;
+		}
+
 	}
 
 	public string FindMoleculeLack()
