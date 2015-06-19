@@ -24,8 +24,6 @@ $RECYCLE.BIN/
 # OSX
 # =========================
 
-Thumbs.db
-Thumbs.db.meta
 *.DS_Store
 *.directory
 .AppleDouble
@@ -38,6 +36,11 @@ Thumbs.db.meta
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db.meta
+Editor.meta
+ComboBox.meta
 
 # Directories potentially created on remote AFP share
 .AppleDB
