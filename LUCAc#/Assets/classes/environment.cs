@@ -156,15 +156,17 @@ public class environment : MonoBehaviour {
 					YouCursor = 0;
 				}
 
+				//Deselctionne les cellules
+				foreach (Individual I in S.Individuals)
+				{
+					I.isSelectioned = ((Input.GetKey(KeyCode.LeftShift))||(Input.GetKey(KeyCode.RightShift)));
+				}
+
 				//Selectionne la cellule courante
 				pos = S.Individuals [YouCursor].transform.position;
 				S.Individuals[YouCursor].isSelectioned = true;
 
-				//Deselctionne la cellule précédente
-				int backYouCursor = YouCursor - 1;
-				if (backYouCursor < 0)
-					backYouCursor = S.Individuals.Count -1;
-				S.Individuals[backYouCursor].isSelectioned = false;
+
 
 				YouCursor++;
 			}
