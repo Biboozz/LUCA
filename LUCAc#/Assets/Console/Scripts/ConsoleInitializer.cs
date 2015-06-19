@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using AssemblyCSharp;
+using UnityEngine.UI;
 
 public class ConsoleInitializer : MonoBehaviour {
 
 	public environment Environment;
-	public Species Especes;
 	public displayPerkTree SpecsTree;
 
 	public List<Species> _species;
@@ -24,7 +24,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("allunlock", Allunlock);
 		repo.RegisterCommand("help", Help);
 
-		//_species = Environment.livings;	//Liste des espèces
+		_species = Environment.livings;	//Liste des espèces
 		//_allskill = SpecsTree.perkTree;	//Liste des compétences
 		//_skillunlock = Especes.unlockedPerks; //Liste des compétences débloqués de l'espèce
 
@@ -76,7 +76,8 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 	
 	public string Allunlock(params string[] args) {
-		speciesplayed.unlockedPerks = SpecsTree.perkTree;
+		_allskill = SpecsTree.perkTree;	//Liste des compétences
+		speciesplayed.unlockedPerks = _allskill;
 		return "Vous avez débloqués toutes les compétences";
 	}
 
