@@ -4,125 +4,24 @@
     <SerialisableType>skill</SerialisableType>
     <ID>0</ID>
     <neighborsID>
-      <int>1</int>
       <int>2</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>3</int>
+      <int>10</int>
+      <int>17</int>
       <int>4</int>
+      <int>3</int>
+      <int>1</int>
     </neighborsID>
-    <name>Absorption des Monosaccharides</name>
-    <description>Les monosaccharides (sucres simples) comme le glucose, le fructose, le galactose, le mannose, l'arabinose, et plein d'autres nom moléculaires .... sont des chaines de carbone très facilement assimilable par les cellules. Ces molécules vont être absorbées via un pore situé dans la membrane de la cellule. Elles vont permettre principalement de produire de l'énergie.</description>
+    <name>Cellule</name>
+    <description>Vos cellules sont en vie. Votre but est de les maintenir dans cet état pour les faire évoluer et coloniser les milieux. Faites explorer la carte à vos individus pour trouver des ressources et débloquez des compétences avancées pour survivre. Vous trouverez d'autres espèces lors de votre périple. A vous de décider si vous devez les faire disparaître ou vous allier à elles.</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
-      <environmentMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Monosaccharide</name>
-            <ID>0</ID>
-            <rarity>0.25</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </environmentMolecules>
+      <environmentMolecules />
       <ATP>0</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Monosaccharide</name>
-            <ID>0</ID>
-            <rarity>0.25</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workProducts>
-    <devCosts>
-      <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devCosts>
-    <devProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devProducts>
-    <innate>true</innate>
-    <type>Structure</type>
-    <requiredID />
-    <hexPos>
-      <X>359</X>
-      <Y>241</Y>
-    </hexPos>
-  </serialisable>
-  <serialisable xsi:type="skill">
-    <SerialisableType>skill</SerialisableType>
-    <ID>1</ID>
-    <neighborsID>
-      <int>-1</int>
-      <int>8</int>
-      <int>-1</int>
-      <int>0</int>
-      <int>-1</int>
-      <int>6</int>
-    </neighborsID>
-    <name>Absorption des Acides Aminés </name>
-    <description>Il y en a 20 : Alanine, Arginine, Asparagine, Aspartate, Cystéine, Glutamate, Glutamine, Glycine, Histidine, Isoleucine, Leucine, Lysine, Méthionine, Phénylalanine, Proline, Sérine, Thréonine, Tryptophane, Tyrosine, Valine. Ces molécules sont absorbées grâce un pore situé dans la membrane des cellules. Elles vont principalement servir à produire des protéines.</description>
-    <workCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Aminé</name>
-            <ID>3</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </environmentMolecules>
-      <ATP>0</ATP>
-    </workCosts>
-    <workProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Aminé</name>
-            <ID>3</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </cellMolecules>
       <environmentMolecules />
       <ATP>0</ATP>
     </workProducts>
@@ -139,23 +38,235 @@
       <ATP>0</ATP>
     </devProducts>
     <innate>false</innate>
-    <type>Structure</type>
+    <type>Unité de Base</type>
     <requiredID />
     <hexPos>
-      <X>430</X>
-      <Y>204</Y>
+      <X>0</X>
+      <Y>0</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
+  </serialisable>
+  <serialisable xsi:type="skill">
+    <SerialisableType>skill</SerialisableType>
+    <ID>1</ID>
+    <neighborsID>
+      <int>-1</int>
+      <int>-1</int>
+      <int>0</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>5</int>
+    </neighborsID>
+    <name>Absorption des Monosaccharides</name>
+    <description>Les monosaccharides (sucres simples) comme le glucose, le fructose, le galactose, le mannose, l'arabinose, et plein d'autres nom moléculaires .... sont des chaines de carbone très facilement assimilable par les cellules. Ces molécules vont être absorbées via un pore situé dans la membrane de la cellule. Elles vont permettre principalement de produire de l'énergie.
+</description>
+    <workCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Monosaccharide</name>
+            <ID>0</ID>
+            <rarity>0.25</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </environmentMolecules>
+      <ATP>0</ATP>
+    </workCosts>
+    <workProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Monosaccharide</name>
+            <ID>0</ID>
+            <rarity>0.25</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workProducts>
+    <devCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devCosts>
+    <devProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devProducts>
+    <innate>true</innate>
+    <type>Structure</type>
+    <requiredID>
+      <int>0</int>
+    </requiredID>
+    <hexPos>
+      <X>393</X>
+      <Y>218</Y>
+    </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>2</ID>
     <neighborsID>
-      <int>8</int>
-      <int>11</int>
+      <int>7</int>
       <int>-1</int>
       <int>-1</int>
       <int>0</int>
-      <int>1</int>
+      <int>-1</int>
+      <int>-1</int>
+    </neighborsID>
+    <name>Absorption des Acides Aminés</name>
+    <description>Il y en a 20 : Alanine, Arginine, Asparagine, Aspartate, Cystéine, Glutamate, Glutamine, Glycine, Histidine, Isoleucine, Leucine, Lysine, Méthionine, Phénylalanine, Proline, Sérine, Thréonine, Tryptophane, Tyrosine, Valine. Ces molécules sont absorbées grâce un pore situé dans la membrane des cellules. Elles vont principalement servir à produire des protéines.
+</description>
+    <workCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Aminé</name>
+            <ID>3</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </environmentMolecules>
+      <ATP>0</ATP>
+    </workCosts>
+    <workProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Aminé</name>
+            <ID>3</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workProducts>
+    <devCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devCosts>
+    <devProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devProducts>
+    <innate>true</innate>
+    <type>Structure</type>
+    <requiredID>
+      <int>0</int>
+    </requiredID>
+    <hexPos>
+      <X>453</X>
+      <Y>257</Y>
+    </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
+  </serialisable>
+  <serialisable xsi:type="skill">
+    <SerialisableType>skill</SerialisableType>
+    <ID>3</ID>
+    <neighborsID>
+      <int>-1</int>
+      <int>0</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>8</int>
+      <int>-1</int>
     </neighborsID>
     <name>Absorption des Bases Azotées</name>
     <description>Il existe plusieurs types de bases azotés dans l'environnement d'une cellules. Celles utilisées pour la synthèse des acides nucléiques sont principalement : l'Adénosine, la Cytosine, la Thymine, la Guanine et l'Uracile. L'absorption de ces molécules se fait via un pore situé à la surface de la membrane. Elles servent a construire les gènes des différentes capacités de votre cellule.</description>
@@ -167,12 +278,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -186,12 +300,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -213,25 +330,44 @@
     </devProducts>
     <innate>true</innate>
     <type>Structure</type>
-    <requiredID />
+    <requiredID>
+      <int>0</int>
+    </requiredID>
     <hexPos>
-      <X>430</X>
-      <Y>275</Y>
+      <X>335</X>
+      <Y>250</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
-    <ID>3</ID>
+    <ID>4</ID>
     <neighborsID>
-      <int>-1</int>
       <int>0</int>
       <int>-1</int>
       <int>-1</int>
       <int>9</int>
-      <int>14</int>
+      <int>-1</int>
+      <int>-1</int>
     </neighborsID>
     <name>Absorption des Acides Gras</name>
-    <description>Un acide gras est une longue chaine d'atomes de carbone lié à une molécule d'acide. Cette structure leur donne une caractéristique particulière : ils sont amphiphiles. Ils ont la capacités de former des strutures hydrophiles et hydrophobes. Ils sont utilisés dans la construction de différents lipides assurant plusieurs fonctions. Leurs rôles principaux sont d'être une unité structurelle et une grande réserve d'énergie.</description>
+    <description>Un acide gras est une longue chaine d'atomes de carbone lié à une molécule d'acide. Cette structure leur donne une caractéristique particulière : ils sont amphiphiles. Ils ont la capacité de former des strutures hydrophiles et hydrophobes. Ils sont utilisés dans la construction de différents lipides assurant plusieurs fonctions. Leurs rôles principaux sont d'être une unité structurelle et une grande réserve d'énergie.
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
@@ -241,11 +377,14 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -260,11 +399,14 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -286,22 +428,40 @@
     </devProducts>
     <innate>true</innate>
     <type>Structure</type>
-    <requiredID />
+    <requiredID>
+      <int>0</int>
+    </requiredID>
     <hexPos>
-      <X>289</X>
-      <Y>207</Y>
+      <X>334</X>
+      <Y>319</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
-    <ID>4</ID>
+    <ID>5</ID>
     <neighborsID>
+      <int>13</int>
+      <int>-1</int>
+      <int>1</int>
       <int>-1</int>
       <int>-1</int>
-      <int>0</int>
-      <int>-1</int>
-      <int>14</int>
-      <int>5</int>
+      <int>6</int>
     </neighborsID>
     <name>Absorption des Disaccharides</name>
     <description>Monosaccharide * 2 = Disaccharide. C'est aussi simple que ça. Vous en connaissez certains d'ailleurs : Lactose, Saccharose, Maltose, ... Ces molécules ont un pouvoir sucrant plus fort que les sucres de base (malheureusement votre cellule n'a pas un sens du goût très prononcé). Tout comme les monosaccharides, ils représentent une source d'énergie.</description>
@@ -319,11 +479,14 @@
             <complex>true</complex>
             <size>2</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </environmentMolecules>
-      <ATP>0</ATP>
+      <ATP>1</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -338,12 +501,15 @@
             <complex>true</complex>
             <size>2</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
-      <ATP>0</ATP>
+      <ATP>1</ATP>
     </workProducts>
     <devCosts>
       <SerialisableType>actionData</SerialisableType>
@@ -353,11 +519,14 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -374,27 +543,43 @@
     <innate>false</innate>
     <type>Structure</type>
     <requiredID>
-      <int>0</int>
-      <int>0</int>
+      <int>1</int>
     </requiredID>
     <hexPos>
-      <X>362</X>
-      <Y>169</Y>
+      <X>393</X>
+      <Y>156</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
-    <ID>5</ID>
+    <ID>6</ID>
     <neighborsID>
+      <int>14</int>
+      <int>-1</int>
+      <int>5</int>
       <int>-1</int>
       <int>-1</int>
-      <int>4</int>
-      <int>-1</int>
-      <int>15</int>
       <int>-1</int>
     </neighborsID>
     <name>Absorption des Polysaccharides</name>
-    <description>Bien que leur nom scientifique soit un peu barbare, vous en connaissez au moins deux : l'Amidon et la Cellulose (à ne pas confondre avec la cellulite). Ces sucres très complexes vu qu'il sont composés d'au moins 100 unités de sucres simples, ont deux fonctions principales : structure (Cellulose, Peptidoglycane) et une immense réserve d'énergie (Amidon, Glycogène). </description>
+    <description>Bien que leur nom scientifique soit un peu barbare, vous en connaissez au moins deux : l'Amidon et la Cellulose (à ne pas confondre avec la cellulite). Ces sucres très complexes vu qu'il sont composés d'au moins 100 unités de sucres simples, ont deux fonctions principales : structure (Cellulose, Peptidoglycane) et une immense réserve d'énergie (Amidon, Glycogène).
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
@@ -409,11 +594,14 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </environmentMolecules>
-      <ATP>0</ATP>
+      <ATP>5</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -428,6 +616,9 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -443,13 +634,16 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
-          <count>10</count>
+          <count>20</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
@@ -464,24 +658,39 @@
     <innate>false</innate>
     <type>Structure</type>
     <requiredID>
-      <int>4</int>
-      <int>4</int>
+      <int>5</int>
     </requiredID>
     <hexPos>
-      <X>363</X>
-      <Y>102</Y>
+      <X>393</X>
+      <Y>91</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
-    <ID>6</ID>
+    <ID>7</ID>
     <neighborsID>
+      <int>19</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>2</int>
+      <int>-1</int>
       <int>12</int>
-      <int>-1</int>
-      <int>1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>7</int>
     </neighborsID>
     <name>Absorption des Peptides</name>
     <description>Les peptides sont de petits morceaux de protéines, pas assez gros pour avoir une fonction, mais suffisamment pour être repéré par une cellule. Ils sont généralement générés après la dégradation de protéines et présentes une source d'acide aminés pour la production de protéines plus importantes.</description>
@@ -493,17 +702,20 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Peptides</name>
+            <name>Peptide</name>
             <ID>4</ID>
             <rarity>0.03</rarity>
             <complex>true</complex>
             <size>10</size>
             <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </environmentMolecules>
-      <ATP>0</ATP>
+      <ATP>1</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -512,12 +724,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Peptides</name>
+            <name>Peptide</name>
             <ID>4</ID>
             <rarity>0.03</rarity>
             <complex>true</complex>
             <size>10</size>
             <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -533,11 +748,14 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -554,117 +772,43 @@
     <innate>false</innate>
     <type>Structure</type>
     <requiredID>
-      <int>1</int>
-      <int>1</int>
+      <int>2</int>
     </requiredID>
     <hexPos>
-      <X>431</X>
-      <Y>137</Y>
+      <X>509</X>
+      <Y>225</Y>
     </hexPos>
-  </serialisable>
-  <serialisable xsi:type="skill">
-    <SerialisableType>skill</SerialisableType>
-    <ID>7</ID>
-    <neighborsID>
-      <int>13</int>
-      <int>-1</int>
-      <int>6</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-    </neighborsID>
-    <name>Absorption des Protéines</name>
-    <description>Les protéines sont les acteurs principaux des activités d'une cellules : hormones, enzymes, transporteurs, pores, ... Si vous en trouvez dans un milieu c'est parce qu'elles ont été rejetées par une cellule vivante ou morte. Pour votre cellule ces protéines ne peuvent être utilisées en l'état, il faut récupérer les acides aminés les composant pour reconstruire des protéines actives.</description>
-    <workCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Protéine</name>
-            <ID>5</ID>
-            <rarity>0.01</rarity>
-            <complex>true</complex>
-            <size>10</size>
-            <componantID>4</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </environmentMolecules>
-      <ATP>0</ATP>
-    </workCosts>
-    <workProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Protéine</name>
-            <ID>5</ID>
-            <rarity>0.01</rarity>
-            <complex>true</complex>
-            <size>10</size>
-            <componantID>4</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workProducts>
-    <devCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Gras</name>
-            <ID>8</ID>
-            <rarity>0.15</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>10</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devCosts>
-    <devProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devProducts>
-    <innate>false</innate>
-    <type>Structure</type>
-    <requiredID>
-      <int>6</int>
-      <int>6</int>
-    </requiredID>
-    <hexPos>
-      <X>436</X>
-      <Y>67</Y>
-    </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>8</ID>
     <neighborsID>
       <int>-1</int>
+      <int>3</int>
       <int>-1</int>
-      <int>2</int>
-      <int>2</int>
       <int>-1</int>
-      <int>16</int>
+      <int>15</int>
+      <int>-1</int>
     </neighborsID>
     <name>Absorption des Acides Nucléiques</name>
-    <description>Les acides nucléiques comme l'ADN et l'ARN sont le support de l'information génétique d'un organisme. Ils permettent de produire des protéines ayant une fonction spécifiques. Pour les produire il faut des bases azotés présentes dans l'environnement ou à récupérer de la dégradation d'acides nucléiques. Pour dégrader de l'ADN, il faut déjà en trouver et vous en trouverez dans d'autres cellules (qu'il faudra détruire !!).</description>
+    <description>Les acides nucléiques comme l'ADN et l'ARN sont le support de l'information génétique d'un organisme. Ils permettent de produire des protéines ayant une fonction spécifiques. Pour les produire il faut des bases azotés présentes dans l'environnement ou à récupérer de la dégradation d'acides nucléiques. Pour dégrader de l'ADN, il faut déjà en trouver et vous en trouverez dans d'autres cellules (qu'il faudra détruire !!).
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
@@ -673,17 +817,20 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Acides Nucléiques</name>
-            <ID>7</ID>
+            <name>Acide Nucléique</name>
+            <ID>9</ID>
             <rarity>0.01</rarity>
             <complex>true</complex>
             <size>100</size>
-            <componantID>6</componantID>
+            <componantID>8</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </environmentMolecules>
-      <ATP>0</ATP>
+      <ATP>5</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -692,12 +839,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Acides Nucléiques</name>
-            <ID>7</ID>
+            <name>Acide Nucléique</name>
+            <ID>9</ID>
             <rarity>0.01</rarity>
             <complex>true</complex>
             <size>100</size>
-            <componantID>6</componantID>
+            <componantID>8</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -713,13 +863,16 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
-          <count>10</count>
+          <count>20</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
@@ -734,27 +887,43 @@
     <innate>false</innate>
     <type>Structure</type>
     <requiredID>
-      <int>2</int>
-      <int>2</int>
+      <int>3</int>
     </requiredID>
     <hexPos>
-      <X>503</X>
-      <Y>243</Y>
+      <X>281</X>
+      <Y>224</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>9</ID>
     <neighborsID>
+      <int>4</int>
       <int>-1</int>
-      <int>3</int>
-      <int>3</int>
       <int>-1</int>
-      <int>17</int>
+      <int>16</int>
+      <int>-1</int>
       <int>-1</int>
     </neighborsID>
     <name>Absorption des Lipides</name>
-    <description>Il existe une grande variété de lipides. Ils sont tous constitués d'acides gras et ont pour fonction de transporter des molécules à l'intérieur des cellules, de définir la structure de vesicules de stockage ou d'autres unités cellulaires, d'être une grande réserve d'énergie ou encore d'être des molécules véhiculant des signaux. Les lipides absorbés de l'environnement sont une source d'acide gras, permettant à votre cellule de synthétiser ses propres ipides.</description>
+    <description>Il existe une grande variété de lipides. Ils sont tous constitués d'acides gras et ont pour fonction de transporter des molécules à l'intérieur des cellules, de définir la structure de vesicules de stockage ou d'autres unités cellulaires, d'être une grande réserve d'énergie ou encore d'être des molécules véhiculant des signaux. Les lipides absorbés de l'environnement sont une source d'acide gras, permettant à votre cellule de synthétiser ses propres lipides.
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
@@ -764,16 +933,19 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Lipide</name>
-            <ID>9</ID>
+            <ID>7</ID>
             <rarity>0.04</rarity>
             <complex>true</complex>
             <size>10</size>
-            <componantID>8</componantID>
+            <componantID>6</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </environmentMolecules>
-      <ATP>0</ATP>
+      <ATP>5</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -783,11 +955,14 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Lipide</name>
-            <ID>9</ID>
+            <ID>7</ID>
             <rarity>0.04</rarity>
             <complex>true</complex>
             <size>10</size>
-            <componantID>8</componantID>
+            <componantID>6</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
@@ -803,13 +978,16 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
-          <count>10</count>
+          <count>20</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
@@ -824,27 +1002,124 @@
     <innate>false</innate>
     <type>Structure</type>
     <requiredID>
-      <int>3</int>
-      <int>3</int>
+      <int>4</int>
     </requiredID>
     <hexPos>
-      <X>221</X>
-      <Y>171</Y>
+      <X>283</X>
+      <Y>351</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>10</ID>
     <neighborsID>
       <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
       <int>11</int>
       <int>-1</int>
       <int>-1</int>
+      <int>0</int>
+      <int>-1</int>
+    </neighborsID>
+    <name>Cils vibratiles</name>
+    <description>Les cils sont des prolongements cellulaires qui par des mouvements de contraction et décontraction aident la cellule à se mouvoir.
+</description>
+    <workCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workCosts>
+    <workProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workProducts>
+    <devCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Gras</name>
+            <ID>6</ID>
+            <rarity>0.15</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>100</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devCosts>
+    <devProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devProducts>
+    <innate>false</innate>
+    <type>Structure</type>
+    <requiredID>
+      <int>0</int>
+    </requiredID>
+    <hexPos>
+      <X>448</X>
+      <Y>316</Y>
+    </hexPos>
+    <agingDeltaModifier>1.1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>true</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1.02</sizeXModifier>
+    <sizeYModifier>1.02</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>2</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
+  </serialisable>
+  <serialisable xsi:type="skill">
+    <SerialisableType>skill</SerialisableType>
+    <ID>11</ID>
+    <neighborsID>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>10</int>
+      <int>-1</int>
     </neighborsID>
     <name>Flagelle</name>
-    <description>Le flagelle (oui oui c'est masculin) est un filament encré à la membrane, qui permet la mobilité d'une cellule par mouvement de rotation. Grâce à cet élément votre cellule sera capable de se déplacer plus vite, pour aller se nourrir, attaquer d'autres cellules ou fuir ...</description>
+    <description>Le flagelle (oui oui c'est masculin) est un filament encré à la membrane, qui permet la mobilité d'une cellule par mouvement de rotation. Grâce à cet élément votre cellule sera capable de se déplacer plus vite, pour aller se nourrir, attaquer d'autres cellules ou fuir ...
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
@@ -870,6 +1145,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>150</count>
         </moleculePack>
@@ -877,12 +1155,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>450</count>
         </moleculePack>
@@ -899,98 +1180,43 @@
     <innate>false</innate>
     <type>Structure</type>
     <requiredID>
-      <int>-1</int>
+      <int>10</int>
     </requiredID>
     <hexPos>
-      <X>573</X>
-      <Y>282</Y>
+      <X>506</X>
+      <Y>345</Y>
     </hexPos>
-  </serialisable>
-  <serialisable xsi:type="skill">
-    <SerialisableType>skill</SerialisableType>
-    <ID>11</ID>
-    <neighborsID>
-      <int>10</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>2</int>
-      <int>-1</int>
-    </neighborsID>
-    <name>Cils vibratiles</name>
-    <description>Les cils sont des prolongements cellulaires qui par des mouvements de contraction et décontraction aident la cellule à se mouvoir. </description>
-    <workCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workCosts>
-    <workProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workProducts>
-    <devCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>150</count>
-        </moleculePack>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Aminé</name>
-            <ID>3</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>50</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devCosts>
-    <devProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devProducts>
-    <innate>false</innate>
-    <type>Structure</type>
-    <requiredID />
-    <hexPos>
-      <X>501</X>
-      <Y>318</Y>
-    </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>true</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>true</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>4</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
     <ID>12</ID>
     <neighborsID>
+      <int>20</int>
+      <int>-1</int>
+      <int>7</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
-      <int>6</int>
-      <int>-1</int>
-      <int>13</int>
     </neighborsID>
     <name>Hydrolyse des Peptides</name>
-    <description>Les peptides que votre cellule à récupéré sont inutilisable tel quel. Il faut les dégrader pour récupérer des acides aminés qui seront utilisés par votre cellule. Cette capacité vous donne la posibilité de dégrader les peptide à l'aide d'une enzyme : la peptidase</description>
+    <description>Les peptides que votre cellule à récupéré sont inutilisable tel quel. Il faut les dégrader pour récupérer des acides aminés qui seront utilisés par votre cellule. Cette capacité vous donne la posibilité de dégrader les peptide à l'aide d'une enzyme : la peptidase.
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules>
@@ -998,18 +1224,21 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Peptides</name>
+            <name>Peptide</name>
             <ID>4</ID>
             <rarity>0.03</rarity>
             <complex>true</complex>
             <size>10</size>
             <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
-      <ATP>0</ATP>
+      <ATP>10</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -1024,6 +1253,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>10</count>
         </moleculePack>
@@ -1044,6 +1276,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1051,12 +1286,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>300</count>
         </moleculePack>
@@ -1073,12 +1311,28 @@
     <innate>false</innate>
     <type>Métabolisme</type>
     <requiredID>
-      <int>6</int>
+      <int>7</int>
     </requiredID>
     <hexPos>
-      <X>504</X>
-      <Y>102</Y>
+      <X>508</X>
+      <Y>163</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
@@ -1086,116 +1340,14 @@
     <neighborsID>
       <int>-1</int>
       <int>-1</int>
-      <int>12</int>
-      <int>7</int>
       <int>-1</int>
+      <int>5</int>
       <int>-1</int>
-    </neighborsID>
-    <name>Hydrolyse des Protéines</name>
-    <description>Youpi vous avez absorbé une protéine. Mais qu'elle protéine ? la réponse importe peut vous ne pouvez pas l'utiliser car elle ne vous appartient pas. Cependant c'est une source imprésionnante d'acides aminés. Pour récupérer ces molécules il vous faut une protéase, qui hydrolyse les protéines en acides aminés.</description>
-    <workCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Protéine</name>
-            <ID>5</ID>
-            <rarity>0.01</rarity>
-            <complex>true</complex>
-            <size>100</size>
-            <componantID>3</componantID>
-          </moleculeType>
-          <count>1</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workCosts>
-    <workProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Aminé</name>
-            <ID>3</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>100</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </workProducts>
-    <devCosts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>600</count>
-        </moleculePack>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
-            <name>Acide Aminé</name>
-            <ID>3</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>200</count>
-        </moleculePack>
-      </cellMolecules>
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devCosts>
-    <devProducts>
-      <SerialisableType>actionData</SerialisableType>
-      <cellMolecules />
-      <environmentMolecules />
-      <ATP>0</ATP>
-    </devProducts>
-    <innate>false</innate>
-    <type>Métabolisme</type>
-    <requiredID>
-      <int>7</int>
-      <int>12</int>
-    </requiredID>
-    <hexPos>
-      <X>499</X>
-      <Y>22</Y>
-    </hexPos>
-  </serialisable>
-  <serialisable xsi:type="skill">
-    <SerialisableType>skill</SerialisableType>
-    <ID>14</ID>
-    <neighborsID>
-      <int>-1</int>
-      <int>4</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>-1</int>
-      <int>15</int>
+      <int>14</int>
     </neighborsID>
     <name>Hydrolyse des Disaccharides</name>
-    <description>C'est cool un disaccharide, ça rapporte deux molécules de sucre, par contre comment faire pour les utiliser ? Il faut casser votre molécule en deux. Et comment ? Avec une enzyme spécifique. Il en existe plusieurs : Beta-galactosidase, alpha-glucosidase, ... Regroupons les sous le nom d'osidase : des hydrolases spécifiques des diosides.</description>
+    <description>C'est cool un disaccharide, ça rapporte deux molécules de sucre, par contre comment faire pour les utiliser ? Il faut casser votre molécule en deux. Et comment ? Avec une enzyme spécifique. Il en existe plusieurs : Beta-galactosidase, alpha-glucosidase, ... Regroupons les sous le nom d'osidase : des hydrolases spécifiques des diosides.
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules>
@@ -1209,12 +1361,15 @@
             <complex>true</complex>
             <size>2</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
-      <ATP>0</ATP>
+      <ATP>2</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -1229,6 +1384,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>2</count>
         </moleculePack>
@@ -1243,27 +1401,33 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>90</count>
-        </moleculePack>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
             <name>Acide Aminé</name>
             <ID>3</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>30</count>
+        </moleculePack>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>90</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
@@ -1278,26 +1442,43 @@
     <innate>false</innate>
     <type>Métabolisme</type>
     <requiredID>
-      <int>4</int>
+      <int>5</int>
     </requiredID>
     <hexPos>
-      <X>290</X>
-      <Y>135</Y>
+      <X>444</X>
+      <Y>120</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
-    <ID>15</ID>
+    <ID>14</ID>
     <neighborsID>
       <int>-1</int>
-      <int>5</int>
-      <int>14</int>
       <int>-1</int>
+      <int>13</int>
+      <int>6</int>
       <int>-1</int>
       <int>-1</int>
     </neighborsID>
     <name>Hydrolyse des Polysaccharides</name>
-    <description>Bien ! Vous voila avec une énorme boule de sucre dont vous ne pouvez absolument rien faire ! Bon c'est pas moche hein, ça a une jolie structure d'arbre avec plein de ramifications de spirales et de petits atomes. Cependant si vous voulez que ce soit utile, il faudra un jour ou l'autre casser cette structure avec une polyosidase pour en récupérer les sucres.</description>
+    <description>Bien ! Vous voila avec une énorme boule de sucre dont vous ne pouvez absolument rien faire ! Bon c'est pas moche hein, ça a une jolie structure d'arbre avec plein de ramifications de spirales et de petits atomes. Cependant si vous voulez que ce soit utile, il faudra un jour ou l'autre casser cette structure avec une polyosidase pour en récupérer les sucres.
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules>
@@ -1311,12 +1492,15 @@
             <complex>true</complex>
             <size>100</size>
             <componantID>0</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
-      <ATP>0</ATP>
+      <ATP>100</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -1331,6 +1515,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1351,6 +1538,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>200</count>
         </moleculePack>
@@ -1358,12 +1548,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>600</count>
         </moleculePack>
@@ -1380,27 +1573,44 @@
     <innate>false</innate>
     <type>Métabolisme</type>
     <requiredID>
-      <int>5</int>
-      <int>14</int>
+      <int>6</int>
+      <int>13</int>
     </requiredID>
     <hexPos>
-      <X>288</X>
-      <Y>67</Y>
+      <X>443</X>
+      <Y>59</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
-    <ID>16</ID>
+    <ID>15</ID>
     <neighborsID>
-      <int>-1</int>
       <int>-1</int>
       <int>8</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
+      <int>-1</int>
     </neighborsID>
     <name>Hydrolyse des Acides Nucléiques</name>
-    <description>Je sais ce que vous pensez : "j'ai récupéré ce gène, il a une fonction, mais ma cellule est incapable de l'utiliser !! C'est fou !" Et bien c'est comme quand vous mangez une plante : elle possède des gènes pour lui permettre de faire de la photsynthèse et ce n'est clairement pas en en mangeant que vous arriverez à le faire aussi. Mais ce n'est pas pour autant que cette molécule est inutile, vous pouvez en récupérer les bases azotées pour créer vos propres gènes et pour cela il vous faut une DNAse.</description>
+    <description>Je sais ce que vous pensez : "j'ai récupéré ce gène, il a une fonction, mais ma cellule est incapable de l'utiliser !! C'est fou !" Et bien c'est comme quand vous mangez une plante : elle possède des gènes pour lui permettre de faire de la photsynthèse et ce n'est clairement pas en en mangeant que vous arriverez à le faire aussi. Mais ce n'est pas pour autant que cette molécule est inutile, vous pouvez en récupérer les bases azotées pour créer vos propres gènes et pour cela il vous faut une DNAse.
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules>
@@ -1408,18 +1618,21 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Acides Nucléiques</name>
-            <ID>7</ID>
+            <name>Acide Nucléique</name>
+            <ID>9</ID>
             <rarity>0.01</rarity>
             <complex>true</complex>
             <size>100</size>
-            <componantID>6</componantID>
+            <componantID>8</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
-      <ATP>0</ATP>
+      <ATP>100</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -1428,12 +1641,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
         </moleculePack>
@@ -1448,12 +1664,15 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>600</count>
         </moleculePack>
@@ -1467,6 +1686,9 @@
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>200</count>
         </moleculePack>
@@ -1486,23 +1708,40 @@
       <int>8</int>
     </requiredID>
     <hexPos>
-      <X>502</X>
-      <Y>172</Y>
+      <X>224</X>
+      <Y>196</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
     <SerialisableType>skill</SerialisableType>
-    <ID>17</ID>
+    <ID>16</ID>
     <neighborsID>
-      <int>-1</int>
       <int>9</int>
+      <int>-1</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
       <int>-1</int>
     </neighborsID>
     <name>Hydrolyse des Lipides</name>
-    <description>Qu'allez vous faire de toute cette graisse ! C'est vrai, c'est encombrant, ça se stocke très mal et puis c'est gras quoi. Ne vous inquiétez pas, avec c'est lipase, vous aller pouvoir récupérer des acides gras et en faire quelque chose de beaucoup mieux : des structures ou de l'énergie.</description>
+    <description>Qu'allez vous faire de toute cette graisse ! C'est vrai, c'est encombrant, ça se stocke très mal et puis c'est gras quoi. Ne vous inquiétez pas, avec c'est lipase, vous aller pouvoir récupérer des acides gras et en faire quelque chose de beaucoup mieux : des structures ou de l'énergie.
+</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules>
@@ -1511,17 +1750,20 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Lipide</name>
-            <ID>9</ID>
+            <ID>7</ID>
             <rarity>0.04</rarity>
             <complex>true</complex>
             <size>10</size>
-            <componantID>8</componantID>
+            <componantID>6</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>1</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
-      <ATP>0</ATP>
+      <ATP>30</ATP>
     </workCosts>
     <workProducts>
       <SerialisableType>actionData</SerialisableType>
@@ -1531,13 +1773,16 @@
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
             <name>Acide Gras</name>
-            <ID>8</ID>
+            <ID>6</ID>
             <rarity>0.15</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
-          <count>10</count>
+          <count>30</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
@@ -1550,27 +1795,33 @@
           <SerialisableType>moleculePack</SerialisableType>
           <moleculeType>
             <SerialisableType>molecule</SerialisableType>
-            <name>Base Azotée</name>
-            <ID>6</ID>
-            <rarity>0.2</rarity>
-            <complex>false</complex>
-            <size>0</size>
-            <componantID>-1</componantID>
-          </moleculeType>
-          <count>300</count>
-        </moleculePack>
-        <moleculePack>
-          <SerialisableType>moleculePack</SerialisableType>
-          <moleculeType>
-            <SerialisableType>molecule</SerialisableType>
             <name>Acide Aminé</name>
             <ID>3</ID>
             <rarity>0.2</rarity>
             <complex>false</complex>
             <size>0</size>
             <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
           </moleculeType>
           <count>100</count>
+        </moleculePack>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>300</count>
         </moleculePack>
       </cellMolecules>
       <environmentMolecules />
@@ -1585,12 +1836,468 @@
     <innate>false</innate>
     <type>Métabolisme</type>
     <requiredID>
-      <int>3</int>
+      <int>9</int>
     </requiredID>
     <hexPos>
-      <X>154</X>
-      <Y>132</Y>
+      <X>227</X>
+      <Y>387</Y>
     </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
+  </serialisable>
+  <serialisable xsi:type="skill">
+    <SerialisableType>skill</SerialisableType>
+    <ID>17</ID>
+    <neighborsID>
+      <int>-1</int>
+      <int>-1</int>
+      <int>18</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>0</int>
+    </neighborsID>
+    <name>Glycolyse et Cycle de Krebs</name>
+    <description>Votre cellule bouge, mange, se défend, attaque, se divise, se diversifie ... Que ce doit être épuisant !! Ceci n'est pas le cas si vous avez suffisamment d'énergie et pour cela rien de mieux que les sucres. La molécule principale chargée d'énergie, permettant à la cellule de faire toutes ces activités est l'ATP. Un monosaccharide permet, en étant dégradé via la glycolyse et le cycle de Krebs, de fournir 30 molécules d'ATP
+</description>
+    <workCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Monosaccharide</name>
+            <ID>0</ID>
+            <rarity>0.25</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workCosts>
+    <workProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workProducts>
+    <devCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devCosts>
+    <devProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devProducts>
+    <innate>true</innate>
+    <type>Métabolisme</type>
+    <requiredID />
+    <hexPos>
+      <X>391</X>
+      <Y>350</Y>
+    </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
+  </serialisable>
+  <serialisable xsi:type="skill">
+    <SerialisableType>skill</SerialisableType>
+    <ID>18</ID>
+    <neighborsID>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>17</int>
+    </neighborsID>
+    <name>Hélice de Lynen</name>
+    <description>L'hélice de Lynen est une suite de réactions complexes regroupées sous le nom de β-oxydation. Ces réactions permettent la dégradation des acides gras en énergie. Vous allez me dire que vous avez déjà le cycle de Krebs pour ça ! Oui mais si jamais vous apprenez qu'un acide gras donne 200 molécules d'ATP ? C’est tout de suite plus intéressant !
+</description>
+    <workCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Gras</name>
+            <ID>6</ID>
+            <rarity>0.15</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workCosts>
+    <workProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workProducts>
+    <devCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Aminé</name>
+            <ID>3</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>500</count>
+        </moleculePack>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1500</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>200</ATP>
+    </devCosts>
+    <devProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devProducts>
+    <innate>false</innate>
+    <type>Métabolisme</type>
+    <requiredID>
+      <int>17</int>
+    </requiredID>
+    <hexPos>
+      <X>391</X>
+      <Y>415</Y>
+    </hexPos>
+    <agingDeltaModifier>1.05</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
+  </serialisable>
+  <serialisable xsi:type="skill">
+    <SerialisableType>skill</SerialisableType>
+    <ID>19</ID>
+    <neighborsID>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>7</int>
+      <int>-1</int>
+      <int>20</int>
+    </neighborsID>
+    <name>Absorption des Protéines</name>
+    <description>Les protéines sont les acteurs principaux des activités d'une cellules : hormones, enzymes, transporteurs, pores, ... Si vous en trouvez dans un milieu c'est parce qu'elles ont été rejetées par une cellule vivante ou morte. Pour votre cellule ces protéines ne peuvent être utilisées en l'état, il faut récupérer les acides aminés les composant pour reconstruire des protéines actives.
+</description>
+    <workCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Protéine</name>
+            <ID>5</ID>
+            <rarity>0.01</rarity>
+            <complex>true</complex>
+            <size>100</size>
+            <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </environmentMolecules>
+      <ATP>5</ATP>
+    </workCosts>
+    <workProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Protéine</name>
+            <ID>5</ID>
+            <rarity>0.01</rarity>
+            <complex>true</complex>
+            <size>100</size>
+            <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workProducts>
+    <devCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Gras</name>
+            <ID>6</ID>
+            <rarity>0.15</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>20</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devCosts>
+    <devProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devProducts>
+    <innate>false</innate>
+    <type>Structure</type>
+    <requiredID>
+      <int>7</int>
+    </requiredID>
+    <hexPos>
+      <X>563</X>
+      <Y>192</Y>
+    </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>true</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
+  </serialisable>
+  <serialisable xsi:type="skill">
+    <SerialisableType>skill</SerialisableType>
+    <ID>20</ID>
+    <neighborsID>
+      <int>-1</int>
+      <int>-1</int>
+      <int>19</int>
+      <int>12</int>
+      <int>-1</int>
+      <int>-1</int>
+    </neighborsID>
+    <name>Hydrolyse des Protéines</name>
+    <description>Youpi vous avez absorbé une protéine. Mais qu'elle protéine ? La réponse importe peu vous ne pouvez pas l'utiliser car elle ne vous appartient pas. Cependant c'est une source imprésionnante d'acides aminés. Pour récupérer ces molécules il vous faut une protéase, qui hydrolyse les protéines en acides aminés.
+</description>
+    <workCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Protéine</name>
+            <ID>5</ID>
+            <rarity>0.01</rarity>
+            <complex>true</complex>
+            <size>100</size>
+            <componantID>3</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>1</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>100</ATP>
+    </workCosts>
+    <workProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Aminé</name>
+            <ID>3</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>100</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </workProducts>
+    <devCosts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Acide Aminé</name>
+            <ID>3</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>200</count>
+        </moleculePack>
+        <moleculePack>
+          <SerialisableType>moleculePack</SerialisableType>
+          <moleculeType>
+            <SerialisableType>molecule</SerialisableType>
+            <name>Baze Azotée</name>
+            <ID>8</ID>
+            <rarity>0.2</rarity>
+            <complex>false</complex>
+            <size>0</size>
+            <componantID>-1</componantID>
+            <toxic>false</toxic>
+            <toxineType>none</toxineType>
+            <toxineStrength>0</toxineStrength>
+          </moleculeType>
+          <count>600</count>
+        </moleculePack>
+      </cellMolecules>
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devCosts>
+    <devProducts>
+      <SerialisableType>actionData</SerialisableType>
+      <cellMolecules />
+      <environmentMolecules />
+      <ATP>0</ATP>
+    </devProducts>
+    <innate>false</innate>
+    <type>Métabolisme</type>
+    <requiredID>
+      <int>19</int>
+      <int>12</int>
+    </requiredID>
+    <hexPos>
+      <X>565</X>
+      <Y>131</Y>
+    </hexPos>
+    <agingDeltaModifier>1</agingDeltaModifier>
+    <canPhagocyt>false</canPhagocyt>
+    <immunityType>none</immunityType>
+    <immunityStrength>0</immunityStrength>
+    <addFlagel>false</addFlagel>
+    <removeFlagel>false</removeFlagel>
+    <addLashes>false</addLashes>
+    <removeLashes>false</removeLashes>
+    <addMacro>false</addMacro>
+    <addOoze>false</addOoze>
+    <sizeXModifier>1</sizeXModifier>
+    <sizeYModifier>1</sizeYModifier>
+    <membraneSizeModifier>1</membraneSizeModifier>
+    <coreSizeModifier>1</coreSizeModifier>
+    <speedModifier>1</speedModifier>
+    <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1600,6 +2307,9 @@
     <complex>false</complex>
     <size>0</size>
     <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1609,6 +2319,9 @@
     <complex>true</complex>
     <size>2</size>
     <componantID>0</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1618,6 +2331,9 @@
     <complex>true</complex>
     <size>100</size>
     <componantID>0</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1627,15 +2343,21 @@
     <complex>false</complex>
     <size>0</size>
     <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
-    <name>Peptides</name>
+    <name>Peptide</name>
     <ID>4</ID>
     <rarity>0.03</rarity>
     <complex>true</complex>
     <size>10</size>
     <componantID>3</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
@@ -1645,41 +2367,56 @@
     <complex>true</complex>
     <size>100</size>
     <componantID>3</componantID>
-  </serialisable>
-  <serialisable xsi:type="molecule">
-    <SerialisableType>molecule</SerialisableType>
-    <name>Base Azotée</name>
-    <ID>6</ID>
-    <rarity>0.2</rarity>
-    <complex>false</complex>
-    <size>0</size>
-    <componantID>-1</componantID>
-  </serialisable>
-  <serialisable xsi:type="molecule">
-    <SerialisableType>molecule</SerialisableType>
-    <name>Acides Nucléiques</name>
-    <ID>7</ID>
-    <rarity>0.01</rarity>
-    <complex>true</complex>
-    <size>100</size>
-    <componantID>6</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
     <name>Acide Gras</name>
-    <ID>8</ID>
+    <ID>6</ID>
     <rarity>0.15</rarity>
     <complex>false</complex>
     <size>0</size>
     <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
   <serialisable xsi:type="molecule">
     <SerialisableType>molecule</SerialisableType>
     <name>Lipide</name>
-    <ID>9</ID>
+    <ID>7</ID>
     <rarity>0.04</rarity>
     <complex>true</complex>
     <size>10</size>
+    <componantID>6</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
+  </serialisable>
+  <serialisable xsi:type="molecule">
+    <SerialisableType>molecule</SerialisableType>
+    <name>Baze Azotée</name>
+    <ID>8</ID>
+    <rarity>0.2</rarity>
+    <complex>false</complex>
+    <size>0</size>
+    <componantID>-1</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
+  </serialisable>
+  <serialisable xsi:type="molecule">
+    <SerialisableType>molecule</SerialisableType>
+    <name>Acide Nucléique</name>
+    <ID>9</ID>
+    <rarity>0.01</rarity>
+    <complex>true</complex>
+    <size>100</size>
     <componantID>8</componantID>
+    <toxic>false</toxic>
+    <toxineType>none</toxineType>
+    <toxineStrength>0</toxineStrength>
   </serialisable>
 </ArrayOfSerialisable>

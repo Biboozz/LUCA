@@ -32,6 +32,9 @@ public class Individual : MonoBehaviour
 	private int _splitDelay = UnityEngine.Random.Range(18000, 36000);
 	private int _splitIncrement;
 
+	private delegate bool act();
+	private act[] actions;
+
 	#region accessors
 
 	public int survivedTime 				{   get { return _survivedTime; 	} 	}
@@ -67,6 +70,12 @@ public class Individual : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		actions = new act[2];
+		actions [0] = delegate() {
+			eat ();
+			return true;
+		};
+		actions [1] = division;
 		delay = UnityEngine.Random.Range (0, 420);
 		_RM = place.gameObject.GetComponent<resourcesManager> ();
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
@@ -89,7 +98,7 @@ public class Individual : MonoBehaviour
 
 		if ((coolDown % species.absorb_cooldown) == 0) {
 			//action();
-			eat (_RM);
+			eat ();
 			coolDown = 0;
 		} 
 
@@ -226,7 +235,7 @@ public class Individual : MonoBehaviour
 
 	#endregion action--------------------------------------------------------------------
 
-	public void eat(resourcesManager R)
+	public void eat()
 	{
 		Vector3 pos = transform.position;
 		int squarex = (int)(pos.x/ 20f);
@@ -234,7 +243,7 @@ public class Individual : MonoBehaviour
 		
 		foreach (moleculePack Mi in _cellMolecules) 
 		{
-			foreach (moleculePack Mc in R.moleculeRepartition[squarex,squarey])
+			foreach (moleculePack Mc in _RM.moleculeRepartition[squarex,squarey])
 			{
 				if ((Mi.moleculeType == Mc.moleculeType)&&(Mc.count > 0))
 				{
@@ -252,6 +261,11 @@ public class Individual : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void selectAction()
+	{
+
 	}
 
 	public void Initialize(Vector3 position, int lifeTime, Species species, environment place, bool isPlayed, List<moleculePack> molecules, int ATP)
@@ -301,12 +315,13 @@ public class Individual : MonoBehaviour
 		moleculePack.moleculeListFusion(cellMolecules, I.cellMolecules, op);
 	}
 
-	public void division()
+	public bool division()
 	{
 		GameObject son = (GameObject)Instantiate (_species.cell);
 		splitGive (son.GetComponent<Individual> ());
 		son.transform.position = transform.position;
 		_species.addCell (son.GetComponent<Individual>());
 		son.GetComponent<Individual>().descriptionBox = descriptionBox;
+		return true;
 	}
 }
