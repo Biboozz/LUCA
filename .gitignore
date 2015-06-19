@@ -31,6 +31,7 @@ $RECYCLE.BIN/
 # Thumbnails
 ._*
 Thumbs.db
+Thumbs.db.meta
 
 # Files that might appear on external disk
 .Spotlight-V100
