@@ -157,6 +157,7 @@ public class environment : MonoBehaviour {
 				}
 
 				pos = S.Individuals [YouCursor].transform.position;
+				S.Individuals[YouCursor].isSelectioned = true;
 				YouCursor++;
 			}
 		}
