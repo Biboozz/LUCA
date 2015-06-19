@@ -24,14 +24,16 @@ $RECYCLE.BIN/
 # OSX
 # =========================
 
-.DS_Store
+Thumbs.db
+Thumbs.db.meta
+*.DS_Store
+*.directory
 .AppleDouble
 .LSOverride
 
 # Thumbnails
 ._*
-Thumbs.db
-Thumbs.db.meta
+
 
 # Files that might appear on external disk
 .Spotlight-V100
