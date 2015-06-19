@@ -28,7 +28,7 @@ public class Individual : MonoBehaviour
 	private float _speed = 0.05f;	//Quand on augmente va plus vite
 	private int _delay = 0;
 
-	private int _splitDelay = UnityEngine.Random.Range(180, 360);
+	private int _splitDelay = UnityEngine.Random.Range(18000, 36000);
 	private int _splitIncrement;
 
 
@@ -290,12 +290,12 @@ public class Individual : MonoBehaviour
 
 	public void splitGive(Individual I)
 	{
-		moleculePack.operation op = delegate(ref int s, ref int d)
+		foreach (moleculePack mp in cellMolecules) 
 		{
-			s = s / 2;
-			return s;
-		};
-		moleculePack.moleculeListFusion(cellMolecules, I.cellMolecules, op);
+			mp.count = mp.count / 2;
+			moleculePack nmp = new moleculePack(mp.count, mp.moleculeType);
+			I.cellMolecules.Add(nmp);
+		}
 	}
 
 	public bool division()
@@ -305,6 +305,7 @@ public class Individual : MonoBehaviour
 		son.transform.position = transform.position;
 		_species.addCell (son.GetComponent<Individual>());
 		son.GetComponent<Individual>().descriptionBox = descriptionBox;
+		son.GetComponent<CellUnPlayed> ().Initialize ();
 		return true;
 	}
 }

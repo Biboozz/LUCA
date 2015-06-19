@@ -12,10 +12,11 @@ using UnityEngine.UI;
 
 public class actionManager : MonoBehaviour 
 {
-	private int coolDown = 30;
+	private int coolDown = 60;
 
 	public delegate bool action();		//action : fonction qui renvoie vrai si l'action effectuée est terminée
 	private List<action> actions;		//liste des actions par ordre de priorité.
+	private List<int> durations;
 
 	// initialisation
 	void Start () 
@@ -26,6 +27,7 @@ public class actionManager : MonoBehaviour
 	public void Initialize()
 	{
 		actions = new List<action> ();
+		durations = new List<int> ();
 	}
 	
 	// détermine quand les actions doivent etre effectuées selon le coolDown.
@@ -33,7 +35,7 @@ public class actionManager : MonoBehaviour
 	{
 		if (coolDown <= 0) 
 		{
-			coolDown = 30;
+			coolDown = 60;
 			execute();
 		} 
 		else 
@@ -54,6 +56,22 @@ public class actionManager : MonoBehaviour
 				if (actions[r]())
 				{
 					actions.RemoveAt(r);
+					durations.RemoveAt(r);
+				}
+				else
+				{
+					if (durations[r] == 0)
+					{
+						actions.RemoveAt(r);
+						durations.RemoveAt(r);
+					}
+					else
+					{
+						if (durations[r] > 0)
+						{
+							durations[r]--;
+						}
+					}
 				}
 				r--;
 			}
@@ -63,6 +81,7 @@ public class actionManager : MonoBehaviour
 	public void addAction(action act)
 	{
 		actions.Add (act);
+		durations.Add (-1);
 	}
 
 	public void addAction(action act, int priority)
@@ -79,6 +98,25 @@ public class actionManager : MonoBehaviour
 				i = 0;
 			}
 			actions.Insert(i, act);
+			durations.Insert(i, -1);
+		}
+	}
+
+	public void addAction(action act, int priority, int duration)
+	{
+		if (priority < 0) 
+		{
+			throw new ArgumentException ("Cannot set a negative priority", "int priority");
+		} 
+		else 
+		{
+			int i = actions.Count - priority;
+			if (i < 0)
+			{
+				i = 0;
+			}
+			actions.Insert(i, act);
+			durations.Insert(i, duration);
 		}
 	}
 }
