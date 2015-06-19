@@ -20,7 +20,6 @@ public class Individual : MonoBehaviour
 	private List<moleculePack> _cellMolecules = new List<moleculePack>();
 	private int _ATP;
 	private bool _consumeATP = true;
-	private int coolDown = 0;
 	public environment place;
 	public resourcesManager _RM;
 
@@ -29,11 +28,9 @@ public class Individual : MonoBehaviour
 	private float _speed = 0.05f;	//Quand on augmente va plus vite
 	private int _delay = 0;
 
-	private int _splitDelay = UnityEngine.Random.Range(18000, 36000);
+	private int _splitDelay = UnityEngine.Random.Range(180, 360);
 	private int _splitIncrement;
 
-	private delegate bool act();
-	private act[] actions;
 
 	#region accessors
 
@@ -70,15 +67,11 @@ public class Individual : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		actions = new act[2];
-		actions [0] = delegate() {
-			eat ();
-			return true;
-		};
-		actions [1] = division;
 		delay = UnityEngine.Random.Range (0, 420);
 		_RM = place.gameObject.GetComponent<resourcesManager> ();
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
+		GetComponent<actionManager> ().Initialize ();
+		GetComponent<actionManager> ().addAction (eat);
 	}
 	
 	// Update is called once per frame
@@ -96,20 +89,13 @@ public class Individual : MonoBehaviour
 			}
 		}
 
-		if ((coolDown % species.absorb_cooldown) == 0) {
-			//action();
-			eat ();
-			coolDown = 0;
-		} 
-
 		if (_splitIncrement == _splitDelay) 
 		{
 			_splitIncrement = 0;
-			division();
+			GetComponent<actionManager> ().addAction (division);
 		}
 
 		_splitIncrement++;
-		coolDown++;
 	}
 
 	private int existmol(List<moleculePack> packs, molecule searched)
@@ -235,7 +221,7 @@ public class Individual : MonoBehaviour
 
 	#endregion action--------------------------------------------------------------------
 
-	public void eat()
+	public bool eat()
 	{
 		Vector3 pos = transform.position;
 		int squarex = (int)(pos.x/ 20f);
@@ -261,12 +247,9 @@ public class Individual : MonoBehaviour
 				}
 			}
 		}
+		return false;
 	}
-
-	public void selectAction()
-	{
-
-	}
+	
 
 	public void Initialize(Vector3 position, int lifeTime, Species species, environment place, bool isPlayed, List<moleculePack> molecules, int ATP)
 	{
