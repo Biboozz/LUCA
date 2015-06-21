@@ -20,6 +20,7 @@ public class Individual : MonoBehaviour
 	private List<moleculePack> _cellMolecules = new List<moleculePack>();
 	private int _ATP;
 	private bool _consumeATP = true;
+	private List<Individual> _group;
 	public environment place;
 	public resourcesManager _RM;
 
@@ -33,7 +34,7 @@ public class Individual : MonoBehaviour
 
 
 	#region accessors
-
+	public List<Individual> group			{ 	get { return _group; } 					set { _group = value; 			} 	}
 	public int survivedTime 				{   get { return _survivedTime; 	} 	}
 	public resourcesManager RM 				{ 	get { return _RM; 				}		set { _RM = value;				}	}
 	public bool alive 						{ 	get { return _alive; 			}		set { _alive = value; 			} 	}

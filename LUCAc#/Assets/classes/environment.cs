@@ -17,8 +17,12 @@ public class environment : MonoBehaviour {
 	public resourcesManager RM;
 	private System.Random Rdm;
 	public ConsoleInitializer CI;
+
 	private int YouCursor = 0;
 	public GameObject Cam;
+
+	public GameObject groupSelectionerPrefab;
+	private List<List<Individual>> groups;
 
 	// Use this for initialization
 	void Start () 
@@ -99,6 +103,20 @@ public class environment : MonoBehaviour {
 			foreach (Species s in livings)
 			{
 				s.update();
+			}
+		}
+
+		if (Input.GetKey (KeyCode.G)) 
+		{
+			List<Individual> g = new List<Individual>();
+			foreach (Individual I in livings.Find(s => s.isPlayed).Individuals)
+			{
+				if (I.isSelectioned)
+				{
+					g.Add(I);
+					I.group = g;
+					groups.Add(g);
+				}
 			}
 		}
 	}
