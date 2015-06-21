@@ -72,7 +72,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		{
 			if(especes.isPlayed)
 			{
-				especes.unlockedPerks = SpecsTree.perkTree;
+				especes.unlockedPerks = ;
 			}
 		}
 		return "Vous avez débloqués toutes les compétences";
