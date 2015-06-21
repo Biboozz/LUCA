@@ -133,7 +133,7 @@ public class environment : MonoBehaviour {
 					{
 						if(I.cellMolecules.Find(mp => mp.moleculeType.ID == m.ID) == null)
 						{
-							I.cellMolecules.Add(new moleculePack(RdmMol.Next(5,6000),m));
+							I.cellMolecules.Add(new moleculePack(RdmMol.Next(50,200),m));
 						}
 					}
 				}
@@ -165,9 +165,6 @@ public class environment : MonoBehaviour {
 				//Selectionne la cellule courante
 				pos = S.Individuals [YouCursor].transform.position;
 				S.Individuals[YouCursor].isSelectioned = true;
-
-
-
 				YouCursor++;
 			}
 		}

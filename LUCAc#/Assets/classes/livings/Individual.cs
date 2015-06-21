@@ -28,7 +28,7 @@ public class Individual : MonoBehaviour
 	private float _speed = 0.05f;	//Quand on augmente va plus vite
 	private int _delay = 0;
 
-	private int _splitDelay = UnityEngine.Random.Range(18000, 36000);
+	private int _splitDelay = UnityEngine.Random.Range(1800, 36000);
 	private int _splitIncrement;
 
 
@@ -302,9 +302,11 @@ public class Individual : MonoBehaviour
 	{
 		GameObject son = (GameObject)Instantiate (_species.cell);
 		splitGive (son.GetComponent<Individual> ());
-		son.transform.position = transform.position;
 		_species.addCell (son.GetComponent<Individual>());
 		son.GetComponent<Individual>().descriptionBox = descriptionBox;
+		ATP = ATP / 2;
+		son.GetComponent<Individual>().Initialize(transform.position, 0, this._species, this.place, this.isPlayed, new List<moleculePack>(), ATP);
+		splitGive (son.GetComponent<Individual> ());
 		son.GetComponent<CellUnPlayed> ().Initialize ();
 		return true;
 	}

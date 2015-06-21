@@ -34,7 +34,7 @@ public class CellUnPlayed : MonoBehaviour {
 
 	public void Initialize()
 	{
-		I = gameObject.GetComponentInParent<Individual>();
+		I = GetComponent<Individual>();
 		R = I.RM;
 		cellMolecules = I.cellMolecules;
 		moleculetarget = cellMolecules[0];
