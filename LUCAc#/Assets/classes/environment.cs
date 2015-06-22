@@ -71,6 +71,7 @@ public class environment : MonoBehaviour {
 	{
 		Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
 		S.isPlayed = parent.isPlayed;
+		S.cell = parent.cell;
 		if (S.isPlayed) 
 		{
 			PSDD.species = S;

@@ -70,7 +70,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		_species = Environment.livings;	//Liste des espèces
 		foreach (Species especes in _species)
 		{
-			if(especes.isPlayed)
+			if (especes.isPlayed)
 			{
 				especes.unlockedPerks = SpecsTree.perkTree;
 			}

@@ -227,7 +227,22 @@ public class Individual : MonoBehaviour
 		Vector3 pos = transform.position;
 		int squarex = (int)(pos.x/ 20f);
 		int squarey = (int)(pos.y/ 20f);
-		
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (0 > squarex)
+		{
+			squarex = 0;
+		}
+		if (0 > squarey) 
+		{
+			squarey = 0;
+		}
 		foreach (moleculePack Mi in _cellMolecules) 
 		{
 			foreach (moleculePack Mc in _RM.moleculeRepartition[squarex,squarey])

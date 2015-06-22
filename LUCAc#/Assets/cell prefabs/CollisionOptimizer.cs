@@ -31,8 +31,12 @@ public class CollisionOptimizer : MonoBehaviour {
 
 	public void addCollisions()
 	{
-		parent.AddComponent<Rigidbody2D> ().gravityScale = 0;
-		parent.AddComponent<CircleCollider2D> ();
+		Rigidbody2D rb2D = parent.GetComponent<Rigidbody2D> ();
+		if ( rb2D== null) 
+		{
+			parent.AddComponent<Rigidbody2D> ().gravityScale = 0;
+			parent.AddComponent<CircleCollider2D> ();
+		}
 	}
 
 	public void removeCollisions()
