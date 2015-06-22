@@ -18,6 +18,8 @@ public class environment : MonoBehaviour {
 	private System.Random Rdm;
 	public ConsoleInitializer CI;
 
+	private System.Random rand = new System.Random();
+
 	private int YouCursor = 0;
 	public GameObject Cam;
 
@@ -231,6 +233,11 @@ public class environment : MonoBehaviour {
 		{
 			unit.gotDest = true;
 		}
+	}
+
+	public void GenerateBM()
+	{
+
 	}
 
 }
