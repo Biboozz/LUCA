@@ -10,7 +10,7 @@ public class NetworkCallBack : Bolt.GlobalEventListener
 		// randomize a position
 		var pos = new Vector3(Random.Range(1, 1999), Random.Range(1, 1999), 0);
 		
-		// instantiate cube
+		// instantiate cell
 		BoltNetwork.Instantiate(BoltPrefabs.cell_network, pos, Quaternion.Euler(0,0,0));
 	}
 
@@ -29,7 +29,8 @@ public class NetworkCallBack : Bolt.GlobalEventListener
 		
 		GUILayout.BeginArea(new Rect(Screen.width / 2 - 200, Screen.height - 100, 400, 100), GUI.skin.box);
 		
-		for (int i = 0; i < maxMessages; ++i) {
+		for (int i = 0; i < maxMessages; ++i) 
+		{
 			GUILayout.Label(logMessages[i]);
 		}
 		
