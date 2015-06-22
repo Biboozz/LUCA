@@ -8,7 +8,7 @@ public class SwitchScene : MonoBehaviour
 
     void OnClick()
     {
-		Debug.Log (pseudo);
+		//Debug.Log (pseudo);
         string button = gameObject.name;
         switch (button)
         {

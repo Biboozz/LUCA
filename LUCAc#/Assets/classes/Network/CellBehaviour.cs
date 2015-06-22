@@ -81,8 +81,10 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 	{
 		if (entity.isOwner) 
 		{
+			string pseudo = pseudo_multi.pseudos;
+
 			GUI.color = _color;
-			GUILayout.Label("Joueur");
+			GUILayout.Label(pseudo);
 			GUI.color = Color.white;
 		}
 	}

@@ -5,7 +5,7 @@ using System.Collections;
 
 public class pseudo_multi : MonoBehaviour
 {
-	public string pseudos = "Guest";
+	public static string pseudos = "Joueur";
 	
 	UIInput mInput;
 
@@ -20,8 +20,6 @@ public class pseudo_multi : MonoBehaviour
 		if (pseudos != null && pseudos != "Pseudo")
 		{
 			pseudos = NGUIText.StripSymbols(mInput.value);
-			//gameObject.GetComponent<CellBehaviour>().pseudo = pseudos;
-			Debug.Log(pseudos);
 		}
 	}
 }
