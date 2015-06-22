@@ -241,7 +241,7 @@ public class environment : MonoBehaviour {
 	{
 		cursor.pos (0, 0);
 		int dim = rand.Next (3, 5);
-		BM = new int[dim, dim];
+		BoardMap [,] BM = new BoardMap[dim, dim];
 
 		for (int i = 0; i<dim; i++) 
 		{
