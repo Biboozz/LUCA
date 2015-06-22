@@ -9,16 +9,18 @@ namespace AssemblyCSharp
 	public class BoardMap
 	{
 		private environment _env;
-		private bool locked;
+		private bool locked = false;
 		private List<int> pass;
 		private BMType material;
 		private Color seen;
 
 		private System.Random rand = new System.Random();
 
-		public BoardMap ()
+		public BoardMap (environment env)
 		{
+			_env = env;
 			RandomMaterial ();
+			GeneratePass ();
 		}
 
 		private void RandomMaterial()
@@ -57,7 +59,7 @@ namespace AssemblyCSharp
 			}
 		}
 
-		private void GeneratePass()
+		public void GeneratePass()
 		{
 			int bigiter = rand.Next (1, 4);
 			

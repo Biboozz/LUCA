@@ -15,6 +15,12 @@ namespace AssemblyCSharp
 		{
 			return Convert.ToInt32(System.Math.Sqrt(System.Math.Pow((this.x - P.x), 2) + System.Math.Pow((this.y - P.y), 2)));
 		}
+
+		public void pos(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
+		}
 	}
 }
 

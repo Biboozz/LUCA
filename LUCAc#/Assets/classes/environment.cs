@@ -19,6 +19,8 @@ public class environment : MonoBehaviour {
 	public ConsoleInitializer CI;
 
 	private System.Random rand = new System.Random();
+	public BoardMap[,] BM;
+	public POINT cursor;
 
 	private int YouCursor = 0;
 	public GameObject Cam;
@@ -237,6 +239,18 @@ public class environment : MonoBehaviour {
 
 	public void GenerateBM()
 	{
+		cursor.pos (0, 0);
+		int dim = rand.Next (3, 5);
+		BM = new int[dim, dim];
+
+		for (int i = 0; i<dim; i++) 
+		{
+			for(int j = 0;j<dim;j++)
+			{
+				BM[i,j] = new BoardMap(this);
+			}
+		} 
+
 
 	}
 
