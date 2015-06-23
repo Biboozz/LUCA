@@ -153,7 +153,8 @@ public class CellUnPlayed : MonoBehaviour {
 	{
 		foreach(moleculePack P in M)
 		{
-			if(P.moleculeType.name == FindMoleculeLack()[0].moleculeType.name || P.moleculeType.name == FindMoleculeLack()[1].moleculeType.name || P.moleculeType.name == FindMoleculeLack()[2].moleculeType.name)	//Molécule trouvé
+			List<moleculePack> targets = FindMoleculeLack();
+			if((P.moleculeType.name == targets[0].moleculeType.name && targets[0].count < 300) || (P.moleculeType.name == targets[1].moleculeType.name && targets[1].count < 300) || (P.moleculeType.name == targets[2].moleculeType.name && targets[2].count < 300))	//Molécule trouvé
 			{
 				I.target = new Vector3(tab_Pos[i, 0] * 20 + 10, tab_Pos[i, 1] * 20 + 10, 0.1f);
 				I.gotDest = true;
