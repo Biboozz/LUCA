@@ -446,41 +446,52 @@ public class environment : MonoBehaviour {
 		Cam.transform.position = pos;
 	}
 
-	public void setTargettoGroup(List<Individual> group, Vector3 target)	//Set formation for a list of individual
+	public void setTargettoGroup(List<Individual> group)	//Set formation for a list of individual
 	{
+		int moyx = 0;
+		int moyy = 0;
+		
+		foreach (Individual I in group)
+		{
+			moyx = moyx + I.transform.position.x;
+			moyy = moyy + I.transform.position.y;
+		}
+		
+		Vector3 target = new Vector3 (moyx, moyy);
+		
 		int count = group.Count;
-
+		
 		if (count > 0 && count <= 5) 
 		{
 			switch (count) {
 			case 1 : group[0].target = target;	//Solo
 				break;
 			case 2 : group[0].target = target;	//Duo cote à cote
-					 group[1].target = new Vector3(target.x + 10, target.y);
+				group[1].target = new Vector3(target.x + 10, target.y);
 				break;
 			case 3 : group[0].target = target;	//Triangle
-					 group[1].target = new Vector3(target.x + 10, target.y);
-					 group[2].target = new Vector3(target.x + 5, target.y + 10);
+				group[1].target = new Vector3(target.x + 10, target.y);
+				group[2].target = new Vector3(target.x + 5, target.y + 10);
 				break;
 			case 4 : group[0].target = target;	//Carré
-					 group[1].target = new Vector3(target.x + 10, target.y);
-					 group[2].target = new Vector3(target.x + 10, target.y + 10);
-					 group[3].target = new Vector3(target.x, target.y + 10);
+				group[1].target = new Vector3(target.x + 10, target.y);
+				group[2].target = new Vector3(target.x + 10, target.y + 10);
+				group[3].target = new Vector3(target.x, target.y + 10);
 				break;
 			case 5 : group[0].target = target;	//Hexagone
-					 group[1].target = new Vector3(target.x + 10, target.y);
-					 group[2].target = new Vector3(target.x + 15, target.y + 10);
-					 group[3].target = new Vector3(target.x - 5, target.y + 10);
-					 group[4].target = new Vector3(target.x + 5, target.y + 20);
+				group[1].target = new Vector3(target.x + 10, target.y);
+				group[2].target = new Vector3(target.x + 15, target.y + 10);
+				group[3].target = new Vector3(target.x - 5, target.y + 10);
+				group[4].target = new Vector3(target.x + 5, target.y + 20);
 				break;
 			}
 		}
-
+		
 		if (count > 5) //Voir algo génération de formation rectangulaire.
 		{
-
+			
 		}
-
+		
 		foreach(Individual unit in group)	//Indique aux individue qu'il possède une cible
 		{
 			unit.gotDest = true;
