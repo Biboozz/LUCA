@@ -26,9 +26,12 @@ public class CellUnPlayed : MonoBehaviour {
 		I = gameObject.GetComponentInParent<Individual>();	//Définition de la cellule
 		R = I.RM;	//Création du resourcesManager
 		cellMolecules = I.cellMolecules;	//Récupération de la liste de moleculePack
-		target1 = cellMolecules[0];
-		target2 = cellMolecules[0];
-		target3 = cellMolecules[0];
+		target1 = new moleculePack();
+		target2 = new moleculePack();
+		target3 = new moleculePack();
+		target1.count = 100000;
+		target2.count = 100000;
+		target3.count = 100000;
 		started = true;
 	}
 
@@ -51,7 +54,7 @@ public class CellUnPlayed : MonoBehaviour {
 	{
 		if (started) 
 		{
-			if (I.delay >= 360) //Action effectuer toutes les 6 secondes
+			if (I.delay >= 60) //Action effectuer toutes les 6 secondes
 			{
 				I.delay = 0;
 
@@ -62,7 +65,6 @@ public class CellUnPlayed : MonoBehaviour {
 
 					if(posx > 6 && posx < 94 && posy > 6 && posy < 94)	//Si elle est dans le périmètre et que le calcul du rayon ne sort pas du terrain
 					{
-						FindMoleculeLack();
 						AnalyseMolecules();
 					}
 				}
@@ -149,14 +151,14 @@ public class CellUnPlayed : MonoBehaviour {
 	{
 		foreach(moleculePack P in M)
 		{
-			/*if(P.moleculeType.name == FindMoleculeLack() && P.count > 40)	//Molécule trouvé
+			if(P.moleculeType.name == FindMoleculeLack()[0].moleculeType.name || P.moleculeType.name == FindMoleculeLack()[1].moleculeType.name || P.moleculeType.name == FindMoleculeLack()[2].moleculeType.name)	//Molécule trouvé
 			{
 				I.gotDest = true;
 				I.target = new Vector3(posx * 20 + 10, posy * 20 + 10, 0.1f);
 				return true;
 			}
 			else
-				return false;*/
+				return false;
 		}
 		return false;
 	}
