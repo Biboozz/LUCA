@@ -27,8 +27,17 @@ public class environment : MonoBehaviour {
 	public GameObject Cam;
 
 	public GameObject groupSelectioner;
+	public Button[] buttons;
 	private List<List<Individual>> groups;
 	private int selected = -1;
+
+	public int selectedButton
+	{
+		get
+		{
+			return selected;
+		}
+	}
 
 	// Use this for initialization
 	void Start () 
@@ -68,8 +77,14 @@ public class environment : MonoBehaviour {
 			livings.Add (S); //ajout liste espece vivante
 		}
 		groups = new List<List<Individual>> ();
+		foreach (Button B in groupSelectioner.GetComponentsInChildren<Button>())
+		{
+			Navigation n = B.navigation;
+			n.mode = Navigation.Mode.None;
+			B.navigation = n;
+		}
 	}
-
+	
 	public Species addSpecies(Species parent, List<Individual> starters)
 	{
 		Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
@@ -143,65 +158,213 @@ public class environment : MonoBehaviour {
 			}
 			else
 			{
+				unselectButton();
 				groupSelectioner.transform.GetChild(10 - groups.Count).gameObject.GetComponent<Button>().interactable = false;
 				groups.RemoveAt(selected);
 				selected = -1;
-				foreach (Button B in groupSelectioner.GetComponentsInChildren<Button>())
-				{
-					//unhilight
-				}
 			}
+		}
+	}
+
+	private void unselectButton()
+	{
+		ColorBlock cb;
+		if (selected != -1) 
+		{
+			cb = buttons[selected].colors;
+			cb.normalColor = Color.yellow;
+			buttons[selected].colors = cb;
+		}
+	}
+
+	private void selectButton()
+	{
+		ColorBlock cb;
+		if (selected != -1) 
+		{
+			cb = buttons [selected].colors;
+			cb.normalColor = cb.highlightedColor;
+			buttons [selected].colors = cb;
+		}
+	}
+
+	private void selectGroup()
+	{
+		foreach (Individual I in groups[selected]) 
+		{
+			I.isSelectioned = true;
 		}
 	}
 
 	public void G1Click()
 	{
+		unselectButton();
+		int b = selected;
 		selected = 0;
+		if (b != selected) 
+		{
+
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G2Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 1;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G3Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 2;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G4Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 3;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G5Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 4;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G6Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 5;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G7Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 6;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G8Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 7;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G9Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 8;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void G10Click()
 	{
+		unselectButton ();
+		int b = selected;
 		selected = 9;
+		if (b != selected) 
+		{
+			selectButton();
+			selectGroup();
+		} 
+		else 
+		{
+			unselectButton();
+			selected = -1;
+		}
 	}
 
 	public void remove(GameObject G)
