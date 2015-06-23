@@ -8,36 +8,46 @@ public class CellUnPlayed : MonoBehaviour {
 	private Individual I;
 	private resourcesManager R;
 	private List<moleculePack> cellMolecules;	//Liste des molecules de la cellules
-	private moleculePack moleculetarget;
 	private List<List<moleculePack>> moleculesAroundCell;
 
-	private int posx_square;
-	private int posy_square;
+	private moleculePack target1;
+	private moleculePack target2;
+	private moleculePack target3;
 
 	private int posx;
 	private int posy;
 
-	private int[,] tab_Pos = new int[81, 2];
+	private int[,] tab_Pos = new int[81, 2];	//Tableau pour les 81 carré a gérer avec position en x puis celle en y
 
 	private bool started = false;
 
-	// Use this for initialization
-	void Start () 
+	public void Start()
 	{
-		//GenerateTab ();
-//		I = gameObject.GetComponentInParent<Individual>();
-//		R = I.RM;
-//		cellMolecules = I.cellMolecules;
-//		moleculetarget = cellMolecules[0];
-//		started = true;
+		I = gameObject.GetComponentInParent<Individual>();	//Définition de la cellule
+		R = I.RM;	//Création du resourcesManager
+		cellMolecules = I.cellMolecules;	//Récupération de la liste de moleculePack
+		target1 = new moleculePack();
+		target2 = new moleculePack();
+		target3 = new moleculePack();
+		target1.count = 100000;
+		target2.count = 100000;
+		target3.count = 100000;
+		started = true;
+		posx = (int)(transform.position.x / 20);	//Calcul position x par rapport au carré
+		posy = (int)(transform.position.y / 20);	//Calcul position y par rapport au carré
 	}
 
 	public void Initialize()
 	{
-		I = GetComponent<Individual>();
-		R = I.RM;
-		cellMolecules = I.cellMolecules;
-		moleculetarget = cellMolecules[0];
+		I = gameObject.GetComponentInParent<Individual>();	//Définition de la cellule
+		R = I.RM;	//Création du resourcesManager
+		cellMolecules = I.cellMolecules;	//Récupération de la liste de moleculePack
+		target1 = new moleculePack();
+		target2 = new moleculePack();
+		target3 = new moleculePack();
+		target1.count = 100000;
+		target2.count = 100000;
+		target3.count = 100000;
 		started = true;
 	}
 	
@@ -46,15 +56,19 @@ public class CellUnPlayed : MonoBehaviour {
 	{
 		if (started) 
 		{
-			if (I.delay >= 360) 
+			if (I.delay >= 360) //Action effectuer toutes les 6 secondes
 			{
 				I.delay = 0;
-				if(!I.gotDest && !I.isPlayed)
+
+				if(!I.gotDest && !I.isPlayed)	//Si la cellule n'a pas de destination et qu'elle n'est pas joué
 				{
-					posx = (int)(transform.position.x / 20);
-					posy = (int)(transform.position.y / 20);
-					if(posx > 6 && posx < 94 && posy > 6 && posy < 94)
-						AnalyseMolecules ();
+					posx = (int)(transform.position.x / 20);	//Calcul position x par rapport au carré
+					posy = (int)(transform.position.y / 20);	//Calcul position y par rapport au carré
+
+					if(posx > 6 && posx < 94 && posy > 6 && posy < 94)	//Si elle est dans le périmètre et que le calcul du rayon ne sort pas du terrain
+					{
+						AnalyseMolecules();
+					}
 				}
 			} 
 			else
@@ -63,17 +77,28 @@ public class CellUnPlayed : MonoBehaviour {
 
 	}
 
-	public string FindMoleculeLack()
+	public List<moleculePack> FindMoleculeLack()
 	{
 		foreach (moleculePack mp in cellMolecules) 
 		{
-			if(mp.count < moleculetarget.count)		//Si le montant de la molécule est inférieur à la molécule cible, alors cette molécule deviens la molécule cible
+			int count = mp.count;
+			if(target1.count > count)
 			{
-				moleculetarget = mp;
+				target3 = target2;
+				target2 = target1;
+				target1 = mp;
+			}
+			else if(target2.count > count && target1 != mp)
+			{
+				target3 = target2;
+				target2 = mp;
+			}
+			else if(target3.count > count && target1 != mp && target2 != mp)
+			{
+				target3 = mp;
 			}
 		}
-
-		return moleculetarget.moleculeType.name;
+		return new List<moleculePack>{target1, target2, target3};
 	}
 
 	public void AnalyseMolecules()
@@ -88,7 +113,7 @@ public class CellUnPlayed : MonoBehaviour {
 
 		for (int i = 0; i <= 8 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);	//Test si présence de la molécule recherch dans le premier rayon
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);	//Test si présence de la molécule recherché est dans le premier rayon
 		}
 
 		if (!b)	//Si la molécule n'est pas trouvé, lance le procédé sur le deuxième rayon
@@ -96,7 +121,7 @@ public class CellUnPlayed : MonoBehaviour {
 
 		for (int i = 9; i <= 24 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 
 		if (!b)
@@ -104,7 +129,7 @@ public class CellUnPlayed : MonoBehaviour {
 		
 		for (int i = 25; i <= 48 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 
 		if (!b)
@@ -112,7 +137,7 @@ public class CellUnPlayed : MonoBehaviour {
 		
 		for (int i = 49; i <= 68 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 
 		if (!b)
@@ -120,18 +145,19 @@ public class CellUnPlayed : MonoBehaviour {
 		
 		for (int i = 69; i <= 80 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 	}
 
-	public bool TestAnalyse(List<moleculePack> M)
+	public bool TestAnalyse(List<moleculePack> M, int i)
 	{
 		foreach(moleculePack P in M)
 		{
-			if(P.moleculeType.name == FindMoleculeLack() && P.count > 40)	//Molécule trouvé
+			List<moleculePack> targets = FindMoleculeLack();
+			if((P.moleculeType.name == targets[0].moleculeType.name && targets[0].count < 300) || (P.moleculeType.name == targets[1].moleculeType.name && targets[1].count < 300) || (P.moleculeType.name == targets[2].moleculeType.name && targets[2].count < 300))	//Molécule trouvé
 			{
+				I.target = new Vector3(tab_Pos[i, 0] * 20 + 10, tab_Pos[i, 1] * 20 + 10, 0.1f);
 				I.gotDest = true;
-				I.target = new Vector3(posx_square * 20 + 10, posy_square * 20 + 10, 0.1f);
 				return true;
 			}
 			else
