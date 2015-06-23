@@ -10,7 +10,7 @@ namespace AssemblyCSharp
 	{
 		private environment _env;
 		private bool locked = false;
-		private List<int> pass;
+		private List<moleculePack> pass = new List<moleculePack>();
 		private BMType material;
 		private Color seen;
 
@@ -62,13 +62,12 @@ namespace AssemblyCSharp
 		public void GeneratePass()
 		{
 			int bigiter = rand.Next (1, 4);
-			
-			int i = 0;
+
 			for (int loop = 0; loop<bigiter; loop++)
 			{
 				int RandPass = rand.Next (9000, 12000);
-				int iter = rand.Next (0, 100) % _env.molecules.Count;
-				pass.Add(RandPass/bigiter); // A gerrer en fonction de la rareté de la mollecule
+				int index = (rand.Next (0, 100))%( _env.molecules.Count);
+				pass.Add(new moleculePack(RandPass/bigiter, _env.molecules[index])); // A gerrer en fonction de la rareté de la mollecule
 			}
 			
 		}

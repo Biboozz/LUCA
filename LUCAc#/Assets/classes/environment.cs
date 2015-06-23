@@ -21,7 +21,7 @@ public class environment : MonoBehaviour {
 
 	private System.Random rand = new System.Random();
 	public BoardMap[,] BM;
-	public POINT cursor;
+	//public POINT cursor;
 
 	private int YouCursor = 0;
 	public GameObject Cam;
@@ -68,6 +68,7 @@ public class environment : MonoBehaviour {
 			livings.Add (S); //ajout liste espece vivante
 		}
 		groups = new List<List<Individual>> ();
+
 	}
 
 	public Species addSpecies(Species parent, List<Individual> starters)
@@ -241,6 +242,8 @@ public class environment : MonoBehaviour {
 			}
 			RM.molecules = nm;
 			_molecules = nm;
+
+			GenerateBM ();
 		}
 	}
 
@@ -318,8 +321,8 @@ public class environment : MonoBehaviour {
 
 	public void GenerateBM()
 	{
-		cursor.pos (0, 0);
-		int dim = rand.Next (3, 5);
+		//cursor.pos (0, 0);
+		int dim = 3;// rand.Next (3, 5);
 		BoardMap [,] BM = new BoardMap[dim, dim];
 
 		for (int i = 0; i<dim; i++) 
