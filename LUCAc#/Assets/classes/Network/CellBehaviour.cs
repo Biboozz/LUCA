@@ -38,10 +38,10 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		var speed = 100f;
 		var movement = Vector3.zero;
 		
-		if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > 3) { movement.y -= 1; }
-		if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 1997) { movement.y += 1; }
-		if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 1997) { movement.x += 1; }
-		if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > 3) { movement.x -= 1; }
+		if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > 303) { movement.y -= 1; }
+		if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 1697) { movement.y += 1; }
+		if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 1697) { movement.x += 1; }
+		if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > 303) { movement.x -= 1; }
 		
 		if (movement != Vector3.zero) 
 		{
@@ -56,7 +56,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 			Vector3 point = ray.origin + (ray.direction * 4.5f);    
 			point.y = 0.2f;
 
-			if(point.x <= 1999 && point.x >= 1 && point.y <= 1999 && point.y >= 1)
+			if(point.x <= 1699 && point.x >= 301 && point.y <= 1699 && point.y >= 301)
 			{
 				target = point;		//target prend position du clic
 				gotDest = true;		//Objet possède une destination
@@ -69,7 +69,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 			{
 				gotDest = false;		//Plus de destination car elle a été atteinte
 			}
-			if(transform.position.x < 1999 && transform.position.x > 1 && transform.position.y < 1999 && transform.position.y > 1)
+			if(transform.position.x < 1699 && transform.position.x > 301 && transform.position.y < 1699 && transform.position.y > 301)
 			{
 				transform.position = Vector3.Lerp(transform.position, target, 1/(duration*(Vector3.Distance(transform.position, target))));		//Déplacement de la cellule au fur et a mesure !
 			}
