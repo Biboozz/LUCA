@@ -25,7 +25,7 @@ public class Individual : MonoBehaviour
 	public resourcesManager _RM;
 
 	public GameObject descriptionBox;
-	private float _duration = 20.0f;	//Diminuer pour plus vite
+	private float _duration = 10.0f;	//Diminuer pour plus vite
 	private float _speed = 0.05f;	//Quand on augmente va plus vite
 	private int _delay = 0;
 

@@ -457,11 +457,10 @@ public class environment : MonoBehaviour {
 			moyy = moyy + I.transform.position.y;
 		}
 		
-		Vector3 target = new Vector3 (moyx, moyy);
-		
 		int count = group.Count;
+		Vector3 target = new Vector3 (moyx / count, moyy / count);
 		
-		if (count > 0 && count <= 5) 
+		if (count > 0 && count <= 9) 
 		{
 			switch (count) {
 			case 1 : group[0].target = target;	//Solo
@@ -478,18 +477,47 @@ public class environment : MonoBehaviour {
 				group[2].target = new Vector3(target.x + 10, target.y + 10);
 				group[3].target = new Vector3(target.x, target.y + 10);
 				break;
-			case 5 : group[0].target = target;	//Hexagone
+			case 5 : group[0].target = target;	//Pentagne
 				group[1].target = new Vector3(target.x + 10, target.y);
 				group[2].target = new Vector3(target.x + 15, target.y + 10);
 				group[3].target = new Vector3(target.x - 5, target.y + 10);
 				group[4].target = new Vector3(target.x + 5, target.y + 20);
 				break;
+			case 6 : group[0].target = target;	//Ligne
+				group[1].target = new Vector3(target.x + 10, target.y);
+				group[2].target = new Vector3(target.x + 20, target.y);
+				group[3].target = new Vector3(target.x - 10, target.y);
+				group[4].target = new Vector3(target.x + 30, target.y);
+				group[5].target = new Vector3(target.x - 20, target.y);
+				break;
+			case 7 : group[0].target = target;	//7
+				group[1].target = new Vector3(target.x - 10, target.y);
+				group[2].target = new Vector3(target.x - 20, target.y);
+				group[3].target = new Vector3(target.x - 5, target.y - 5);
+				group[4].target = new Vector3(target.x - 10, target.y - 10);
+				group[5].target = new Vector3(target.x - 15, target.y - 15);
+				group[6].target = new Vector3(target.x - 20, target.y - 20);
+				break;
+			case 8 : group[0].target = target;	//Flèche
+				group[1].target = new Vector3(target.x + 10, target.y - 5);
+				group[2].target = new Vector3(target.x - 10, target.y - 5);
+				group[3].target = new Vector3(target.x - 20, target.y - 10);
+				group[4].target = new Vector3(target.x + 20, target.y - 10);
+				group[5].target = new Vector3(target.x, target.y - 15);
+				group[6].target = new Vector3(target.x, target.y - 25);
+				group[7].target = new Vector3(target.x, target.y - 35);
+				break;
+			case 9 : group[0].target = target;	//Dé
+				group[1].target = new Vector3(target.x + 10, target.y);
+				group[2].target = new Vector3(target.x - 10, target.y);
+				group[3].target = new Vector3(target.x + 10, target.y - 10);
+				group[4].target = new Vector3(target.x - 10, target.y - 10);
+				group[5].target = new Vector3(target.x, target.y - 10);
+				group[6].target = new Vector3(target.x - 10, target.y - 20);
+				group[7].target = new Vector3(target.x, target.y - 20);
+				group[8].target = new Vector3(target.x + 10, target.y - 20);
+				break;
 			}
-		}
-		
-		if (count > 5) //Voir algo génération de formation rectangulaire.
-		{
-			
 		}
 		
 		foreach(Individual unit in group)	//Indique aux individue qu'il possède une cible
