@@ -89,19 +89,11 @@ public class Unit : MonoBehaviour {
 				}
 			}
 
-			if(I.gotDest && (Time.timeScale >= 1f))
+			if(I.gotDest)
 			{
 				if((transform.position.x - I.target.x >= -2 && transform.position.x - I.target.x <= 2) && (transform.position.y - I.target.y >= -2 && transform.position.y - I.target.y <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
 				{
-					if(!I.isPlayed)
-					{
-						if(I.delay >= 360)
-						{
-							I.gotDest = false;
-						}
-					}
-					else
-						I.gotDest = false;		//Plus de destination car elle a été atteinte
+					I.gotDest = false;		//Plus de destination car elle a été atteinte
 				}
 				transform.position = Vector3.Lerp(transform.position, I.target, 1/(I.duration*(Vector3.Distance(transform.position, I.target))));		//Déplacement de la cellule au fur et a mesure !
 			}

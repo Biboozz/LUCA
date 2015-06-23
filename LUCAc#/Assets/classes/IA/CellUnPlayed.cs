@@ -33,6 +33,8 @@ public class CellUnPlayed : MonoBehaviour {
 		target2.count = 100000;
 		target3.count = 100000;
 		started = true;
+		posx = (int)(transform.position.x / 20);	//Calcul position x par rapport au carré
+		posy = (int)(transform.position.y / 20);	//Calcul position y par rapport au carré
 	}
 
 	public void Initialize()
@@ -54,7 +56,7 @@ public class CellUnPlayed : MonoBehaviour {
 	{
 		if (started) 
 		{
-			if (I.delay >= 60) //Action effectuer toutes les 6 secondes
+			if (I.delay >= 360) //Action effectuer toutes les 6 secondes
 			{
 				I.delay = 0;
 
@@ -111,7 +113,7 @@ public class CellUnPlayed : MonoBehaviour {
 
 		for (int i = 0; i <= 8 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);	//Test si présence de la molécule recherché est dans le premier rayon
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);	//Test si présence de la molécule recherché est dans le premier rayon
 		}
 
 		if (!b)	//Si la molécule n'est pas trouvé, lance le procédé sur le deuxième rayon
@@ -119,7 +121,7 @@ public class CellUnPlayed : MonoBehaviour {
 
 		for (int i = 9; i <= 24 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 
 		if (!b)
@@ -127,7 +129,7 @@ public class CellUnPlayed : MonoBehaviour {
 		
 		for (int i = 25; i <= 48 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 
 		if (!b)
@@ -135,7 +137,7 @@ public class CellUnPlayed : MonoBehaviour {
 		
 		for (int i = 49; i <= 68 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 
 		if (!b)
@@ -143,18 +145,18 @@ public class CellUnPlayed : MonoBehaviour {
 		
 		for (int i = 69; i <= 80 && !b; i++) 
 		{
-			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]]);
+			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
 	}
 
-	public bool TestAnalyse(List<moleculePack> M)
+	public bool TestAnalyse(List<moleculePack> M, int i)
 	{
 		foreach(moleculePack P in M)
 		{
 			if(P.moleculeType.name == FindMoleculeLack()[0].moleculeType.name || P.moleculeType.name == FindMoleculeLack()[1].moleculeType.name || P.moleculeType.name == FindMoleculeLack()[2].moleculeType.name)	//Molécule trouvé
 			{
+				I.target = new Vector3(tab_Pos[i, 0] * 20 + 10, tab_Pos[i, 1] * 20 + 10, 0.1f);
 				I.gotDest = true;
-				I.target = new Vector3(posx * 20 + 10, posy * 20 + 10, 0.1f);
 				return true;
 			}
 			else
