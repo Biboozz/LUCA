@@ -32,6 +32,8 @@ public class Individual : MonoBehaviour
 	private int _splitDelay = UnityEngine.Random.Range(1800, 36000);
 	private int _splitIncrement;
 
+	private int vieilDelta = 0;
+
 
 	#region accessors
 	public List<Individual> group			{ 	get { return _group; } 					set { _group = value; 			} 	}
@@ -48,6 +50,7 @@ public class Individual : MonoBehaviour
 	public float duration 					{ 	get { return _duration; 		} 		set { _duration = value; 		} 	}
 	public float speed						{	get { return _speed;			}		set { _speed = value;			}	}
 	public int delay						{ 	get { return _delay; 			} 		set { _delay= value; 			} 	}
+
 	public bool isSelectioned
 	{ 	
 		get 
@@ -97,6 +100,17 @@ public class Individual : MonoBehaviour
 		}
 
 		_splitIncrement++;
+
+		vieilDelta++;
+		if (vieilDelta >= 60) 
+		{
+			vieilDelta = 0;
+			_survivedTime++;
+			if (_survivedTime >= _species.individualLifeTime)
+			{
+				alive = false;
+			}
+		}
 	}
 
 	private int existmol(List<moleculePack> packs, molecule searched)

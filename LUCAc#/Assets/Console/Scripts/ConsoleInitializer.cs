@@ -83,7 +83,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		foreach (Individual I in Environment.selectedI) 
 		{
 			Destroy(I.gameObject);
-			Environment.selectedI = new List<Individual>{};
+			Environment.selectedI = new List<Individual>();
 		}
 		return "Vous avez tué les cellules sélectionnées";
 	}

@@ -51,6 +51,7 @@ public class environment : MonoBehaviour {
 		{
 			Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
 			S.cell = cellPrefab;
+			S.individualLifeTime = 120;
 			for (int i = 1; i <= 100; i++) // création de 100 cellules de l'espece
 			{
 				S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
@@ -68,7 +69,7 @@ public class environment : MonoBehaviour {
 			}
 			for (int i = 0; i < S.Individuals.Count; i++) 
 			{
-				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000),UnityEngine.Random.Range(0,2000), 0.1f), 50000, S, this, j == 0, new List<moleculePack>(), Rdm.Next(500)); //apparition coordonnées random
+				S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000),UnityEngine.Random.Range(0,2000), 0.1f), 20, S, this, j == 0, new List<moleculePack>(), Rdm.Next(500)); //apparition coordonnées random
 				S.Individuals[i].descriptionBox = UICellDescriptionBox;
 				S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = S.color; //modif couleur core en fonction de l'espece
 				S.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
@@ -90,6 +91,7 @@ public class environment : MonoBehaviour {
 	public Species addSpecies(Species parent, List<Individual> starters)
 	{
 		Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
+		S.individualLifeTime = 120;
 		S.isPlayed = parent.isPlayed;
 		S.cell = parent.cell;
 		if (S.isPlayed) 
@@ -142,8 +144,8 @@ public class environment : MonoBehaviour {
 					{
 						g.Add(I);
 						I.group = g;
+						setTargettoGroup(g);
 					}
-					
 				}
 				if (g.Count > 0)
 				{
