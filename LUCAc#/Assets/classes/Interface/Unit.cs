@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using AssemblyCSharp;
 
 public class Unit : MonoBehaviour {
 
@@ -46,6 +47,7 @@ public class Unit : MonoBehaviour {
 					if(selected && I.isPlayed)
 					{
 						I.isSelectioned = true;
+						I.place.selectedI.Add(I);
 					}
 					else
 					{

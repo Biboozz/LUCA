@@ -19,6 +19,8 @@ public class environment : MonoBehaviour {
 	private System.Random Rdm;
 	public ConsoleInitializer CI;
 
+	public List<Individual> selectedI = new List<Individual>{};
+
 	private System.Random rand = new System.Random();
 	public BoardMap[,] BM;
 	//public POINT cursor;

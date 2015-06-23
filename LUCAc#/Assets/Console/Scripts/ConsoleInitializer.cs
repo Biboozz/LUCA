@@ -22,6 +22,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("speed", Speed);
 		repo.RegisterCommand("speedbase", SpeedBase);
 		repo.RegisterCommand("allunlock", Allunlock);
+		repo.RegisterCommand("kill", Kill);
 		repo.RegisterCommand("help", Help);
 
 		//_species = Environment.livings;	//Liste des espèces
@@ -78,11 +79,21 @@ public class ConsoleInitializer : MonoBehaviour {
 		return "Vous avez débloqués toutes les compétences";
 	}
 
+	public string Kill(params string[] args) {
+		foreach (Individual I in Environment.selectedI) 
+		{
+			Destroy(I.gameObject);
+			Environment.selectedI = new List<Individual>{};
+		}
+		return "Vous avez tué les cellules sélectionnées";
+	}
+
 	public string Help(params string[] args) {
 		return "god -- Vie illimitée\n" +
 			"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
 			"speedbase -- remet la vitesse de base\n" +
 			"allunlock -- débloque toutes les compétences de l'arbre\n" +
+			"kill -- tue toutes les cellules sélectionnées\n" +
 			"help -- cette commande";
 	}
 }
