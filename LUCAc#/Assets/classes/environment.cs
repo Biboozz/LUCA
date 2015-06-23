@@ -32,7 +32,8 @@ public class environment : MonoBehaviour {
 	public Button[] buttons;
 	private List<List<Individual>> groups;
 	private int selected = -1;
-
+	public GameObject UIGroupZone;
+	
 	public int selectedButton
 	{
 		get
@@ -175,6 +176,7 @@ public class environment : MonoBehaviour {
 			cb = buttons[selected].colors;
 			cb.normalColor = Color.yellow;
 			buttons[selected].colors = cb;
+			UIGroupZone.SetActive(false);
 		}
 	}
 
@@ -186,6 +188,7 @@ public class environment : MonoBehaviour {
 			cb = buttons [selected].colors;
 			cb.normalColor = cb.highlightedColor;
 			buttons [selected].colors = cb;
+			UIGroupZone.SetActive(true);
 		}
 	}
 

@@ -11,6 +11,8 @@ public class hideGroupZone : MonoBehaviour {
 
 	public environment E;
 
+
+
 	// Use this for initialization
 	void Start () {
 	

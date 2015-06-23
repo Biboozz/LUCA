@@ -23,18 +23,17 @@ public class CellUnPlayed : MonoBehaviour {
 
 	public void Start()
 	{
-		I = gameObject.GetComponentInParent<Individual>();	//Définition de la cellule
-		R = I.RM;	//Création du resourcesManager
-		cellMolecules = I.cellMolecules;	//Récupération de la liste de moleculePack
-		target1 = new moleculePack();
-		target2 = new moleculePack();
-		target3 = new moleculePack();
-		target1.count = 100000;
-		target2.count = 100000;
-		target3.count = 100000;
-		started = true;
-		posx = (int)(transform.position.x / 20);	//Calcul position x par rapport au carré
-		posy = (int)(transform.position.y / 20);	//Calcul position y par rapport au carré
+//		I = gameObject.GetComponentInParent<Individual>();	//Définition de la cellule
+//		R = I.RM;	//Création du resourcesManager
+//		cellMolecules = I.cellMolecules;	//Récupération de la liste de moleculePack
+//		target1 = new moleculePack();
+//		target2 = new moleculePack();
+//		target3 = new moleculePack();
+//		target1.count = 100000;
+//		target2.count = 100000;
+//		target3.count = 100000;
+//		started = true;
+
 	}
 
 	public void Initialize()
@@ -49,6 +48,8 @@ public class CellUnPlayed : MonoBehaviour {
 		target2.count = 100000;
 		target3.count = 100000;
 		started = true;
+		posx = (int)(transform.position.x / 20);	//Calcul position x par rapport au carré
+		posy = (int)(transform.position.y / 20);	//Calcul position y par rapport au carré
 	}
 	
 	// Update is called once per frame
@@ -67,7 +68,7 @@ public class CellUnPlayed : MonoBehaviour {
 
 					if(posx > 6 && posx < 94 && posy > 6 && posy < 94)	//Si elle est dans le périmètre et que le calcul du rayon ne sort pas du terrain
 					{
-						AnalyseMolecules();
+						GetComponent<actionManager> ().addAction (AnalyseMolecules);
 					}
 				}
 			} 
@@ -101,7 +102,7 @@ public class CellUnPlayed : MonoBehaviour {
 		return new List<moleculePack>{target1, target2, target3};
 	}
 
-	public void AnalyseMolecules()
+	public bool AnalyseMolecules()
 	{
 		bool b = false;	//Molécule trouvé
 
@@ -147,6 +148,7 @@ public class CellUnPlayed : MonoBehaviour {
 		{
 			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
+		return true;
 	}
 
 	public bool TestAnalyse(List<moleculePack> M, int i)
