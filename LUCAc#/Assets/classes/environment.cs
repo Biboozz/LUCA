@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -25,8 +26,9 @@ public class environment : MonoBehaviour {
 	private int YouCursor = 0;
 	public GameObject Cam;
 
-	public GameObject groupSelectionerPrefab;
+	public GameObject groupSelectioner;
 	private List<List<Individual>> groups;
+	private int selected = -1;
 
 	// Use this for initialization
 	void Start () 
@@ -65,6 +67,7 @@ public class environment : MonoBehaviour {
 			}
 			livings.Add (S); //ajout liste espece vivante
 		}
+		groups = new List<List<Individual>> ();
 	}
 
 	public Species addSpecies(Species parent, List<Individual> starters)
@@ -111,19 +114,94 @@ public class environment : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKey (KeyCode.G)) 
+		if (Input.GetKeyDown (KeyCode.G)) 
 		{
-			List<Individual> g = new List<Individual>();
-			foreach (Individual I in livings.Find(s => s.isPlayed).Individuals)
+			if (selected == -1)
 			{
-				if (I.isSelectioned)
+				List<Individual> g = new List<Individual>();
+				foreach (Individual I in livings.Find(s => s.isPlayed).Individuals)
 				{
-					g.Add(I);
-					I.group = g;
-					groups.Add(g);
+					if (I.isSelectioned)
+					{
+						g.Add(I);
+						I.group = g;
+					}
+					
+				}
+				if (g.Count > 0)
+				{
+					if (groups.Count < 10)
+					{
+						groups.Add(g);
+						groupSelectioner.transform.GetChild(10 - groups.Count).gameObject.GetComponent<Button>().interactable = true;
+					}
+					else
+					{
+						groups[9] = g;
+					}
+				}
+			}
+			else
+			{
+				groupSelectioner.transform.GetChild(10 - groups.Count).gameObject.GetComponent<Button>().interactable = false;
+				groups.RemoveAt(selected);
+				selected = -1;
+				foreach (Button B in groupSelectioner.GetComponentsInChildren<Button>())
+				{
+					//unhilight
 				}
 			}
 		}
+	}
+
+	public void G1Click()
+	{
+		selected = 0;
+	}
+
+	public void G2Click()
+	{
+		selected = 1;
+	}
+
+	public void G3Click()
+	{
+		selected = 2;
+	}
+
+	public void G4Click()
+	{
+		selected = 3;
+	}
+
+	public void G5Click()
+	{
+		selected = 4;
+	}
+
+	public void G6Click()
+	{
+		selected = 5;
+	}
+
+	public void G7Click()
+	{
+		selected = 6;
+	}
+
+	public void G8Click()
+	{
+		selected = 7;
+	}
+
+	public void G9Click()
+	{
+		selected = 8;
+	}
+
+	public void G10Click()
+	{
+		selected = 9;
 	}
 
 	public void remove(GameObject G)
