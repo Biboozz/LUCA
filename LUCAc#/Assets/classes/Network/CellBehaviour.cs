@@ -9,6 +9,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 	private bool gotDest = false;
 	private Vector3 target;
 	private float duration = 5f;
+	private int percent = 1;
 
 	public override void Attached() 
 	{
@@ -35,46 +36,13 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 
 	public override void SimulateOwner() 
 	{
-		var speed = 100f;
-		var movement = Vector3.zero;
+		GameObject.Find("Main Camera").transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
 		
-		if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > 303) { movement.y -= 1; }
-		if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 1697) { movement.y += 1; }
-		if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 1697) { movement.x += 1; }
-		if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > 303) { movement.x -= 1; }
+		var moveSpeed = 40f * percent;
 		
-		if (movement != Vector3.zero) 
-		{
-			transform.position = transform.position + (movement.normalized * speed * BoltNetwork.frameDeltaTime);
-		}
-	
-		if(Input.GetMouseButtonDown(1))		//Si clic droit
-		{
-			target = transform.FindChild("target").gameObject.transform.position;	//Définition du Vector3 target
-
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    
-			Vector3 point = ray.origin + (ray.direction * 4.5f);    
-			point.y = 0.2f;
-
-			if(point.x <= 1699 && point.x >= 301 && point.y <= 1699 && point.y >= 301)
-			{
-				target = point;		//target prend position du clic
-				gotDest = true;		//Objet possède une destination
-			}
-		}
-
-		if(gotDest)
-		{
-			if((transform.position.x - target.x >= -2 && transform.position.x - target.x <= 2) && (transform.position.y - target.y >= -2 && transform.position.y - target.y <= 2))	//Gérer pour supprimer dest quand cells dans rayon autour de la target.
-			{
-				gotDest = false;		//Plus de destination car elle a été atteinte
-			}
-			if(transform.position.x < 1699 && transform.position.x > 301 && transform.position.y < 1699 && transform.position.y > 301)
-			{
-				transform.position = Vector3.Lerp(transform.position, target, 1/(duration*(Vector3.Distance(transform.position, target))));		//Déplacement de la cellule au fur et a mesure !
-			}
-		}
-
+		var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		targetPos.z = transform.position.z;
+		transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
 	}
 	
 	void OnGUI() 
