@@ -448,8 +448,8 @@ public class environment : MonoBehaviour {
 
 	public void setTargettoGroup(List<Individual> group)	//Set formation for a list of individual
 	{
-		int moyx = 0;
-		int moyy = 0;
+		float moyx = 0f;
+		float moyy = 0f;
 		
 		foreach (Individual I in group)
 		{
