@@ -37,7 +37,7 @@
       <environmentMolecules />
       <ATP>0</ATP>
     </devProducts>
-    <innate>false</innate>
+    <innate>true</innate>
     <type>Unité de Base</type>
     <requiredID />
     <hexPos>

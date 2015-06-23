@@ -77,16 +77,11 @@ public class environment : MonoBehaviour {
 			livings.Add (S); //ajout liste espece vivante
 		}
 		groups = new List<List<Individual>> ();
-<<<<<<< HEAD
-		foreach (Button B in groupSelectioner.GetComponentsInChildren<Button>())
-		{
+		foreach (Button B in groupSelectioner.GetComponentsInChildren<Button>()) {
 			Navigation n = B.navigation;
 			n.mode = Navigation.Mode.None;
 			B.navigation = n;
 		}
-=======
-
->>>>>>> origin/master
 	}
 	
 	public Species addSpecies(Species parent, List<Individual> starters)
