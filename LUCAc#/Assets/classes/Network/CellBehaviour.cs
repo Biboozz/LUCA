@@ -42,7 +42,17 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		
 		var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		targetPos.z = transform.position.z;
-		transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+
+		if (transform.position.x < 1699 && transform.position.x > 301 && transform.position.y < 1699 && transform.position.y > 301)
+			transform.position = Vector3.MoveTowards (transform.position, targetPos, moveSpeed * Time.deltaTime);
+		else if (transform.position.x >= 1699)
+			transform.position = new Vector3(transform.position.x - 0.05f, transform.position.y);
+		else if (transform.position.x <= 301)
+			transform.position = new Vector3(transform.position.x + 0.05f, transform.position.y);
+		else if (transform.position.y >= 1699)
+			transform.position = new Vector3(transform.position.x, transform.position.y - 0.05f);
+		else if (transform.position.y <= 301)
+			transform.position = new Vector3(transform.position.x, transform.position.y + 0.05f);
 	}
 	
 	void OnGUI() 
