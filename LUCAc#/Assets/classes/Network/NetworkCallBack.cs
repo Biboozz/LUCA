@@ -5,13 +5,24 @@ using System.Collections.Generic;
 [BoltGlobalBehaviour]
 public class NetworkCallBack : Bolt.GlobalEventListener 
 {
+	public System.Random rand = new System.Random ();
+
 	public override void SceneLoadLocalDone(string map) 
 	{
 		// randomize a position
-		var pos = new Vector3(Random.Range(301, 1699), Random.Range(301, 1699), 0);
+		var pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), 0);
 		
 		// instantiate cell
 		BoltNetwork.Instantiate(BoltPrefabs.cell_network, pos, Quaternion.Euler(0,0,0));
+
+		// instantiate molecule
+		for (int i = 0; i < 200; i++) 
+		{
+			// random position 
+			var mol_pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), 0);
+
+			BoltNetwork.Instantiate(BoltPrefabs.molecule, mol_pos, Quaternion.Euler(0,0,0));
+		}
 	}
 
 
