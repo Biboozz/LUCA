@@ -51,7 +51,7 @@ public class environment : MonoBehaviour {
 		{
 			Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
 			S.cell = cellPrefab;
-			S.individualLifeTime = 120;
+			S.individualLifeTime = 300;
 			for (int i = 1; i <= 100; i++) // création de 100 cellules de l'espece
 			{
 				S.Individuals.Add (Instantiate(cellPrefab).GetComponent<Individual>());
@@ -91,7 +91,7 @@ public class environment : MonoBehaviour {
 	public Species addSpecies(Species parent, List<Individual> starters)
 	{
 		Species S = new Species (this, new Color(((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f,((float)Rdm.Next(255))/255f));
-		S.individualLifeTime = 120;
+		S.individualLifeTime = 300;
 		S.isPlayed = parent.isPlayed;
 		S.cell = parent.cell;
 		if (S.isPlayed) 
