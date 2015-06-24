@@ -13,7 +13,7 @@ public class NetworkCallBack : Bolt.GlobalEventListener
 		var pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), 0);
 		
 		// instantiate cell
-		BoltNetwork.Instantiate(BoltPrefabs.cell_network, pos, Quaternion.Euler(0,0,0));
+		BoltNetwork.Instantiate(/*BoltPrefabs.cell_network*/ BoltPrefabs.Sphere, pos, Quaternion.Euler(0,0,0));
 
 		// instantiate molecule
 		for (int i = 0; i < 200; i++) 

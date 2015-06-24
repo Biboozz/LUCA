@@ -51,6 +51,16 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		else if (transform.position.y <= 301)
 			transform.position = new Vector3(transform.position.x, transform.position.y + 0.05f);
 	}
+
+	//detruire une molecule quand on la touche 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("molecule")) 
+		{
+			other.gameObject.SetActive(false);
+			//BoltNetwork.Destroy(other.gameObject);
+		}
+	}
 	
 	void OnGUI() 
 	{
