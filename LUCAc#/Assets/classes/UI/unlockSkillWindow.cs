@@ -124,8 +124,7 @@ public class unlockSkillWindow : MonoBehaviour {
 		{
 			Debug.Log("troll");
 		}
-		Env.addSpecies(_player, upgrade(_skill, _player)).unlockedPerks.Add (_skill);
-		DPT.display ();
+		Env.livings.Find (s => s.isPlayed).naturalUnlock (_skill);
 		gameObject.SetActive (false);
 
 	}
@@ -135,79 +134,47 @@ public class unlockSkillWindow : MonoBehaviour {
 		gameObject.SetActive (false);
 	}
 
-	private List<Individual> upgrade(skill S, Species species)
-	{
-		List<Individual> c = new List<Individual>();
-		for (int i = 0; i < species.Individuals.Count; i++) 
-		{
-			bool b = true;
-			for (int j = 0; j < S.devCosts.cellMolecules.Count && b; j++)
-			{
-				moleculePack mpCell = species.Individuals[i].cellMolecules.Find(mp => mp.moleculeType.ID == S.devCosts.cellMolecules[j].moleculeType.ID);
-				if (mpCell == null)
-				{
-					b = false;
-				}
-				else
-				{
-					if (mpCell.count < S.devCosts.cellMolecules[j].count)
-					{
-						b = false;
-					}
-				}
-			}
-			if (b)
-			{
-				c.Add(species.Individuals[i]);
-			}
-		}
-		foreach (Individual I in c) 
-		{
-			I.ATP = I.ATP - S.devCosts.ATP;
-			upgradeStats(S,I);
-			foreach(moleculePack mp in S.devCosts.cellMolecules)
-			{
-				I.cellMolecules.Find(r => r.moleculeType.ID == mp.moleculeType.ID).count -= mp.count;
-			}
-		}
-		return c;
-	}
+//	private List<Individual> upgrade(skill S, Species species)
+//	{
+//		List<Individual> c = new List<Individual>();
+//		for (int i = 0; i < species.Individuals.Count; i++) 
+//		{
+//			bool b = true;
+//			for (int j = 0; j < S.devCosts.cellMolecules.Count && b; j++)
+//			{
+//				moleculePack mpCell = species.Individuals[i].cellMolecules.Find(mp => mp.moleculeType.ID == S.devCosts.cellMolecules[j].moleculeType.ID);
+//				if (mpCell == null)
+//				{
+//					b = false;
+//				}
+//				else
+//				{
+//					if (mpCell.count < S.devCosts.cellMolecules[j].count)
+//					{
+//						b = false;
+//					}
+//				}
+//			}
+//			if (b)
+//			{
+//				c.Add(species.Individuals[i]);
+//			}
+//		}
+//		foreach (Individual I in c) 
+//		{
+//			I.ATP = I.ATP - S.devCosts.ATP;
+//			foreach(moleculePack mp in S.devCosts.cellMolecules)
+//			{
+//				I.cellMolecules.Find(r => r.moleculeType.ID == mp.moleculeType.ID).count -= mp.count;
+//			}
+//		}
+//		return c;
+//	}
+//
 
-	private float linear(float pente, float x)
-	{
-		return pente * x;
-	}
+//
 
-	private void upgradeStats(skill S, Individual I)
-	{
-		I.speed *= S.speedModifier;
-		if (S.speedModifier > 1f) 
-		{
-			I.duration -= linear(4f, S.speedModifier - 1);
-		} 
-		else if (S.speedModifier < 1f) 
-		{
-			I.duration += linear(4f, S.speedModifier - 1);
-		}
-		//I.duration = 18;
-		if (S.addFlagel) 
-		{
-			I.transform.FindChild ("flagella").gameObject.GetComponent<CellFlagellaAnimation> ().shown = true;
-		}
-		if (S.removeFlagel) 
-		{
-			I.transform.FindChild ("flagella").gameObject.GetComponent<CellFlagellaAnimation> ().shown = false;
-		}
-		if (S.addLashes) 
-		{
-			I.transform.FindChild ("cilia").gameObject.GetComponent<cellCiliaAnimation> ().shown = true;
-		}
-		if (S.removeLashes) 
-		{
-			I.transform.FindChild ("cilia").gameObject.GetComponent<cellCiliaAnimation> ().shown = false;
-		}
-	}
-
+//
 	public static int countUnlockers(Species species, skill S)
 	{
 		int c = 0;
