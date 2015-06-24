@@ -33,6 +33,7 @@ public class environment : MonoBehaviour {
 	private List<List<Individual>> groups;
 	private int selected = -1;
 	public GameObject UIGroupZone;
+	public GameObject UItaskList;
 	
 	public int selectedButton
 	{
@@ -190,6 +191,7 @@ public class environment : MonoBehaviour {
 			cb.normalColor = Color.yellow;
 			buttons[selected].colors = cb;
 			UIGroupZone.SetActive(false);
+			UItaskList.SetActive(false);
 		}
 	}
 
@@ -202,6 +204,7 @@ public class environment : MonoBehaviour {
 			cb.normalColor = cb.highlightedColor;
 			buttons [selected].colors = cb;
 			UIGroupZone.SetActive(true);
+			UItaskList.SetActive(true);
 		}
 	}
 

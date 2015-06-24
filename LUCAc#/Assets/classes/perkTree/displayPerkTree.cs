@@ -31,6 +31,15 @@ public class displayPerkTree : MonoBehaviour {
 		}
 	}
 
+	public void hide()
+	{
+		_shown = false;
+		foreach (skill S in perkTree) 
+		{
+			S.hex.SetActive(false);
+		}
+	}
+
 	public Species focusedSpecies
 	{
 		get

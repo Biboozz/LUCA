@@ -12,7 +12,7 @@ public class SwitchScene : MonoBehaviour
         switch (button)
         {
 			case "Button - Solo":
-                Application.LoadLevel(2);
+                Application.LoadLevel(1);
                 break;
 
 			case "Button - Rejoindre Serveur":
