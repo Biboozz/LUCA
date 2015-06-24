@@ -142,9 +142,16 @@ public class environment : MonoBehaviour {
 				{
 					if (I.isSelectioned)
 					{
-						g.Add(I);
-						I.group = g;
-						setTargettoGroup(g);
+						if (I.group == null)
+						{
+							g.Add(I);
+							I.group = g;
+							setTargettoGroup(g);
+						}
+						else
+						{
+							I.isSelectioned = false;
+						}
 					}
 				}
 				if (g.Count > 0)
@@ -164,6 +171,10 @@ public class environment : MonoBehaviour {
 			{
 				unselectButton();
 				groupSelectioner.transform.GetChild(10 - groups.Count).gameObject.GetComponent<Button>().interactable = false;
+				foreach (Individual I in groups[selected])
+				{
+					I.group = null;
+				}
 				groups.RemoveAt(selected);
 				selected = -1;
 			}
