@@ -140,10 +140,12 @@ public class displayPerkTree : MonoBehaviour {
 			S.hex.GetComponent<Image>().sprite = images[2].sprite;
 			S.hex.GetComponent<Image>().color = Color.white;
 			S.hex.transform.FindChild("Text").GetComponent<Text>().color = Color.black;
-			S.hex.GetComponent<Button>().interactable = false;
+			S.hex.GetComponent<Button>().interactable = true;
 			S.hex.transform.FindChild("skillDescriptionWindow").gameObject.SetActive(false);
-			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(false);
-			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.SetActive(false);
+			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(true);
+			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.GetComponent<Button>().interactable = true;
+			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.SetActive(true);
+			S.hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.GetComponent<Button>().interactable = false;
 		}
 	}
 		    
@@ -192,8 +194,8 @@ public class displayPerkTree : MonoBehaviour {
 			{
 				unlockedNeighborhood[i].hex.GetComponent<Image>().sprite = images[1].sprite;
 				unlockedNeighborhood[i].hex.GetComponent<Button>().interactable = true;
-				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.SetActive(species.isPlayed);
-				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.SetActive(species.isPlayed);
+				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.GetComponent<Button>().interactable = false;
+				unlockedNeighborhood[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.GetComponent<Button>().interactable = species.isPlayed;
 			}
 		}
 	}
@@ -210,9 +212,12 @@ public class displayPerkTree : MonoBehaviour {
 		for (int i = 0; i < this.perkTree.Count; i++) 
 		{
 			treated.Add(perkTree[i]);
+			perkTree[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("unlockButton").gameObject.GetComponent<Button>().interactable = false;
 			if (isUnlocked(this.perkTree[i], species))
 			{
 				perkTree[i].hex.GetComponent<Image>().sprite = images[0].sprite;
+				perkTree[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.GetComponent<Button>().interactable = false;
+
 				perkTree[i].hex.GetComponent<Image>().color = perkTree[i].typeNColor.Color;
 				perkTree[i].hex.transform.GetChild(0).GetComponent<Text>().color = IdealTextColor(perkTree[i].hex.GetComponent<Image>().color);
 				perkTree[i].hex.GetComponent<Button>().interactable = true;
@@ -226,6 +231,10 @@ public class displayPerkTree : MonoBehaviour {
 						}
 					}
 				}
+			}
+			else
+			{
+				perkTree[i].hex.transform.FindChild("skillDescriptionWindow").FindChild("objectiveButton").gameObject.GetComponent<Button>().interactable = species.isPlayed;
 			}
 		}
 		return neighborhood;

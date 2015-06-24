@@ -142,4 +142,17 @@ public class playerSpeciesDataDisplayer : MonoBehaviour {
 			}
 		}
 	}
+
+	public void setObjective(skill S)
+	{
+		_objectiveMolecules.Clear ();
+		if (S.devCosts.ATP != 0) 
+		{
+			_objectiveMolecules.AddItem("ATP", S.devCosts.ATP);
+		}
+		foreach (moleculePack mp in S.devCosts.cellMolecules) 
+		{
+			_objectiveMolecules.AddItem(mp.moleculeType.name, mp.count);
+		}
+	}
 }
