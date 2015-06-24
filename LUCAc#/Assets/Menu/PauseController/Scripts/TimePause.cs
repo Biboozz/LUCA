@@ -11,8 +11,11 @@ public class TimePause : MonoBehaviour, IPausable {
 	}
 	
 	public void OnPause() {
-		timeScale = Time.timeScale;
-		Invoke ("StopTime", pauseDelay ); 
+		if (!(Application.loadedLevel == 2)) 
+		{
+			timeScale = Time.timeScale;
+			Invoke ("StopTime", pauseDelay);
+		}
 	}
 
 	void StopTime() {
