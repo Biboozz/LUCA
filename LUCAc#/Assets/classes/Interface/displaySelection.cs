@@ -8,6 +8,9 @@ public class displaySelection : MonoBehaviour {
 	private Vector3 C1;
 	private Vector3 C2;
 
+	public GameObject miniWin1;
+	public GameObject miniWin2;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -24,14 +27,20 @@ public class displaySelection : MonoBehaviour {
 			float RX = pos.x / Screen.width;
 			float RY = pos.y / Screen.height;
 
-			if(RX < 0.19 && RY > 0.52)
+			if (miniWin2.activeSelf)
 			{
-				b = false;
+				if(RX < 0.19 && RY > 0.52)
+				{
+					b = false;
+				}
 			}
 
-			if (RX < 0.22 && RY < 0.47)
+			if (miniWin1.activeSelf)
 			{
-				b = false;
+				if (RX < 0.22 && RY < 0.47)
+				{
+					b = false;
+				}
 			}
 
 			if (RX > 0.82 && RY > 0.58)
