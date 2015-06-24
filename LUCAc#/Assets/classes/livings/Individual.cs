@@ -75,7 +75,7 @@ public class Individual : MonoBehaviour
 		_RM = place.gameObject.GetComponent<resourcesManager> ();
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
 		GetComponent<actionManager> ().Initialize ();
-		GetComponent<actionManager> ().addAction (eat);
+		GetComponent<actionManager> ().addAction (action);
 	}
 	
 	// Update is called once per frame
@@ -216,8 +216,8 @@ public class Individual : MonoBehaviour
 		}
 	}
 
-	//public void action(resourcesManager R)
-	public void action()
+
+	public bool action()
 	{
 		Vector3 pos = transform.position;
 		int squarex = (int)(pos.x / 20f);
@@ -232,6 +232,7 @@ public class Individual : MonoBehaviour
 		{
 			emite (Subject, _RM.moleculeRepartition[squarex,squarey]);
 		}
+		return false;
 	}
 
 	#endregion action--------------------------------------------------------------------

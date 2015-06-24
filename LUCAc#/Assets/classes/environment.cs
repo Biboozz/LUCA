@@ -66,7 +66,24 @@ public class environment : MonoBehaviour {
 			}
 			else
 			{
-				S.name = "test";
+				switch (j)
+				{
+				case 1:
+					S.name = "Acidobacteria";
+					break;
+				case 2:
+					S.name = "Epsilobacteria";
+					break;
+				case 3:
+					S.name = "Clostridia";
+					break;
+				case 4:
+					S.name = "Deinococcaceae";
+					break;
+				case 5:
+					S.name = "Phycobacteria";
+					break;
+				}
 			}
 			for (int i = 0; i < S.Individuals.Count; i++) 
 			{
@@ -104,7 +121,18 @@ public class environment : MonoBehaviour {
 				I.isPlayed = false;
 			}
 		}
-		S.name = parent.name;
+		string[] str = parent.name.Split(new char[] {' '});
+		S.name = str[0];
+		if (str.Length > 1) 
+		{
+			int n;
+			int.TryParse (str [1], out n);
+			S.name += " " + (n + 1).ToString ();
+		} 
+		else 
+		{
+			S.name += " 1";
+		}
 		foreach (Individual I in starters) 
 		{
 			I.transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = S.color;
