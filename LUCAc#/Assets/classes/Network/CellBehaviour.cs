@@ -58,8 +58,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 	{
 		if (other.gameObject.CompareTag("molecule")) 
 		{
-			other.gameObject.SetActive(false);
-			//BoltNetwork.Destroy(other.gameObject);
+			BoltNetwork.Destroy(other.gameObject);
 		}
 	}
 	
