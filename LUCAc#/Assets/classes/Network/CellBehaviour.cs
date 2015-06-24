@@ -6,9 +6,6 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 	public GameObject[] Cell_element_objects;
 
 	private Color _color;
-	private bool gotDest = false;
-	private Vector3 target;
-	private float duration = 5f;
 	private int percent = 1;
 
 	public override void Attached() 
