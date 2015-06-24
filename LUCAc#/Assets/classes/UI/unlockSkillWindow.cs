@@ -59,6 +59,7 @@ public class unlockSkillWindow : MonoBehaviour {
 		}
 		set
 		{
+			DPT.hide ();
 			if (value != null)
 			{
 				Init ();

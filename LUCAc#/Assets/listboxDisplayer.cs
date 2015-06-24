@@ -3,15 +3,24 @@ using System.Collections;
 
 public class listboxDisplayer : MonoBehaviour {
 
-	private ListBox cellMolecules;
+	private ListBox molecules;
 	private int _lastMoleculeSelected;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		Transform t = transform;
 		Rect listBoxRect = ((RectTransform)t).rect;
-		listBoxRect.position = new Vector2 (Screen.width * 0.63f, Screen.height * 0.74f);
-		cellMolecules = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
+		if (gameObject.name == "taskListBox") 
+		{
+			listBoxRect.position = new Vector2 (Screen.width * 0.77f, Screen.height * 0.43f);
+		} 
+		else 
+		{
+			listBoxRect.position = new Vector2 (Screen.width * 0.63f, Screen.height * 0.74f);
+		}
+
+		molecules = new ListBox (listBoxRect, new Rect (0, 0, listBoxRect.width - 20, 150), false, true);
 	}
 	
 	// Update is called once per frame
@@ -30,9 +39,9 @@ public class listboxDisplayer : MonoBehaviour {
 	void drawListBox()
 	{
 		//Click Test
-		if (cellMolecules.ReDraw())
+		if (molecules.ReDraw())
 		{
-			_lastMoleculeSelected = cellMolecules.GetSelectedID();
+			_lastMoleculeSelected = molecules.GetSelectedID();
 		}
 		//----------
 	}
