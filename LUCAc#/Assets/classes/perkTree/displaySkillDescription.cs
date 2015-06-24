@@ -16,6 +16,7 @@ public class displaySkillDescription : MonoBehaviour {
 	void Start () 
 	{
 		visible = false;
+		Env = USW.Env;
 	}
 	
 	// Update is called once per frame
@@ -94,5 +95,10 @@ public class displaySkillDescription : MonoBehaviour {
 			}
 		}
 		return c;
+	}
+
+	public void addObjective()
+	{
+		Env.PSDD.setObjective (_skill);
 	}
 }
