@@ -21,7 +21,7 @@ public class NetworkCallBack : Bolt.GlobalEventListener
 			// random position 
 			var mol_pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), 0);
 
-			BoltNetwork.Instantiate(BoltPrefabs.molecule, mol_pos, Quaternion.Euler(0,0,0));
+			BoltNetwork.Instantiate(BoltPrefabs.sphere_mol, mol_pos, Quaternion.Euler(0,0,0));
 		}
 	}
 

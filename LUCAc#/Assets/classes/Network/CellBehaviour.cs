@@ -16,10 +16,11 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		{
 			Color color = new Color(Random.value, Random.value, Random.value);
 
-			transform.FindChild("cytoplasm").gameObject.GetComponent<MeshRenderer>().material.color = color;
+			//transform.FindChild("cytoplasm").gameObject.GetComponent<MeshRenderer>().material.color = color;
 
-			state.Cell_elements[1].Cell_element_Color = color;
+			//state.Cell_elements[1].Cell_element_Color = color;
 
+			state.CellColor = color;
 			_color = color;
 		}
 		
@@ -28,7 +29,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 
 	void ColorChanged() 
 	{
-		GetComponent<Renderer> ().material.color = _color;
+		GetComponent<Renderer> ().material.color = state.CellColor;
 	}
 
 	public override void SimulateOwner() 
