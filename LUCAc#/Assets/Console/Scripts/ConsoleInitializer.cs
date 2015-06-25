@@ -8,6 +8,7 @@ public class ConsoleInitializer : MonoBehaviour {
 
 	public environment Environment;
 	public displayPerkTree SpecsTree;
+	public Events events;
 
 	public List<Species> _species;
 	public Species speciesplayed;
@@ -25,19 +26,12 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("kill", Kill);
 		repo.RegisterCommand("unlock", Unlock);
 		repo.RegisterCommand("addmolecule", AddMolecule);
+		repo.RegisterCommand("acideattack", events.AcideAttack());
+		repo.RegisterCommand("degenerate", events.Degenerate());
+		repo.RegisterCommand("meteorite", events.Météorite());
+		repo.RegisterCommand("massivemultiplication", events.MultiplicationMassive());
+		repo.RegisterCommand("randomskill", events.RandomSkill());
 		repo.RegisterCommand("help", Help);
-
-		string[] str = new string[] {"\"Je", "mange", "et", "je", "parle\"", "qsfkpjqdpfjqdpg", "\"sdfsdgsdgsdg\""};
-		foreach (string s in str) 
-		{
-			Debug.Log (s);
-		}
-		str = formatArgs (str);
-		Debug.Log ("Après formatage...");
-		foreach (string s in str) 
-		{
-			Debug.Log (s);
-		}
 	}
 	
 	public string God(params string[] args) {
@@ -78,6 +72,11 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 	
 	public string Allunlock(params string[] args) {
+		try {
+			args = formatArgs (args);
+		} catch (System.Exception) {
+			return "Les paramètres saisis sont incorrects";
+		}
 		_species = Environment.livings;	//Liste des espèces
 		foreach (Species especes in _species)
 		{
@@ -93,6 +92,11 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 
 	public string Unlock(params string[] args) {
+		try {
+			args = formatArgs (args);
+		} catch (System.Exception) {
+			return "Les paramètres saisis sont incorrects";
+		}
 		if (args.Length == 1) {
 			foreach (Species especes in Environment.livings) 
 			{
@@ -139,6 +143,11 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 
 	public string Kill(params string[] args) {
+		try {
+			args = formatArgs (args);
+		} catch (System.Exception) {
+			return "Les paramètres saisis sont incorrects";
+		}
 		foreach (Individual I in Environment.selectedI) 
 		{
 			Destroy(I.gameObject);
@@ -148,6 +157,11 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 
 	public string AddMolecule(params string[] args) {
+		try {
+			args = formatArgs (args);
+		} catch (System.Exception) {
+			return "Les paramètres saisis sont incorrects";
+		}
 		molecule M;
 		int result;
 		Species S;
@@ -180,36 +194,6 @@ public class ConsoleInitializer : MonoBehaviour {
 					}
 				}
 			}
-		} 
-		else if (args.Length == 4) 
-		{
-			S = Environment.livings.Find (G => G.name == args [0]);
-			if (S == null) 
-			{
-				return "Le nom de l'espèce n'existe pas";
-			} 
-			else 
-			{
-				M = Environment.molecules.Find (T => T.name == (args [1] + " " + args[2]));
-				if (M == null) 
-				{
-					return "Le nom de la molécule n'existe pas";
-				} 
-				else 
-				{
-					if (int.TryParse (args [3], out result)) 
-					{
-						if (result > 0) 
-						{
-							foreach (Individual I in S.Individuals) 
-							{
-								I.cellMolecules.Find (MP => MP.moleculeType.ID == M.ID).count += result;
-							}
-							return "Vous avez ajoutez " + result + " de la molécule " + M.name + " a l'espèce " + S.name;
-						}
-					}
-				}
-			}
 		}
 		else 
 		{
@@ -219,13 +203,19 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 
 	public string Help(params string[] args) {
-		return "god -- Vie illimitée\n" +
+		return "Pour indiquer le nom d'une espèce ou d'une molécules qui est un nom composé, renseignez les avec des guillemets\n" +
+			"god -- Vie illimitée\n" +
 			"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
 			"speedbase -- remet la vitesse de base\n" +
 			"allunlock -- débloque toutes les compétences de l'arbre\n" +
 			"unlock [species name] [skill name] -- Par default l'espèce sélectionné est la votre. Permet de débloquer un skill pour une espèce choisie\n" +
 			"addmolecule [species name] [molecule name] [quantité] -- Ajoute la quantité indiquée de la molécule précisée pour tous les individus de l'espèce choisie\n" +
 			"kill -- tue toutes les cellules sélectionnées\n" +
+			"acideattack -- Lance l'évènement aléatoire de l'attaque acide\n" +
+			"degenerate -- Lance l'évènement aléatoire de la dégénérescence\n" +
+			"meteorite -- Lance l'évènement aléatoire de la météorite\n" +
+			"massivemultiplication  -- Lance l'évènement aléatoire de la multiplication massive d'une espèce\n" +
+			"randomskill -- Lance l'évènement aléatoire de l'ajout d'une compétence aléatoire\n" +
 			"help -- cette commande";
 	}
 
