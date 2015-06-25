@@ -21,6 +21,8 @@ public class environment : MonoBehaviour {
 
 	public List<Individual> selectedI = new List<Individual>{};
 
+	private int MapDimension = 3;
+	public GameObject ButtonPrefab;
 	private System.Random rand = new System.Random();
 	public BoardMap[,] BM;
 	//public POINT cursor;
@@ -571,17 +573,21 @@ public class environment : MonoBehaviour {
 	public void GenerateBM()
 	{
 		//cursor.pos (0, 0);
-		int dim = 3;// rand.Next (3, 5);
+		int dim = MapDimension;// rand.Next (3, 5);
 		BoardMap [,] BM = new BoardMap[dim, dim];
 
 		for (int i = 0; i<dim; i++) 
 		{
 			for(int j = 0;j<dim;j++)
 			{
-				BM[i,j] = new BoardMap(this);
+				BM[i,j] = new BoardMap(this, ButtonPrefab,i,j);
+
 			}
 		} 
+	}
 
+	public void InstanciateBMPannel()
+	{
 
 	}
 

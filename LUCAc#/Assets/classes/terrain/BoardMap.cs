@@ -13,14 +13,16 @@ namespace AssemblyCSharp
 		private List<moleculePack> pass = new List<moleculePack>();
 		private BMType material;
 		private Color seen;
+		public GameObject Button;
 
 		private System.Random rand = new System.Random();
 
-		public BoardMap (environment env)
+		public BoardMap (environment env, GameObject But, int i, int j)
 		{
 			_env = env;
 			RandomMaterial ();
 			GeneratePass ();
+			Button = But;
 		}
 
 		private void RandomMaterial()
