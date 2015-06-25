@@ -134,7 +134,7 @@ public class Events : MonoBehaviour {
 			{
 				int nb = rnd.Next(0, SpecsTree.perkTree.Count - 1);
 				especes.forceUnlockSkill (SpecsTree.perkTree[nb]);
-				_description = "C'est votre jour de chance, en effet la jolie sécrétaire a renversé quelques choses dans le milieu en amenant des fichiers importants au responsable du laboratoire, vous avez donc débloqué la compétence " + SpecsTree.perkTree[nb].name;
+				_description.text = "C'est votre jour de chance, en effet la jolie sécrétaire a renversé quelques choses dans le milieu en amenant des fichiers importants au responsable du laboratoire, vous avez donc débloqué la compétence " + SpecsTree.perkTree[nb].name;
 			}
 		}
 	}
