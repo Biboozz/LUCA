@@ -269,7 +269,8 @@
       <int>-1</int>
     </neighborsID>
     <name>Absorption des Bases Azotées</name>
-    <description>Il existe plusieurs types de bases azotés dans l'environnement d'une cellules. Celles utilisées pour la synthèse des acides nucléiques sont principalement : l'Adénosine, la Cytosine, la Thymine, la Guanine et l'Uracile. L'absorption de ces molécules se fait via un pore situé à la surface de la membrane. Elles servent a construire les gènes des différentes capacités de votre cellule.</description>
+    <description>Il existe plusieurs types de bases azotés dans l'environnement d'une cellules. Celles utilisées pour la synthèse des acides nucléiques sont principalement : l'Adénosine, la Cytosine, la Thymine, la Guanine et l'Ura
+	e. L'absorption de ces molécules se fait via un pore situé à la surface de la membrane. Elles servent a construire les gènes des différentes capacités de votre cellule.</description>
     <workCosts>
       <SerialisableType>actionData</SerialisableType>
       <cellMolecules />
@@ -1200,7 +1201,7 @@
     <sizeYModifier>1</sizeYModifier>
     <membraneSizeModifier>1</membraneSizeModifier>
     <coreSizeModifier>1</coreSizeModifier>
-    <speedModifier>3</speedModifier>
+    <speedModifier>1.2</speedModifier>
     <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -2392,7 +2393,7 @@
     <sizeYModifier>1</sizeYModifier>
     <membraneSizeModifier>1</membraneSizeModifier>
     <coreSizeModifier>1</coreSizeModifier>
-    <speedModifier>4</speedModifier>
+    <speedModifier>1.5</speedModifier>
     <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -2488,7 +2489,7 @@
     <sizeYModifier>1</sizeYModifier>
     <membraneSizeModifier>1</membraneSizeModifier>
     <coreSizeModifier>1</coreSizeModifier>
-    <speedModifier>10</speedModifier>
+    <speedModifier>1.6</speedModifier>
     <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">

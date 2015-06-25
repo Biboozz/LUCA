@@ -28,7 +28,7 @@ public class Individual : MonoBehaviour
 	private float _duration = 10.0f;	//Diminuer pour plus vite
 	private float _speed = 0.05f;	//Quand on augmente va plus vite
 	private int _delay = 0;
-	
+
 	private int _splitDelay = UnityEngine.Random.Range(1800, 36000);
 	private int _splitIncrement;
 
@@ -115,7 +115,7 @@ public class Individual : MonoBehaviour
 		actionDelay--;
 		if (actionDelay == 0) 
 		{
-			actionDelay = 80;
+			actionDelay = 40;
 			GetComponent<actionManager> ().addAction (interract, 0, 4);
 			GetComponent<actionManager> ().addAction (eatToxic);
 		}
@@ -339,7 +339,9 @@ public class Individual : MonoBehaviour
 
 	public bool division()
 	{
-		GameObject son = (GameObject)Instantiate (_species.cell);
+		GameObject son = (GameObject)Instantiate (gameObject);
+		son.transform.rotation = transform.rotation;
+		son.name = "cellSon";
 		splitGive (son.GetComponent<Individual> ());
 		_species.addCell (son.GetComponent<Individual>());
 		son.GetComponent<Individual>().descriptionBox = descriptionBox;

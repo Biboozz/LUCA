@@ -211,10 +211,6 @@ public class Species
 		{
 			canPhagocyt = true;
 		}
-		if (ski.immunityType != "none") 
-		{
-			immunities.Add(ski.immunityType + " " + ski.immunityStrength.ToString());
-		}
 	}
 
 	private void upgrade(skill S, Individual I)

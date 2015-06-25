@@ -98,6 +98,16 @@ public class displayPerkTree : MonoBehaviour {
 		}
 		place (skillList.Find(b => b.ID == 0));
 		perkTree = skillList;
+		foreach (skill S in perkTree) 
+		{
+			if (S.innate)
+			{
+				foreach (Species Spe in USW.Env.livings)
+				{
+					Spe.forceUnlockSkill(S);
+				}
+			}
+		}
 	}
 
 	public void redraw(skill center)
