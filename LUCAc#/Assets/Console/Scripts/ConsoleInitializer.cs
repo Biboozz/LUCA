@@ -26,11 +26,11 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("kill", Kill);
 		repo.RegisterCommand("unlock", Unlock);
 		repo.RegisterCommand("addmolecule", AddMolecule);
-		repo.RegisterCommand("acideattack", events.AcideAttack());
-		repo.RegisterCommand("degenerate", events.Degenerate());
-		repo.RegisterCommand("meteorite", events.Météorite());
-		repo.RegisterCommand("massivemultiplication", events.MultiplicationMassive());
-		repo.RegisterCommand("randomskill", events.RandomSkill());
+		repo.RegisterCommand("acideattack", AcideAttack);
+		repo.RegisterCommand("degenerate", Degenerate);
+		repo.RegisterCommand("meteorite", Meteorite);
+		repo.RegisterCommand("massivemultiplication", MassMulti);
+		repo.RegisterCommand("randomskill", Rndskill);
 		repo.RegisterCommand("help", Help);
 	}
 	
@@ -200,6 +200,36 @@ public class ConsoleInitializer : MonoBehaviour {
 			return "Les paramètres saisis sont incorrects";
 		}
 		return "";
+	}
+
+	public string AcideAttack(params string[] args) 
+	{
+		events.AcideAttack ();
+		return "Lance l'évènement aléatoire de l'attaque acide";
+	}
+
+	public string Degenerate(params string[] args) 
+	{
+		events.Degenerate ();
+		return "Lance l'évènement aléatoire de la dégénérescence";
+	}
+
+	public string Meteorite(params string[] args) 
+	{
+		events.Météorite ();
+		return "Lance l'évènement aléatoire de la météorite";
+	}
+
+	public string MassMulti(params string[] args) 
+	{
+		events.MultiplicationMassive ();
+		return "Lance l'évènement aléatoire de la multiplication massive d'une espèce";
+	}
+
+	public string Rndskill(params string[] args) 
+	{
+		events.RandomSkill ();
+		return "Lance l'évènement aléatoire de l'ajout d'une compétence aléatoire";
 	}
 
 	public string Help(params string[] args) {
