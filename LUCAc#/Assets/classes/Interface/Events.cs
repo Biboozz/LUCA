@@ -35,10 +35,7 @@ public class Events : MonoBehaviour {
 			timer++;
 	}
 
-	public void cancel()
-	{
-		gameObject.SetActive (false);
-	}
+
 
 	public void CallRndEvent()
 	{
