@@ -51,6 +51,10 @@ public class resourcesManager : MonoBehaviour {
 		{
 			displayer.SetActive (false);
 		}
+		if (Input.GetKeyDown (KeyCode.C)) 
+		{
+			hide ();
+		}
 	}
 
 	private int moleculeCount()
