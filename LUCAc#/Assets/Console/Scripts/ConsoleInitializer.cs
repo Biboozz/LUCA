@@ -142,27 +142,27 @@ public class ConsoleInitializer : MonoBehaviour {
 		Species S;
 		if (args.Length == 3) 
 		{
-			S = Environment.livings.Find(G => G.name == args[0]);
-			if(S == null)
+			S = Environment.livings.Find (G => G.name == args [0]);
+			if (S == null) 
 			{
 				return "Le nom de l'espèce n'existe pas";
-			}
-			else
+			} 
+			else 
 			{
-				M = Environment.molecules.Find(T => T.name == args[1]);
-				if(M == null)
+				M = Environment.molecules.Find (T => T.name == args [1]);
+				if (M == null) 
 				{
 					return "Le nom de la molécule n'existe pas";
 				}
-				else
+				else 
 				{
-					if(int.TryParse(args[2],out result))
+					if (int.TryParse (args [2], out result)) 
 					{
-						if(result > 0)
+						if (result > 0) 
 						{
-							foreach(Individual I in S.Individuals)
+							foreach (Individual I in S.Individuals) 
 							{
-								I.cellMolecules.Find(MP => MP.moleculeType.ID == M.ID).count += result;
+								I.cellMolecules.Find (MP => MP.moleculeType.ID == M.ID).count += result;
 							}
 							return "Vous avez ajoutez " + result + " de la molécule " + M.name + " a l'espèce " + S.name;
 						}
@@ -170,6 +170,36 @@ public class ConsoleInitializer : MonoBehaviour {
 				}
 			}
 		} 
+		else if (args.Length == 4) 
+		{
+			S = Environment.livings.Find (G => G.name == args [0]);
+			if (S == null) 
+			{
+				return "Le nom de l'espèce n'existe pas";
+			} 
+			else 
+			{
+				M = Environment.molecules.Find (T => T.name == (args [1] + " " + args[2]));
+				if (M == null) 
+				{
+					return "Le nom de la molécule n'existe pas";
+				} 
+				else 
+				{
+					if (int.TryParse (args [3], out result)) 
+					{
+						if (result > 0) 
+						{
+							foreach (Individual I in S.Individuals) 
+							{
+								I.cellMolecules.Find (MP => MP.moleculeType.ID == M.ID).count += result;
+							}
+							return "Vous avez ajoutez " + result + " de la molécule " + M.name + " a l'espèce " + S.name;
+						}
+					}
+				}
+			}
+		}
 		else 
 		{
 			return "Les paramètres saisis sont incorrects";
