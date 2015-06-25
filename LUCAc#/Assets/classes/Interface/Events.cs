@@ -27,7 +27,6 @@ public class Events : MonoBehaviour {
 			time_event = rnd.Next (18000, 28800);	//Entre 5min et 8min
 		else if (timer == time_event) 
 		{
-			gameObject.SetActive (true);
 			CallRndEvent ();
 			timer = 0;
 		}
@@ -66,6 +65,7 @@ public class Events : MonoBehaviour {
 
 	public void AcideAttack()	//Attaque acide tue % des individus
 	{
+		gameObject.SetActive (true);
 		Species choice = Environment.livings[rnd.Next(0, Environment.livings.Count - 1)];
 		int nb = rnd.Next (20, 50);
 		for (int i = 0; i < nb; i++) 
@@ -77,6 +77,7 @@ public class Events : MonoBehaviour {
 
 	public void Degenerate()	//Une espèces débloque toutes les compétences
 	{
+		gameObject.SetActive (true);
 		Species choice = Environment.livings[rnd.Next(0, Environment.livings.Count - 1)];
 		foreach(skill S in SpecsTree.perkTree)
 		{
@@ -87,6 +88,7 @@ public class Events : MonoBehaviour {
 	
 	public void Météorite()		//Nouvelles espèces apparaisse
 	{
+		gameObject.SetActive (true);
 		Species S = new Species (Environment, new Color(((float)rnd.Next(255))/255f,((float)rnd.Next(255))/255f,((float)rnd.Next(255))/255f));
 		S.cell = Environment.cellPrefab;
 		S.individualLifeTime = 300;
@@ -112,6 +114,7 @@ public class Events : MonoBehaviour {
 	
 	public void MultiplicationMassive()	//Nombre d'individus d'une espèce augmente énormément
 	{
+		gameObject.SetActive (true);
 		Species choice = Environment.livings[rnd.Next(0, Environment.livings.Count - 1)];
 		int nb = rnd.Next (50, 100);
 		for (int i = 1; i <= nb; i++) // création de 100 cellules de l'espece
@@ -125,6 +128,7 @@ public class Events : MonoBehaviour {
 
 	public void RandomSkill()	//Ajout une compétence aléatoire au joueur
 	{
+		gameObject.SetActive (true);
 		foreach (Species especes in Environment.livings) 
 		{
 			if (especes.isPlayed)
