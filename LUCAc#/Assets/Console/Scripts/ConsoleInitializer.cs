@@ -26,6 +26,18 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("unlock", Unlock);
 		repo.RegisterCommand("addmolecule", AddMolecule);
 		repo.RegisterCommand("help", Help);
+
+		string[] str = new string[] {"\"Je", "mange", "et", "je", "parle\"", "qsfkpjqdpfjqdpg", "\"sdfsdgsdgsdg\""};
+		foreach (string s in str) 
+		{
+			Debug.Log (s);
+		}
+		str = formatArgs (str);
+		Debug.Log ("Après formatage...");
+		foreach (string s in str) 
+		{
+			Debug.Log (s);
+		}
 	}
 	
 	public string God(params string[] args) {
@@ -81,7 +93,6 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 
 	public string Unlock(params string[] args) {
-		Species speciesselect = Environment.livings[0];
 		if (args.Length == 1) {
 			foreach (Species especes in Environment.livings) 
 			{
@@ -216,6 +227,45 @@ public class ConsoleInitializer : MonoBehaviour {
 			"addmolecule [species name] [molecule name] [quantité] -- Ajoute la quantité indiquée de la molécule précisée pour tous les individus de l'espèce choisie\n" +
 			"kill -- tue toutes les cellules sélectionnées\n" +
 			"help -- cette commande";
+	}
+
+	private string[] formatArgs(string[] args)
+	{
+		int i = 0;
+		List<string> formated = new List<string> ();
+		while (i < args.Length) 
+		{
+			string s = args[i];
+			if(!s.StartsWith ("\""))
+			{
+				formated.Add (s);
+			}
+			else
+			{
+				while (args[i][args[i].Length -1] != '"')
+				{
+					i++;
+					if (i >= args.Length)
+					{
+						throw (new System.Exception("invalid format"));
+					}
+					s += " " + args[i];
+				}
+				string S = "";
+				foreach (char c in s)
+				{
+					if (c != '"')
+					{
+						S += c;
+					}
+				}
+				formated.Add(S);
+			}
+			i++;
+		}
+		string[] str = new string[formated.Count];
+		formated.CopyTo (str);
+		return str;
 	}
 }
 
