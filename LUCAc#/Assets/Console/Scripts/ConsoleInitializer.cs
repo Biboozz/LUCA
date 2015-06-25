@@ -23,11 +23,8 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("speedbase", SpeedBase);
 		repo.RegisterCommand("allunlock", Allunlock);
 		repo.RegisterCommand("kill", Kill);
+		repo.RegisterCommand("unlock", Unlock);
 		repo.RegisterCommand("help", Help);
-
-		//_species = Environment.livings;	//Liste des espèces
-		//_allskill = SpecsTree.perkTree;	//Liste des compétences
-		//_skillunlock = Especes.unlockedPerks; //Liste des compétences débloqués de l'espèce
 	}
 	
 	public string God(params string[] args) {
@@ -73,10 +70,32 @@ public class ConsoleInitializer : MonoBehaviour {
 		{
 			if (especes.isPlayed)
 			{
-				especes.unlockedPerks = SpecsTree.perkTree;
+				foreach(skill S in SpecsTree.perkTree)
+				{
+					especes.forceUnlockSkill(S);
+				}
 			}
 		}
 		return "Vous avez débloqués toutes les compétences";
+	}
+
+	public string Unlock(params string[] args) {
+		/*Species speciesselect = new Species();
+		if (args.GetLength = 1) 
+		{
+			foreach (Species especes in Environment.livings)
+			{
+				if (especes.isPlayed)
+				{
+
+				}
+			}
+		}
+		else if(args.GetLength = 2)
+		{
+			speciesselect.name = args [0];
+		}*/
+		return "Vous avez débloqué la compétence " ;
 	}
 
 	public string Kill(params string[] args) {

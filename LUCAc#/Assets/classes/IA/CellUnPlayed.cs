@@ -68,7 +68,7 @@ public class CellUnPlayed : MonoBehaviour {
 
 					if(posx > 6 && posx < 94 && posy > 6 && posy < 94)	//Si elle est dans le périmètre et que le calcul du rayon ne sort pas du terrain
 					{
-						GetComponent<actionManager> ().addAction (AnalyseMolecules);
+						AnalyseMolecules();
 					}
 				}
 			} 
@@ -102,7 +102,7 @@ public class CellUnPlayed : MonoBehaviour {
 		return new List<moleculePack>{target1, target2, target3};
 	}
 
-	public bool AnalyseMolecules()
+	public void AnalyseMolecules()
 	{
 		bool b = false;	//Molécule trouvé
 
@@ -148,7 +148,6 @@ public class CellUnPlayed : MonoBehaviour {
 		{
 			b = TestAnalyse(R.moleculeRepartition[tab_Pos[i, 0], tab_Pos[i, 1]], i);
 		}
-		return true;
 	}
 
 	public bool TestAnalyse(List<moleculePack> M, int i)
