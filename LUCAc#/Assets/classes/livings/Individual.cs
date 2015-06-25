@@ -117,6 +117,7 @@ public class Individual : MonoBehaviour
 		{
 			actionDelay = 80;
 			GetComponent<actionManager> ().addAction (interract, 0, 4);
+			GetComponent<actionManager> ().addAction (eatToxic);
 		}
 	}
 
@@ -397,7 +398,7 @@ public class Individual : MonoBehaviour
 	{
 		if (species.unlockedPerks.Count != 0) 
 		{
-			skill S = species.unlockedPerks [UnityEngine.Random.Range (0, species.unlockedPerks.Count - 1)];
+			skill S = species.unlockedPerks [UnityEngine.Random.Range (0, species.unlockedPerks.Count)];
 			bool b = true;
 			if (S.workCosts.environmentMolecules.Count != 0) 
 			{
@@ -480,6 +481,59 @@ public class Individual : MonoBehaviour
 		}
 		moleculePack MP = RM.moleculeRepartition [squarex, squarey].Find (mpE => mpE.moleculeType.ID == mp.moleculeType.ID);
 		MP.count += mp.count;
+		return false;
+	}
+
+	public bool eatToxic()
+	{
+		Vector3 pos = transform.position;
+		int squarex = (int)(pos.x/ 20f);
+		int squarey = (int)(pos.y/ 20f);
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (0 > squarex)
+		{
+			squarex = 0;
+		}
+		if (0 > squarey) 
+		{
+			squarey = 0;
+		}
+		moleculePack MP = RM.moleculeRepartition [squarex, squarey] [UnityEngine.Random.Range (0, RM.moleculeRepartition [squarex, squarey].Count)];
+		if (MP.moleculeType.toxic) 
+		{
+			bool b = true;
+			string[] str = new string[2];
+			str[0] = "none";
+			str[1] = "0";
+			int i = 0;
+			while (b && i < species.immunities.Count)
+			{
+				str = species.immunities[i].Split(new char[] {' '});
+				b = !(str[0] == MP.moleculeType.toxineType);
+				i++;
+			}
+			if (b)
+			{
+				ATP -= MP.moleculeType.toxineStrength * MP.count;
+				MP.count--;
+			}
+			else
+			{
+				int.TryParse(str[1], out i);
+				if (i < MP.moleculeType.toxineStrength)
+				{
+					ATP -= MP.moleculeType.toxineStrength * MP.count;
+					MP.count--;
+				}
+			}
+		}
 		return false;
 	}
 }
