@@ -10,16 +10,16 @@ public class NetworkCallBack : Bolt.GlobalEventListener
 	public override void SceneLoadLocalDone(string map) 
 	{
 		// randomize a position
-		var pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), 0);
+		var pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), -0.5f);
 		
 		// instantiate cell
 		BoltNetwork.Instantiate(/*BoltPrefabs.cell_network*/ BoltPrefabs.Sphere, pos, Quaternion.Euler(0,0,0));
 
 		// instantiate molecule
-		for (int i = 0; i < 200; i++) 
+		for (int i = 0; i < 350; i++) 
 		{
 			// random position 
-			var mol_pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), 0);
+			var mol_pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), -0.5f);
 
 			BoltNetwork.Instantiate(BoltPrefabs.sphere_mol, mol_pos, Quaternion.Euler(0,0,0));
 		}

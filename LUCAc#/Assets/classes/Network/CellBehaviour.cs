@@ -6,7 +6,8 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 	public GameObject[] Cell_element_objects;
 
 	private Color _color;
-	private int percent = 1;
+	private float moveSpeed = 40f;
+	public System.Random rand = new System.Random ();
 
 	public override void Attached() 
 	{
@@ -36,9 +37,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 	{
 		GameObject.Find("Main Camera").transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
 		
-		var moveSpeed = 40f * percent;
-		
-		var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		targetPos.z = transform.position.z;
 
 		if (transform.position.x < 1699 && transform.position.x > 301 && transform.position.y < 1699 && transform.position.y > 301)
@@ -59,6 +58,9 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		if (other.gameObject.CompareTag("molecule")) 
 		{
 			BoltNetwork.Destroy(other.gameObject);
+			transform.localScale += new Vector3(0.5f, 0.5f, 0);	//Grossis la sphère
+			moveSpeed = (1 / transform.localScale) * 400f;	//Vitesse réduite
+			InstanceMolecule();	//Des que une bouffer, une autre apparait
 		}
 	}
 	
@@ -72,5 +74,11 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 			GUILayout.Label(pseudo);
 			GUI.color = Color.white;
 		}
+	}
+
+	public void InstanceMolecule()
+	{
+		var mol_pos = new Vector3(rand.Next(301, 1699) , rand.Next(301, 1699), -0.5f);
+		BoltNetwork.Instantiate(BoltPrefabs.sphere_mol, mol_pos, Quaternion.Euler(0,0,0));
 	}
 }
