@@ -11,13 +11,14 @@ public class Events : MonoBehaviour {
 
 	private int timer;
 	private int time_event;
-	private Text description;
+	public Text description;
 	public System.Random rnd = new System.Random ();
 
 	// Use this for initialization
 	void Start () 
 	{
-		description = transform.FindChild ("description").FindComponent<Text> ();
+		Debug.Log (description);
+		description = transform.FindChild ("description").gameObject.GetComponent<Text> ();
 		timer = 0;
 	}
 	
@@ -71,6 +72,7 @@ public class Events : MonoBehaviour {
 		{
 			choice.Individuals[i].alive = false;
 		}
+
 		description.text = "Oh non une attaque acide viens d'avoir lieu, " + nb + " cellules de l'espèces " + choice.name + " viennent d'etre tués";
 	}
 
