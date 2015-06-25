@@ -59,7 +59,7 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 		{
 			BoltNetwork.Destroy(other.gameObject);
 			transform.localScale += new Vector3(0.5f, 0.5f, 0);	//Grossis la sphère
-			moveSpeed = (1 / transform.localScale) * 400f;	//Vitesse réduite
+			moveSpeed = ((1 / transform.localScale.x) * moveSpeed * (/*Changer ce coeff*/0.995f * transform.localScale.x));	//Vitesse réduite //Formule Excel : =(1/A3)*B2*(0,995*A3) // A3 : transform.localScale.x & B2 : moveSpeed
 			InstanceMolecule();	//Des que une bouffer, une autre apparait
 		}
 	}
