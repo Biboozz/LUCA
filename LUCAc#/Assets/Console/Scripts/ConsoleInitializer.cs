@@ -24,6 +24,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("allunlock", Allunlock);
 		repo.RegisterCommand("kill", Kill);
 		repo.RegisterCommand("unlock", Unlock);
+		repo.RegisterCommand("addmolecule", AddMolecule);
 		repo.RegisterCommand("help", Help);
 	}
 	
@@ -82,32 +83,48 @@ public class ConsoleInitializer : MonoBehaviour {
 	public string Unlock(params string[] args) {
 		Species speciesselect = Environment.livings[0];
 		if (args.Length == 1) {
-			foreach (Species especes in Environment.livings) {
-				if (especes.isPlayed) {
+			foreach (Species especes in Environment.livings) 
+			{
+				if (especes.isPlayed) 
+				{
 					skill S = SpecsTree.perkTree.Find (T => T.name == args [0]);
-					if (S == null) {
+					if (S == null) 
+					{
 						return "Le nom du skill n'existe pas";
-					} else {
+					} 
+					else 
+					{
 						especes.forceUnlockSkill (S);
+						return "Vous avez débloqué la compétence " + S.name;
 					}
 				}
 			}
 		} 
 		else if (args.Length == 2) {
 			skill F = SpecsTree.perkTree.Find (T => T.name == args [1]);
-			speciesselect.name = args [0];
-			Debug.Log (args [0] + args [1]);
-			if (F == null) {
-				return "Le nom du skill ou de l'espèce n'existe pas";
-			} else {
-				speciesselect.forceUnlockSkill (F);
+			Species S = Environment.livings.Find(G => G.name == args[0]);
+			if(S == null)
+			{
+				return "Le nom de l'espèce n'existe pas";
+			}
+			else
+			{
+				if (F == null) 
+				{
+					return "Le nom du skill n'existe pas";
+				} 
+				else 
+				{
+					S.forceUnlockSkill (F);
+					return "Vous avez débloqué la compétence " + F.name;
+				}
 			}
 		} 
 		else 
 		{
 			return "Vous avez saisis trop de paramètres";
 		}
-		return "Vous avez débloqué la compétence " ;
+		return "";
 	}
 
 	public string Kill(params string[] args) {
@@ -119,12 +136,54 @@ public class ConsoleInitializer : MonoBehaviour {
 		return "Vous avez tué les cellules sélectionnées";
 	}
 
+	public string AddMolecule(params string[] args) {
+		molecule M;
+		int result;
+		Species S;
+		if (args.Length == 3) 
+		{
+			S = Environment.livings.Find(G => G.name == args[0]);
+			if(S == null)
+			{
+				return "Le nom de l'espèce n'existe pas";
+			}
+			else
+			{
+				M = Environment.molecules.Find(T => T.name == args[1]);
+				if(M == null)
+				{
+					return "Le nom de la molécule n'existe pas";
+				}
+				else
+				{
+					if(int.TryParse(args[2],out result))
+					{
+						if(result > 0)
+						{
+							foreach(Individual I in S.Individuals)
+							{
+								I.cellMolecules.Find(MP => MP.moleculeType.ID == M.ID).count += result;
+							}
+							return "Vous avez ajoutez " + result + " de la molécule " + M.name + " a l'espèce " + S.name;
+						}
+					}
+				}
+			}
+		} 
+		else 
+		{
+			return "Les paramètres saisis sont incorrects";
+		}
+		return "";
+	}
+
 	public string Help(params string[] args) {
 		return "god -- Vie illimitée\n" +
 			"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
 			"speedbase -- remet la vitesse de base\n" +
 			"allunlock -- débloque toutes les compétences de l'arbre\n" +
 			"unlock [species name] [skill name] -- Par default l'espèce sélectionné est la votre. Permet de débloquer un skill pour une espèce choisie\n" +
+			"addmolecule [species name] [molecule name] [quantité] -- Ajoute la quantité indiquée de la molécule précisée pour tous les individus de l'espèce choisie\n" +
 			"kill -- tue toutes les cellules sélectionnées\n" +
 			"help -- cette commande";
 	}
