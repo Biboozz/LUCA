@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Events : MonoBehaviour {
 
+	public environment Environment;
+	public displayPerkTree SpecsTree;
+
 	private int timer;
 	private int time_event;
 	public System.Random rnd = new System.Random ();
@@ -28,6 +31,11 @@ public class Events : MonoBehaviour {
 		}
 		else
 			timer++;
+	}
+
+	public void cancel()
+	{
+		gameObject.SetActive (false);
 	}
 
 	public void CallRndEvent()
