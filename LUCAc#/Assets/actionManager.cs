@@ -49,32 +49,35 @@ public class actionManager : MonoBehaviour
 	{
 		if (actions.Count != -1) 
 		{
-
-			int r = UnityEngine.Random.Range(0, actions.Count);
-			while (r >= 0)
+			if (actions.Count != 0)
 			{
-				if (actions[r]())
+				int r = UnityEngine.Random.Range(0, actions.Count);
+				while (r >= 0)
 				{
-					actions.RemoveAt(r);
-					durations.RemoveAt(r);
-				}
-				else
-				{
-					if (durations[r] == 0)
+					if (actions[r]())
 					{
 						actions.RemoveAt(r);
 						durations.RemoveAt(r);
 					}
 					else
 					{
-						if (durations[r] > 0)
+						if (durations[r] == 0)
 						{
-							durations[r]--;
+							actions.RemoveAt(r);
+							durations.RemoveAt(r);
+						}
+						else
+						{
+							if (durations[r] > 0)
+							{
+								durations[r]--;
+							}
 						}
 					}
+					r--;
 				}
-				r--;
 			}
+
 		}
 	}
 

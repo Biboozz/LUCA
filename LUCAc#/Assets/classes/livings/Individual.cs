@@ -33,7 +33,7 @@ public class Individual : MonoBehaviour
 	private int _splitIncrement;
 
 	private int vieilDelta = 0;
-
+	private int actionDelay = 45;
 
 	#region accessors
 	public List<Individual> group			{ 	get { return _group; } 					set { _group = value; 			} 	}
@@ -75,7 +75,7 @@ public class Individual : MonoBehaviour
 		_RM = place.gameObject.GetComponent<resourcesManager> ();
 		transform.Rotate (0, 0, UnityEngine.Random.Range(0,360));
 		GetComponent<actionManager> ().Initialize ();
-		GetComponent<actionManager> ().addAction (action);
+		//GetComponent<actionManager> ().addAction (action);
 	}
 	
 	// Update is called once per frame
@@ -110,6 +110,13 @@ public class Individual : MonoBehaviour
 			{
 				alive = false;
 			}
+		}
+
+		actionDelay--;
+		if (actionDelay == 0) 
+		{
+			actionDelay = 80;
+			GetComponent<actionManager> ().addAction (interract, 0, 4);
 		}
 	}
 
@@ -340,5 +347,139 @@ public class Individual : MonoBehaviour
 		splitGive (son.GetComponent<Individual> ());
 		son.GetComponent<CellUnPlayed> ().Initialize ();
 		return true;
+	}
+
+	private bool specificEat(moleculePack mp)
+	{
+		Vector3 pos = transform.position;
+		int squarex = (int)(pos.x/ 20f);
+		int squarey = (int)(pos.y/ 20f);
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (0 > squarex)
+		{
+			squarex = 0;
+		}
+		if (0 > squarey) 
+		{
+			squarey = 0;
+		}
+		moleculePack MP = RM.moleculeRepartition [squarex, squarey].Find (mpE => mpE.moleculeType.ID == mp.moleculeType.ID);
+		if (MP == null || MP.count == 0) 
+		{
+
+			return true;
+		} 
+		else 
+		{
+			if (MP.count < mp.count)
+			{
+				MP.count = 1;
+			}
+			else
+			{
+
+				MP.count -= mp.count;
+			}
+			return true;
+		}
+	}
+
+
+
+	private bool interract()
+	{
+		if (species.unlockedPerks.Count != 0) 
+		{
+			skill S = species.unlockedPerks [UnityEngine.Random.Range (0, species.unlockedPerks.Count - 1)];
+			bool b = true;
+			if (S.workCosts.environmentMolecules.Count != 0) 
+			{
+				int i = 0;
+				while (b && i < S.workCosts.environmentMolecules.Count) 
+				{
+					b = b && specificEat (S.workCosts.environmentMolecules [i]);
+					i++;
+				}
+			}
+
+
+			if (b && S.workCosts.cellMolecules.Count != 0) 
+			{
+				int i = 0;
+				while (b && i < S.workCosts.cellMolecules.Count) 
+				{
+					b = b && !specificConsume (S.workCosts.cellMolecules [i]);
+					i++;
+				}
+			}
+
+			if (b && S.workProducts.environmentMolecules.Count != 0) {
+				foreach (moleculePack mp in S.workProducts.environmentMolecules) {
+					specificRelease (mp);
+				}
+			}
+
+			if (b && S.workProducts.cellMolecules.Count != 0) 
+			{
+
+				foreach (moleculePack mp in S.workProducts.cellMolecules) 
+				{
+					moleculePack MP = cellMolecules.Find (m => m.moleculeType.ID == mp.moleculeType.ID);
+					MP.count += mp.count;
+				}
+			}
+			return !b;
+		} 
+		else 
+		{
+			return false;
+		}
+	}
+
+	private bool specificConsume(moleculePack mp)
+	{
+		moleculePack mpC = cellMolecules.Find (m => m.moleculeType.ID == mp.moleculeType.ID);
+		if (mpC == null || mpC.count < mp.count) 
+		{
+			return true;
+		} 
+		else
+		{
+			mpC.count -= mp.count;
+			return false;
+		}
+	}
+
+	private bool specificRelease(moleculePack mp)
+	{
+		Vector3 pos = transform.position;
+		int squarex = (int)(pos.x/ 20f);
+		int squarey = (int)(pos.y/ 20f);
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (squarex > 99) 
+		{
+			squarex = 99;
+		}
+		if (0 > squarex)
+		{
+			squarex = 0;
+		}
+		if (0 > squarey) 
+		{
+			squarey = 0;
+		}
+		moleculePack MP = RM.moleculeRepartition [squarex, squarey].Find (mpE => mpE.moleculeType.ID == mp.moleculeType.ID);
+		MP.count += mp.count;
+		return false;
 	}
 }
