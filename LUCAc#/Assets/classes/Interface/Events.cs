@@ -11,12 +11,13 @@ public class Events : MonoBehaviour {
 
 	private int timer;
 	private int time_event;
-	private Text _description = null;
+	private Text description;
 	public System.Random rnd = new System.Random ();
 
 	// Use this for initialization
 	void Start () 
 	{
+		description = transform.FindChild ("description").FindComponent<Text> ();
 		timer = 0;
 	}
 	
@@ -33,8 +34,6 @@ public class Events : MonoBehaviour {
 		else
 			timer++;
 	}
-
-
 
 	public void CallRndEvent()
 	{
@@ -72,7 +71,7 @@ public class Events : MonoBehaviour {
 		{
 			choice.Individuals[i].alive = false;
 		}
-		_description.text = "Oh non une attaque acide viens d'avoir lieu, " + nb + " cellules de l'espèces " + choice.name + " viennent d'etre tués";
+		description.text = "Oh non une attaque acide viens d'avoir lieu, " + nb + " cellules de l'espèces " + choice.name + " viennent d'etre tués";
 	}
 
 	public void Degenerate()	//Une espèces débloque toutes les compétences
@@ -83,7 +82,7 @@ public class Events : MonoBehaviour {
 		{
 			choice.forceUnlockSkill(S);
 		}
-		_description.text = "Une dégénérescence importante causé par des cherches pharmaceutiques plus que douteuse on rendu l'espèce " + choice.name + "quasiment invincible";
+		description.text = "Une dégénérescence importante causé par des cherches pharmaceutiques plus que douteuse on rendu l'espèce " + choice.name + "quasiment invincible";
 	}
 	
 	public void Météorite()		//Nouvelles espèces apparaisse
@@ -109,7 +108,7 @@ public class Events : MonoBehaviour {
 		}
 		T.name = "Vacuolata";
 
-		_description.text = "Une météorite c'est écrasé sur le terrain, deux nouvelles espèces sont apparues";
+		description.text = "Une météorite c'est écrasé sur le terrain, deux nouvelles espèces sont apparues";
 	}
 	
 	public void MultiplicationMassive()	//Nombre d'individus d'une espèce augmente énormément
@@ -123,7 +122,7 @@ public class Events : MonoBehaviour {
 			Environment.CI.cellsplayed.Add(choice.Individuals[choice.Individuals.Count - 1]);
 		}
 
-		_description.text = "Une erreur de dosage d'un stagiaire a provoqué la multiplication importante de l'espèce " + choice.name + ", elle possède " + nb + " nouveaux individus";
+		description.text = "Une erreur de dosage d'un stagiaire a provoqué la multiplication importante de l'espèce " + choice.name + ", elle possède " + nb + " nouveaux individus";
 	}
 
 	public void RandomSkill()	//Ajout une compétence aléatoire au joueur
@@ -135,7 +134,7 @@ public class Events : MonoBehaviour {
 			{
 				int nb = rnd.Next(0, SpecsTree.perkTree.Count - 1);
 				especes.forceUnlockSkill (SpecsTree.perkTree[nb]);
-				_description.text = "C'est votre jour de chance, en effet la jolie sécrétaire a renversé quelques choses dans le milieu en amenant des fichiers importants au responsable du laboratoire, vous avez donc débloqué la compétence " + SpecsTree.perkTree[nb].name;
+				description.text = "C'est votre jour de chance, en effet la jolie sécrétaire a renversé quelques choses dans le milieu en amenant des fichiers importants au responsable du laboratoire, vous avez donc débloqué la compétence " + SpecsTree.perkTree[nb].name;
 			}
 		}
 	}
