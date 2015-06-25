@@ -220,8 +220,8 @@ public class environment : MonoBehaviour {
 			cb = buttons[selected].colors;
 			cb.normalColor = Color.yellow;
 			buttons[selected].colors = cb;
-			UIGroupZone.SetActive(false);
-			UItaskList.SetActive(false);
+			//UIGroupZone.SetActive(false);
+			//UItaskList.SetActive(false);
 		}
 	}
 
@@ -233,8 +233,8 @@ public class environment : MonoBehaviour {
 			cb = buttons [selected].colors;
 			cb.normalColor = cb.highlightedColor;
 			buttons [selected].colors = cb;
-			UIGroupZone.SetActive(true);
-			UItaskList.SetActive(true);
+			//UIGroupZone.SetActive(true);
+			//UItaskList.SetActive(true);
 		}
 	}
 
