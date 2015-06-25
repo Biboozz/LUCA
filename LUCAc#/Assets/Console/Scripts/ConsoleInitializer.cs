@@ -80,21 +80,33 @@ public class ConsoleInitializer : MonoBehaviour {
 	}
 
 	public string Unlock(params string[] args) {
-		/*Species speciesselect = new Species();
-		if (args.GetLength = 1) 
-		{
-			foreach (Species especes in Environment.livings)
-			{
-				if (especes.isPlayed)
-				{
-
+		Species speciesselect = Environment.livings[0];
+		if (args.Length == 1) {
+			foreach (Species especes in Environment.livings) {
+				if (especes.isPlayed) {
+					skill S = SpecsTree.perkTree.Find (T => T.name == args [0]);
+					if (S == null) {
+						return "Le nom du skill n'existe pas";
+					} else {
+						especes.forceUnlockSkill (S);
+					}
 				}
 			}
-		}
-		else if(args.GetLength = 2)
-		{
+		} 
+		else if (args.Length == 2) {
+			skill F = SpecsTree.perkTree.Find (T => T.name == args [1]);
 			speciesselect.name = args [0];
-		}*/
+			Debug.Log (args [0] + args [1]);
+			if (F == null) {
+				return "Le nom du skill ou de l'espèce n'existe pas";
+			} else {
+				speciesselect.forceUnlockSkill (F);
+			}
+		} 
+		else 
+		{
+			return "Vous avez saisis trop de paramètres";
+		}
 		return "Vous avez débloqué la compétence " ;
 	}
 
@@ -112,6 +124,7 @@ public class ConsoleInitializer : MonoBehaviour {
 			"speed [nombre] -- modifie la vitesse de déplacement de vos cellules\n" +
 			"speedbase -- remet la vitesse de base\n" +
 			"allunlock -- débloque toutes les compétences de l'arbre\n" +
+			"unlock [species name] [skill name] -- Par default l'espèce sélectionné est la votre. Permet de débloquer un skill pour une espèce choisie\n" +
 			"kill -- tue toutes les cellules sélectionnées\n" +
 			"help -- cette commande";
 	}
