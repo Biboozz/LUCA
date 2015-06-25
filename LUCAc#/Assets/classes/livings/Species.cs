@@ -218,11 +218,11 @@ public class Species
 		I.speed *= S.speedModifier;
 		if (S.speedModifier > 1f) 
 		{
-			I.duration -= linear(4f, S.speedModifier - 1);
+			I.duration -= 1.5f;
 		} 
 		else if (S.speedModifier < 1f) 
 		{
-			I.duration += linear(4f, S.speedModifier - 1);
+			I.duration += 1.5f;
 		}
 		//I.duration = 18;
 		if (S.addFlagel) 
@@ -244,11 +244,6 @@ public class Species
 		I.transform.localScale = mult (I.transform.localScale, new Vector3 (S.sizeXModifier, S.sizeYModifier, 1f));
 		I.transform.FindChild ("core").localScale *= S.coreSizeModifier;
 		I.transform.FindChild ("membrane").localScale *= S.membraneSizeModifier;
-	}
-
-	private float linear(float pente, float x)
-	{
-		return pente * x;
 	}
 
 	private Vector3 mult( Vector3 v1, Vector3 v2)

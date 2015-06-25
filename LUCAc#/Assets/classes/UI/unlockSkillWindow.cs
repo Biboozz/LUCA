@@ -68,7 +68,7 @@ public class unlockSkillWindow : MonoBehaviour {
 				_description.text = _skill.description;
 				_skillHexName.text = _skill.type;
 				_skillAppearence.sprite = _skill.hex.GetComponent<Image>().sprite;
-				_rate.text = (((float)countUnlockers(_player, _skill) * 100f)/(float)_player.Individuals.Count).ToString() + "% sur 60% de vos cellules peuvent debloquer cette competence";
+				_rate.text = (((float)countUnlockers(_player, _skill) * 100f)/(float)_player.Individuals.Count).ToString() + "% de vos cellules peuvent debloquer cette competence (60% nécessaires)";
 				if (_player == null)
 				{
 					throw new System.Exception("error undefined player");

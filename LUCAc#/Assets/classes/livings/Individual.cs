@@ -345,6 +345,7 @@ public class Individual : MonoBehaviour
 		splitGive (son.GetComponent<Individual> ());
 		_species.addCell (son.GetComponent<Individual>());
 		son.GetComponent<Individual>().descriptionBox = descriptionBox;
+		son.GetComponent<Individual> ().speed = speed;
 		ATP = ATP / 2;
 		son.GetComponent<Individual>().Initialize(transform.position, 0, this._species, this.place, this.isPlayed, new List<moleculePack>(), ATP);
 		splitGive (son.GetComponent<Individual> ());
@@ -508,7 +509,7 @@ public class Individual : MonoBehaviour
 			squarey = 0;
 		}
 		moleculePack MP = RM.moleculeRepartition [squarex, squarey] [UnityEngine.Random.Range (0, RM.moleculeRepartition [squarex, squarey].Count)];
-		if (MP.moleculeType.toxic) 
+		if (MP.moleculeType.toxic)
 		{
 			bool b = true;
 			string[] str = new string[2];
