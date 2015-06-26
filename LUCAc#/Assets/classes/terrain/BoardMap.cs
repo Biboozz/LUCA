@@ -48,12 +48,15 @@ namespace AssemblyCSharp
 
 		public List<moleculePack> SpecieSum(Species S)
 		{
+			int ind = 0;
 			List<moleculePack> Sum = new List<moleculePack> ();
 
 			foreach (Individual I in S.Individuals) 
 			{
 				foreach (moleculePack M in I.cellMolecules)
 				{
+					ind++;
+
 					int exist = Exist (M.moleculeType, Sum);
 
 					if (exist >= 0)
@@ -65,6 +68,11 @@ namespace AssemblyCSharp
 						Sum.Add (M);
 					}
 				}
+			}
+
+			foreach (moleculePack Mp in Sum) 
+			{
+				Mp.count = Mp.count/ind;
 			}
 
 			return Sum;
@@ -88,6 +96,7 @@ namespace AssemblyCSharp
 			{
 				int index = Exist (Mp.moleculeType, TotalSpecie);
 				result = result & (index >= 0) & (TotalSpecie[index].count >= Mp.count);
+				Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
 			}
 			return result;
 		}
@@ -192,23 +201,37 @@ namespace AssemblyCSharp
 
 			bool dist = _env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1;
 			bool amount = EnoughtToPass ();;
+			bool back = (_env.Playercursor.x >= _env.ButtonCursor.x)&(_env.Playercursor.y >= _env.ButtonCursor.y);
+			bool same = (_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y);
 
-			if ((!dist) & (amount)) {
+			GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 14;
+
+			if ((!dist) & (amount) & !(back)) {
 				EvE.SetActive (true);
 				EvD.SetActive (false);
 			} else {
 				if (dist) {
-					Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces \n";
+					Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces. \n ";
 				}
 				if (!amount) {
-					Pb.text = Pb.text + "Vous n'avez pas les rssources nécéssaires pour evoluer dans ce milieu";
+					Pb.text = Pb.text + "Vous n'avez pas les ressources nécéssaires. \n ";
 				}
+				if (back)
+				{
+					Pb.text = Pb.text + "Vous ne pouvez retro-évoluer. \n";
+				}
+				if (same)
+				{
+					GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 22;
+					Pb.text = "";
+					Pb.text = Pb.text + "Votre cellule evolue actuellement dans ce milieu.";
+				}
+
 				EvE.SetActive (false);
 				EvD.SetActive (true);
 			}
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().text = Pb.text;
-
 
 		}
 	}
