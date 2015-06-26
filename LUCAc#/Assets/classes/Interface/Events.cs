@@ -17,7 +17,6 @@ public class Events : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log (description);
 		description = transform.FindChild ("description").gameObject.GetComponent<Text> ();
 		timer = 0;
 	}
@@ -84,7 +83,7 @@ public class Events : MonoBehaviour {
 		{
 			choice.forceUnlockSkill(S);
 		}
-		description.text = "Une dégénérescence importante causé par des cherches pharmaceutiques plus que douteuse on rendu l'espèce " + choice.name + "quasiment invincible";
+		description.text = "Une dégénérescence importante causé par des cherches pharmaceutiques plus que douteuse on rendu l'espèce " + choice.name + " quasiment invincible";
 	}
 	
 	public void Météorite()		//Nouvelles espèces apparaisse
@@ -98,9 +97,17 @@ public class Events : MonoBehaviour {
 			S.Individuals.Add (Instantiate(Environment.cellPrefab).GetComponent<Individual>());
 			Environment.CI.cellsplayed.Add(S.Individuals[S.Individuals.Count - 1]);
 		}
+		for (int i = 0; i < S.Individuals.Count; i++) 
+		{
+			S.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000),UnityEngine.Random.Range(0,2000), 0.1f), 20, S, Environment, false, new List<moleculePack>(), rnd.Next(500)); //apparition coordonnées random
+			S.Individuals[i].descriptionBox = Environment.UICellDescriptionBox;
+			S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = S.color; //modif couleur core en fonction de l'espece
+			S.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
+		}
+		Environment.livings.Add (S); //ajout liste espece vivante
 		S.name = "Methanosarcina";
 
-		Species T = new Species (Environment, new Color(((float)rnd.Next(255))/255f,((float)rnd.Next(255))/255f,((float)rnd.Next(255))/255f));
+		Species T = new Species (Environment, new Color(0f, 255f, 0f));
 		T.cell = Environment.cellPrefab;
 		T.individualLifeTime = 300;
 		for (int i = 1; i <= 100; i++) // création de 100 cellules de l'espece
@@ -108,6 +115,14 @@ public class Events : MonoBehaviour {
 			T.Individuals.Add (Instantiate(Environment.cellPrefab).GetComponent<Individual>());
 			Environment.CI.cellsplayed.Add(T.Individuals[T.Individuals.Count - 1]);
 		}
+		for (int i = 0; i < T.Individuals.Count; i++) 
+		{
+			T.Individuals[i].Initialize(new Vector3(UnityEngine.Random.Range(0,2000),UnityEngine.Random.Range(0,2000), 0.1f), 20, T, Environment, false, new List<moleculePack>(), rnd.Next(500)); //apparition coordonnées random
+			T.Individuals[i].descriptionBox = Environment.UICellDescriptionBox;
+			T.Individuals[i].transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = T.color; //modif couleur core en fonction de l'espece
+			T.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = T.color;
+		}
+		Environment.livings.Add (T); //ajout liste espece vivante
 		T.name = "Vacuolata";
 
 		description.text = "Une météorite c'est écrasé sur le terrain, deux nouvelles espèces sont apparues";
@@ -120,8 +135,7 @@ public class Events : MonoBehaviour {
 		int nb = rnd.Next (50, 100);
 		for (int i = 1; i <= nb; i++) // création de 100 cellules de l'espece
 		{
-			choice.Individuals.Add (Instantiate(Environment.cellPrefab).GetComponent<Individual>());
-			Environment.CI.cellsplayed.Add(choice.Individuals[choice.Individuals.Count - 1]);
+			choice.Individuals[i].division();
 		}
 
 		description.text = "Une erreur de dosage d'un stagiaire a provoqué la multiplication importante de l'espèce " + choice.name + ", elle possède " + nb + " nouveaux individus";
@@ -136,7 +150,7 @@ public class Events : MonoBehaviour {
 			{
 				int nb = rnd.Next(0, SpecsTree.perkTree.Count - 1);
 				especes.forceUnlockSkill (SpecsTree.perkTree[nb]);
-				description.text = "C'est votre jour de chance, en effet la jolie sécrétaire a renversé quelques choses dans le milieu en amenant des fichiers importants au responsable du laboratoire, vous avez donc débloqué la compétence " + SpecsTree.perkTree[nb].name;
+				description.text = "C'est votre jour de chance, en effet la jolie secrétaire a renversé quelques choses dans le milieu en amenant des fichiers importants au responsable du laboratoire, vous avez donc débloqué la compétence " + SpecsTree.perkTree[nb].name;
 			}
 		}
 	}
