@@ -461,30 +461,6 @@ public class environment : MonoBehaviour {
 		}
 	}
 
-//	public BoardMap[,] BM 
-//	{
-//		get
-//		{
-//			return BM;
-//		}
-//		set
-//		{
-//			Playercursor.pos (0, 0);
-//			int dim = MapDimension;// rand.Next (3, 5);
-//			
-//			for (int i = 0; i<dim; i++) 
-//			{
-//				for(int j = 0;j<dim;j++)
-//				{
-//					_BM[i,j] = new BoardMap(this, rand.Next (0,4));
-//					ColorButton(_BM[i,j], i , j);
-//				}
-//			} 
-//			GameObject bttntxt = GameObject.Find ("text" + Playercursor.x + Playercursor.y);
-//			bttntxt.GetComponent<Text>().text = "Vous";
-//		}
-//	}
-
 	public void YouButton()
 	{
 		Vector3 pos = Cam.transform.position;
@@ -606,10 +582,12 @@ public class environment : MonoBehaviour {
 		{
 			for(int j = 0;j<dim;j++)
 			{
-				BM[i,j] = new BoardMap(this, rand.Next (0,4));
+				BM[i,j] = new BoardMap(this, rand.Next (0,4), rand);
 				ColorButton(BM[i,j], i , j);
 			}
 		} 
+
+		GameObject.Find ("EvolveEnabled").SetActive (false);
 		GameObject bttntxt = GameObject.Find ("text" + Playercursor.x + Playercursor.y);
 		bttntxt.GetComponent<Text>().text = "Vous";
 	}
@@ -630,46 +608,64 @@ public class environment : MonoBehaviour {
 
 	public void ButtonMapClic00()
 	{
-		BM [0, 0].PrintBoardTile ();
+		ButtonCursor.x = 0;
+		ButtonCursor.y = 0;
+		BM [0, 0].PrintBoardTile ();;
 	}
 
 	public void ButtonMapClic01()
 	{
+		ButtonCursor.x = 0;
+		ButtonCursor.y = 1;
 		BM [0, 1].PrintBoardTile ();
 	}
 
 	public void ButtonMapClic02()
 	{
+		ButtonCursor.x = 0;
+		ButtonCursor.y = 2;
 		BM [0, 2].PrintBoardTile ();
 	}
 
 	public void ButtonMapClic10()
 	{
+		ButtonCursor.x = 1;
+		ButtonCursor.y = 0;
 		BM [1, 0].PrintBoardTile ();
 	}
 
 	public void ButtonMapClic11()
 	{
+		ButtonCursor.x = 1;
+		ButtonCursor.y = 1;
 		BM [1, 1].PrintBoardTile ();
 	}
 
 	public void ButtonMapClic12()
 	{
+		ButtonCursor.x = 1;
+		ButtonCursor.y = 2;
 		BM [1, 2].PrintBoardTile ();
 	}
 
 	public void ButtonMapClic20()
 	{
+		ButtonCursor.x = 2;
+		ButtonCursor.y = 0;
 		BM [2, 0].PrintBoardTile ();
 	}
 
 	public void ButtonMapClic21()
 	{
+		ButtonCursor.x = 2;
+		ButtonCursor.y = 1;
 		BM [2, 1].PrintBoardTile ();
 	}
 
 	public void ButtonMapClic22()
 	{
+		ButtonCursor.x = 2;
+		ButtonCursor.y = 2;
 		BM [2, 2].PrintBoardTile ();
 	}
 }

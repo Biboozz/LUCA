@@ -10,7 +10,7 @@ namespace AssemblyCSharp
 {
 	public class BoardMap
 	{
-		private System.Random rand = new System.Random();
+		//private System.Random rand = new System.Random();
 
 		private environment _env;
 		private List<moleculePack> pass = new List<moleculePack>();
@@ -20,13 +20,76 @@ namespace AssemblyCSharp
 		public Color seen;
 		public Color acti;
 		public Color over;
-		public GameObject Button;
+		public GameObject EvE = GameObject.Find ("EvolveEnabled");
+		public GameObject EvD = GameObject.Find ("EvolveDisabled");
+
+
 		
-		public BoardMap (environment env, int MaterialIndex)
+		public BoardMap (environment env, int MaterialIndex, System.Random rand)
 		{
 			_env = env;
 			RandomMaterial (MaterialIndex);
-			GeneratePass ();
+			GeneratePass (rand);
+		}
+
+		public int Exist (molecule Mol, List<moleculePack> L)
+		{
+			int i = -1;
+			do {
+
+				i++;
+			} while ((i < L.Count )&&(L[i].moleculeType != Mol));
+			
+			if(i == L.Count)
+				i = -1;
+
+			return i;
+		}
+
+		public List<moleculePack> SpecieSum(Species S)
+		{
+			List<moleculePack> Sum = new List<moleculePack> ();
+
+			foreach (Individual I in S.Individuals) 
+			{
+				foreach (moleculePack M in I.cellMolecules)
+				{
+					int exist = Exist (M.moleculeType, Sum);
+
+					if (exist >= 0)
+					{
+						Sum[exist].count = Sum[exist].count + M.count;
+					}
+					else
+					{
+						Sum.Add (M);
+					}
+				}
+			}
+
+			return Sum;
+		}
+
+		public bool EnoughtToPass()
+		{
+			bool result = true;
+
+			int i = 0;
+			do
+			{
+				i++;
+			} while (!_env.livings[i].isPlayed);
+
+			Species S = _env.livings [i];
+
+			List<moleculePack> TotalSpecie = SpecieSum (S);
+
+			foreach (moleculePack Mp in pass) 
+			{
+				int index = Exist (Mp.moleculeType, TotalSpecie);
+				result = result & (index >= 0) & (TotalSpecie[index].count >= Mp.count);
+			}
+			return result;
 		}
 
 		private void RandomMaterial(int index)
@@ -68,7 +131,7 @@ namespace AssemblyCSharp
 					seen = new Color32(255,222,117,255);
 					over = new Color32(245,212,107,255);
 					acti = new Color (1,1,1,1);
-					MaterialName = "Milieu Visqueux";
+					MaterialName = "Milieu semi-liquide";
 					break;
 				}
 
@@ -78,26 +141,75 @@ namespace AssemblyCSharp
 					break;
 				}
 			}
-
-			Debug.Log (MaterialName);
 		}
 
-		public void GeneratePass()
+		public void GeneratePass(System.Random rand)
 		{
+			List<int> indexl = new List<int>();
 			int bigiter = rand.Next (1, 4);
+			int index;
 
 			for (int loop = 0; loop<bigiter; loop++)
 			{
 				int RandPass = rand.Next (9000, 12000);
-				int index = (rand.Next (0, 100))%( _env.molecules.Count);
-				pass.Add(new moleculePack(RandPass/bigiter, _env.molecules[index])); // A gerrer en fonction de la rareté de la mollecule
+
+				do
+				{
+				index = (rand.Next (0, 100))%( _env.molecules.Count);
+				} while  (indexl.Exists(element => element == index));
+
+				indexl.Add(index);
+
+				Debug.Log (RandPass + "," + index);
+
+				pass.Add(new moleculePack(RandPass/bigiter, _env.molecules[index])); // A gerrer en fonction de la rareté de la mollecule*/
 			}
-			
+			Debug.Log ("----------------------------");
 		}
 
 		public void PrintBoardTile()
 		{
+			Text Pb = GameObject.Find ("EvolveProblems").GetComponent<Text> ();
+			Pb.text = "";
+
 			GameObject.Find ("TypeName").GetComponent<Text> ().text = MaterialName;
+			int i;
+
+			for (i = 0; i<3; i++) 
+			{
+				GameObject.Find ("MolleculeName " + i).FindComponent<Text>().text = "";
+				GameObject.Find ("MolleculeAmount " + i).FindComponent<Text>().text = "";
+			}
+
+			i = 0;
+
+			while (i<pass.Count) 
+			{
+				GameObject.Find ("MolleculeName " + i).FindComponent<Text>().text = pass[i].moleculeType.name;
+				GameObject.Find ("MolleculeAmount " + i).FindComponent<Text>().text = "" + pass[i].count;
+				i++;
+			}
+
+			bool dist = _env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1;
+			bool amount = EnoughtToPass ();;
+
+			if ((!dist) & (amount)) {
+				EvE.SetActive (true);
+				EvD.SetActive (false);
+			} else {
+				if (dist) {
+					Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces \n";
+				}
+				if (!amount) {
+					Pb.text = Pb.text + "Vous n'avez pas les rssources nécéssaires pour evoluer dans ce milieu";
+				}
+				EvE.SetActive (false);
+				EvD.SetActive (true);
+			}
+
+			GameObject.Find ("EvolveProblems").GetComponent<Text> ().text = Pb.text;
+
+
 		}
 	}
 }
