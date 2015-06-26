@@ -1,8 +1,10 @@
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System;
+using AssemblyCSharp;
 
 namespace AssemblyCSharp
 {
@@ -76,6 +78,8 @@ namespace AssemblyCSharp
 					break;
 				}
 			}
+
+			Debug.Log (MaterialName);
 		}
 
 		public void GeneratePass()
@@ -89,6 +93,11 @@ namespace AssemblyCSharp
 				pass.Add(new moleculePack(RandPass/bigiter, _env.molecules[index])); // A gerrer en fonction de la rareté de la mollecule
 			}
 			
+		}
+
+		public void PrintBoardTile()
+		{
+			GameObject.Find ("TypeName").GetComponent<Text> ().text = MaterialName;
 		}
 	}
 }

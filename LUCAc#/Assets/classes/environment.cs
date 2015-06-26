@@ -23,7 +23,7 @@ public class environment : MonoBehaviour {
 
 	private int MapDimension = 3;
 	private System.Random rand = new System.Random();
-	public BoardMap[,] BM;
+	public BoardMap[,] BM = new BoardMap[3, 3];
 	public POINT Playercursor = new POINT();
 	public POINT ButtonCursor = new POINT();
 
@@ -456,8 +456,34 @@ public class environment : MonoBehaviour {
 			_molecules = nm;
 
 			GenerateBM ();
+
+			GameObject.Find ("MainPannel").SetActive (false);
 		}
 	}
+
+//	public BoardMap[,] BM 
+//	{
+//		get
+//		{
+//			return BM;
+//		}
+//		set
+//		{
+//			Playercursor.pos (0, 0);
+//			int dim = MapDimension;// rand.Next (3, 5);
+//			
+//			for (int i = 0; i<dim; i++) 
+//			{
+//				for(int j = 0;j<dim;j++)
+//				{
+//					_BM[i,j] = new BoardMap(this, rand.Next (0,4));
+//					ColorButton(_BM[i,j], i , j);
+//				}
+//			} 
+//			GameObject bttntxt = GameObject.Find ("text" + Playercursor.x + Playercursor.y);
+//			bttntxt.GetComponent<Text>().text = "Vous";
+//		}
+//	}
 
 	public void YouButton()
 	{
@@ -574,7 +600,7 @@ public class environment : MonoBehaviour {
 	{
 		Playercursor.pos (0, 0);
 		int dim = MapDimension;// rand.Next (3, 5);
-		BoardMap [,] BM = new BoardMap[dim, dim];
+		//BoardMap [,] BM = new BoardMap[dim, dim];
 
 		for (int i = 0; i<dim; i++) 
 		{
@@ -602,4 +628,48 @@ public class environment : MonoBehaviour {
 		//GameObject.Find ("buttons" + i + j).GetComponent<Button>().colors.normalColor = BM [i, j].seen;
 	}
 
+	public void ButtonMapClic00()
+	{
+		BM [0, 0].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic01()
+	{
+		BM [0, 1].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic02()
+	{
+		BM [0, 2].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic10()
+	{
+		BM [1, 0].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic11()
+	{
+		BM [1, 1].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic12()
+	{
+		BM [1, 2].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic20()
+	{
+		BM [2, 0].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic21()
+	{
+		BM [2, 1].PrintBoardTile ();
+	}
+
+	public void ButtonMapClic22()
+	{
+		BM [2, 2].PrintBoardTile ();
+	}
 }
