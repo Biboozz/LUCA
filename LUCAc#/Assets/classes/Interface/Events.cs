@@ -17,7 +17,7 @@ public class Events : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		description = transform.FindChild ("description").gameObject.GetComponent<Text> ();
+		description = transform.FindChild ("descriptionEvent").gameObject.GetComponent<Text> ();
 		timer = 0;
 	}
 	

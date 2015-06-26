@@ -10,21 +10,20 @@ public class WorldPannel : MonoBehaviour {
 
 	public GameObject Pannel;
 	public GameObject WorldButtonOn;
-	public GameObject WorldButtonOff;
+	private bool isActive = false;
 
 	public void TogglePannelOn()
 	{
-		Pannel.SetActive(true);
-		WorldButtonOn.SetActive (false);
-		WorldButtonOff.SetActive (true);
-
-	}
-
-	public void TogglePannelOff()
-	{
-		Pannel.SetActive (false);
-		WorldButtonOff.SetActive (false);
-		WorldButtonOn.SetActive (true);
+		if (isActive) 
+		{
+			Pannel.SetActive (false);
+			isActive = false;
+		} 
+		else 
+		{
+			Pannel.SetActive (true);
+			isActive = true;
+		}	
 	}
 
 }

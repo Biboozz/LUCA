@@ -38,7 +38,5 @@ public class SpeciesSkill : MonoBehaviour {
 				_species.Remove(especes);
 			}
 		}
-
-
 	}
 }

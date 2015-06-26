@@ -96,7 +96,7 @@ namespace AssemblyCSharp
 			{
 				int index = Exist (Mp.moleculeType, TotalSpecie);
 				result = result & (index >= 0) & (TotalSpecie[index].count >= Mp.count);
-				Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
+				//Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
 			}
 			return result;
 		}
@@ -169,11 +169,11 @@ namespace AssemblyCSharp
 
 				indexl.Add(index);
 
-				Debug.Log (RandPass + "," + index);
+				//Debug.Log (RandPass + "," + index);
 
 				pass.Add(new moleculePack(RandPass/bigiter, _env.molecules[index])); // A gerrer en fonction de la rareté de la mollecule*/
 			}
-			Debug.Log ("----------------------------");
+			//Debug.Log ("----------------------------");
 		}
 
 		public void PrintBoardTile()
