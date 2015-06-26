@@ -22,10 +22,10 @@ public class environment : MonoBehaviour {
 	public List<Individual> selectedI = new List<Individual>{};
 
 	private int MapDimension = 3;
-	public GameObject ButtonPrefab;
 	private System.Random rand = new System.Random();
 	public BoardMap[,] BM;
-	//public POINT cursor;
+	public POINT Playercursor = new POINT();
+	public POINT ButtonCursor = new POINT();
 
 	private int YouCursor = 0;
 	public GameObject Cam;
@@ -572,7 +572,7 @@ public class environment : MonoBehaviour {
 
 	public void GenerateBM()
 	{
-		//cursor.pos (0, 0);
+		Playercursor.pos (0, 0);
 		int dim = MapDimension;// rand.Next (3, 5);
 		BoardMap [,] BM = new BoardMap[dim, dim];
 
@@ -580,15 +580,26 @@ public class environment : MonoBehaviour {
 		{
 			for(int j = 0;j<dim;j++)
 			{
-				BM[i,j] = new BoardMap(this, ButtonPrefab,i,j);
-
+				BM[i,j] = new BoardMap(this, rand.Next (0,4));
+				ColorButton(BM[i,j], i , j);
 			}
 		} 
+		GameObject bttntxt = GameObject.Find ("text" + Playercursor.x + Playercursor.y);
+		bttntxt.GetComponent<Text>().text = "Vous";
 	}
 
-	public void InstanciateBMPannel()
+	public void ColorButton (BoardMap BoM, int i, int j)
 	{
+		GameObject button = GameObject.Find ("Button" + i + j);
 
+		Button b = button.GetComponent<Button>(); 
+		ColorBlock cb = b.colors;
+		cb.normalColor = BoM.seen;
+		cb.pressedColor = BoM.acti;
+		cb.highlightedColor = BoM.over;
+		b.colors = cb;
+
+		//GameObject.Find ("buttons" + i + j).GetComponent<Button>().colors.normalColor = BM [i, j].seen;
 	}
 
 }

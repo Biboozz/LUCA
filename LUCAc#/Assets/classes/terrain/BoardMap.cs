@@ -8,56 +8,73 @@ namespace AssemblyCSharp
 {
 	public class BoardMap
 	{
-		private environment _env;
-		private bool locked = false;
-		private List<moleculePack> pass = new List<moleculePack>();
-		private BMType material;
-		private Color seen;
-		public GameObject Button;
-
 		private System.Random rand = new System.Random();
 
-		public BoardMap (environment env, GameObject But, int i, int j)
+		private environment _env;
+		private List<moleculePack> pass = new List<moleculePack>();
+		private BMType material;
+		public string MaterialName = "";
+		//public int materialID = rand.Next(0,4);
+		public Color seen;
+		public Color acti;
+		public Color over;
+		public GameObject Button;
+		
+		public BoardMap (environment env, int MaterialIndex)
 		{
 			_env = env;
-			RandomMaterial ();
+			RandomMaterial (MaterialIndex);
 			GeneratePass ();
-			Button = But;
 		}
 
-		private void RandomMaterial()
+		private void RandomMaterial(int index)
 		{
-			int index = rand.Next (0, 4);
-
-			switch (index) 
-			{
-				case 0 :
+			switch (index) {
+			case 0:
+				{
 					material = BMType.Fibre;
-					seen.r = 174;
-					seen.g = 74;
-					seen.b = 52;
-				break;
+					seen = new Color32(174,74,52,255);
+					over = new Color32(184,84,62,255);
+					acti = new Color (1,1,1,1);
+					MaterialName = "Milieux fibreux";
+					break;
+				}
 
-				case 1 :
+			case 1:
+				{
 					material = BMType.Liquid;
-					seen.r = 58;
-					seen.g = 142;
-					seen.b = 186;
-				break;
+					seen = new Color32(53,122,183,255);
+					over = new Color32(63,132,193,255);
+					acti = new Color (1,1,1,1);
+					MaterialName = "Milieu liquide";
+					break;
+				}
 
-				case 2 :
+			case 2:
+				{
 					material = BMType.Gaz;
-					seen.r = 123;
-					seen.g = 160;
-					seen.b = 191;
-				break;
+					seen = new Color32(133,193,126,255);
+					over = new Color32(143,203,136,255);
+					acti = new Color (1,1,1,1);
+					MaterialName = "Milieu gazeux";
+					break;
+				}
 
-				case 3 :
-					material = BMType.Liquid;
-					seen.r = 223;
-					seen.g = 175;
-					seen.b = 44;
-				break;
+			case 3:
+				{
+					material = BMType.HalfLiquid;
+					seen = new Color32(255,222,117,255);
+					over = new Color32(245,212,107,255);
+					acti = new Color (1,1,1,1);
+					MaterialName = "Milieu Visqueux";
+					break;
+				}
+
+			default :
+				{
+					seen = Color.yellow;
+					break;
+				}
 			}
 		}
 
