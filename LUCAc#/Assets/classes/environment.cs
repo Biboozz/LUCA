@@ -26,6 +26,7 @@ public class environment : MonoBehaviour {
 	public BoardMap[,] BM = new BoardMap[3, 3];
 	public POINT Playercursor = new POINT();
 	public POINT ButtonCursor = new POINT();
+	public GameObject EndButton;
 
 	private int YouCursor = 0;
 	public GameObject Cam;
@@ -210,6 +211,8 @@ public class environment : MonoBehaviour {
 				selected = -1;
 			}
 		}
+
+		WonCondition();
 	}
 
 	private void unselectButton()
@@ -667,5 +670,21 @@ public class environment : MonoBehaviour {
 		ButtonCursor.x = 2;
 		ButtonCursor.y = 2;
 		BM [2, 2].PrintBoardTile ();
+	}
+
+	public void EvolveButton()
+	{
+		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "";
+		Playercursor.x = ButtonCursor.x;
+		Playercursor.y = ButtonCursor.y;
+		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "Vous";
+	}
+
+	public void WonCondition()
+	{
+		if ((Playercursor.x == MapDimension - 1) & (Playercursor.y == MapDimension - 1)) 
+		{
+			EndButton.SetActive(true);
+		}
 	}
 }

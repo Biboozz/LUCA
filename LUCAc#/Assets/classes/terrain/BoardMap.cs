@@ -160,7 +160,7 @@ namespace AssemblyCSharp
 
 			for (int loop = 0; loop<bigiter; loop++)
 			{
-				int RandPass = rand.Next (9000, 12000);
+				int RandPass = 3;// rand.Next (9000, 12000);
 
 				do
 				{
@@ -199,14 +199,16 @@ namespace AssemblyCSharp
 				i++;
 			}
 
+			Debug.Log ("(" + _env.Playercursor.x + "," + _env.Playercursor.y + "),(" + _env.ButtonCursor.x + "," + _env.ButtonCursor.y + ")");
+
 			bool dist = _env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1;
 			bool amount = EnoughtToPass ();;
-			bool back = (_env.Playercursor.x >= _env.ButtonCursor.x)&(_env.Playercursor.y >= _env.ButtonCursor.y);
+			bool back = (_env.Playercursor.x <= _env.ButtonCursor.x)&(_env.Playercursor.y <= _env.ButtonCursor.y);
 			bool same = (_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y);
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 14;
 
-			if ((!dist) & (amount) & !(back)) {
+			if ((!dist) & (amount) & (back)) {
 				EvE.SetActive (true);
 				EvD.SetActive (false);
 			} else {
@@ -216,7 +218,7 @@ namespace AssemblyCSharp
 				if (!amount) {
 					Pb.text = Pb.text + "Vous n'avez pas les ressources nécéssaires. \n ";
 				}
-				if (back)
+				if (!back)
 				{
 					Pb.text = Pb.text + "Vous ne pouvez retro-évoluer. \n";
 				}
@@ -230,6 +232,8 @@ namespace AssemblyCSharp
 				EvE.SetActive (false);
 				EvD.SetActive (true);
 			}
+
+			Debug.Log ("(" + amount + "," + back + "," + same + ")");
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().text = Pb.text;
 
