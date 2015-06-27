@@ -267,5 +267,18 @@ public class resourcesManager : MonoBehaviour {
 		}
 	}
 
+	public void ClearRessourceManager()
+	{
+		for (int i = 0; i < 100; i++) 
+		{
+			for (int j = 0; j < 100; j++) 
+			{
+				foreach (moleculePack M in _moleculeRepartition [i, j]){
+					M.count = 0;
+				}
+			}
+		}
+	}
+
 
 }

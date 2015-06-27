@@ -27,6 +27,7 @@ public class environment : MonoBehaviour {
 	public POINT Playercursor = new POINT();
 	public POINT ButtonCursor = new POINT();
 	public GameObject EndButton;
+	public GameObject LoadingScreen;
 
 	private int YouCursor = 0;
 	public GameObject Cam;
@@ -677,7 +678,12 @@ public class environment : MonoBehaviour {
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "";
 		Playercursor.x = ButtonCursor.x;
 		Playercursor.y = ButtonCursor.y;
+
+		RM.ClearRessourceManager ();
+
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "Vous";
+
+
 	}
 
 	public void WonCondition()
