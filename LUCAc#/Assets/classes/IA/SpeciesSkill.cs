@@ -58,13 +58,7 @@ public class SpeciesSkill : MonoBehaviour {
 
 		foreach (Species O in SpeciesUnPlayed)	//Pour chaque espèce non joué 
 		{
-			foreach(skill M in PerkTree.perkTree)	//Pour chaque skill existant
-			{
-				if((O.unlockedPerks.Find(G => G.name == M.name)) == null && (PerkTree.isUnlockable(M, O)))	//Si le skill n'est pas déjà présent dans les skills débloqués et qu'il est débloquable
-				{
-					unlockableSkill.Add(M);	//Ajout le skill a la liste finale
-				}
-			}
+			unlockableSkill = PerkTree.displayUnlocked(O);
 			
 			if(unlockableSkill.Count > 0)	//Si liste pas vide, sinon rien
 			{

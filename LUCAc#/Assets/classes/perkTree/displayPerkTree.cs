@@ -215,7 +215,7 @@ public class displayPerkTree : MonoBehaviour {
 		return (S.innate || (species.unlockedPerks.Find(T => T.ID == S.ID) != null));
 	}
 
-	private List<skill> displayUnlocked (Species species)
+	public List<skill> displayUnlocked (Species species)
 	{
 		List<skill> treated = new List<skill> ();
 		List<skill> neighborhood = new List<skill> ();
