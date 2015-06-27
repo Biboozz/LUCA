@@ -18,6 +18,7 @@ public class environment : MonoBehaviour {
 	public resourcesManager RM;
 	private System.Random Rdm;
 	public ConsoleInitializer CI;
+	public displayPerkTree PerkTree;
 
 	public List<Individual> selectedI = new List<Individual>{};
 
@@ -703,6 +704,39 @@ public class environment : MonoBehaviour {
 				foreach(Individual I in especes.Individuals)
 				{
 					Destroy(I.gameObject);
+				}
+			}
+		}
+	}
+
+	public void EqualitySkill()	//Met autant de skill pour les espèces non joués que pour celle joué
+	{
+		List<skill> skillSpeciesPlayed = new List<skill>{};
+		List<Species> SpeciesUnplayed = new List<Species>{};
+
+		foreach (Species especes in livings)	//Pour chaque espèce
+		{
+			if (especes.isPlayed)
+			{
+				skillSpeciesPlayed = especes.unlockedPerks;	//Si c'est une espèce joué on recupère les skills quelle a de debloqué
+			}
+			else
+			{
+				SpeciesUnplayed.Add(especes);	//On ajoute toutes les espèce non joué dans une autres listes
+			}
+		}
+
+		foreach (Species species in SpeciesUnplayed) //Pour chaque espèce non jouée
+		{
+			int nbskilltounlock = skillSpeciesPlayed.Count - species.unlockedPerks.Count;	//nombre de skill de l'espèce joué moins le nombre de skill de l'espèce non joué
+
+			if(nbskilltounlock > 0)	//Si il y a plus de skills dans l'espèce joué, alors skill a ajouter pour l'espèce non joué
+			{
+				for (int i = 0; i < nbskilltounlock; i++) //Pour qu'il y est autant de skill dans l'espèce non joué que celle joué
+				{	
+					List<skill> unlockableSkill = PerkTree.displayUnlocked(species);	//Liste des skills débloquable par l'espèce
+					int choice = rand.Next(0, unlockableSkill.Count);	//Choisis aléatoirement dans les skills que l'espèce peut débloquer
+					species.forceUnlockSkill(unlockableSkill[choice]);	//Force le débloquage du skill choisis 
 				}
 			}
 		}
