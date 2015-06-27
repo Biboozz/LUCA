@@ -693,4 +693,18 @@ public class environment : MonoBehaviour {
 			EndButton.SetActive(true);
 		}
 	}
+
+	public void DeleteAllSpeciesUnplayed()	//Supprime toutes les cellules des espèces non jouées
+	{
+		foreach (Species especes in livings)
+		{
+			if (!especes.isPlayed)
+			{
+				foreach(Individual I in especes.Individuals)
+				{
+					Destroy(I.gameObject);
+				}
+			}
+		}
+	}
 }
