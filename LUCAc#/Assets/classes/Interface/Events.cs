@@ -14,7 +14,7 @@ public class Events : MonoBehaviour {
 	private int time_event;
 	public Text description;
 	public System.Random rnd = new System.Random ();
-	private int i = 0;
+	private int z = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -107,10 +107,10 @@ public class Events : MonoBehaviour {
 			S.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
 		}
 		Environment.livings.Add (S); //ajout liste espece vivante
-		S.name = Sname[i];
-		i++;
+		S.name = Sname[z];
+		z++;
 
-		Species T = new Species (Environment, new Color(0f, 255f, 0f));
+		Species T = new Species (Environment, new Color(((float)rnd.Next(255))/255f,((float)rnd.Next(255))/255f,((float)rnd.Next(255))/255f));
 		T.cell = Environment.cellPrefab;
 		T.individualLifeTime = 300;
 		for (int i = 1; i <= 100; i++) // création de 100 cellules de l'espece
@@ -126,8 +126,8 @@ public class Events : MonoBehaviour {
 			T.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = T.color;
 		}
 		Environment.livings.Add (T); //ajout liste espece vivante
-		T.name = Sname[i];
-		i++;
+		T.name = Sname[z];
+		z++;
 
 		description.text = "Une météorite c'est écrasé sur le terrain, deux nouvelles espèces sont apparues";
 	}
