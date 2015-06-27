@@ -8,14 +8,18 @@ using UnityEngine.UI;
 public class SpeciesSkill : MonoBehaviour {
 
 	public environment Environment;
-	public List<Species> _species;
+	public displayPerkTree PerkTree;
 	public Species speciesplayed;
 	private int delay;
+	public System.Random rnd = new System.Random ();
+
+	private List<skill> allskill = new List<skill>{};
+	private List<skill> unlockableSkill = new List<skill>{};
 
 	// Use this for initialization
 	void Start () 
 	{
-		delay = 0;
+		delay = 1;
 	}
 
 	void Update()
@@ -23,20 +27,57 @@ public class SpeciesSkill : MonoBehaviour {
 		if ((delay % 10800) == 0) //5min
 		{
 			TimedUpdate ();
-			delay = 0;
+			delay = 1;
 		}
 		delay++;
 	}
 
-	void TimedUpdate ()
+	public void TimedUpdate ()
 	{
-		_species = Environment.livings;	//Récupération de la liste des espèces
-		foreach (Species especes in _species)
+		List<Species> B = Environment.livings;	//Récupération de la liste des espèces
+		List<Species> R = new List<Species>{};	//Liste des espèces à supprimer
+		foreach (Species especes in B)
 		{
 			if (especes.isPlayed)	//Si l'espèce est une espèce joué alors on la supprime de la liste
 			{
-				_species.Remove(especes);
+				R.Add(especes);
 			}
+		}
+		foreach (Species S in R) //Retirer les espèces jouées
+		{
+			B.Remove(S);
+		}
+		PickupSkill (B);
+	}
+
+	public void PickupSkill(List<Species> species)
+	{
+		for (int i = 0; i < species.Count; i++) 
+		{
+			SpeciesUnlock(species[i]);
+		}
+	}
+
+	public void SpeciesUnlock(Species A)
+	{
+		foreach(skill P in PerkTree.perkTree)
+		{
+			allskill.Add(P);
+		}
+		
+		foreach(skill F in A.unlockedPerks)
+		{
+			if(PerkTree.isUnlockable(F, A))	//Si la compétence est débloquable
+			{
+				unlockableSkill.Add(F);	//Ajout le skill a la liste finale
+			}
+		}
+		
+		if(unlockableSkill.Count > 0)	//Si liste pas vide, sinon rien
+		{
+			int RandomSkill = rnd.Next(0, unlockableSkill.Count);	//Choisis un skill aléatoirement dans ceux débloquable
+			
+			A.naturalUnlock(unlockableSkill[RandomSkill]);	//Le débloque
 		}
 	}
 }

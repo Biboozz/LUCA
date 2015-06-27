@@ -9,6 +9,7 @@ public class ConsoleInitializer : MonoBehaviour {
 	public environment Environment;
 	public displayPerkTree SpecsTree;
 	public Events events;
+	public SpeciesSkill SS;
 
 	public List<Species> _species;
 	public Species speciesplayed;
@@ -25,6 +26,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("allunlock", Allunlock);
 		repo.RegisterCommand("kill", Kill);
 		repo.RegisterCommand("unlock", Unlock);
+		repo.RegisterCommand("unlockSpecies", UnlockSkillSpecies);
 		repo.RegisterCommand("addmolecule", AddMolecule);
 		repo.RegisterCommand("acideattack", AcideAttack);
 		repo.RegisterCommand("degenerate", Degenerate);
@@ -202,6 +204,12 @@ public class ConsoleInitializer : MonoBehaviour {
 		return "";
 	}
 
+	public string UnlockSkillSpecies(params string[] args) 
+	{
+		SS.TimedUpdate ();
+		return "Toutes les autres espèces viennent de débloquer une de leurs compétences possibles";
+	}
+
 	public string AcideAttack(params string[] args) 
 	{
 		events.AcideAttack ();
@@ -239,6 +247,7 @@ public class ConsoleInitializer : MonoBehaviour {
 			"speedbase -- remet la vitesse de base\n" +
 			"allunlock -- débloque toutes les compétences de l'arbre\n" +
 			"unlock [species name] [skill name] -- Par default l'espèce sélectionné est la votre. Permet de débloquer un skill pour une espèce choisie\n" +
+			"unlockSpecies -- Débloque pour toutes les autres espèces une compétence, si elle le peuve\n" +
 			"addmolecule [species name] [molecule name] [quantité] -- Ajoute la quantité indiquée de la molécule précisée pour tous les individus de l'espèce choisie\n" +
 			"kill -- tue toutes les cellules sélectionnées\n" +
 			"acideattack -- Lance l'évènement aléatoire de l'attaque acide\n" +
