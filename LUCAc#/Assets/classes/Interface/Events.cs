@@ -9,10 +9,12 @@ public class Events : MonoBehaviour {
 	public environment Environment;
 	public displayPerkTree SpecsTree;
 
+	private string[] Sname = new string[]{"Methanosarcina", "Vacuolata", "Firmicutes", "Planctomycetales‎", "Verrucomicrobia", "Lentisphaerae‎"};
 	private int timer;
 	private int time_event;
 	public Text description;
 	public System.Random rnd = new System.Random ();
+	private int i = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -105,7 +107,8 @@ public class Events : MonoBehaviour {
 			S.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
 		}
 		Environment.livings.Add (S); //ajout liste espece vivante
-		S.name = "Methanosarcina";
+		S.name = Sname[i];
+		i++;
 
 		Species T = new Species (Environment, new Color(0f, 255f, 0f));
 		T.cell = Environment.cellPrefab;
@@ -123,7 +126,8 @@ public class Events : MonoBehaviour {
 			T.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = T.color;
 		}
 		Environment.livings.Add (T); //ajout liste espece vivante
-		T.name = "Vacuolata";
+		T.name = Sname[i];
+		i++;
 
 		description.text = "Une météorite c'est écrasé sur le terrain, deux nouvelles espèces sont apparues";
 	}
