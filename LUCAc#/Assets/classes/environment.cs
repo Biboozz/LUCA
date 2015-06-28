@@ -217,6 +217,53 @@ public class environment : MonoBehaviour {
 		WonCondition();
 	}
 
+	public void generateSpecies()
+	{
+		for (int j = 0; j < 6; j++) { // création de 6 especes
+			Species S = new Species (this, new Color (((float)Rdm.Next (255)) / 255f, ((float)Rdm.Next (255)) / 255f, ((float)Rdm.Next (255)) / 255f));
+			S.cell = cellPrefab;
+			S.individualLifeTime = 300;
+			for (int i = 1; i <= 100; i++) { // création de 100 cellules de l'espece
+				S.Individuals.Add (Instantiate (cellPrefab).GetComponent<Individual> ());
+				CI.cellsplayed.Add (S.Individuals [S.Individuals.Count - 1]);
+			}
+			S.isPlayed = j == 0;
+			if (S.isPlayed) {
+				S.name = "LUCA";
+				PSDD.species = S;
+			} else {
+				switch (j) {
+				case 1:
+					S.name = "Acidobacteria";
+					break;
+				case 2:
+					S.name = "Epsilobacteria";
+					break;
+				case 3:
+					S.name = "Clostridia";
+					break;
+				case 4:
+					S.name = "Deinococcaceae";
+					break;
+				case 5:
+					S.name = "Phycobacteria";
+					break;
+				}
+			}
+			for (int i = 0; i < S.Individuals.Count; i++) {
+				S.Individuals [i].Initialize (new Vector3 (UnityEngine.Random.Range (0, 2000), UnityEngine.Random.Range (0, 2000), 0.1f), 20, S, this, j == 0, new List<moleculePack> (), Rdm.Next (500)); //apparition coordonnées random
+				S.Individuals [i].descriptionBox = UICellDescriptionBox;
+				S.Individuals [i].transform.FindChild ("core").gameObject.GetComponent<SpriteRenderer> ().color = S.color; //modif couleur core en fonction de l'espece
+				S.Individuals [i].transform.FindChild ("membrane").gameObject.GetComponent<SpriteRenderer> ().color = S.color;
+				//				foreach(molecule m in molecules)
+				//				{
+				//					S.Individuals[i].cellMolecules.Add(new moleculePack(RdmMol.Next(30),m));
+				//				}
+			}
+			livings.Add (S); //ajout liste espece vivante
+		}
+	}
+
 	private void unselectButton()
 	{
 		ColorBlock cb;
@@ -706,13 +753,11 @@ public class environment : MonoBehaviour {
 	{
 		GameObject.Find ("EvolveEnabled").SetActive (false);
 
-		//DeleteAllSpeciesUnplayed ();
-
+		DeleteAllSpeciesUnplayed ();
 		RM.ClearRessourceManager ();
-		//Start ();
+		generateSpecies ();
 		GenerateRM ();
-
-		//EqualitySkill ();
+		EqualitySkill ();
 
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "";
 		Playercursor.x = ButtonCursor.x;
@@ -739,7 +784,9 @@ public class environment : MonoBehaviour {
 				foreach(Individual I in especes.Individuals)
 				{
 					Destroy(I.gameObject);
+
 				}
+				especes.Individuals.Clear();
 			}
 			else
 			{
