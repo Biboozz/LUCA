@@ -178,7 +178,7 @@ namespace AssemblyCSharp
 
 			for (int loop = 0; loop<bigiter; loop++)
 			{
-				int RandPass = 3;// rand.Next (9000, 12000);
+				int RandPass = rand.Next (9000, 12000);
 
 				do
 				{
@@ -217,7 +217,7 @@ namespace AssemblyCSharp
 				i++;
 			}
 
-			Debug.Log ("(" + _env.Playercursor.x + "," + _env.Playercursor.y + "),(" + _env.ButtonCursor.x + "," + _env.ButtonCursor.y + ")");
+			//Debug.Log ("(" + _env.Playercursor.x + "," + _env.Playercursor.y + "),(" + _env.ButtonCursor.x + "," + _env.ButtonCursor.y + ")");
 
 			bool dist = _env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1;
 			bool amount = EnoughtToPass ();;
@@ -256,7 +256,7 @@ namespace AssemblyCSharp
 				EvD.SetActive (true);
 			}
 
-			Debug.Log ("(" + amount + "," + back + "," + same + ")");
+			//Debug.Log ("(" + amount + "," + back + "," + same + ")");
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().text = Pb.text;
 
