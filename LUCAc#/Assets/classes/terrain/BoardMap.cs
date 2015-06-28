@@ -53,9 +53,9 @@ namespace AssemblyCSharp
 
 			foreach (Individual I in S.Individuals) 
 			{
+				ind++;
 				foreach (moleculePack M in I.cellMolecules)
 				{
-					ind++;
 
 					int exist = Exist (M.moleculeType, Sum);
 
@@ -96,7 +96,7 @@ namespace AssemblyCSharp
 			{
 				int index = Exist (Mp.moleculeType, TotalSpecie);
 				result = result & (index >= 0) & (TotalSpecie[index].count >= Mp.count);
-				//Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
+				Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
 			}
 			return result;
 		}
