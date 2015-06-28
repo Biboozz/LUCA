@@ -161,39 +161,55 @@ public class displayPerkTree : MonoBehaviour {
 		    
 	public bool isUnlockable(skill S, Species species)
 	{
-		int c = 0;
-		for (int i = 0; i < species.Individuals.Count; i++) 
+		bool d = true;
+		foreach (skill ski in S.required) 
 		{
-			bool b = true;
-			for (int j = 0; j < S.devCosts.cellMolecules.Count && b; j++)
+			d = species.unlockedPerks.Find(p => p.ID == ski.ID) != null;
+			if (!d)
 			{
-				moleculePack mpCell = species.Individuals[i].cellMolecules.Find(mp => mp.moleculeType.ID == S.devCosts.cellMolecules[j].moleculeType.ID);
-				if (mpCell == null)
+				break;
+			}
+		}
+		if (d) 
+		{
+			int c = 0;
+			for (int i = 0; i < species.Individuals.Count; i++) 
+			{
+				bool b = true;
+				for (int j = 0; j < S.devCosts.cellMolecules.Count && b; j++)
 				{
-					b = false;
-				}
-				else
-				{
-					if (mpCell.count < S.devCosts.cellMolecules[j].count)
+					moleculePack mpCell = species.Individuals[i].cellMolecules.Find(mp => mp.moleculeType.ID == S.devCosts.cellMolecules[j].moleculeType.ID);
+					if (mpCell == null)
 					{
 						b = false;
 					}
+					else
+					{
+						if (mpCell.count < S.devCosts.cellMolecules[j].count)
+						{
+							b = false;
+						}
+					}
+				}
+				if (b)
+				{
+					c++;
 				}
 			}
-			if (b)
+			if (species.Individuals.Count == 0) 
 			{
-				c++;
+				return false;
+			} 
+			else 
+			{
+				return (c * 100 / species.Individuals.Count >= 60);
 			}
+
 		}
-		if (species.Individuals.Count == 0) 
+		else
 		{
 			return false;
-		} 
-		else 
-		{
-			return (c * 100 / species.Individuals.Count >= 60);
 		}
-
 	}
 
 	private void activateUnlockable(List<skill> unlockedNeighborhood, Species species)
