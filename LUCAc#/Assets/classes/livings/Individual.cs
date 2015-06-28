@@ -35,6 +35,8 @@ public class Individual : MonoBehaviour
 	private int vieilDelta = 0;
 	private int actionDelay = 45;
 
+	public GameObject cytoplasm;
+
 	#region accessors
 	public List<Individual> group			{ 	get { return _group; } 					set { _group = value; 			} 	}
 	public int survivedTime 				{   get { return _survivedTime; 	} 	}
@@ -104,6 +106,9 @@ public class Individual : MonoBehaviour
 			{
 				vieilDelta = 0;
 				_survivedTime++; //calcul du temps survécu de la cellule en secondes
+				float f = cytoplasm.GetComponent<SpriteRenderer>().color.r - 0.5f / (float)species.individualLifeTime;  //vieillissement visible de la cellule
+				Color C = new Color(f, f, f);
+				cytoplasm.GetComponent<SpriteRenderer>().color = C;
 				if (_survivedTime >= _species.individualLifeTime)
 				{
 					alive = false; //si la cellule est trop vieille, elle meurt. Les cellules mortes sont supprimées dans l'update de la classe espèce
@@ -346,6 +351,7 @@ public class Individual : MonoBehaviour
 		splitGive (son.GetComponent<Individual> ());
 		_species.addCell (son.GetComponent<Individual>());
 		son.GetComponent<Individual>().descriptionBox = descriptionBox;
+		son.transform.FindChild ("cytoplasm").gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
 		son.GetComponent<Individual> ().speed = speed;
 		ATP = ATP / 2;
 		son.GetComponent<Individual>().Initialize(transform.position, 0, this._species, this.place, this.isPlayed, new List<moleculePack>(), ATP);
