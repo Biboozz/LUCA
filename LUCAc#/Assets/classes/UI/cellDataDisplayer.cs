@@ -14,6 +14,8 @@ public class cellDataDisplayer : MonoBehaviour {
 	public GameObject representation;
 	public resourcesManager RM;
 
+	private int time = 0;
+
 	// Use this for initialization
 	void Start () {
 		Transform t = gameObject.transform.FindChild ("cellMoleculesListBox");
@@ -24,7 +26,10 @@ public class cellDataDisplayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		time = (time + 1) % 180;
+		if (_target != null && time == 0) {
+			displayData(_target.cellMolecules);
+		}
 	}
 
 	private int lastMoleculeSelected

@@ -4,7 +4,7 @@ using System.Collections;
 public class listboxDisplayer : MonoBehaviour {
 
 	private ListBox molecules;
-	private int _lastMoleculeSelected;
+	//private int _lastMoleculeSelected;
 
 	// Use this for initialization
 	void Start () 
@@ -41,7 +41,7 @@ public class listboxDisplayer : MonoBehaviour {
 		//Click Test
 		if (molecules.ReDraw())
 		{
-			_lastMoleculeSelected = molecules.GetSelectedID();
+			//_lastMoleculeSelected = molecules.GetSelectedID();
 		}
 		//----------
 	}
