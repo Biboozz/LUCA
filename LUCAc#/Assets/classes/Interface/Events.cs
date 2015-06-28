@@ -108,7 +108,14 @@ public class Events : MonoBehaviour {
 			S.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
 			foreach(molecule m in Environment.molecules)
 			{
-				S.Individuals[i].cellMolecules.Add(new moleculePack(100, m));
+				S.Individuals[i].cellMolecules.Add(new moleculePack(rnd.Next(50,200), m));
+			}
+		}
+		foreach(skill v in SpecsTree.perkTree)
+		{
+			if(v.innate)
+			{
+				S.unlockedPerks.Add(v);
 			}
 		}
 		Environment.livings.Add (S); //ajout liste espece vivante
@@ -129,9 +136,16 @@ public class Events : MonoBehaviour {
 			T.Individuals[i].descriptionBox = Environment.UICellDescriptionBox;
 			T.Individuals[i].transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = T.color; //modif couleur core en fonction de l'espece
 			T.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = T.color;
-			foreach(molecule m in Environment.molecules)
+			foreach(molecule n in Environment.molecules)
 			{
-				T.Individuals[i].cellMolecules.Add(new moleculePack(100, m));
+				T.Individuals[i].cellMolecules.Add(new moleculePack(rnd.Next(50,200), n));
+			}
+		}
+		foreach(skill y in SpecsTree.perkTree)
+		{
+			if(y.innate)
+			{
+				T.unlockedPerks.Add(y);
 			}
 		}
 		Environment.livings.Add (T); //ajout liste espece vivante
