@@ -22,6 +22,9 @@ public class environment : MonoBehaviour {
 
 	public List<Individual> selectedI = new List<Individual>{};
 
+	public GameObject HUD;
+	private bool toggleHUD;
+
 	private int MapDimension = 3;
 	private System.Random rand = new System.Random();
 	public BoardMap[,] BM = new BoardMap[3, 3];
@@ -165,6 +168,12 @@ public class environment : MonoBehaviour {
 			{
 				s.update();
 			}
+		}
+
+		if (Input.GetKeyDown (KeyCode.F1)) 
+		{
+			toggleHUD = !toggleHUD;
+			HUD.SetActive(toggleHUD);
 		}
 
 		if (Input.GetKeyDown (KeyCode.G)) 
