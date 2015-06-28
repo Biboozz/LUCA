@@ -249,7 +249,7 @@ namespace AssemblyCSharp
 				}
 				else{
 					if (!dist) {
-						Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces. \n ";
+						Pb.text = Pb.text + "Le terrain selectionné est trop évolué de votre espèces. \n ";
 					}
 					else
 					{
