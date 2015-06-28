@@ -466,6 +466,34 @@ public class environment : MonoBehaviour {
 		}
 	}
 
+	public void GenerateRM()
+	{
+		System.Random RdmMol = new System.Random (45);
+		List<molecule> nm = new List<molecule>();
+		foreach(molecule m in _molecules)
+		{
+			if(nm.Find(mp => mp.ID == m.ID) == null)
+			{
+				nm.Add(m);
+			}
+		}
+		foreach(Species S in livings)
+		{
+			foreach(Individual I in S.Individuals)
+			{
+				foreach(molecule m in _molecules)
+				{
+					if(I.cellMolecules.Find(mp => mp.moleculeType.ID == m.ID) == null)
+					{
+						I.cellMolecules.Add(new moleculePack(RdmMol.Next(50,200),m));
+					}
+				}
+			}
+		}
+		RM.molecules = nm;
+		_molecules = nm;
+	}
+
 	public void YouButton()
 	{
 		Vector3 pos = Cam.transform.position;
@@ -676,14 +704,21 @@ public class environment : MonoBehaviour {
 
 	public void EvolveButton()
 	{
+		GameObject.Find ("EvolveEnabled").SetActive (false);
+
+		//DeleteAllSpeciesUnplayed ();
+
+		RM.ClearRessourceManager ();
+		//Start ();
+		GenerateRM ();
+
+		//EqualitySkill ();
+
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "";
 		Playercursor.x = ButtonCursor.x;
 		Playercursor.y = ButtonCursor.y;
-
-		RM.ClearRessourceManager ();
-
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "Vous";
-
+		GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM [ButtonCursor.x, ButtonCursor.y].seen);
 
 	}
 
@@ -704,6 +739,14 @@ public class environment : MonoBehaviour {
 				foreach(Individual I in especes.Individuals)
 				{
 					Destroy(I.gameObject);
+				}
+			}
+			else
+			{
+				foreach(Individual I in especes.Individuals)
+				{
+					if (!BM[ButtonCursor.x,ButtonCursor.y].EnoughtToPass(I))
+						Destroy(I.gameObject);
 				}
 			}
 		}

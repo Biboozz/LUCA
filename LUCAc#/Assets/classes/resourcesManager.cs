@@ -273,9 +273,11 @@ public class resourcesManager : MonoBehaviour {
 		{
 			for (int j = 0; j < 100; j++) 
 			{
-				foreach (moleculePack M in _moleculeRepartition [i, j]){
+				_moleculeRepartition[i,j].Clear();
+				/*foreach (moleculePack M in _moleculeRepartition [i, j]){
 					M.count = 0;
-				}
+				}*/
+				Destroy (representationMatrix[i,j]);
 			}
 		}
 	}

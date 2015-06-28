@@ -101,6 +101,24 @@ namespace AssemblyCSharp
 			return result;
 		}
 
+		public bool EnoughtToPass(Individual I)
+		{
+			bool result = true;
+			
+			foreach (moleculePack M in pass) 
+			{
+				foreach(moleculePack Mp in I.cellMolecules)
+				{
+					if (M.moleculeType == Mp.moleculeType)
+					{
+						result = result & (M.count <= Mp.count);
+						break;
+					}
+				}
+			}
+			return result;
+		}
+
 		private void RandomMaterial(int index)
 		{
 			switch (index) {
@@ -203,30 +221,35 @@ namespace AssemblyCSharp
 
 			bool dist = _env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1;
 			bool amount = EnoughtToPass ();;
-			bool back = (_env.Playercursor.x <= _env.ButtonCursor.x)&(_env.Playercursor.y <= _env.ButtonCursor.y);
-			bool same = (_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y);
+			bool back = ((_env.Playercursor.x <= _env.ButtonCursor.x)&(_env.Playercursor.y <= _env.ButtonCursor.y));
+			bool same = ((_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y));
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 14;
 
-			if ((!dist) & (amount) & (back)) {
+			if ((!dist) & (amount) & (back) & (!same)) {
 				EvE.SetActive (true);
 				EvD.SetActive (false);
 			} else {
-				if (dist) {
-					Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces. \n ";
-				}
-				if (!amount) {
-					Pb.text = Pb.text + "Vous n'avez pas les ressources nécéssaires. \n ";
-				}
-				if (!back)
-				{
-					Pb.text = Pb.text + "Vous ne pouvez retro-évoluer. \n";
-				}
 				if (same)
 				{
 					GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 22;
-					Pb.text = "";
 					Pb.text = Pb.text + "Votre cellule evolue actuellement dans ce milieu.";
+				}
+				else{
+				if (!back){
+					Pb.text = Pb.text + "Vous ne pouvez retro-évoluer. \n";
+				}
+				else{
+					if (dist) {
+						Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces. \n ";
+					}
+					else
+					{
+						if (!amount) {
+							Pb.text = Pb.text + "Vous n'avez pas les ressources nécéssaires. \n ";
+						}
+					}
+				}
 				}
 
 				EvE.SetActive (false);
