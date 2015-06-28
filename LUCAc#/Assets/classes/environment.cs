@@ -237,37 +237,31 @@ public class environment : MonoBehaviour {
 				CI.cellsplayed.Add (S.Individuals [S.Individuals.Count - 1]);
 			}
 			S.isPlayed = false;
-			if (S.isPlayed) {
-				S.name = "LUCA";
-				PSDD.species = S;
-			} else {
-				switch (j) {
-				case 1:
-					S.name = "Acidobacteria";
-					break;
-				case 2:
-					S.name = "Epsilobacteria";
-					break;
-				case 3:
-					S.name = "Clostridia";
-					break;
-				case 4:
-					S.name = "Deinococcaceae";
-					break;
-				case 5:
-					S.name = "Phycobacteria";
-					break;
-				}
+			switch (j) {
+			case 0:
+				S.name = "Riomiumia";
+				break;
+			case 1:
+				S.name = "Acidobacteria";
+				break;
+			case 2:
+				S.name = "Epsilobacteria";
+				break;
+			case 3:
+				S.name = "Clostridia";
+				break;
+			case 4:
+				S.name = "Deinococcaceae";
+				break;
+			case 5:
+				S.name = "Phycobacteria";
+				break;
 			}
 			for (int i = 0; i < S.Individuals.Count; i++) {
-				S.Individuals [i].Initialize (new Vector3 (UnityEngine.Random.Range (0, 2000), UnityEngine.Random.Range (0, 2000), 0.1f), 20, S, this, j == 0, new List<moleculePack> (), Rdm.Next (500)); //apparition coordonnées random
+				S.Individuals [i].Initialize (new Vector3 (UnityEngine.Random.Range (0, 2000), UnityEngine.Random.Range (0, 2000), 0.1f), 20, S, this, false, new List<moleculePack> (), Rdm.Next (500)); //apparition coordonnées random
 				S.Individuals [i].descriptionBox = UICellDescriptionBox;
 				S.Individuals [i].transform.FindChild ("core").gameObject.GetComponent<SpriteRenderer> ().color = S.color; //modif couleur core en fonction de l'espece
 				S.Individuals [i].transform.FindChild ("membrane").gameObject.GetComponent<SpriteRenderer> ().color = S.color;
-				//				foreach(molecule m in molecules)
-				//				{
-				//					S.Individuals[i].cellMolecules.Add(new moleculePack(RdmMol.Next(30),m));
-				//				}
 			}
 			livings.Add (S); //ajout liste espece vivante
 		}
@@ -801,6 +795,7 @@ public class environment : MonoBehaviour {
 
 	public void DeleteAllSpeciesUnplayed(bool substract,int x, int y)	//Supprime toutes les cellules des espèces non jouées
 	{
+		Species played = livings[0];
 		foreach (Species especes in livings)
 		{
 			if (!especes.isPlayed)
@@ -813,6 +808,7 @@ public class environment : MonoBehaviour {
 			}
 			else
 			{
+				played = especes;
 				foreach(Individual I in especes.Individuals)
 				{
 					foreach (moleculePack Mb in BM[x,y].Pass)
@@ -833,6 +829,8 @@ public class environment : MonoBehaviour {
 				}
 			}
 		}
+		livings.Clear ();
+		livings.Add (played);
 	}
 
 	public void EqualitySkill()	//Met autant de skill pour les espèces non joués que pour celle joué
@@ -854,7 +852,8 @@ public class environment : MonoBehaviour {
 
 		foreach (Species species in SpeciesUnplayed) //Pour chaque espèce non jouée
 		{
-			int nbskilltounlock = skillSpeciesPlayed.Count - species.unlockedPerks.Count;	//nombre de skill de l'espèce joué moins le nombre de skill de l'espèce non joué
+			int nbskilltounlock = skillSpeciesPlayed.Count - 15;	//nombre de skill de l'espèce joué moins le nombre de skill de départ
+			Debug.Log(nbskilltounlock);
 
 			if(nbskilltounlock > 0)	//Si il y a plus de skills dans l'espèce joué, alors skill a ajouter pour l'espèce non joué
 			{
