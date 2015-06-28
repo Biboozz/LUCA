@@ -8,6 +8,7 @@ public class Events : MonoBehaviour {
 
 	public environment Environment;
 	public displayPerkTree SpecsTree;
+	public moleculePack mP;
 
 	private string[] Sname = new string[]{"Methanosarcina", "Vacuolata", "Firmicutes", "Planctomycetales‎", "Verrucomicrobia", "Lentisphaerae‎"};
 	private int timer;
@@ -39,7 +40,7 @@ public class Events : MonoBehaviour {
 
 	public void CallRndEvent()
 	{
-		int choice = rnd.Next (0, 10);
+		int choice = rnd.Next (0, 5);
 		switch (choice) {
 		case 0 : AcideAttack();
 			break;
@@ -51,7 +52,7 @@ public class Events : MonoBehaviour {
 			break;
 		case 4 : RandomSkill();
 			break;
-		case 5 : Degenerate();
+		/*case 5 : Degenerate();
 			break;
 		case 6 : Degenerate();
 			break;
@@ -60,7 +61,7 @@ public class Events : MonoBehaviour {
 		case 8 : Degenerate();
 			break;
 		case 9 : Degenerate();
-			break;
+			break;*/
 		}
 	}
 
@@ -105,6 +106,10 @@ public class Events : MonoBehaviour {
 			S.Individuals[i].descriptionBox = Environment.UICellDescriptionBox;
 			S.Individuals[i].transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = S.color; //modif couleur core en fonction de l'espece
 			S.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = S.color;
+			foreach(molecule m in Environment.molecules)
+			{
+				S.Individuals[i].cellMolecules.Add(new moleculePack(100, m));
+			}
 		}
 		Environment.livings.Add (S); //ajout liste espece vivante
 		S.name = Sname[z];
@@ -124,6 +129,10 @@ public class Events : MonoBehaviour {
 			T.Individuals[i].descriptionBox = Environment.UICellDescriptionBox;
 			T.Individuals[i].transform.FindChild("core").gameObject.GetComponent<SpriteRenderer>().color = T.color; //modif couleur core en fonction de l'espece
 			T.Individuals[i].transform.FindChild("membrane").gameObject.GetComponent<SpriteRenderer>().color = T.color;
+			foreach(molecule m in Environment.molecules)
+			{
+				T.Individuals[i].cellMolecules.Add(new moleculePack(100, m));
+			}
 		}
 		Environment.livings.Add (T); //ajout liste espece vivante
 		T.name = Sname[z];

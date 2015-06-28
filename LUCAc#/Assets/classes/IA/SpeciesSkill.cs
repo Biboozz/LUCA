@@ -25,7 +25,7 @@ public class SpeciesSkill : MonoBehaviour {
 
 	void Update()
 	{
-		if ((delay % 10800) == 0) //5min
+		if ((delay % 18000) == 0) //5min
 		{
 			TimedUpdate ();
 			delay = 1;
