@@ -783,9 +783,10 @@ public class environment : MonoBehaviour {
 		GenerateRM ();
 		EqualitySkill ();
 
+		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "";
 		Playercursor.x = x;
 		Playercursor.y = y;
-
+		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "Vous";
 		GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM [Playercursor.x, Playercursor.y].seen);
 	}
 
