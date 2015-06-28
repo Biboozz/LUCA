@@ -91,34 +91,35 @@ public class Individual : MonoBehaviour
 
 				toCorrectPosition(20f); //si mur, changement d'angle
 			}
-		}
 
-		if (_splitIncrement == _splitDelay) 
-		{
-			_splitIncrement = 0;
-			GetComponent<actionManager> ().addAction (division);
-		}
-
-		_splitIncrement++;
-
-		vieilDelta++;
-		if (vieilDelta >= 60) 
-		{
-			vieilDelta = 0;
-			_survivedTime++;
-			if (_survivedTime >= _species.individualLifeTime)
+			if (_splitIncrement == _splitDelay) //delai avant la prochaine division atteint
 			{
-				alive = false;
+				_splitIncrement = 0;
+				GetComponent<actionManager> ().addAction (division); //ordre de division, priorité nule
+			}
+			_splitIncrement++;
+			
+			vieilDelta++; //vieillisement de la cellule
+			if (vieilDelta >= 60) 
+			{
+				vieilDelta = 0;
+				_survivedTime++; //calcul du temps survécu de la cellule en secondes
+				if (_survivedTime >= _species.individualLifeTime)
+				{
+					alive = false; //si la cellule est trop vieille, elle meurt. Les cellules mortes sont supprimées dans l'update de la classe espèce
+				}
+			}
+
+			actionDelay--;
+			if (actionDelay == 0) //délai d'action atteint
+			{
+				actionDelay = 10; //6 ajouts d'actions par seconde par seconde
+				GetComponent<actionManager> ().addAction (interract, 0, 4); //action d'interraction avec l'environement, priorité nule, 4 secondes de délai avant expiration
+				GetComponent<actionManager> ().addAction (eatToxic); 		//action d'interraction avec l'environement pour les molécules toxiques, priorité nule
 			}
 		}
 
-		actionDelay--;
-		if (actionDelay == 0) 
-		{
-			actionDelay = 10;
-			GetComponent<actionManager> ().addAction (interract, 0, 4);
-			GetComponent<actionManager> ().addAction (eatToxic);
-		}
+
 	}
 
 	private int existmol(List<moleculePack> packs, molecule searched)
