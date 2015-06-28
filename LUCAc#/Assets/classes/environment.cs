@@ -236,7 +236,7 @@ public class environment : MonoBehaviour {
 				S.Individuals.Add (Instantiate (cellPrefab).GetComponent<Individual> ());
 				CI.cellsplayed.Add (S.Individuals [S.Individuals.Count - 1]);
 			}
-			S.isPlayed = j == 0;
+			S.isPlayed = false;
 			if (S.isPlayed) {
 				S.name = "LUCA";
 				PSDD.species = S;
