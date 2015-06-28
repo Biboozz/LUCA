@@ -184,7 +184,7 @@ namespace AssemblyCSharp
 
 			for (int loop = 0; loop<bigiter; loop++)
 			{
-				int RandPass = 120; // rand.Next (9000, 12000);
+				int RandPass = rand.Next (50000, 60000);
 
 				do
 				{

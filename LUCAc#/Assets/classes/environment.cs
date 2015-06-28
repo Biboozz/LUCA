@@ -32,6 +32,7 @@ public class environment : MonoBehaviour {
 	public POINT ButtonCursor = new POINT();
 	public GameObject EndButton;
 	public GameObject LoadingScreen;
+	public GameObject WorldPannel;
 
 	private int YouCursor = 0;
 	public GameObject Cam;
@@ -507,13 +508,16 @@ public class environment : MonoBehaviour {
 					}
 				}
 			}
+
+			WorldPannel.SetActive(true);
+
 			RM.molecules = nm;
 			_molecules = nm;
 
 			GenerateBM ();
 
 			GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM[0, 0].seen);
-			GameObject.Find ("MainPannel").SetActive (false);
+			WorldPannel.SetActive(false);
 		}
 	}
 
