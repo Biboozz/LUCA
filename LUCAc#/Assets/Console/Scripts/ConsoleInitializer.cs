@@ -30,6 +30,7 @@ public class ConsoleInitializer : MonoBehaviour {
 		repo.RegisterCommand("addmolecule", AddMolecule);
 		repo.RegisterCommand("acideattack", AcideAttack);
 		repo.RegisterCommand("degenerate", Degenerate);
+		repo.RegisterCommand("moveworld", MoveWorld);
 		repo.RegisterCommand("meteorite", Meteorite);
 		repo.RegisterCommand("massivemultiplication", MassMulti);
 		repo.RegisterCommand("randomskill", Rndskill);
@@ -204,6 +205,22 @@ public class ConsoleInitializer : MonoBehaviour {
 		return "";
 	}
 
+	public string MoveWorld(params string[] args) 
+	{
+		int result1;
+		int result2;
+		if (int.TryParse (args [0], out result1) && int.TryParse (args [1], out result2)) 
+		{
+			if(result1 <= 2 && result2 <= 2 && result1 >= 0 && result2 >= 0)
+			{
+				Environment.ForceEvolution (result1, result2);
+				return "Vous avez forcé votre évolution vers un nouveau monde";
+			}
+			return "Les coordonnées indiqué ne sont pas bonnes";
+		}
+		return "Les coordonnées saisis ne sont pas des chiffres";
+	}
+
 	public string UnlockSkillSpecies(params string[] args) 
 	{
 		SS.TimedUpdate ();
@@ -249,6 +266,7 @@ public class ConsoleInitializer : MonoBehaviour {
 			"unlock [species name] [skill name] -- Par default l'espèce sélectionné est la votre. Permet de débloquer un skill pour une espèce choisie\n" +
 			"unlockSpecies -- Débloque pour toutes les autres espèces une compétence, si elle le peuve\n" +
 			"addmolecule [species name] [molecule name] [quantité] -- Ajoute la quantité indiquée de la molécule précisée pour tous les individus de l'espèce choisie\n" +
+			"moveworld [x] [y] -- vous déplace dans le nouveau monde au coordonnées choisies\n" +
 			"kill -- tue toutes les cellules sélectionnées\n" +
 			"acideattack -- Lance l'évènement aléatoire de l'attaque acide\n" +
 			"degenerate -- Lance l'évènement aléatoire de la dégénérescence\n" +

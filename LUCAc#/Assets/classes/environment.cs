@@ -857,7 +857,6 @@ public class environment : MonoBehaviour {
 		foreach (Species species in SpeciesUnplayed) //Pour chaque espèce non jouée
 		{
 			int nbskilltounlock = skillSpeciesPlayed.Count - species.unlockedPerks.Count - 14;	//nombre de skill de l'espèce joué moins le nombre de skill de départ
-			Debug.Log(nbskilltounlock);
 
 			if(nbskilltounlock > 0)	//Si il y a plus de skills dans l'espèce joué, alors skill a ajouter pour l'espèce non joué
 			{
