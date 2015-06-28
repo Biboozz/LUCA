@@ -115,7 +115,7 @@ public class Individual : MonoBehaviour
 		actionDelay--;
 		if (actionDelay == 0) 
 		{
-			actionDelay = 40;
+			actionDelay = 10;
 			GetComponent<actionManager> ().addAction (interract, 0, 4);
 			GetComponent<actionManager> ().addAction (eatToxic);
 		}
