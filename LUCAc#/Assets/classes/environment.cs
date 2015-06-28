@@ -23,7 +23,7 @@ public class environment : MonoBehaviour {
 	public List<Individual> selectedI = new List<Individual>{};
 
 	public GameObject HUD;
-	private bool toggleHUD;
+	private bool toggleHUD = true;
 
 	private int MapDimension = 3;
 	private System.Random rand = new System.Random();
