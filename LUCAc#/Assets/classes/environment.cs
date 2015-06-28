@@ -22,6 +22,9 @@ public class environment : MonoBehaviour {
 
 	public List<Individual> selectedI = new List<Individual>{};
 
+	public GameObject HUD;
+	private bool toggleHUD = true;
+
 	private int MapDimension = 3;
 	private System.Random rand = new System.Random();
 	public BoardMap[,] BM = new BoardMap[3, 3];
@@ -29,6 +32,7 @@ public class environment : MonoBehaviour {
 	public POINT ButtonCursor = new POINT();
 	public GameObject EndButton;
 	public GameObject LoadingScreen;
+	public GameObject WorldPannel;
 
 	private int YouCursor = 0;
 	public GameObject Cam;
@@ -167,6 +171,12 @@ public class environment : MonoBehaviour {
 			}
 		}
 
+		if (Input.GetKeyDown (KeyCode.F1)) 
+		{
+			toggleHUD = !toggleHUD;
+			HUD.SetActive(toggleHUD);
+		}
+
 		if (Input.GetKeyDown (KeyCode.G)) 
 		{
 			if (selected == -1)
@@ -215,6 +225,47 @@ public class environment : MonoBehaviour {
 		}
 
 		WonCondition();
+	}
+
+	public void generateSpecies()
+	{
+		for (int j = 0; j < 6; j++) { // création de 6 especes
+			Species S = new Species (this, new Color (((float)Rdm.Next (255)) / 255f, ((float)Rdm.Next (255)) / 255f, ((float)Rdm.Next (255)) / 255f));
+			S.cell = cellPrefab;
+			S.individualLifeTime = 300;
+			for (int i = 1; i <= 100; i++) { // création de 100 cellules de l'espece
+				S.Individuals.Add (Instantiate (cellPrefab).GetComponent<Individual> ());
+				CI.cellsplayed.Add (S.Individuals [S.Individuals.Count - 1]);
+			}
+			S.isPlayed = false;
+			switch (j) {
+			case 0:
+				S.name = "Riomiumia";
+				break;
+			case 1:
+				S.name = "Acidobacteria";
+				break;
+			case 2:
+				S.name = "Epsilobacteria";
+				break;
+			case 3:
+				S.name = "Clostridia";
+				break;
+			case 4:
+				S.name = "Deinococcaceae";
+				break;
+			case 5:
+				S.name = "Phycobacteria";
+				break;
+			}
+			for (int i = 0; i < S.Individuals.Count; i++) {
+				S.Individuals [i].Initialize (new Vector3 (UnityEngine.Random.Range (0, 2000), UnityEngine.Random.Range (0, 2000), 0.1f), 20, S, this, false, new List<moleculePack> (), Rdm.Next (500)); //apparition coordonnées random
+				S.Individuals [i].descriptionBox = UICellDescriptionBox;
+				S.Individuals [i].transform.FindChild ("core").gameObject.GetComponent<SpriteRenderer> ().color = S.color; //modif couleur core en fonction de l'espece
+				S.Individuals [i].transform.FindChild ("membrane").gameObject.GetComponent<SpriteRenderer> ().color = S.color;
+			}
+			livings.Add (S); //ajout liste espece vivante
+		}
 	}
 
 	private void unselectButton()
@@ -457,13 +508,45 @@ public class environment : MonoBehaviour {
 					}
 				}
 			}
+
+			WorldPannel.SetActive(true);
+
 			RM.molecules = nm;
 			_molecules = nm;
 
 			GenerateBM ();
 
-			GameObject.Find ("MainPannel").SetActive (false);
+			GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM[0, 0].seen);
+			WorldPannel.SetActive(false);
 		}
+	}
+
+	public void GenerateRM()
+	{
+		System.Random RdmMol = new System.Random (45);
+		List<molecule> nm = new List<molecule>();
+		foreach(molecule m in _molecules)
+		{
+			if(nm.Find(mp => mp.ID == m.ID) == null)
+			{
+				nm.Add(m);
+			}
+		}
+		foreach(Species S in livings)
+		{
+			foreach(Individual I in S.Individuals)
+			{
+				foreach(molecule m in _molecules)
+				{
+					if(I.cellMolecules.Find(mp => mp.moleculeType.ID == m.ID) == null)
+					{
+						I.cellMolecules.Add(new moleculePack(RdmMol.Next(50,200),m));
+					}
+				}
+			}
+		}
+		RM.molecules = nm;
+		_molecules = nm;
 	}
 
 	public void YouButton()
@@ -676,15 +759,34 @@ public class environment : MonoBehaviour {
 
 	public void EvolveButton()
 	{
+		GameObject.Find ("EvolveEnabled").SetActive (false);
+
+		DeleteAllSpeciesUnplayed (true, ButtonCursor.x, ButtonCursor.y);
+		RM.ClearRessourceManager ();
+		generateSpecies ();
+		GenerateRM ();
+		EqualitySkill ();
+
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "";
 		Playercursor.x = ButtonCursor.x;
 		Playercursor.y = ButtonCursor.y;
-
-		RM.ClearRessourceManager ();
-
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "Vous";
+		GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM [ButtonCursor.x, ButtonCursor.y].seen);
 
+	}
 
+	public void ForceEvolution(int x, int y)
+	{
+		DeleteAllSpeciesUnplayed (false, x, y);
+		RM.ClearRessourceManager ();
+		generateSpecies ();
+		GenerateRM ();
+		EqualitySkill ();
+
+		Playercursor.x = x;
+		Playercursor.y = y;
+
+		GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM [Playercursor.x, Playercursor.y].seen);
 	}
 
 	public void WonCondition()
@@ -695,8 +797,9 @@ public class environment : MonoBehaviour {
 		}
 	}
 
-	public void DeleteAllSpeciesUnplayed()	//Supprime toutes les cellules des espèces non jouées
+	public void DeleteAllSpeciesUnplayed(bool substract,int x, int y)	//Supprime toutes les cellules des espèces non jouées
 	{
+		Species played = livings[0];
 		foreach (Species especes in livings)
 		{
 			if (!especes.isPlayed)
@@ -705,8 +808,33 @@ public class environment : MonoBehaviour {
 				{
 					Destroy(I.gameObject);
 				}
+				especes.Individuals.Clear();
+			}
+			else
+			{
+				played = especes;
+				foreach(Individual I in especes.Individuals)
+				{
+					foreach (moleculePack Mb in BM[x,y].Pass)
+					{
+						foreach (moleculePack Mc in I.cellMolecules)
+						{
+							if ((substract)&(Mb.moleculeType == Mc.moleculeType))
+							{
+								if (Mb.count < Mc.count)
+									Mc.count = Mc.count - Mb.count;
+								else
+									Mc.count = 0;
+								break;
+
+							}
+						}
+					}
+				}
 			}
 		}
+		livings.Clear ();
+		livings.Add (played);
 	}
 
 	public void EqualitySkill()	//Met autant de skill pour les espèces non joués que pour celle joué
@@ -728,7 +856,8 @@ public class environment : MonoBehaviour {
 
 		foreach (Species species in SpeciesUnplayed) //Pour chaque espèce non jouée
 		{
-			int nbskilltounlock = skillSpeciesPlayed.Count - species.unlockedPerks.Count;	//nombre de skill de l'espèce joué moins le nombre de skill de l'espèce non joué
+			int nbskilltounlock = skillSpeciesPlayed.Count - species.unlockedPerks.Count - 14;	//nombre de skill de l'espèce joué moins le nombre de skill de départ
+			Debug.Log(nbskilltounlock);
 
 			if(nbskilltounlock > 0)	//Si il y a plus de skills dans l'espèce joué, alors skill a ajouter pour l'espèce non joué
 			{

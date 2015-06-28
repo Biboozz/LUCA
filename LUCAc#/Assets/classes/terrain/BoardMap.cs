@@ -23,7 +23,13 @@ namespace AssemblyCSharp
 		public GameObject EvE = GameObject.Find ("EvolveEnabled");
 		public GameObject EvD = GameObject.Find ("EvolveDisabled");
 
-
+		public List<moleculePack> Pass
+		{
+			get
+			{
+				return pass;
+			}
+		}
 		
 		public BoardMap (environment env, int MaterialIndex, System.Random rand)
 		{
@@ -53,9 +59,9 @@ namespace AssemblyCSharp
 
 			foreach (Individual I in S.Individuals) 
 			{
+				ind++;
 				foreach (moleculePack M in I.cellMolecules)
 				{
-					ind++;
 
 					int exist = Exist (M.moleculeType, Sum);
 
@@ -96,7 +102,25 @@ namespace AssemblyCSharp
 			{
 				int index = Exist (Mp.moleculeType, TotalSpecie);
 				result = result & (index >= 0) & (TotalSpecie[index].count >= Mp.count);
-				//Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
+//				Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
+			}
+			return result;
+		}
+
+		public bool EnoughtToPass(Individual I)
+		{
+			bool result = true;
+			
+			foreach (moleculePack M in pass) 
+			{
+				foreach(moleculePack Mp in I.cellMolecules)
+				{
+					if (M.moleculeType == Mp.moleculeType)
+					{
+						result = result & (M.count <= Mp.count);
+						break;
+					}
+				}
 			}
 			return result;
 		}
@@ -160,7 +184,7 @@ namespace AssemblyCSharp
 
 			for (int loop = 0; loop<bigiter; loop++)
 			{
-				int RandPass = 3;// rand.Next (9000, 12000);
+				int RandPass = rand.Next (50000, 60000);
 
 				do
 				{
@@ -199,41 +223,48 @@ namespace AssemblyCSharp
 				i++;
 			}
 
-			Debug.Log ("(" + _env.Playercursor.x + "," + _env.Playercursor.y + "),(" + _env.ButtonCursor.x + "," + _env.ButtonCursor.y + ")");
+			//Debug.Log ("(" + _env.Playercursor.x + "," + _env.Playercursor.y + "),(" + _env.ButtonCursor.x + "," + _env.ButtonCursor.y + ")");
 
-			bool dist = _env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1;
-			bool amount = EnoughtToPass ();;
-			bool back = (_env.Playercursor.x <= _env.ButtonCursor.x)&(_env.Playercursor.y <= _env.ButtonCursor.y);
-			bool same = (_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y);
+			bool GodMod = false;
+
+			bool dist = !((_env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1)|| GodMod);
+			bool amount = EnoughtToPass () || GodMod;
+			bool back = ((_env.Playercursor.x <= _env.ButtonCursor.x)&(_env.Playercursor.y <= _env.ButtonCursor.y))||(GodMod);
+			bool same = !(((_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y))||(GodMod));
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 14;
 
-			if ((!dist) & (amount) & (back)) {
+			if ((dist) & (amount) & (back) & (same)) {
 				EvE.SetActive (true);
 				EvD.SetActive (false);
 			} else {
-				if (dist) {
-					Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces. \n ";
-				}
-				if (!amount) {
-					Pb.text = Pb.text + "Vous n'avez pas les ressources nécéssaires. \n ";
-				}
-				if (!back)
-				{
-					Pb.text = Pb.text + "Vous ne pouvez retro-évoluer. \n";
-				}
-				if (same)
+				if (!same)
 				{
 					GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 22;
-					Pb.text = "";
 					Pb.text = Pb.text + "Votre cellule evolue actuellement dans ce milieu.";
+				}
+				else{
+				if (!back){
+					Pb.text = Pb.text + "Vous ne pouvez retro-évoluer. \n";
+				}
+				else{
+					if (!dist) {
+						Pb.text = Pb.text + "Le terrain selectionné est trop évolué de votre espèces. \n ";
+					}
+					else
+					{
+						if (!amount) {
+							Pb.text = Pb.text + "Vous n'avez pas les ressources nécéssaires. \n ";
+						}
+					}
+				}
 				}
 
 				EvE.SetActive (false);
 				EvD.SetActive (true);
 			}
 
-			Debug.Log ("(" + amount + "," + back + "," + same + ")");
+			//Debug.Log ("(" + amount + "," + back + "," + same + ")");
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().text = Pb.text;
 
