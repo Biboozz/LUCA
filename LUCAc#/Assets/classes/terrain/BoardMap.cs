@@ -23,7 +23,13 @@ namespace AssemblyCSharp
 		public GameObject EvE = GameObject.Find ("EvolveEnabled");
 		public GameObject EvD = GameObject.Find ("EvolveDisabled");
 
-
+		public List<moleculePack> Pass
+		{
+			get
+			{
+				return pass;
+			}
+		}
 		
 		public BoardMap (environment env, int MaterialIndex, System.Random rand)
 		{
@@ -96,7 +102,7 @@ namespace AssemblyCSharp
 			{
 				int index = Exist (Mp.moleculeType, TotalSpecie);
 				result = result & (index >= 0) & (TotalSpecie[index].count >= Mp.count);
-				Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
+//				Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
 			}
 			return result;
 		}
@@ -178,7 +184,7 @@ namespace AssemblyCSharp
 
 			for (int loop = 0; loop<bigiter; loop++)
 			{
-				int RandPass = rand.Next (9000, 12000);
+				int RandPass = 120; // rand.Next (9000, 12000);
 
 				do
 				{
@@ -219,18 +225,20 @@ namespace AssemblyCSharp
 
 			//Debug.Log ("(" + _env.Playercursor.x + "," + _env.Playercursor.y + "),(" + _env.ButtonCursor.x + "," + _env.ButtonCursor.y + ")");
 
-			bool dist = _env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1;
-			bool amount = EnoughtToPass ();;
-			bool back = ((_env.Playercursor.x <= _env.ButtonCursor.x)&(_env.Playercursor.y <= _env.ButtonCursor.y));
-			bool same = ((_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y));
+			bool GodMod = false;
+
+			bool dist = !((_env.Playercursor.AdjacentTile (_env.ButtonCursor) > 1)|| GodMod);
+			bool amount = EnoughtToPass () || GodMod;
+			bool back = ((_env.Playercursor.x <= _env.ButtonCursor.x)&(_env.Playercursor.y <= _env.ButtonCursor.y))||(GodMod);
+			bool same = !(((_env.Playercursor.x == _env.ButtonCursor.x)&(_env.Playercursor.y == _env.ButtonCursor.y))||(GodMod));
 
 			GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 14;
 
-			if ((!dist) & (amount) & (back) & (!same)) {
+			if ((dist) & (amount) & (back) & (same)) {
 				EvE.SetActive (true);
 				EvD.SetActive (false);
 			} else {
-				if (same)
+				if (!same)
 				{
 					GameObject.Find ("EvolveProblems").GetComponent<Text> ().fontSize = 22;
 					Pb.text = Pb.text + "Votre cellule evolue actuellement dans ce milieu.";
@@ -240,7 +248,7 @@ namespace AssemblyCSharp
 					Pb.text = Pb.text + "Vous ne pouvez retro-évoluer. \n";
 				}
 				else{
-					if (dist) {
+					if (!dist) {
 						Pb.text = Pb.text + "Le terrain selectionné est trop loin de votre éspèces. \n ";
 					}
 					else

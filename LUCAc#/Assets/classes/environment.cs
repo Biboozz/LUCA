@@ -763,7 +763,7 @@ public class environment : MonoBehaviour {
 	{
 		GameObject.Find ("EvolveEnabled").SetActive (false);
 
-		DeleteAllSpeciesUnplayed ();
+		DeleteAllSpeciesUnplayed (true, ButtonCursor.x, ButtonCursor.y);
 		RM.ClearRessourceManager ();
 		generateSpecies ();
 		GenerateRM ();
@@ -777,6 +777,20 @@ public class environment : MonoBehaviour {
 
 	}
 
+	public void ForceEvolution(int x, int y)
+	{
+		DeleteAllSpeciesUnplayed (false, x, y);
+		RM.ClearRessourceManager ();
+		generateSpecies ();
+		GenerateRM ();
+		EqualitySkill ();
+
+		Playercursor.x = x;
+		Playercursor.y = y;
+
+		GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM [Playercursor.x, Playercursor.y].seen);
+	}
+
 	public void WonCondition()
 	{
 		if ((Playercursor.x == MapDimension - 1) & (Playercursor.y == MapDimension - 1)) 
@@ -785,7 +799,7 @@ public class environment : MonoBehaviour {
 		}
 	}
 
-	public void DeleteAllSpeciesUnplayed()	//Supprime toutes les cellules des espèces non jouées
+	public void DeleteAllSpeciesUnplayed(bool substract,int x, int y)	//Supprime toutes les cellules des espèces non jouées
 	{
 		foreach (Species especes in livings)
 		{
@@ -794,7 +808,6 @@ public class environment : MonoBehaviour {
 				foreach(Individual I in especes.Individuals)
 				{
 					Destroy(I.gameObject);
-
 				}
 				especes.Individuals.Clear();
 			}
@@ -802,8 +815,21 @@ public class environment : MonoBehaviour {
 			{
 				foreach(Individual I in especes.Individuals)
 				{
-					if (!BM[ButtonCursor.x,ButtonCursor.y].EnoughtToPass(I))
-						Destroy(I.gameObject);
+					foreach (moleculePack Mb in BM[x,y].Pass)
+					{
+						foreach (moleculePack Mc in I.cellMolecules)
+						{
+							if ((substract)&(Mb.moleculeType == Mc.moleculeType))
+							{
+								if (Mb.count < Mc.count)
+									Mc.count = Mc.count - Mb.count;
+								else
+									Mc.count = 0;
+								break;
+
+							}
+						}
+					}
 				}
 			}
 		}
