@@ -509,6 +509,7 @@ public class environment : MonoBehaviour {
 
 			GenerateBM ();
 
+			GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM[0, 0].seen);
 			GameObject.Find ("MainPannel").SetActive (false);
 		}
 	}
