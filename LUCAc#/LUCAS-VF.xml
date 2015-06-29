@@ -1105,9 +1105,9 @@
     <addOoze>false</addOoze>
     <sizeXModifier>1.05</sizeXModifier>
     <sizeYModifier>1.05</sizeYModifier>
-    <membraneSizeModifier>1</membraneSizeModifier>
+    <membraneSizeModifier>1.1</membraneSizeModifier>
     <coreSizeModifier>1</coreSizeModifier>
-    <speedModifier>1.2</speedModifier>
+    <speedModifier>2</speedModifier>
     <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -1191,7 +1191,7 @@
       <X>665</X>
       <Y>335</Y>
     </hexPos>
-    <agingDeltaModifier>1</agingDeltaModifier>
+    <agingDeltaModifier>1.2</agingDeltaModifier>
     <canPhagocyt>false</canPhagocyt>
     <immunityType>none</immunityType>
     <immunityStrength>0</immunityStrength>
@@ -1205,7 +1205,7 @@
     <sizeYModifier>1</sizeYModifier>
     <membraneSizeModifier>1</membraneSizeModifier>
     <coreSizeModifier>1</coreSizeModifier>
-    <speedModifier>1.4</speedModifier>
+    <speedModifier>3</speedModifier>
     <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -2400,7 +2400,7 @@
       <X>719</X>
       <Y>307</Y>
     </hexPos>
-    <agingDeltaModifier>1.1</agingDeltaModifier>
+    <agingDeltaModifier>1.5</agingDeltaModifier>
     <canPhagocyt>false</canPhagocyt>
     <immunityType>none</immunityType>
     <immunityStrength>0</immunityStrength>
@@ -2414,7 +2414,7 @@
     <sizeYModifier>1</sizeYModifier>
     <membraneSizeModifier>1</membraneSizeModifier>
     <coreSizeModifier>1</coreSizeModifier>
-    <speedModifier>1.7</speedModifier>
+    <speedModifier>4</speedModifier>
     <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">
@@ -2496,7 +2496,7 @@
       <X>720</X>
       <Y>366</Y>
     </hexPos>
-    <agingDeltaModifier>1.1</agingDeltaModifier>
+    <agingDeltaModifier>2</agingDeltaModifier>
     <canPhagocyt>false</canPhagocyt>
     <immunityType>none</immunityType>
     <immunityStrength>0</immunityStrength>
@@ -2510,7 +2510,7 @@
     <sizeYModifier>1</sizeYModifier>
     <membraneSizeModifier>1</membraneSizeModifier>
     <coreSizeModifier>1</coreSizeModifier>
-    <speedModifier>2</speedModifier>
+    <speedModifier>10</speedModifier>
     <coordinationLevel>0</coordinationLevel>
   </serialisable>
   <serialisable xsi:type="skill">

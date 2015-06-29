@@ -112,6 +112,7 @@ public class Individual : MonoBehaviour
 				cytoplasm.GetComponent<SpriteRenderer>().color = C;
 				if (_survivedTime >= _species.individualLifeTime)
 				{
+
 					alive = false; //si la cellule est trop vieille, elle meurt. Les cellules mortes sont supprimées dans l'update de la classe espèce
 				}
 			}
@@ -126,6 +127,7 @@ public class Individual : MonoBehaviour
 
 			if (ATP <= 0)
 			{
+				UnityEngine.Debug.Log("death");
 				alive = false;
 			}
 		}
@@ -454,7 +456,7 @@ public class Individual : MonoBehaviour
 				}
 			}
 
-			ATP += S.workProducts.ATP * 20 - S.workCosts.ATP / 20;
+			ATP += S.workProducts.ATP - S.workCosts.ATP;
 			return !b;
 		} 
 		else 
@@ -567,6 +569,7 @@ public class Individual : MonoBehaviour
 				cellMolecules.Find(mpC => mpC.moleculeType.ID == mpE.moleculeType.ID).count += 3 * mpE.count / 4;
 			}
 			ATP += phagocytTarget.ATP / 2;
+
 			phagocytTarget.alive = false;
 		}
 		return false;

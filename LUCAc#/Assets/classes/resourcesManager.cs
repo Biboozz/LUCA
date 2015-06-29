@@ -114,22 +114,22 @@ public class resourcesManager : MonoBehaviour {
 
 				foreach (molecule M in _molecules)
 				{
-					System.Random RDM = new System.Random();
-					int N = (int)(200f * M.rarity);
-					addSmallCircle(RDM.Next(10, 90),RDM.Next(10, 90), M);
-					while (N > 0)
-					{
-						N--;
+						System.Random RDM = new System.Random();
+						int N = (int)(200f * M.rarity);
 						addSmallCircle(RDM.Next(10, 90),RDM.Next(10, 90), M);
-					}
-					for (int i = 0; i < 100; i++)
-					{
-						for (int j = 0; j < 100; j++)
+						while (N > 0)
 						{
-							moleculePack mp = new moleculePack(0, M);
-							_moleculeRepartition[i,j].Add(mp);
+							N--;
+							addSmallCircle(RDM.Next(10, 90),RDM.Next(10, 90), M);
 						}
-					}
+						for (int i = 0; i < 100; i++)
+						{
+							for (int j = 0; j < 100; j++)
+							{
+								moleculePack mp = new moleculePack(0, M);
+								_moleculeRepartition[i,j].Add(mp);
+							}
+						}
 				}
 			}
 			else

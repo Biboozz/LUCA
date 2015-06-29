@@ -95,6 +95,10 @@ public class displayPerkTree : MonoBehaviour {
 			}
 			S.hex.SetActive(false);
 			S.hex.transform.FindChild("skillDescriptionWindow").gameObject.GetComponent<displaySkillDescription>().USW = USW;
+			foreach (int n in S.requiredID)
+			{
+				S.required.Add(skillList.Find(p => p.ID == n));
+			}
 		}
 		place (skillList.Find(b => b.ID == 0));
 		perkTree = skillList;
@@ -164,10 +168,13 @@ public class displayPerkTree : MonoBehaviour {
 		bool d = true;
 		foreach (skill ski in S.required) 
 		{
-			d = species.unlockedPerks.Find(p => p.ID == ski.ID) != null;
-			if (!d)
+			if(ski != null)
 			{
-				break;
+				d = species.unlockedPerks.Find(p => p.ID == ski.ID) != null;
+				if (!d)
+				{
+					break;
+				}
 			}
 		}
 		if (d) 
