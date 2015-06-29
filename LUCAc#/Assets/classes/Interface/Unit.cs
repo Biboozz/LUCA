@@ -78,16 +78,17 @@ public class Unit : MonoBehaviour {
 					I.target = newPosition;
 					I.gotDest = true;		//Objet possède une destination
 
-					transform.LookAt(new Vector3(I.target.x, I.target.y, I.target.z));
-
-					Vector3 D = I.target - transform.position;  
-					Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(D), 360f * Time.deltaTime);
-					//Apply the rotation 
-					transform.rotation = rot; 
-					// put 0 on the axys you do not want for the rotation object to rotate
-					transform.eulerAngles = new Vector3(0, 0,transform.eulerAngles.z); 
-
-					//LookRotation
+					Vector3 p1 = I.transform.position; //rotation correcte
+					Vector3 p2 = I.target;
+					I.transform.rotation = Quaternion.identity;
+					if (p2.x > p1.x)
+					{
+						I.transform.Rotate(0, 0, 180 * (Mathf.Atan((p2.y - p1.y)/(p2.x - p1.x))) / Mathf.PI);
+					}
+					else
+					{
+						I.transform.Rotate(0, 0, 180 + 180 * (Mathf.Atan((p2.y - p1.y)/(p2.x - p1.x))) / Mathf.PI);
+					}
 				}
 			}
 
