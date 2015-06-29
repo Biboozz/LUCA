@@ -88,14 +88,14 @@ namespace AssemblyCSharp
 		{
 			bool result = true;
 
-//			int i = 0;
-//			do
-//			{
-//				i++;
-//				Debug.Log(i + "," + _env.livings.Count);
-//			} while (!_env.livings[i].isPlayed);
+			int i = -1;
+			do
+			{
+				i++;
+				Debug.Log(i + "," + _env.livings.Count);
+			} while (!_env.livings[i].isPlayed);
 
-			Species S = _env.livings [0];
+			Species S = _env.livings [i];
 
 			List<moleculePack> TotalSpecie = SpecieSum (S);
 

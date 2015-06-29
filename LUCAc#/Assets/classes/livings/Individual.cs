@@ -127,7 +127,6 @@ public class Individual : MonoBehaviour
 
 			if (ATP <= 0)
 			{
-				UnityEngine.Debug.Log("death");
 				alive = false;
 			}
 		}
@@ -313,7 +312,14 @@ public class Individual : MonoBehaviour
 		_isPlayed = isPlayed;
 		_cellMolecules = molecules;
 		_ATP = ATP;
-		_splitDelay = UnityEngine.Random.Range(1800, 3600 + 32400 / species.divisionRate);
+		if (species.divisionRate == 0) 
+		{
+			_splitDelay = UnityEngine.Random.Range (1800, 16000);
+		} 
+		else 
+		{
+			_splitDelay = UnityEngine.Random.Range (1800, 3600 + 32400 / species.divisionRate);
+		}
 	}
 
 	public void toCorrectPosition(float angle) //correct the cell position, rotate it of the angle value
@@ -362,6 +368,7 @@ public class Individual : MonoBehaviour
 		son.GetComponent<Individual>().descriptionBox = descriptionBox;
 		son.transform.FindChild ("cytoplasm").gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
 		son.GetComponent<Individual> ().speed = speed;
+		son.GetComponent<Individual> ().duration = duration;
 		ATP = ATP / 2;
 		son.GetComponent<Individual>().Initialize(transform.position, 0, this._species, this.place, this.isPlayed, new List<moleculePack>(), ATP);
 		splitGive (son.GetComponent<Individual> ());

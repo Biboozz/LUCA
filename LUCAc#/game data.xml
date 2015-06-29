@@ -1198,7 +1198,7 @@
     <addFlagel>true</addFlagel>
     <removeFlagel>false</removeFlagel>
     <addLashes>false</addLashes>
-    <removeLashes>false</removeLashes>
+    <removeLashes>true</removeLashes>
     <addMacro>false</addMacro>
     <addOoze>false</addOoze>
     <sizeXModifier>1</sizeXModifier>

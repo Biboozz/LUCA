@@ -73,10 +73,12 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 
 //			GetComponent<Quaternion> ().x = transform.localScale + Vector3(0.5f, 0, 0);
 //			GetComponent<Quaternion> ().y = transform.localScale + Vector3(0, 0.5f, 0);
-
+			state.CellVector = transform.localScale;
 			transform.localScale += new Vector3(0.5f, 0.5f, 0);	//Grossis la sphère
-//			state.CellVector += new Vector3(0.5f, 0.5f, 0); //Grossir la sphère
-//			state.AddCallback("CellVector", VectorChanged);
+			state.CellVector += new Vector3(0.5f, 0.5f, 0); //Grossir la sphère
+
+
+			state.AddCallback("CellVector", VectorChanged);
 
 
 			moveSpeed = ((1 / transform.localScale.x) * moveSpeed * (/*Changer ce coeff*/0.995f * transform.localScale.x));	//Vitesse réduite //Formule Excel : =(1/A3)*B2*(0,995*A3) // A3 : transform.localScale.x & B2 : moveSpeed
@@ -91,12 +93,12 @@ public class CellBehaviour : Bolt.EntityBehaviour<ICellState>
 //		}
 	}
 
-//	void VectorChanged()
-//	{
-//		GetComponent<Renderer> ().transform.localScale = state.CellVector;
-//		GetComponent<Quaternion> ().x = transform.localScale + 0.5f;
-//		GetComponent<Quaternion> ().y = transform.localScale + 0.5f;
-//	}
+	void VectorChanged()
+	{
+		transform.localScale = state.CellVector;
+		//GetComponent<Quaternion> ().x = transform.localScale + 0.5f;
+		//GetComponent<Quaternion> ().y = transform.localScale + 0.5f;
+	}
 	
 	void OnGUI() 
 	{

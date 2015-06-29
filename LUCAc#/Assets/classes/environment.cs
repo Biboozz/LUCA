@@ -516,7 +516,7 @@ public class environment : MonoBehaviour {
 
 			GenerateBM ();
 
-			GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM[0, 0].seen);
+			transform.FindChild ("layer 7").gameObject.GetComponent<Renderer> ().material.SetColor ("_Color",BM[0, 0].seen);
 			WorldPannel.SetActive(false);
 		}
 	}
@@ -783,11 +783,15 @@ public class environment : MonoBehaviour {
 		GenerateRM ();
 		EqualitySkill ();
 
+		WorldPannel.SetActive(true);
+
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "";
 		Playercursor.x = x;
 		Playercursor.y = y;
 		GameObject.Find ("Button" + Playercursor.x + Playercursor.y).GetComponentInChildren<Text> ().text = "Vous";
 		GameObject.Find ("layer 7").GetComponent<Renderer> ().material.SetColor ("_Color",BM [Playercursor.x, Playercursor.y].seen);
+
+		WorldPannel.SetActive(false);
 	}
 
 	public void WonCondition()
