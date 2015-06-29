@@ -801,6 +801,8 @@ public class environment : MonoBehaviour {
 	public void DeleteAllSpeciesUnplayed(bool substract,int x, int y)	//Supprime toutes les cellules des espèces non jouées
 	{
 		Species played = livings[0];
+		int i= 0;
+
 		foreach (Species especes in livings)
 		{
 			if (!especes.isPlayed)
@@ -814,7 +816,7 @@ public class environment : MonoBehaviour {
 			else
 			{
 				played = especes;
-				foreach(Individual I in especes.Individuals)
+				foreach(Individual I in played.Individuals)
 				{
 					foreach (moleculePack Mb in BM[x,y].Pass)
 					{
@@ -825,12 +827,17 @@ public class environment : MonoBehaviour {
 								if (Mb.count < Mc.count)
 									Mc.count = Mc.count - Mb.count;
 								else
-									Mc.count = 0;
+								{
+									Destroy(especes.Individuals[i].gameObject);
+									especes.Individuals.Remove(especes.Individuals[i]);
+								}
 								break;
 
 							}
 						}
 					}
+
+					i ++;
 				}
 			}
 		}

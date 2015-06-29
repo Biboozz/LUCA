@@ -88,20 +88,26 @@ namespace AssemblyCSharp
 		{
 			bool result = true;
 
-			int i = 0;
-			do
-			{
-				i++;
-			} while (!_env.livings[i].isPlayed);
+//			int i = 0;
+//			do
+//			{
+//				i++;
+//				Debug.Log(i + "," + _env.livings.Count);
+//			} while (!_env.livings[i].isPlayed);
 
-			Species S = _env.livings [i];
+			Species S = _env.livings [0];
 
 			List<moleculePack> TotalSpecie = SpecieSum (S);
 
 			foreach (moleculePack Mp in pass) 
 			{
 				int index = Exist (Mp.moleculeType, TotalSpecie);
-				result = result & (index >= 0) & (TotalSpecie[index].count >= Mp.count);
+//				Debug.Log(index);
+				if (index >= 0)
+					result = result & (TotalSpecie[index].count >= Mp.count);
+				else {
+					result = false;
+				}
 //				Debug.Log (TotalSpecie[index].count + "," + Mp.count + ',' + result);
 			}
 			return result;
