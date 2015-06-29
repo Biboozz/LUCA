@@ -80,6 +80,10 @@ public class unlockSkillWindow : MonoBehaviour {
 					{
 						_requirements.AddItem(MPreq.moleculeType.name, MPreq.count);
 					}
+					foreach (skill S in _skill.required)
+					{
+						_requirements.AddItem(S.name);
+					}
 				}
 			}
 		}

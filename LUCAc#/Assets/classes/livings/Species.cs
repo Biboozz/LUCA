@@ -26,6 +26,7 @@ public class Species
 
 	public bool canPhagocyt = false;
 	public List<string> immunities = new List<string> ();
+	public int divisionRate = 1;
 
 	#region accessors
 	public int toxic_absorb
@@ -244,6 +245,10 @@ public class Species
 		I.transform.localScale = mult (I.transform.localScale, new Vector3 (S.sizeXModifier, S.sizeYModifier, 1f));
 		I.transform.FindChild ("core").localScale *= S.coreSizeModifier;
 		I.transform.FindChild ("membrane").localScale *= S.membraneSizeModifier;
+		if(S.name.Contains("ivision "))
+		{
+			divisionRate *= 2;
+		}
 	}
 
 	private Vector3 mult( Vector3 v1, Vector3 v2)

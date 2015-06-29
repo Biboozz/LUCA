@@ -29,7 +29,8 @@ public class Individual : MonoBehaviour
 	private float _speed = 0.05f;	//Quand on augmente va plus vite
 	private int _delay = 0;
 
-	private int _splitDelay = UnityEngine.Random.Range(1800, 36000);
+
+	private int _splitDelay = 400000;
 	private int _splitIncrement;
 
 	private int vieilDelta = 0;
@@ -121,6 +122,11 @@ public class Individual : MonoBehaviour
 				actionDelay = 10; //6 ajouts d'actions par seconde par seconde
 				GetComponent<actionManager> ().addAction (interract, 0, 4); //action d'interraction avec l'environement, priorité nule, 4 secondes de délai avant expiration
 				GetComponent<actionManager> ().addAction (eatToxic); 		//action d'interraction avec l'environement pour les molécules toxiques, priorité nule
+			}
+
+			if (ATP <= 0)
+			{
+				alive = false;
 			}
 		}
 
@@ -305,6 +311,7 @@ public class Individual : MonoBehaviour
 		_isPlayed = isPlayed;
 		_cellMolecules = molecules;
 		_ATP = ATP;
+		_splitDelay = UnityEngine.Random.Range(1800, 3600 + 32400 / species.divisionRate);
 	}
 
 	public void toCorrectPosition(float angle) //correct the cell position, rotate it of the angle value
@@ -446,6 +453,8 @@ public class Individual : MonoBehaviour
 					MP.count += mp.count;
 				}
 			}
+
+			ATP += S.workProducts.ATP * 20 - S.workCosts.ATP / 20;
 			return !b;
 		} 
 		else 
@@ -577,6 +586,6 @@ public class Individual : MonoBehaviour
 
 	public bool canBeEaten(Individual I)
 	{
-		return I.species.name != _species.name && (_species.unlockedPerks.Find(S => S.name == "Capsule") == null) && (I.species.unlockedPerks.Find(S => S.name == "Phagocytose") != null);
+		return I.species.name != _species.name && (_species.unlockedPerks.Find (S => S.name == "Capsule") == null) && (I.species.canPhagocyt);
 	}
 }

@@ -84,6 +84,14 @@ public class ListBox {
 		listItems.Add(new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width - 60, 17), c_ItemLabel, count));
 		return itemIndex;
 	}
+
+	public int AddItem(System.String c_ItemLabel)
+	{
+		int itemIndex = listItems.Count+1;
+		listItems.Add(new ListItem(itemIndex, new Rect(0, 0,(int)visibleRect.width, 17), c_ItemLabel));
+		return itemIndex;
+	}
+
 	public int AddItemH(System.String c_ItemLabel, int c_ItemH, int count)
 	{
 		int itemIndex = listItems.Count+1;
@@ -230,6 +238,16 @@ public class ListItem {
 		
 		is_iconButton = true;
 	}
+
+	public ListItem(int c_id, Rect c_drawRect, System.String c_ItemLabel)
+	{
+		id = c_id;
+		drawRect = c_drawRect;
+		ItemLabel = c_ItemLabel;
+		
+		is_iconButton = false;
+	}
+
 	//--------------
 	
 	public bool DrawItem()
