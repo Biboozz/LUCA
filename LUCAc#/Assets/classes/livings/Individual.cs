@@ -547,25 +547,36 @@ public class Individual : MonoBehaviour
 		return false;
 	}
 
+	private Individual phagocytTarget;
+
 	private bool phagocyt()
 	{
-		return true;
+		if (phagocytTarget.alive) 
+		{
+			foreach (moleculePack mpE in phagocytTarget.cellMolecules) 
+			{
+				cellMolecules.Find(mpC => mpC.moleculeType.ID == mpE.moleculeType.ID).count += 3 * mpE.count / 4;
+			}
+			ATP += phagocytTarget.ATP / 2;
+			phagocytTarget.alive = false;
+		}
+		return false;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
 		if (coll.gameObject.GetComponent<Individual> ().canBeEaten (this)) 
 		{
-			UnityEngine.Debug.Log ("je te bouffe");
-		}
-		else 
-		{
-			UnityEngine.Debug.Log ("pas touche");
+			if (UnityEngine.Random.Range(0,2) == 0)
+			{
+				phagocytTarget = coll.gameObject.GetComponent<Individual> ();
+				GetComponent<actionManager> ().addAction (phagocyt, 100); //forte priorité
+			}
 		}
 	}
 
 	public bool canBeEaten(Individual I)
 	{
-		return I.species.name != _species.name;
+		return I.species.name != _species.name && (_species.unlockedPerks.Find(S => S.name == "Capsule") == null) && (I.species.unlockedPerks.Find(S => S.name == "Phagocytose") != null);
 	}
 }
