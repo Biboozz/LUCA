@@ -546,4 +546,26 @@ public class Individual : MonoBehaviour
 		}
 		return false;
 	}
+
+	private bool phagocyt()
+	{
+		return true;
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
+		if (coll.gameObject.GetComponent<Individual> ().canBeEaten (this)) 
+		{
+			UnityEngine.Debug.Log ("je te bouffe");
+		}
+		else 
+		{
+			UnityEngine.Debug.Log ("pas touche");
+		}
+	}
+
+	public bool canBeEaten(Individual I)
+	{
+		return I.species.name != _species.name;
+	}
 }
