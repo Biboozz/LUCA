@@ -2,7 +2,7 @@
 
 ## Contexte
 LUCA est un projet réalisé dans le cadre du projet de première année d'EPITA. Ce projet est plutot basic mais nous a permis d'apprendre les bases de la programmation apliquée à un projet.
-Ce projet a été realisé avec l'aide d'éleves de l'ecole [Sup'Biotech](www.supbiotech.fr/) appartennant également au groupe IONIS.
+Ce projet a été realisé avec l'aide d'éleves de l'ecole [Sup'Biotech](http://www.supbiotech.fr/) appartennant également au groupe IONIS.
 
 ## Description
 LUCA est un jeu mettant en scène un organisme unicellulaire à l'aube de la vie. Vous controllez une population de cet organisme au cours de son evolution jusqu'a arriver à un organisme pluricellulaire.
