@@ -1,4 +1,4 @@
-# LUCA
+# LUCA (Last Universal Common Ancestor)
 
 ## Contexte
 LUCA est un projet réalisé dans le cadre du projet de première année d'EPITA. Ce projet est plutot basic mais nous a permis d'apprendre les bases de la programmation apliquée à un projet.
